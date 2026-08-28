@@ -1,0 +1,24 @@
+name: custom_cnn
+architecture: CustomCNN
+pretrained: false
+num_classes: 7
+input_size: 224
+seed: 42
+optimizer:
+  name: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  label_smoothing: 0.1
+scheduler:
+  name: cosine
+  warmup_epochs: 3
+training:
+  max_epochs: 40
+  early_stopping_patience: 8
+  gradient_clip_norm: 1.0
+  amp: true
+  batch_size: 64
+checkpoint:
+  monitor: val_macro_f1
+  mode: max
+  directory: artifacts/checkpoints/custom_cnn

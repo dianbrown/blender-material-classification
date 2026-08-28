@@ -1,0 +1,58 @@
+# Canonical data contract for all headline and grouped-CV experiments.
+seed: 42
+dataset_root: dataset
+metadata_root: metadata
+artifacts_root: artifacts
+reports_root: reports
+
+classes:
+  - wood
+  - metal
+  - stone
+  - concrete
+  - ceramic
+  - fabric
+  - leather
+num_classes: 7
+group_key: material_id
+split_key: split
+splits: [train, val, test]
+
+image:
+  width: 512
+  height: 512
+  channels: 3
+  input_size: 224
+  interpolation: bilinear
+  normalization:
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+
+expected:
+  total_images: 3150
+  images_per_class: 450
+  images_per_material: 30
+  materials_total: 105
+  materials_per_class: 15
+  images:
+    train: 2310
+    val: 420
+    test: 420
+  images_per_class_by_split:
+    train: 330
+    val: 60
+    test: 60
+  materials_by_split: { train: 77, val: 14, test: 14 }
+
+manifests:
+  material: metadata/material_manifest.csv
+  material_split: metadata/material_manifest_split.csv
+  render: metadata/render_manifest.csv
+  render_json: metadata/render_manifest.json
+
+augmentation:
+  train:
+    random_resized_crop: { size: 224, scale: [0.88, 1.0], ratio: [0.95, 1.05] }
+    horizontal_flip: 0.5
+    color_jitter: { brightness: 0.10, contrast: 0.10, saturation: 0.05, hue: 0.02 }
+  evaluation: [resize_256, center_crop_224, to_tensor, imagenet_normalize]

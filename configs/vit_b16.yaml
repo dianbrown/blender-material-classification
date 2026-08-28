@@ -1,0 +1,29 @@
+name: vit_b16
+architecture: torchvision.models.vit_b_16
+pretrained: true
+weights: IMAGENET1K_V1
+num_classes: 7
+input_size: 224
+seed: 42
+optimizer:
+  name: AdamW
+  head_learning_rate: 0.0003
+  backbone_learning_rate: 0.00001
+  weight_decay: 0.0001
+  label_smoothing: 0.1
+fine_tuning:
+  freeze_head_epochs: 3
+  unfreeze_backbone: true
+scheduler:
+  name: cosine
+  warmup_epochs: 3
+training:
+  max_epochs: 40
+  early_stopping_patience: 8
+  gradient_clip_norm: 1.0
+  amp: true
+  batch_size: 8
+checkpoint:
+  monitor: val_macro_f1
+  mode: max
+  directory: artifacts/checkpoints/vit_b16

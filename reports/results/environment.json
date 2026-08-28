@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-08-27T23:53:52.328838+00:00",
+  "python_version": "3.13.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "pytorch_version": "2.11.0+cu128",
+  "torchvision_version": "0.26.0+cu128",
+  "cuda_version": "12.8",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 4060",
+  "gpu_vram_bytes": 8585216000,
+  "seed": 42,
+  "git_commit": "597bbea0783d1121d6e2488e387b7adf29fe6f15",
+  "configs": [
+    "configs/data.yaml",
+    "configs/custom_cnn.yaml",
+    "configs/resnet50.yaml",
+    "configs/convnext_tiny.yaml",
+    "configs/vit_b16.yaml"
+  ]
+}

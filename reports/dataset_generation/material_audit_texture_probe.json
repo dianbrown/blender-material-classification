@@ -1,0 +1,3992 @@
+{
+ "wood_01": [
+  {
+   "slot": "base_color",
+   "image": "oak_veneer_01_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_01\\oak_veneer_01_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "oak_veneer_01_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_01\\oak_veneer_01_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "oak_veneer_01_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_01\\oak_veneer_01_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_02": [
+  {
+   "slot": "base_color",
+   "image": "wood_table_worn_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_02\\wood_table_worn_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "wood_table_worn_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_02\\wood_table_worn_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "wood_table_worn_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_02\\wood_table_worn_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_03": [
+  {
+   "slot": "base_color",
+   "image": "wood_table_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_03\\wood_table_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "wood_table_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_03\\wood_table_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "wood_table_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_03\\wood_table_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_04": [
+  {
+   "slot": "base_color",
+   "image": "white_planks_clean_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_04\\white_planks_clean_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "white_planks_clean_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_04\\white_planks_clean_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "white_planks_clean_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_04\\white_planks_clean_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_05": [
+  {
+   "slot": "base_color",
+   "image": "natural_walnut_veneer_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_05\\natural_walnut_veneer_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "natural_walnut_veneer_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_05\\natural_walnut_veneer_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "natural_walnut_veneer_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_05\\natural_walnut_veneer_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_06": [
+  {
+   "slot": "base_color",
+   "image": "old_wood_floor_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_06\\old_wood_floor_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "old_wood_floor_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_06\\old_wood_floor_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "old_wood_floor_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_06\\old_wood_floor_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_07": [
+  {
+   "slot": "base_color",
+   "image": "oriented_strand_board_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_07\\oriented_strand_board_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "oriented_strand_board_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_07\\oriented_strand_board_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "oriented_strand_board_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_07\\oriented_strand_board_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_08": [
+  {
+   "slot": "base_color",
+   "image": "wooden_planks_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_08\\wooden_planks_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "wooden_planks_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_08\\wooden_planks_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "wooden_planks_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_08\\wooden_planks_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_09": [
+  {
+   "slot": "base_color",
+   "image": "rosewood_veneer_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_09\\rosewood_veneer_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rosewood_veneer_02_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_09\\rosewood_veneer_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rosewood_veneer_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_09\\rosewood_veneer_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_10": [
+  {
+   "slot": "base_color",
+   "image": "smoke_speckled_veneer_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_10\\smoke_speckled_veneer_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "smoke_speckled_veneer_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_10\\smoke_speckled_veneer_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "smoke_speckled_veneer_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_10\\smoke_speckled_veneer_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_11": [
+  {
+   "slot": "base_color",
+   "image": "weathered_planks_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_11\\weathered_planks_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "weathered_planks_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_11\\weathered_planks_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "weathered_planks_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_11\\weathered_planks_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_12": [
+  {
+   "slot": "base_color",
+   "image": "worn_planks_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_12\\worn_planks_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "worn_planks_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_12\\worn_planks_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "worn_planks_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_12\\worn_planks_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_13": [
+  {
+   "slot": "base_color",
+   "image": "lacquered_cherry_wood_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_13\\lacquered_cherry_wood_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "lacquered_cherry_wood_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_13\\lacquered_cherry_wood_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "lacquered_cherry_wood_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_13\\lacquered_cherry_wood_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_14": [
+  {
+   "slot": "base_color",
+   "image": "herringbone_parquet_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_14\\herringbone_parquet_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "herringbone_parquet_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_14\\herringbone_parquet_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "herringbone_parquet_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_14\\herringbone_parquet_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "wood_15": [
+  {
+   "slot": "base_color",
+   "image": "plywood_diff_2k.jpg",
+   "filepath": "//..\\materials\\wood\\wood_15\\plywood_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "plywood_rough_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_15\\plywood_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "plywood_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\wood\\wood_15\\plywood_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_01": [
+  {
+   "slot": "base_color",
+   "image": "metal_plate_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_01\\metal_plate_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "metal_plate_02_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_01\\metal_plate_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "metal_plate_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_01\\metal_plate_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_02": [
+  {
+   "slot": "base_color",
+   "image": "rusty_metal_04_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_02\\rusty_metal_04_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rusty_metal_04_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_02\\rusty_metal_04_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rusty_metal_04_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_02\\rusty_metal_04_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_03": [
+  {
+   "slot": "base_color",
+   "image": "blue_metal_plate_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_03\\blue_metal_plate_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "blue_metal_plate_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_03\\blue_metal_plate_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "blue_metal_plate_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_03\\blue_metal_plate_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_04": [
+  {
+   "slot": "base_color",
+   "image": "box_profile_metal_sheet_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_04\\box_profile_metal_sheet_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "box_profile_metal_sheet_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_04\\box_profile_metal_sheet_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "box_profile_metal_sheet_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_04\\box_profile_metal_sheet_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_05": [
+  {
+   "slot": "base_color",
+   "image": "rusted_shutter_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_05\\rusted_shutter_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rusted_shutter_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_05\\rusted_shutter_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rusted_shutter_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_05\\rusted_shutter_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_06": [
+  {
+   "slot": "base_color",
+   "image": "worn_shutter_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_06\\worn_shutter_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "worn_shutter_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_06\\worn_shutter_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "worn_shutter_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_06\\worn_shutter_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_07": [
+  {
+   "slot": "base_color",
+   "image": "metal_grate_rusty_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_07\\metal_grate_rusty_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "metal_grate_rusty_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_07\\metal_grate_rusty_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "metal_grate_rusty_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_07\\metal_grate_rusty_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_08": [
+  {
+   "slot": "base_color",
+   "image": "factory_wall_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_08\\factory_wall_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "factory_wall_rough_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_08\\factory_wall_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "factory_wall_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_08\\factory_wall_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_09": [
+  {
+   "slot": "base_color",
+   "image": "corrugated_iron_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_09\\corrugated_iron_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "corrugated_iron_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_09\\corrugated_iron_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "corrugated_iron_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_09\\corrugated_iron_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_10": [
+  {
+   "slot": "base_color",
+   "image": "rusty_metal_grid_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_10\\rusty_metal_grid_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rusty_metal_grid_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_10\\rusty_metal_grid_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rusty_metal_grid_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_10\\rusty_metal_grid_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_11": [
+  {
+   "slot": "base_color",
+   "image": "rusty_metal_sheet_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_11\\rusty_metal_sheet_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rusty_metal_sheet_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_11\\rusty_metal_sheet_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rusty_metal_sheet_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_11\\rusty_metal_sheet_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_12": [
+  {
+   "slot": "base_color",
+   "image": "rusty_metal_03_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_12\\rusty_metal_03_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rusty_metal_03_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_12\\rusty_metal_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rusty_metal_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_12\\rusty_metal_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_13": [
+  {
+   "slot": "base_color",
+   "image": "worn_corrugated_iron_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_13\\worn_corrugated_iron_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "worn_corrugated_iron_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_13\\worn_corrugated_iron_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "worn_corrugated_iron_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_13\\worn_corrugated_iron_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_14": [
+  {
+   "slot": "base_color",
+   "image": "metal_plate_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_14\\metal_plate_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "metal_plate_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_14\\metal_plate_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "metal_plate_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_14\\metal_plate_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "metal_15": [
+  {
+   "slot": "base_color",
+   "image": "rust_coarse_01_diff_2k.jpg",
+   "filepath": "//..\\materials\\metal\\metal_15\\rust_coarse_01_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rust_coarse_01_rough_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_15\\rust_coarse_01_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rust_coarse_01_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\metal\\metal_15\\rust_coarse_01_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_01": [
+  {
+   "slot": "base_color",
+   "image": "dark_rock_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_01\\dark_rock_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "dark_rock_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_01\\dark_rock_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "dark_rock_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_01\\dark_rock_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_02": [
+  {
+   "slot": "base_color",
+   "image": "tiger_rock_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_02\\tiger_rock_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "tiger_rock_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_02\\tiger_rock_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "tiger_rock_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_02\\tiger_rock_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_03": [
+  {
+   "slot": "base_color",
+   "image": "defense_wall_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_03\\defense_wall_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "defense_wall_02_rough_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_03\\defense_wall_02_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "defense_wall_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_03\\defense_wall_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_04": [
+  {
+   "slot": "base_color",
+   "image": "marble_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_04\\marble_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "marble_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_04\\marble_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "marble_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_04\\marble_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_05": [
+  {
+   "slot": "base_color",
+   "image": "square_tiles_03_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_05\\square_tiles_03_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "square_tiles_03_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_05\\square_tiles_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "square_tiles_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_05\\square_tiles_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_06": [
+  {
+   "slot": "base_color",
+   "image": "rock_06_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_06\\rock_06_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rock_06_rough_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_06\\rock_06_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rock_06_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_06\\rock_06_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_07": [
+  {
+   "slot": "base_color",
+   "image": "stone_embedded_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_07\\stone_embedded_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "stone_embedded_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_07\\stone_embedded_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "stone_embedded_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_07\\stone_embedded_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_08": [
+  {
+   "slot": "base_color",
+   "image": "lichen_rock_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_08\\lichen_rock_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "lichen_rock_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_08\\lichen_rock_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "lichen_rock_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_08\\lichen_rock_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_09": [
+  {
+   "slot": "base_color",
+   "image": "rock_boulder_dry_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_09\\rock_boulder_dry_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rock_boulder_dry_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_09\\rock_boulder_dry_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rock_boulder_dry_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_09\\rock_boulder_dry_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_10": [
+  {
+   "slot": "base_color",
+   "image": "rock_wall_17_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_10\\rock_wall_17_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rock_wall_17_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_10\\rock_wall_17_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rock_wall_17_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_10\\rock_wall_17_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_11": [
+  {
+   "slot": "base_color",
+   "image": "cobblestone_pavement_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_11\\cobblestone_pavement_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "cobblestone_pavement_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_11\\cobblestone_pavement_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "cobblestone_pavement_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_11\\cobblestone_pavement_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_12": [
+  {
+   "slot": "base_color",
+   "image": "stone_tiles_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_12\\stone_tiles_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "stone_tiles_02_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_12\\stone_tiles_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "stone_tiles_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_12\\stone_tiles_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_13": [
+  {
+   "slot": "base_color",
+   "image": "rock_face_03_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_13\\rock_face_03_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rock_face_03_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_13\\rock_face_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rock_face_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_13\\rock_face_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_14": [
+  {
+   "slot": "base_color",
+   "image": "granite_tile_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_14\\granite_tile_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "granite_tile_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_14\\granite_tile_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "granite_tile_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_14\\granite_tile_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "stone_15": [
+  {
+   "slot": "base_color",
+   "image": "coast_sand_rocks_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\stone\\stone_15\\coast_sand_rocks_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "coast_sand_rocks_02_rough_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_15\\coast_sand_rocks_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "coast_sand_rocks_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\stone\\stone_15\\coast_sand_rocks_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_01": [
+  {
+   "slot": "base_color",
+   "image": "white_stucco_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_01\\white_stucco_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "white_stucco_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_01\\white_stucco_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "white_stucco_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_01\\white_stucco_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_02": [
+  {
+   "slot": "base_color",
+   "image": "hangar_concrete_floor_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_02\\hangar_concrete_floor_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "hangar_concrete_floor_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_02\\hangar_concrete_floor_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "hangar_concrete_floor_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_02\\hangar_concrete_floor_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_03": [
+  {
+   "slot": "base_color",
+   "image": "rough_concrete_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_03\\rough_concrete_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "rough_concrete_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_03\\rough_concrete_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "rough_concrete_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_03\\rough_concrete_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_04": [
+  {
+   "slot": "base_color",
+   "image": "grey_plaster_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_04\\grey_plaster_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "grey_plaster_rough_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_04\\grey_plaster_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "grey_plaster_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_04\\grey_plaster_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_05": [
+  {
+   "slot": "base_color",
+   "image": "granular_concrete_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_05\\granular_concrete_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "granular_concrete_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_05\\granular_concrete_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "granular_concrete_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_05\\granular_concrete_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_06": [
+  {
+   "slot": "base_color",
+   "image": "concrete_wall_008_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_06\\concrete_wall_008_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "concrete_wall_008_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_06\\concrete_wall_008_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "concrete_wall_008_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_06\\concrete_wall_008_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_07": [
+  {
+   "slot": "base_color",
+   "image": "blue_plaster_wall_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_07\\blue_plaster_wall_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "blue_plaster_wall_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_07\\blue_plaster_wall_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "blue_plaster_wall_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_07\\blue_plaster_wall_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_08": [
+  {
+   "slot": "base_color",
+   "image": "worn_mossy_plasterwall_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_08\\worn_mossy_plasterwall_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "worn_mossy_plasterwall_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_08\\worn_mossy_plasterwall_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "worn_mossy_plasterwall_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_08\\worn_mossy_plasterwall_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_09": [
+  {
+   "slot": "base_color",
+   "image": "gravel_embedded_concrete_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_09\\gravel_embedded_concrete_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "gravel_embedded_concrete_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_09\\gravel_embedded_concrete_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "gravel_embedded_concrete_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_09\\gravel_embedded_concrete_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_10": [
+  {
+   "slot": "base_color",
+   "image": "gravel_concrete_03_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_10\\gravel_concrete_03_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "gravel_concrete_03_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_10\\gravel_concrete_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "gravel_concrete_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_10\\gravel_concrete_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_11": [
+  {
+   "slot": "base_color",
+   "image": "concrete_wall_009_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_11\\concrete_wall_009_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "concrete_wall_009_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_11\\concrete_wall_009_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "concrete_wall_009_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_11\\concrete_wall_009_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_12": [
+  {
+   "slot": "base_color",
+   "image": "plastered_wall_05_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_12\\plastered_wall_05_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "plastered_wall_05_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_12\\plastered_wall_05_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "plastered_wall_05_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_12\\plastered_wall_05_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_13": [
+  {
+   "slot": "base_color",
+   "image": "beige_wall_001_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_13\\beige_wall_001_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "beige_wall_001_rough_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_13\\beige_wall_001_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "beige_wall_001_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_13\\beige_wall_001_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_14": [
+  {
+   "slot": "base_color",
+   "image": "concrete_floor_worn_001_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_14\\concrete_floor_worn_001_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "concrete_floor_worn_001_rough_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_14\\concrete_floor_worn_001_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "concrete_floor_worn_001_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_14\\concrete_floor_worn_001_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "concrete_15": [
+  {
+   "slot": "base_color",
+   "image": "painted_plaster_wall_diff_2k.jpg",
+   "filepath": "//..\\materials\\concrete\\concrete_15\\painted_plaster_wall_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "painted_plaster_wall_rough_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_15\\painted_plaster_wall_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "painted_plaster_wall_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\concrete\\concrete_15\\painted_plaster_wall_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_01": [
+  {
+   "slot": "base_color",
+   "image": "interior_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_01\\interior_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "interior_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_01\\interior_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "interior_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_01\\interior_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_02": [
+  {
+   "slot": "base_color",
+   "image": "clay_roof_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_02\\clay_roof_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "clay_roof_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_02\\clay_roof_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "clay_roof_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_02\\clay_roof_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_03": [
+  {
+   "slot": "base_color",
+   "image": "marble_mosaic_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_03\\marble_mosaic_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "marble_mosaic_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_03\\marble_mosaic_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "marble_mosaic_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_03\\marble_mosaic_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_04": [
+  {
+   "slot": "base_color",
+   "image": "anti_skid_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_04\\anti_skid_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "anti_skid_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_04\\anti_skid_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "anti_skid_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_04\\anti_skid_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_05": [
+  {
+   "slot": "base_color",
+   "image": "patterned_terracotta_tiling_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_05\\patterned_terracotta_tiling_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "patterned_terracotta_tiling_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_05\\patterned_terracotta_tiling_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "patterned_terracotta_tiling_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_05\\patterned_terracotta_tiling_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_06": [
+  {
+   "slot": "base_color",
+   "image": "grey_roof_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_06\\grey_roof_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "grey_roof_tiles_rough_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_06\\grey_roof_tiles_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "grey_roof_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_06\\grey_roof_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_07": [
+  {
+   "slot": "base_color",
+   "image": "roof_07_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_07\\roof_07_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "roof_07_rough_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_07\\roof_07_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "roof_07_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_07\\roof_07_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_08": [
+  {
+   "slot": "base_color",
+   "image": "terrazzo_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_08\\terrazzo_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "terrazzo_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_08\\terrazzo_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "terrazzo_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_08\\terrazzo_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_09": [
+  {
+   "slot": "base_color",
+   "image": "clay_roof_tiles_03_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_09\\clay_roof_tiles_03_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "clay_roof_tiles_03_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_09\\clay_roof_tiles_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "clay_roof_tiles_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_09\\clay_roof_tiles_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_10": [
+  {
+   "slot": "base_color",
+   "image": "roof_09_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_10\\roof_09_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "roof_09_rough_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_10\\roof_09_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "roof_09_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_10\\roof_09_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_11": [
+  {
+   "slot": "base_color",
+   "image": "ceramic_roof_01_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_11\\ceramic_roof_01_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "ceramic_roof_01_rough_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_11\\ceramic_roof_01_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "ceramic_roof_01_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_11\\ceramic_roof_01_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_12": [
+  {
+   "slot": "base_color",
+   "image": "terracotta_floor_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_12\\terracotta_floor_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "terracotta_floor_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_12\\terracotta_floor_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "terracotta_floor_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_12\\terracotta_floor_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_13": [
+  {
+   "slot": "base_color",
+   "image": "long_white_tiles_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_13\\long_white_tiles_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "long_white_tiles_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_13\\long_white_tiles_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "long_white_tiles_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_13\\long_white_tiles_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_14": [
+  {
+   "slot": "base_color",
+   "image": "tiled_floor_001_diffuse_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_14\\tiled_floor_001_diffuse_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "tiled_floor_001_rough_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_14\\tiled_floor_001_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "tiled_floor_001_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_14\\tiled_floor_001_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "ceramic_15": [
+  {
+   "slot": "base_color",
+   "image": "clay_roof_tiles_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\ceramic\\ceramic_15\\clay_roof_tiles_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "clay_roof_tiles_02_rough_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_15\\clay_roof_tiles_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "clay_roof_tiles_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\ceramic\\ceramic_15\\clay_roof_tiles_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_01": [
+  {
+   "slot": "base_color",
+   "image": "cotton_jersey_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_01\\cotton_jersey_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2050
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "cotton_jersey_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_01\\cotton_jersey_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2050
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "cotton_jersey_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_01\\cotton_jersey_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2050
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_02": [
+  {
+   "slot": "base_color",
+   "image": "curly_teddy_checkered_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_02\\curly_teddy_checkered_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1728
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "curly_teddy_checkered_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_02\\curly_teddy_checkered_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1728
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "curly_teddy_checkered_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_02\\curly_teddy_checkered_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1728
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_03": [
+  {
+   "slot": "base_color",
+   "image": "hessian_380_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_03\\hessian_380_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "hessian_380_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_03\\hessian_380_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "hessian_380_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_03\\hessian_380_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_04": [
+  {
+   "slot": "base_color",
+   "image": "faux_fur_geometric_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_04\\faux_fur_geometric_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2020
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "faux_fur_geometric_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_04\\faux_fur_geometric_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2020
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "faux_fur_geometric_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_04\\faux_fur_geometric_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2020
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_05": [
+  {
+   "slot": "base_color",
+   "image": "hessian_230_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_05\\hessian_230_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2036
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "hessian_230_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_05\\hessian_230_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2036
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "hessian_230_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_05\\hessian_230_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2036
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_06": [
+  {
+   "slot": "base_color",
+   "image": "denim_fabric_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_06\\denim_fabric_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "denim_fabric_rough_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_06\\denim_fabric_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "denim_fabric_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_06\\denim_fabric_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_07": [
+  {
+   "slot": "base_color",
+   "image": "dirty_carpet_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_07\\dirty_carpet_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "dirty_carpet_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_07\\dirty_carpet_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "dirty_carpet_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_07\\dirty_carpet_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_08": [
+  {
+   "slot": "base_color",
+   "image": "caban_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_08\\caban_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2043
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "caban_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_08\\caban_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2043
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "caban_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_08\\caban_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2043
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_09": [
+  {
+   "slot": "base_color",
+   "image": "jersey_melange_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_09\\jersey_melange_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1946
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "jersey_melange_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_09\\jersey_melange_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1946
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "jersey_melange_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_09\\jersey_melange_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    1946
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_10": [
+  {
+   "slot": "base_color",
+   "image": "knitted_fleece_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_10\\knitted_fleece_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2079
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "knitted_fleece_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_10\\knitted_fleece_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2079
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "knitted_fleece_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_10\\knitted_fleece_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2079
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_11": [
+  {
+   "slot": "base_color",
+   "image": "wool_boucle_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_11\\wool_boucle_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2538
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "wool_boucle_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_11\\wool_boucle_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2538
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "wool_boucle_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_11\\wool_boucle_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2538
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_12": [
+  {
+   "slot": "base_color",
+   "image": "denim_fabric_06_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_12\\denim_fabric_06_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "denim_fabric_06_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_12\\denim_fabric_06_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "denim_fabric_06_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_12\\denim_fabric_06_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_13": [
+  {
+   "slot": "base_color",
+   "image": "polar_fleece_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_13\\polar_fleece_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2035
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "polar_fleece_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_13\\polar_fleece_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2036
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "polar_fleece_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_13\\polar_fleece_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2035
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_14": [
+  {
+   "slot": "base_color",
+   "image": "denmin_fabric_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_14\\denmin_fabric_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "denmin_fabric_02_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_14\\denmin_fabric_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "denmin_fabric_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_14\\denmin_fabric_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "fabric_15": [
+  {
+   "slot": "base_color",
+   "image": "jogging_melange_diff_2k.jpg",
+   "filepath": "//..\\materials\\fabric\\fabric_15\\jogging_melange_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2047
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "jogging_melange_rough_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_15\\jogging_melange_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "jogging_melange_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\fabric\\fabric_15\\jogging_melange_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2047
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_01": [
+  {
+   "slot": "base_color",
+   "image": "fabric_leather_01_diff_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_01\\fabric_leather_01_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "fabric_leather_01_rough_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_01\\fabric_leather_01_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "fabric_leather_01_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_01\\fabric_leather_01_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_02": [
+  {
+   "slot": "base_color",
+   "image": "fabric_leather_02_diff_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_02\\fabric_leather_02_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "fabric_leather_02_rough_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_02\\fabric_leather_02_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "fabric_leather_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_02\\fabric_leather_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_03": [
+  {
+   "slot": "base_color",
+   "image": "leather_red_03_coll1_2k.png",
+   "filepath": "//..\\materials\\leather\\leather_03\\leather_red_03_coll1_2k.png",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "leather_red_03_rough_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_03\\leather_red_03_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "leather_red_03_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_03\\leather_red_03_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_04": [
+  {
+   "slot": "base_color",
+   "image": "brown_leather_albedo_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_04\\brown_leather_albedo_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "brown_leather_rough_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_04\\brown_leather_rough_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "brown_leather_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_04\\brown_leather_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_05": [
+  {
+   "slot": "base_color",
+   "image": "leather_white_diff_2k.jpg",
+   "filepath": "//..\\materials\\leather\\leather_05\\leather_white_diff_2k.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "leather_white_rough_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_05\\leather_white_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "leather_white_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_05\\leather_white_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_06": [
+  {
+   "slot": "base_color",
+   "image": "leather_red_02_coll1_2k.png",
+   "filepath": "//..\\materials\\leather\\leather_06\\leather_red_02_coll1_2k.png",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "leather_red_02_rough_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_06\\leather_red_02_rough_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "leather_red_02_nor_gl_2k.exr",
+   "filepath": "//..\\materials\\leather\\leather_06\\leather_red_02_nor_gl_2k.exr",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_07": [
+  {
+   "slot": "base_color",
+   "image": "Leather011_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_07\\Leather011_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather011_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_07\\Leather011_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather011_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_07\\Leather011_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_08": [
+  {
+   "slot": "base_color",
+   "image": "Leather016_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_08\\Leather016_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather016_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_08\\Leather016_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather016_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_08\\Leather016_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_09": [
+  {
+   "slot": "base_color",
+   "image": "Leather034B_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_09\\Leather034B_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather034B_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_09\\Leather034B_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather034B_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_09\\Leather034B_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_10": [
+  {
+   "slot": "base_color",
+   "image": "Leather022_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_10\\Leather022_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather022_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_10\\Leather022_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather022_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_10\\Leather022_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_11": [
+  {
+   "slot": "base_color",
+   "image": "Leather008_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_11\\Leather008_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather008_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_11\\Leather008_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather008_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_11\\Leather008_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_12": [
+  {
+   "slot": "base_color",
+   "image": "Leather036B_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_12\\Leather036B_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather036B_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_12\\Leather036B_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather036B_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_12\\Leather036B_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_13": [
+  {
+   "slot": "base_color",
+   "image": "Leather009_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_13\\Leather009_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather009_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_13\\Leather009_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather009_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_13\\Leather009_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_14": [
+  {
+   "slot": "base_color",
+   "image": "Leather030_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_14\\Leather030_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather030_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_14\\Leather030_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather030_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_14\\Leather030_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ],
+ "leather_15": [
+  {
+   "slot": "base_color",
+   "image": "Leather032_2K-JPG_Color.jpg",
+   "filepath": "//..\\materials\\leather\\leather_15\\Leather032_2K-JPG_Color.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "sRGB"
+  },
+  {
+   "slot": "roughness",
+   "image": "Leather032_2K-JPG_Roughness.jpg",
+   "filepath": "//..\\materials\\leather\\leather_15\\Leather032_2K-JPG_Roughness.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  },
+  {
+   "slot": "normal",
+   "image": "Leather032_2K-JPG_NormalGL.jpg",
+   "filepath": "//..\\materials\\leather\\leather_15\\Leather032_2K-JPG_NormalGL.jpg",
+   "exists": true,
+   "loaded": true,
+   "size": [
+    2048,
+    2048
+   ],
+   "colorspace": "Non-Color"
+  }
+ ]
+}

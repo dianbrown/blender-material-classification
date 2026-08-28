@@ -1,0 +1,54 @@
+# Python caches and test/tool state
+__pycache__/
+*.egg-info/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments and secrets
+.venv/
+venv/
+env/
+.env
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter's transient state
+.ipynb_checkpoints/
+
+# Local raw/generated data (never commit the image or texture corpus)
+/dataset/
+/materials/
+/renders/
+/pilot_dataset/
+/validation_renders/
+/material_audit/
+/backups/
+
+# Training outputs and experiment trackers
+/artifacts/
+/runs/
+/checkpoints/
+/tensorboard/
+/wandb/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# Blender binary assets and autosaves
+*.blend*
+!blender/material_dataset_master.blend
+
+# Temporary files and logs
+*.tmp
+*.temp
+*.log

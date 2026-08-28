@@ -1,0 +1,343 @@
+{
+  "checks": {
+    "all_images_decode_as_rgb_png_512": {
+      "detail": {
+        "errors": [],
+        "properties": {
+          "('PNG', (512, 512), 'RGB')": 3150
+        }
+      },
+      "passed": true
+    },
+    "class_counts": {
+      "detail": {
+        "ceramic": 450,
+        "concrete": 450,
+        "fabric": 450,
+        "leather": 450,
+        "metal": 450,
+        "stone": 450,
+        "wood": 450
+      },
+      "passed": true
+    },
+    "class_split_counts": {
+      "detail": {
+        "ceramic/test": 60,
+        "ceramic/train": 330,
+        "ceramic/val": 60,
+        "concrete/test": 60,
+        "concrete/train": 330,
+        "concrete/val": 60,
+        "fabric/test": 60,
+        "fabric/train": 330,
+        "fabric/val": 60,
+        "leather/test": 60,
+        "leather/train": 330,
+        "leather/val": 60,
+        "metal/test": 60,
+        "metal/train": 330,
+        "metal/val": 60,
+        "stone/test": 60,
+        "stone/train": 330,
+        "stone/val": 60,
+        "wood/test": 60,
+        "wood/train": 330,
+        "wood/val": 60
+      },
+      "passed": true
+    },
+    "expected_total_rows": {
+      "detail": 3150,
+      "passed": true
+    },
+    "filename_and_render_indices": {
+      "detail": {
+        "filename_issues": [],
+        "index_issues": []
+      },
+      "passed": true
+    },
+    "manifest_disk_set_equality": {
+      "detail": {
+        "disk_png_count": 3150,
+        "manifest_count": 3150,
+        "missing": [],
+        "unmanifested": []
+      },
+      "passed": true
+    },
+    "manifest_path_format": {
+      "detail": [],
+      "passed": true
+    },
+    "manifest_schema": {
+      "detail": {
+        "render_columns": [
+          "area_light_location_x",
+          "area_light_location_y",
+          "area_light_location_z",
+          "area_light_power",
+          "blender_material_name",
+          "camera_azimuth_deg",
+          "camera_distance",
+          "camera_elevation_deg",
+          "camera_location_x",
+          "camera_location_y",
+          "camera_location_z",
+          "camera_rotation_x",
+          "camera_rotation_y",
+          "camera_rotation_z",
+          "camera_target_x",
+          "camera_target_y",
+          "camera_target_z",
+          "class",
+          "filename",
+          "image_path",
+          "material_id",
+          "material_verified_on_object",
+          "object_rotation_x",
+          "object_rotation_y",
+          "object_rotation_z",
+          "random_seed",
+          "render_engine",
+          "render_index",
+          "resolution_height",
+          "resolution_width",
+          "source_base_material",
+          "split"
+        ],
+        "split_columns": [
+          "base_color_file",
+          "blender_material_name",
+          "class",
+          "has_ao",
+          "has_displacement",
+          "material_id",
+          "metallic_file",
+          "metallic_source",
+          "metallic_value",
+          "missing_maps",
+          "needs_review",
+          "normal_file",
+          "normal_variant",
+          "roughness_file",
+          "source_folder",
+          "source_material_name",
+          "split",
+          "used_default_roughness",
+          "validation_render"
+        ]
+      },
+      "passed": true
+    },
+    "material_classes_consistent": {
+      "detail": [],
+      "passed": true
+    },
+    "material_counts": {
+      "detail": {
+        "counts": {
+          "ceramic_01": 30,
+          "ceramic_02": 30,
+          "ceramic_03": 30,
+          "ceramic_04": 30,
+          "ceramic_05": 30,
+          "ceramic_06": 30,
+          "ceramic_07": 30,
+          "ceramic_08": 30,
+          "ceramic_09": 30,
+          "ceramic_10": 30,
+          "ceramic_11": 30,
+          "ceramic_12": 30,
+          "ceramic_13": 30,
+          "ceramic_14": 30,
+          "ceramic_15": 30,
+          "concrete_01": 30,
+          "concrete_02": 30,
+          "concrete_03": 30,
+          "concrete_04": 30,
+          "concrete_05": 30,
+          "concrete_06": 30,
+          "concrete_07": 30,
+          "concrete_08": 30,
+          "concrete_09": 30,
+          "concrete_10": 30,
+          "concrete_11": 30,
+          "concrete_12": 30,
+          "concrete_13": 30,
+          "concrete_14": 30,
+          "concrete_15": 30,
+          "fabric_01": 30,
+          "fabric_02": 30,
+          "fabric_03": 30,
+          "fabric_04": 30,
+          "fabric_05": 30,
+          "fabric_06": 30,
+          "fabric_07": 30,
+          "fabric_08": 30,
+          "fabric_09": 30,
+          "fabric_10": 30,
+          "fabric_11": 30,
+          "fabric_12": 30,
+          "fabric_13": 30,
+          "fabric_14": 30,
+          "fabric_15": 30,
+          "leather_01": 30,
+          "leather_02": 30,
+          "leather_03": 30,
+          "leather_04": 30,
+          "leather_05": 30,
+          "leather_06": 30,
+          "leather_07": 30,
+          "leather_08": 30,
+          "leather_09": 30,
+          "leather_10": 30,
+          "leather_11": 30,
+          "leather_12": 30,
+          "leather_13": 30,
+          "leather_14": 30,
+          "leather_15": 30,
+          "metal_01": 30,
+          "metal_02": 30,
+          "metal_03": 30,
+          "metal_04": 30,
+          "metal_05": 30,
+          "metal_06": 30,
+          "metal_07": 30,
+          "metal_08": 30,
+          "metal_09": 30,
+          "metal_10": 30,
+          "metal_11": 30,
+          "metal_12": 30,
+          "metal_13": 30,
+          "metal_14": 30,
+          "metal_15": 30,
+          "stone_01": 30,
+          "stone_02": 30,
+          "stone_03": 30,
+          "stone_04": 30,
+          "stone_05": 30,
+          "stone_06": 30,
+          "stone_07": 30,
+          "stone_08": 30,
+          "stone_09": 30,
+          "stone_10": 30,
+          "stone_11": 30,
+          "stone_12": 30,
+          "stone_13": 30,
+          "stone_14": 30,
+          "stone_15": 30,
+          "wood_01": 30,
+          "wood_02": 30,
+          "wood_03": 30,
+          "wood_04": 30,
+          "wood_05": 30,
+          "wood_06": 30,
+          "wood_07": 30,
+          "wood_08": 30,
+          "wood_09": 30,
+          "wood_10": 30,
+          "wood_11": 30,
+          "wood_12": 30,
+          "wood_13": 30,
+          "wood_14": 30,
+          "wood_15": 30
+        },
+        "n_materials": 105
+      },
+      "passed": true
+    },
+    "material_id_format": {
+      "detail": [],
+      "passed": true
+    },
+    "material_split_counts": {
+      "detail": {
+        "test": 14,
+        "train": 77,
+        "val": 14
+      },
+      "passed": true
+    },
+    "no_duplicate_manifest_entries": {
+      "detail": {
+        "duplicate_image_paths": [],
+        "duplicate_material_render_keys": []
+      },
+      "passed": true
+    },
+    "no_material_split_leakage": {
+      "detail": [],
+      "passed": true
+    },
+    "no_unexpected_class_folders": {
+      "detail": [],
+      "passed": true
+    },
+    "split_counts": {
+      "detail": {
+        "test": 420,
+        "train": 2310,
+        "val": 420
+      },
+      "passed": true
+    },
+    "split_inheritance": {
+      "detail": [],
+      "passed": true
+    },
+    "split_manifest_unique_and_complete": {
+      "detail": {
+        "duplicate_ids": [],
+        "extra_ids": [],
+        "missing_ids": [],
+        "rows": 105
+      },
+      "passed": true
+    }
+  },
+  "expected": {
+    "images": {
+      "test": 420,
+      "train": 2310,
+      "val": 420
+    },
+    "images_per_class": 450,
+    "images_per_class_by_split": {
+      "test": 60,
+      "train": 330,
+      "val": 60
+    },
+    "images_per_material": 30,
+    "materials_by_split": {
+      "test": 14,
+      "train": 77,
+      "val": 14
+    },
+    "materials_per_class": 15,
+    "materials_total": 105,
+    "total_images": 3150
+  },
+  "passed": true,
+  "schema_version": 1,
+  "summary": {
+    "classes": {
+      "ceramic": 450,
+      "concrete": 450,
+      "fabric": 450,
+      "leather": 450,
+      "metal": 450,
+      "stone": 450,
+      "wood": 450
+    },
+    "disk_png": 3150,
+    "materials": 105,
+    "rows": 3150,
+    "splits": {
+      "test": 420,
+      "train": 2310,
+      "val": 420
+    }
+  }
+}

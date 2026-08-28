@@ -1,0 +1,4 @@
+# Install after requirements.txt so the tested CUDA torch pair is already selected.
+# Optional explainability and embedding visualisation dependencies.
+grad-cam==1.5.7
+umap-learn==0.5.12

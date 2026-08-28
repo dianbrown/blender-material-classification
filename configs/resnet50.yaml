@@ -1,0 +1,29 @@
+name: resnet50
+architecture: torchvision.models.resnet50
+pretrained: true
+weights: IMAGENET1K_V2
+num_classes: 7
+input_size: 224
+seed: 42
+optimizer:
+  name: AdamW
+  head_learning_rate: 0.0003
+  backbone_learning_rate: 0.00003
+  weight_decay: 0.0001
+  label_smoothing: 0.1
+fine_tuning:
+  freeze_head_epochs: 3
+  unfreeze_backbone: true
+scheduler:
+  name: cosine
+  warmup_epochs: 3
+training:
+  max_epochs: 40
+  early_stopping_patience: 8
+  gradient_clip_norm: 1.0
+  amp: true
+  batch_size: 32
+checkpoint:
+  monitor: val_macro_f1
+  mode: max
+  directory: artifacts/checkpoints/resnet50

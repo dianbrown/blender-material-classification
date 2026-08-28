@@ -1,0 +1,146 @@
+{
+  "accuracy": 0.830952380952381,
+  "balanced_accuracy": 0.830952380952381,
+  "precision_macro": 0.8925426774483378,
+  "recall_macro": 0.830952380952381,
+  "f1_macro": 0.8245366985262294,
+  "precision_weighted": 0.8925426774483378,
+  "recall_weighted": 0.830952380952381,
+  "f1_weighted": 0.8245366985262294,
+  "confusion_matrix": [
+    [
+      30,
+      0,
+      30,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      52,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      60,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      60,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0,
+      0,
+      58,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      30,
+      0,
+      0,
+      29
+    ]
+  ],
+  "per_class": [
+    {
+      "class": "wood",
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "support": 60
+    },
+    {
+      "class": "metal",
+      "precision": 0.9811320754716981,
+      "recall": 0.8666666666666667,
+      "f1": 0.9203539823008849,
+      "support": 60
+    },
+    {
+      "class": "stone",
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "support": 60
+    },
+    {
+      "class": "concrete",
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "support": 60
+    },
+    {
+      "class": "ceramic",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 60
+    },
+    {
+      "class": "fabric",
+      "precision": 1.0,
+      "recall": 0.9666666666666667,
+      "f1": 0.9830508474576272,
+      "support": 60
+    },
+    {
+      "class": "leather",
+      "precision": 1.0,
+      "recall": 0.48333333333333334,
+      "f1": 0.651685393258427,
+      "support": 60
+    }
+  ],
+  "loss": 0.7520067487444196,
+  "log_loss": 0.7519902244678882,
+  "ece": 0.121931763197719,
+  "roc_auc_macro": 0.9210383597883597,
+  "roc_auc_weighted": 0.9210383597883598,
+  "roc_auc_per_class": {
+    "wood": 0.9391203703703703,
+    "metal": 0.9996759259259259,
+    "stone": 1.0,
+    "concrete": 0.941574074074074,
+    "ceramic": 1.0,
+    "fabric": 1.0,
+    "leather": 0.5668981481481481
+  },
+  "predictions_path": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\vit_b16\\val\\predictions.csv",
+  "embeddings_path": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\vit_b16\\val\\embeddings.npz",
+  "model": "vit_b16",
+  "checkpoint": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\artifacts\\checkpoints\\vit_b16\\best.pt",
+  "split": "val",
+  "best_epoch": 19
+}

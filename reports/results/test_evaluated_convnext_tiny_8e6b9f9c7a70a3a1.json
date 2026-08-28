@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "evaluated_at": "2026-08-28T13:26:05.104946+00:00",
+  "checkpoint_sha256": "8e6b9f9c7a70a3a16abfd3b593a151de8b7002a1ccc134810295d6688e1b862e",
+  "metrics_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\convnext_tiny\\test\\metrics.json",
+  "predictions_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\convnext_tiny\\test\\predictions.csv",
+  "embeddings_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\convnext_tiny\\test\\embeddings.npz",
+  "metrics_sha256": "69789e7617e23d7215020c7ee28dfed37683b80e25124500275006b1713130cd",
+  "predictions_sha256": "e73f93ddd30bcf8dbb84d620742fd6ca7dec800ed344bdd653285bb531434376",
+  "embeddings_sha256": "429c6cacda08376ebfeedd0c36ed5187678aaeae8bfe2fc9f69a9775aca2b7cd"
+}

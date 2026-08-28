@@ -1,0 +1,14 @@
+# CUDA 12.8 wheels; torch and torchvision are a tested compatible pair.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+numpy==2.5.2
+pandas==3.0.5
+scikit-learn==1.9.0
+matplotlib==3.11.1
+pillow==12.3.0
+pyyaml==6.0.3
+tqdm==4.70.0
+tensorboard==2.21.0
+torchinfo==1.8.0
+scipy==1.18.1

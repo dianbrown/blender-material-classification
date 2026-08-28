@@ -1,0 +1,7 @@
+{
+ "wall": "41 min 48 s",
+ "per_image": "0.796 s",
+ "throughput": "75.3 images/min",
+ "one_pass": "yes - single pass, 3150 rendered / 0 skipped / 0 failed",
+ "notes": "The job ran to completion in a single uninterrupted headless pass; no render was retried or repaired."
+}

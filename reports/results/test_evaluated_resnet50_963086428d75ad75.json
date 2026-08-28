@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "evaluated_at": "2026-08-28T13:25:53.229658+00:00",
+  "checkpoint_sha256": "963086428d75ad7589dddebd6b9c20a1ede59d12a100a0b10b7f31f3526b5b66",
+  "metrics_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\resnet50\\test\\metrics.json",
+  "predictions_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\resnet50\\test\\predictions.csv",
+  "embeddings_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\resnet50\\test\\embeddings.npz",
+  "metrics_sha256": "c0197fb9b6c30066381520bb0698efdb7718ee5bad0d39dcedf2a0b733e29bbf",
+  "predictions_sha256": "f3414a14f77bedd5b73c23cbf88f91f347b2a533ed3e7db580b328cc4447170e",
+  "embeddings_sha256": "f5c2a8f6edc4b46b07cbdd0093498c10e27d4ff31a6fabaedd82b722a8c7674b"
+}

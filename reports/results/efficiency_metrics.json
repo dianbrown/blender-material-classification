@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "generated_at": "2026-08-28T13:29:46.911284+00:00",
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\.venv\\Scripts\\python.exe",
+    "git_commit": "597bbea0783d1121d6e2488e387b7adf29fe6f15",
+    "captured_at": "2026-08-28T13:29:46.935920+00:00",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4060",
+    "gpu_vram_bytes": 8585216000,
+    "nvidia_smi": "NVIDIA GeForce RTX 4060, 8188 MiB, 596.49"
+  },
+  "benchmark_settings": {
+    "device": "cuda",
+    "dtype": "float32",
+    "batch_sizes": [
+      1,
+      32
+    ],
+    "warmup": 10,
+    "repeats": 50,
+    "torch_version": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 4060",
+    "gpu_vram_bytes": 8585216000
+  },
+  "models": [
+    {
+      "schema_version": "1.0",
+      "model": "custom_cnn",
+      "checkpoint_path": "artifacts/checkpoints/custom_cnn/best.pt",
+      "checkpoint_sha256": "b66781959dc826fd2a2ccc5effda08d6028d722adb0594c6f8a6669a9df28e59",
+      "checkpoint_size_mb": 38.853007316589355,
+      "total_parameters": 3389287,
+      "trainable_parameters": 3389287,
+      "best_epoch": 3,
+      "total_training_time_seconds": 396.2774779999163,
+      "peak_vram_bytes": 3006942720,
+      "peak_vram_mb": 2867.64404296875,
+      "effective_batch_size": 64,
+      "oom_adjustments": [],
+      "input_size": 224,
+      "benchmark": {
+        "1": {
+          "available": true,
+          "reason": null,
+          "batch_size": 1,
+          "latency_ms_batch": 1.3774179993197322,
+          "latency_ms_per_image": 1.3774179993197322,
+          "throughput_images_per_second": 725.9960306122555
+        },
+        "32": {
+          "available": true,
+          "reason": null,
+          "batch_size": 32,
+          "latency_ms_batch": 34.21026600059122,
+          "latency_ms_per_image": 1.0690708125184756,
+          "throughput_images_per_second": 935.391732980006
+        }
+      },
+      "cache_key": "c0ce3f854ea889868fe7ce69ae1da86168760d84cad71876762fa580ce4c7fb1"
+    },
+    {
+      "schema_version": "1.0",
+      "model": "resnet50",
+      "checkpoint_path": "artifacts/checkpoints/resnet50/best.pt",
+      "checkpoint_sha256": "963086428d75ad7589dddebd6b9c20a1ede59d12a100a0b10b7f31f3526b5b66",
+      "checkpoint_size_mb": 269.63142681121826,
+      "total_parameters": 23522375,
+      "trainable_parameters": 23522375,
+      "best_epoch": 7,
+      "total_training_time_seconds": 557.3052213001065,
+      "peak_vram_bytes": 1804534784,
+      "peak_vram_mb": 1720.9384765625,
+      "effective_batch_size": 32,
+      "oom_adjustments": [],
+      "input_size": 224,
+      "benchmark": {
+        "1": {
+          "available": true,
+          "reason": null,
+          "batch_size": 1,
+          "latency_ms_batch": 6.443243999965489,
+          "latency_ms_per_image": 6.443243999965489,
+          "throughput_images_per_second": 155.20132405436706
+        },
+        "32": {
+          "available": true,
+          "reason": null,
+          "batch_size": 32,
+          "latency_ms_batch": 58.563461997546256,
+          "latency_ms_per_image": 1.8301081874233205,
+          "throughput_images_per_second": 546.4157839804751
+        }
+      },
+      "cache_key": "e14d69e1a52c7f94aa532908349ba9b82b70c8f5c3867cf9256b75d1b3e31c7e"
+    },
+    {
+      "schema_version": "1.0",
+      "model": "convnext_tiny",
+      "checkpoint_path": "artifacts/checkpoints/convnext_tiny/best.pt",
+      "checkpoint_sha256": "8e6b9f9c7a70a3a16abfd3b593a151de8b7002a1ccc134810295d6688e1b862e",
+      "checkpoint_size_mb": 318.6551465988159,
+      "total_parameters": 27825511,
+      "trainable_parameters": 27825511,
+      "best_epoch": 15,
+      "total_training_time_seconds": 904.6055226998869,
+      "peak_vram_bytes": 1421329408,
+      "peak_vram_mb": 1355.4853515625,
+      "effective_batch_size": 16,
+      "oom_adjustments": [],
+      "input_size": 224,
+      "benchmark": {
+        "1": {
+          "available": true,
+          "reason": null,
+          "batch_size": 1,
+          "latency_ms_batch": 6.488600000739098,
+          "latency_ms_per_image": 6.488600000739098,
+          "throughput_images_per_second": 154.11645037235965
+        },
+        "32": {
+          "available": true,
+          "reason": null,
+          "batch_size": 32,
+          "latency_ms_batch": 60.33967799972743,
+          "latency_ms_per_image": 1.8856149374914821,
+          "throughput_images_per_second": 530.3309706118179
+        }
+      },
+      "cache_key": "b5def72233e3067ed5732c7cdf7aaff4fa48c1ece3f715100ae03c2f17dcc4c3"
+    },
+    {
+      "schema_version": "1.0",
+      "model": "vit_b16",
+      "checkpoint_path": "artifacts/checkpoints/vit_b16/best.pt",
+      "checkpoint_sha256": "b82fa13e18ad5ae430fa13d21f9d39291e0d4c346862260719b80b9941862317",
+      "checkpoint_size_mb": 982.1373853683472,
+      "total_parameters": 85804039,
+      "trainable_parameters": 85804039,
+      "best_epoch": 19,
+      "total_training_time_seconds": 1511.2949483999982,
+      "peak_vram_bytes": 1826519552,
+      "peak_vram_mb": 1741.90478515625,
+      "effective_batch_size": 8,
+      "oom_adjustments": [],
+      "input_size": 224,
+      "benchmark": {
+        "1": {
+          "available": true,
+          "reason": null,
+          "batch_size": 1,
+          "latency_ms_batch": 7.297118003480136,
+          "latency_ms_per_image": 7.297118003480136,
+          "throughput_images_per_second": 137.040404105166
+        },
+        "32": {
+          "available": true,
+          "reason": null,
+          "batch_size": 32,
+          "latency_ms_batch": 168.29588599968702,
+          "latency_ms_per_image": 5.259246437490219,
+          "throughput_images_per_second": 190.14130862390488
+        }
+      },
+      "cache_key": "6dba56ce4bfb37d43480b750754847819e96c9138b241adb87317c3074f472df"
+    }
+  ]
+}

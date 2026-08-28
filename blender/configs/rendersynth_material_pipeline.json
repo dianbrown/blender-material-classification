@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0",
+  "operations": {
+    "operations": [
+      {
+        "operation_type": "Rotation",
+        "enabled": true,
+        "name": "Object Rotation (material_object)",
+        "order": 1,
+        "config": "{\"dimension\": 3, \"distribution\": {\"use_tree\": false, \"preset\": \"MULTIVARIATE_UNIFORM\", \"do_discretize\": false, \"do_clamp\": false, \"clamping_factors\": [0.0, 0.0], \"parameters\": {\"min_vec\": [-0.17453292519943295, -0.17453292519943295, 0.0], \"max_vec\": [0.17453292519943295, 0.17453292519943295, 6.283185307179586]}}, \"axis\": {\"dimension\": 3, \"dims\": 3, \"randomize_x\": true, \"randomize_y\": true, \"randomize_z\": true}, \"target\": {\"names\": [\"material_object\"]}, \"offset\": {\"mode\": false}}"
+      },
+      {
+        "operation_type": "Power",
+        "enabled": true,
+        "name": "Area Light Power (Key_Area)",
+        "order": 2,
+        "config": "{\"distribution\": {\"use_tree\": false, \"preset\": \"UNIFORM\", \"do_discretize\": false, \"do_clamp\": false, \"clamping_factors\": [0.0, 0.0], \"parameters\": {\"min\": 1600.0, \"max\": 2400.0}}, \"typed_obj\": {\"name\": \"Key_Area\"}, \"offset\": {\"mode\": false}}"
+      },
+      {
+        "operation_type": "Position",
+        "enabled": true,
+        "name": "Area Light Position jitter (Key_Area)",
+        "order": 3,
+        "config": "{\"dimension\": 3, \"distribution\": {\"use_tree\": false, \"preset\": \"MULTIVARIATE_UNIFORM\", \"do_discretize\": false, \"do_clamp\": false, \"clamping_factors\": [0.0, 0.0], \"parameters\": {\"min_vec\": [-1.0, -1.0, -0.6], \"max_vec\": [1.0, 1.0, 0.6]}}, \"axis\": {\"dimension\": 3, \"dims\": 3, \"randomize_x\": true, \"randomize_y\": true, \"randomize_z\": true}, \"target\": {\"names\": [\"Key_Area\"]}, \"offset\": {\"mode\": true}}"
+      }
+    ]
+  },
+  "distributions": {
+    "distributions": []
+  },
+  "labeling": {
+    "settings": {
+      "do_superclasses": false,
+      "use_rules": false,
+      "use_entities": false,
+      "default_class": "None"
+    },
+    "label_classes": [],
+    "direct_labels": [],
+    "label_rules": [],
+    "entities": []
+  },
+  "generation": {
+    "amount": 20,
+    "seed": 62642
+  },
+  "wrapper": {
+    "script": "blender/scripts/generate_dataset.py",
+    "reason": "per-render seeds, deterministic material iteration, classification output layout, spherical camera orbit, light aiming",
+    "master_seed": 62642,
+    "child_seed": "sha256('<master>|<class>|<material_id>|<rXX>')[:8] % (2**31-1)",
+    "camera_orbit": {
+      "sampler": "rendersynth SamplerCompiler.make_distribution('UNIFORM')",
+      "azimuth_delta_deg": [
+        -20.0,
+        20.0
+      ],
+      "elevation_delta_deg": [
+        -4.0,
+        12.0
+      ],
+      "distance_factor": [
+        0.94,
+        1.06
+      ],
+      "baseline": "captured from the scene at run time",
+      "aim": "look_at target centre, -Z forward / +Y up (zero roll)"
+    },
+    "light_aim": "re-aimed at target centre after every Position sample",
+    "ground_plane_size_m": 1000.0,
+    "texture_mapping": "Mapping node fixed at scale 1.0 - not randomized",
+    "unrandomized": [
+      "world lighting",
+      "light size",
+      "light colour",
+      "texture scale",
+      "PBR material parameters",
+      "focal length",
+      "depth of field",
+      "motion blur"
+    ]
+  }
+}

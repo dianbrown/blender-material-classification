@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "selected_model": "resnet50",
+  "selection_rule": "Equal-weight min-max composite of test Macro F1, test accuracy, grouped-CV stability (mean minus SD), per-class F1 consistency (mean minus SD), inverse checkpoint size, and inverse batch-1 inference latency.",
+  "missing_criteria_models": [],
+  "cv_gate_errors": [],
+  "criterion_coverage": {
+    "custom_cnn": {
+      "test_macro_f1": "used",
+      "test_accuracy": "used",
+      "cv_stability": "not_applicable",
+      "per_class_consistency": "used",
+      "model_size_mb": "used",
+      "inference_ms_per_image": "used"
+    },
+    "resnet50": {
+      "test_macro_f1": "used",
+      "test_accuracy": "used",
+      "cv_stability": "used",
+      "per_class_consistency": "used",
+      "model_size_mb": "used",
+      "inference_ms_per_image": "used"
+    },
+    "convnext_tiny": {
+      "test_macro_f1": "used",
+      "test_accuracy": "used",
+      "cv_stability": "used",
+      "per_class_consistency": "used",
+      "model_size_mb": "used",
+      "inference_ms_per_image": "used"
+    },
+    "vit_b16": {
+      "test_macro_f1": "used",
+      "test_accuracy": "used",
+      "cv_stability": "used",
+      "per_class_consistency": "used",
+      "model_size_mb": "used",
+      "inference_ms_per_image": "used"
+    }
+  },
+  "models": {
+    "custom_cnn": {
+      "raw": {
+        "test_macro_f1": 0.49015068741437506,
+        "test_accuracy": 0.4976190476190476,
+        "cv_stability": null,
+        "per_class_consistency": 0.31479859420915046,
+        "model_size_mb": 38.853007316589355,
+        "inference_ms_per_image": 1.3774179993197322
+      },
+      "scaled": {
+        "test_macro_f1": 0.0,
+        "test_accuracy": 0.0,
+        "cv_stability": null,
+        "per_class_consistency": 0.2534874901115598,
+        "model_size_mb": 1.0,
+        "inference_ms_per_image": 1.0
+      },
+      "criteria_used": [
+        "test_macro_f1",
+        "test_accuracy",
+        "per_class_consistency",
+        "model_size_mb",
+        "inference_ms_per_image"
+      ],
+      "weights": {
+        "test_macro_f1": 0.2,
+        "test_accuracy": 0.2,
+        "per_class_consistency": 0.2,
+        "model_size_mb": 0.2,
+        "inference_ms_per_image": 0.2
+      },
+      "cv_folds": "not_applicable",
+      "composite_score": 0.450697498022312
+    },
+    "resnet50": {
+      "raw": {
+        "test_macro_f1": 0.6828930282876071,
+        "test_accuracy": 0.6976190476190476,
+        "cv_stability": 0.6077313628880893,
+        "per_class_consistency": 0.4561883766525854,
+        "model_size_mb": 269.63142681121826,
+        "inference_ms_per_image": 6.443243999965489
+      },
+      "scaled": {
+        "test_macro_f1": 1.0,
+        "test_accuracy": 1.0,
+        "cv_stability": 0.0,
+        "per_class_consistency": 1.0,
+        "model_size_mb": 0.7553458693217475,
+        "inference_ms_per_image": 0.14424278306578697
+      },
+      "criteria_used": [
+        "test_macro_f1",
+        "test_accuracy",
+        "cv_stability",
+        "per_class_consistency",
+        "model_size_mb",
+        "inference_ms_per_image"
+      ],
+      "weights": {
+        "test_macro_f1": 0.16666666666666666,
+        "test_accuracy": 0.16666666666666666,
+        "cv_stability": 0.16666666666666666,
+        "per_class_consistency": 0.16666666666666666,
+        "model_size_mb": 0.16666666666666666,
+        "inference_ms_per_image": 0.16666666666666666
+      },
+      "cv_folds": 5,
+      "composite_score": 0.6499314420645891
+    },
+    "convnext_tiny": {
+      "raw": {
+        "test_macro_f1": 0.5690158339274759,
+        "test_accuracy": 0.611904761904762,
+        "cv_stability": 0.674387343397452,
+        "per_class_consistency": 0.2708765505278663,
+        "model_size_mb": 318.6551465988159,
+        "inference_ms_per_image": 6.488600000739098
+      },
+      "scaled": {
+        "test_macro_f1": 0.4091739581235603,
+        "test_accuracy": 0.5714285714285717,
+        "cv_stability": 1.0,
+        "per_class_consistency": 0.02158703378924658,
+        "model_size_mb": 0.7033745646672059,
+        "inference_ms_per_image": 0.13658090818332128
+      },
+      "criteria_used": [
+        "test_macro_f1",
+        "test_accuracy",
+        "cv_stability",
+        "per_class_consistency",
+        "model_size_mb",
+        "inference_ms_per_image"
+      ],
+      "weights": {
+        "test_macro_f1": 0.16666666666666666,
+        "test_accuracy": 0.16666666666666666,
+        "cv_stability": 0.16666666666666666,
+        "per_class_consistency": 0.16666666666666666,
+        "model_size_mb": 0.16666666666666666,
+        "inference_ms_per_image": 0.16666666666666666
+      },
+      "cv_folds": 5,
+      "composite_score": 0.4736908393653177
+    },
+    "vit_b16": {
+      "raw": {
+        "test_macro_f1": 0.5623627264224569,
+        "test_accuracy": 0.6,
+        "cv_stability": 0.6418375917503587,
+        "per_class_consistency": 0.2667879572750663,
+        "model_size_mb": 982.1373853683472,
+        "inference_ms_per_image": 7.297118003480136
+      },
+      "scaled": {
+        "test_macro_f1": 0.37465581605432596,
+        "test_accuracy": 0.5119047619047619,
+        "cv_stability": 0.5116754505993466,
+        "per_class_consistency": 0.0,
+        "model_size_mb": 0.0,
+        "inference_ms_per_image": 0.0
+      },
+      "criteria_used": [
+        "test_macro_f1",
+        "test_accuracy",
+        "cv_stability",
+        "per_class_consistency",
+        "model_size_mb",
+        "inference_ms_per_image"
+      ],
+      "weights": {
+        "test_macro_f1": 0.16666666666666666,
+        "test_accuracy": 0.16666666666666666,
+        "cv_stability": 0.16666666666666666,
+        "per_class_consistency": 0.16666666666666666,
+        "model_size_mb": 0.16666666666666666,
+        "inference_ms_per_image": 0.16666666666666666
+      },
+      "cv_folds": 5,
+      "composite_score": 0.23303933809307242
+    }
+  },
+  "source": {
+    "comparison_csv": "reports/results/model_comparison.csv",
+    "dashboard": "reports/figures/comparison/model_comparison_dashboard.png",
+    "test_gate": "reports/results/methodology_lock.json and test_evaluated_<model>_<checkpoint_hash>.json"
+  }
+}

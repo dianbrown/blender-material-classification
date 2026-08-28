@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "evaluated_at": "2026-08-28T13:25:46.211498+00:00",
+  "checkpoint_sha256": "b66781959dc826fd2a2ccc5effda08d6028d722adb0594c6f8a6669a9df28e59",
+  "metrics_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\custom_cnn\\test\\metrics.json",
+  "predictions_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\custom_cnn\\test\\predictions.csv",
+  "embeddings_file": "C:\\Users\\dianb\\Desktop\\Projects\\blender-material-classification\\reports\\results\\custom_cnn\\test\\embeddings.npz",
+  "metrics_sha256": "0221482e943eef98a19fe7ef1ff0bc79a290a2aacd6ee4e91511aeeb8e6b9ccb",
+  "predictions_sha256": "c4e6add688ebbf5efc84afb619b973c5c55dc8d90eb6ee0cab85e6c30db6313d",
+  "embeddings_sha256": "df35a73c1b27f0cede44bb0999938eac7f1905d3bfcb11e4645a74e8aabf8fd8"
+}

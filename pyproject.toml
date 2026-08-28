@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "material-classifier"
+version = "0.1.0"
+description = "Leakage-safe material classification of synthetic Blender renders"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = { text = "Research use; see DATASET.md for asset licensing" }
+dependencies = [
+  "torch==2.11.0+cu128",
+  "torchvision==0.26.0+cu128",
+  "numpy==2.5.2",
+  "pandas==3.0.5",
+  "scikit-learn==1.9.0",
+  "matplotlib==3.11.1",
+  "pillow==12.3.0",
+  "pyyaml==6.0.3",
+  "tqdm==4.70.0",
+  "tensorboard==2.21.0",
+  "torchinfo==1.8.0",
+  "scipy==1.18.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "ruff==0.16.5",
+  "seaborn==0.13.2",
+  "nbformat==5.11.1",
+  "jupyter==1.1.1",
+  "ipykernel==7.3.0",
+]
+explainability = ["grad-cam==1.5.7"]
+embeddings = ["umap-learn==0.5.12"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src", "scripts", "tests"]
+include = ["src/**/*.py", "scripts/**/*.py", "tests/**/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
