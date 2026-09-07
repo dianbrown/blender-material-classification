@@ -49,6 +49,15 @@ The machine-readable source is [reports/results/model_comparison.csv](reports/re
 
 ![Training curves](reports/figures/training/combined_val_f1.png)
 
+## Project deliverables
+
+- [Illustrated report PDF](report.pdf) and [editable report DOCX](report.docx) — fill in the DOCX cover placeholders for group members, student numbers and submission date, refresh the contents if needed, then re-export the final PDF before submitting.
+- [Report asset index](reports/REPORT_ASSETS.md) — publication-ready figures and recommended usage.
+- [Model card](MODEL_CARD.md) — intended use, limitations and artifact-backed performance.
+- [Kaggle release guide](kaggle.md) — proposed procedure only; Kaggle publication remains conditional on completing the per-asset licensing and attribution audit.
+- [Version-2 Optuna plan](reports/OPTUNA_V2_PLAN.md) — development-only improvement proposal that preserves the sealed TEST protocol.
+- [Version-2 implementation plan](reports/V2_IMPLEMENTATION_PLAN.md) — implementation-ready Poly Haven provenance, new-holdout, Optuna, validation, and report-integration specification.
+
 ## Repository structure
 
 ```text
@@ -63,12 +72,12 @@ notebooks/                 executed EDA, results, comparison, and error-analysis
 
 ## Setup and reproducibility
 
-Use Python 3.13 with the pinned environment. From the repository root run `uv sync --extra dev --extra explainability --extra embeddings` (or install the pinned base, development, explainability, and embeddings requirement sets), then verify CUDA/GPU details with `python scripts/collect_environment.py`. The project seed is 42; configs, environment metadata, hashes, histories, and timestamps are recorded under `reports/results/` and `artifacts/checkpoints/`.
+Use Python 3.13 with the pinned environment. From the repository root run `uv sync --extra dev --extra explainability --extra embeddings --extra reports` (or install the pinned base, development, explainability, embeddings, and reports requirement sets), then verify CUDA/GPU details with `python scripts/collect_environment.py`. The project seed is 42; configs, environment metadata, hashes, histories, and timestamps are recorded under `reports/results/` and `artifacts/checkpoints/`.
 
 ## Reproduce
 
 ```powershell
-uv sync --extra dev --extra explainability --extra embeddings
+uv sync --extra dev --extra explainability --extra embeddings --extra reports
 python scripts/verify_dataset.py
 python scripts/train_all.py
 python scripts/run_group_cv.py --folds 5
@@ -87,6 +96,6 @@ This is a synthetic Blender-render study. Synthetic-to-real generalisation has n
 
 ## Future work
 
-Synthetic-to-real evaluation, Hugging Face deployment, an interactive web demo, and a Kaggle dataset release are intentionally out of scope for this repository stage.
+Synthetic-to-real evaluation, Hugging Face deployment, an interactive web demo, and a potential Kaggle dataset release remain future work. See [kaggle.md](kaggle.md) for the conditional release procedure; publication is not implied and remains blocked until the per-asset licensing and attribution audit is complete.
 
 See [MODEL_CARD.md](MODEL_CARD.md) for intended and inappropriate uses.
