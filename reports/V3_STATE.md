@@ -276,3 +276,19 @@ Training source/config hashes unchanged. Sole GPU owner has now started DINO
 development selection: exactly2learning rates x3folds, physical batch8,
 accumulation4, four CPU threads. No fresh holdout access. Wait for complete
 selection/final-fit results; do not choose from intermediate validation peaks.
+
+Inference benchmarking integrated at63a4360; 16 CPU-only tests passed in parent.
+CLI scripts/v3/benchmark.py takes --family frozen|resnet|dinov2, --artifact,
+--development-manifest metadata/v3/manifest.csv, --data-root ROOT, --output NEW,
+--device cuda, --cpu-threads4, --batches1 16, --warmup5, --repetitions30 and
+optional --cold-repetitions3 (process-warm reload, not OS-cold startup).
+Run only after the training GPU owner releases the device. Warm timings include
+preprocessing/model/probabilities but exclude disk read/decode. It reports
+actual unique weight files and separates head-only artifacts from backbones.
+The benchmark author confirmed the current fine-tuned DINO deployment loader
+does NOT require the original pretrained cache; earlier uncertainty is resolved.
+
+DINO milestone: first of six development fits (LR3e-6, fold0) completed at
+epoch6 under fixed patience3; best epoch3, development macro-F1 0.8356045851.
+No failures/AMP skips. This is one selected development fold, not a complete
+comparison or test result. GPU owner continues remaining five fits unchanged.
