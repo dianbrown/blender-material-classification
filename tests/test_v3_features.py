@@ -10,6 +10,7 @@ import torch
 from PIL import Image
 
 from material_classifier.v3 import CLASS_NAMES
+from material_classifier.v3 import features as features_module
 from material_classifier.v3.features import (
     assemble_features,
     extract_batch,
@@ -19,6 +20,16 @@ from material_classifier.v3.features import (
     pool_dino_tokens,
     transform_image,
 )
+
+
+@pytest.fixture(autouse=True)
+def forbid_weight_downloads(monkeypatch):
+    import huggingface_hub
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Offline unit tests must not request pretrained weights")
+
+    monkeypatch.setattr(huggingface_hub, "hf_hub_download", forbidden)
 
 
 class DummyDino(torch.nn.Module):
@@ -142,6 +153,10 @@ def test_cache_alignment_content_and_identity(small_protocol, image_manifest):
     assert assemble_features(base, small_protocol["candidates"][-1]["parts"]).shape == (3, 21)
     assert np.allclose(base["dino_8_std"], 0)
     assert base["dino_8_cls"][0, 0] != base["dino_8_cls"][1, 0]
+    changed = copy.deepcopy(small_protocol)
+    changed["models"]["dino"]["weights_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="protocol mismatch"):
+        load_feature_cache(output, manifest=manifest, protocol=changed)
     with pytest.raises(FileExistsError):
         extract_features(manifest, root, output, small_protocol, device="cpu")
     with pytest.raises(ValueError, match="identity mismatch"):
@@ -215,3 +230,48 @@ def test_resume_reuses_only_hash_verified_batches(small_protocol, image_manifest
         handle.write(b"corruption")
     with pytest.raises(ValueError, match="checksum mismatch"):
         load_feature_cache(output, manifest=manifest)
+
+
+def test_resume_recovers_at_committed_batch_boundary(small_protocol, image_manifest, monkeypatch):
+    manifest, root = image_manifest
+    output = root / "partial-cache"
+    original = features_module.extract_batch
+    batch_sizes = []
+
+    def fail_second_batch(model, batch, spec, size):
+        batch_sizes.append(len(batch))
+        if len(batch_sizes) == 2:
+            raise RuntimeError("interrupted mid-resolution")
+        return original(model, batch, spec, size)
+
+    monkeypatch.setattr(features_module, "extract_batch", fail_second_batch)
+    with pytest.raises(RuntimeError, match="mid-resolution"):
+        extract_features(
+            manifest,
+            root,
+            output,
+            small_protocol,
+            device="cpu",
+            batch_size=2,
+            model_factory=dummy_factory,
+        )
+    batch_sizes.clear()
+
+    def track_resume(model, batch, spec, size):
+        batch_sizes.append(len(batch))
+        return original(model, batch, spec, size)
+
+    monkeypatch.setattr(features_module, "extract_batch", track_resume)
+    extract_features(
+        manifest,
+        root,
+        output,
+        small_protocol,
+        device="cpu",
+        batch_size=2,
+        resume=True,
+        model_factory=dummy_factory,
+    )
+    assert batch_sizes == [1, 2, 1, 2, 1]
+    base, _ = load_feature_cache(output, manifest=manifest)
+    assert base["dino_8_cls"].shape == (3, 3)
