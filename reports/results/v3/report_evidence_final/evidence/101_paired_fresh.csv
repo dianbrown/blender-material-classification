@@ -1,0 +1,4 @@
+Paired accuracy difference,Estimate (pp),95% CI (pp)
+Primary - control,+4.60,-3.17 to +12.70
+Primary - ResNet,+2.54,-2.54 to +7.78
+DINOv2 - primary,+6.67,-2.06 to +16.19

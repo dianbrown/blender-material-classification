@@ -1,0 +1,12 @@
+Metric,Estimate,95% source-group CI
+Accuracy,0.8016,0.6603 to 0.9365
+Balanced Accuracy,0.8016,0.6603 to 0.9365
+Macro Precision,0.8124,0.6293 to 0.9477
+Macro Recall,0.8016,0.6603 to 0.9365
+Macro F1,0.7952,0.6172 to 0.9345
+Weighted F1,0.7952,0.6172 to 0.9345
+MCC,0.7716,0.6121 to 0.9294
+Cohen Kappa,0.7685,0.6037 to 0.9259
+Log Loss,0.6745,0.1991 to 1.2305
+Brier Score,0.3018,0.1071 to 0.5160
+ECE,0.0948,0.0313 to 0.2126

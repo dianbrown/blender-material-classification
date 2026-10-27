@@ -1,0 +1,636 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "family": "frozen",
+  "created_utc": "2026-10-27T09:59:33.295349+00:00",
+  "purpose": "Efficiency only; no fitting, accuracy evaluation or model selection",
+  "class_order": [
+    "wood",
+    "metal",
+    "stone",
+    "concrete",
+    "ceramic",
+    "fabric",
+    "leather"
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "timm": "1.0.30",
+      "numpy": "2.5.2",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "Pillow": "12.3.0",
+      "safetensors": "0.8.0",
+      "huggingface-hub": "2.3.0",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "cuda_runtime": "12.8"
+  },
+  "provenance": {
+    "git_commit": "909b81e20ef491406a01b251bc345eb004f2a9a2",
+    "files": {
+      "src/material_classifier/v3/benchmark.py": "c876cf5892b4c7d60c385771101b258f2deedfcc92292170f6feb393bdffa3a2",
+      "src/material_classifier/v3/features.py": "e3a0de0085a2b9e73562130c194992fc6d40fada38c1eefe55d37b471ea7a257",
+      "src/material_classifier/v3/inference.py": "d2996557024a55888588c647408ccc429f0a9286fbe666842b0f171113ab455e",
+      "src/material_classifier/v3/learning.py": "33fa1409699f0e862ee851cd1e5f4f3650218a8dabc0a2d508e846068a1de004",
+      "src/material_classifier/v3/resnet_baseline.py": "30f307a069481bebbf55ed0f7f65d98e2b1190789666f12fc9baddb398afd48b",
+      "src/material_classifier/v3/finetune.py": "c1cb91f79c4c2fc5a796142063ed5c70e345d23e4e6bca3e701a7538273b90bf",
+      "src/material_classifier/v3/__init__.py": "d1cf6e828fbc130fe245f3d4c6f459248c96364378cea78344af5e6ba654c5fe",
+      "scripts/v3/benchmark.py": "9f13d7d6c2cb59a02e0853778554b0d1c7aa156c3c6c0d0506f0e636abf67a60",
+      "pyproject.toml": "c275a9a4dc4b4337b2a0735e8a34bc17bd39fb94c4e9626bec43f521c2364567",
+      "requirements-v3-lock.txt": "22ca34a3dc49ad0dff8391b81fbe7401b93a7202dcaa4acde9e18ab7185c15b0",
+      "configs/v3/finetune.json": "85b75d506d2d22d8295d4015c06fa4b320cc2329e41f3f043634b24653e63724",
+      "configs/v3/holdout.json": "5c0d690e61f28c8357d248f17e236d7aca14e6b946f35bfe31561fb2db0f2d9b",
+      "configs/v3/protocol.json": "87d4b4a8ac9ab78e1abb0e3f4e0e4b5b85082a7973d2fd8355c2f6182162981d",
+      "configs/v3/resnet_baseline.json": "5267fbbb2f572903732f618541156cff793d53f88230cec662ce47e9a23a2bb0",
+      "configs/v3/robustness.json": "198c574761969b1f6405f7d1e7104beefd068f779e8c9cccddf637be0ed0c68f"
+    }
+  },
+  "settings": {
+    "device": "cuda",
+    "cpu_threads_requested": 4,
+    "batches": [
+      1,
+      16
+    ],
+    "warmup": 5,
+    "repetitions": 30,
+    "seed": 20261027,
+    "cold_repetitions": 3
+  },
+  "scopes": {
+    "warm": "Predecoded, EXIF-oriented in-memory PIL RGB images -> exact family preprocessing -> tensor stacking and device transfer -> resident eval models -> saved head -> class-order probabilities in host NumPy memory. Includes feature assembly and CPU classifier for frozen recipes. Excludes disk I/O, decoding/EXIF orientation, artifact loading, hashing, result validation/serialization and thread-pool setup. Float32 network inference; family-specific probability precision preserved. Same declared image batch repeated; no feature or tensor cache.",
+    "process_warm_reload": "Same-process artifact reload plus one predecoded image through probabilities; includes existing loader metadata/runtime/hash checks and model construction. The artifact was already loaded once for preflight; Python imports and library caches remain warm, and OS file caches are not flushed. Models are released and CUDA allocator cache emptied between trials. Not full CLI startup, not an OS-cold or fresh-process measurement."
+  },
+  "statistics": "Per-batch seconds; p95 linear interpolation; std population ddof=0; images/sec = total images / total timed seconds; no FLOPs measured.",
+  "memory_scope": "CUDA process allocator peaks, including resident model weights; reserved memory can retain earlier batch allocations. Not total board usage. CPU VRAM fields are null; no CPU RSS claim.",
+  "results": [
+    {
+      "measurement_kind": "validated_artifact",
+      "scope": "process_warm_reload",
+      "repetitions": 3,
+      "batch_size": 1,
+      "median_seconds": 0.45253059995593503,
+      "p95_seconds": 1.5777611799829172,
+      "mean_seconds": 0.8523898666414121,
+      "std_seconds": 0.6016772574712965,
+      "images_per_second": 1.173172088424985,
+      "warmup": 0,
+      "samples_seconds": [
+        1.7027867999859154,
+        0.45253059995593503,
+        0.4018521999823861
+      ],
+      "peak_allocated_bytes": 163336704,
+      "peak_reserved_bytes": 171966464
+    },
+    {
+      "measurement_kind": "validated_artifact",
+      "scope": "warm",
+      "repetitions": 30,
+      "batch_size": 1,
+      "median_seconds": 0.014204750012140721,
+      "p95_seconds": 0.018348015015362762,
+      "mean_seconds": 0.015162500005681067,
+      "std_seconds": 0.0023855216951478354,
+      "images_per_second": 65.95218464140618,
+      "warmup": 5,
+      "samples_seconds": [
+        0.018448500020895153,
+        0.017089499975554645,
+        0.017795099993236363,
+        0.018015200039371848,
+        0.01808130001882091,
+        0.018920600006822497,
+        0.018075200030580163,
+        0.018195300013758242,
+        0.01822520000860095,
+        0.018194500007666647,
+        0.018117799947503954,
+        0.012398399994708598,
+        0.012660200009122491,
+        0.012549999984912574,
+        0.011713800020515919,
+        0.01251510001020506,
+        0.012727400055155158,
+        0.013451999984681606,
+        0.014390600030310452,
+        0.014454099989961833,
+        0.014481000020168722,
+        0.013292299991007894,
+        0.013453999999910593,
+        0.013464099960401654,
+        0.013424300006590784,
+        0.01401889999397099,
+        0.013634799979627132,
+        0.016288500046357512,
+        0.013466600037645549,
+        0.013330699992366135
+      ],
+      "memory_before_trials": {
+        "allocated_bytes": 146809344,
+        "reserved_bytes": 171966464
+      },
+      "peak_allocated_bytes": 163336704,
+      "peak_reserved_bytes": 171966464
+    },
+    {
+      "measurement_kind": "validated_artifact",
+      "scope": "warm",
+      "repetitions": 30,
+      "batch_size": 16,
+      "median_seconds": 0.08755055000074208,
+      "p95_seconds": 0.10739685998996717,
+      "mean_seconds": 0.09173470666864887,
+      "std_seconds": 0.010126133846637637,
+      "images_per_second": 174.41599347772416,
+      "warmup": 5,
+      "samples_seconds": [
+        0.08250959997531027,
+        0.08435810002265498,
+        0.08699300000444055,
+        0.1021885999944061,
+        0.08400709996931255,
+        0.08026019996032119,
+        0.0991685000481084,
+        0.11093710002023727,
+        0.10184440005104989,
+        0.07964759995229542,
+        0.08138379995943978,
+        0.08085399999981746,
+        0.08181210001930594,
+        0.08610159996896982,
+        0.11437890003435314,
+        0.09877280000364408,
+        0.08649090002290905,
+        0.10306989995297045,
+        0.09705919999396428,
+        0.08716970001114532,
+        0.08035160001600161,
+        0.08120570000028238,
+        0.08793139999033883,
+        0.10236230003647506,
+        0.1006063999957405,
+        0.0810180000262335,
+        0.0881779000046663,
+        0.10295280005084351,
+        0.1009788999799639,
+        0.09744909999426454
+      ],
+      "memory_before_trials": {
+        "allocated_bytes": 146809344,
+        "reserved_bytes": 618659840
+      },
+      "peak_allocated_bytes": 373695488,
+      "peak_reserved_bytes": 618659840
+    }
+  ],
+  "development": {
+    "manifest": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3\\manifest.csv",
+    "data_root": "C:\\Users\\dianb\\blender-material-classification",
+    "manifest_sha256": "8ffafa1709c36d78fb7215535c33ea04ee42ffc08f71719b5ad941ba58d4501f",
+    "source_content_sha256": "90d33ec2f512c30ee1695f9359b385b1f274bc36a05bd24232fa7c2ad7ece843",
+    "rows": 3150,
+    "selected": [
+      {
+        "image_path": "dataset/val/stone/stone_13_r03.png",
+        "sha256": "3998ac55a83f689f9727d4b73594e692c6ef9c53e690f6bc4d3244b387d61683",
+        "manifest_row": 3062,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/val/wood/wood_12_r16.png",
+        "sha256": "11f7a0eba978a897d0ea5681389041d1cbd0dc5538579b213fb4d27d42e519b1",
+        "manifest_row": 3135,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/fabric/fabric_07_r15.png",
+        "sha256": "ffbab320a1ecec60abde8ca3cee27b866656f632b304b317ec60f4196cf89279",
+        "manifest_row": 1214,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/stone/stone_07_r20.png",
+        "sha256": "8aaf3b4795215bcf601e2e54cbc0444b94601775c54c2550c696822068267e03",
+        "manifest_row": 2209,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/val/concrete/concrete_10_r02.png",
+        "sha256": "55c0720745706e3492decfea5cb0bfe8a3d7b34eedd9b2006c606ea8b8a93f71",
+        "manifest_row": 2791,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/metal/metal_07_r02.png",
+        "sha256": "9af130fc80970653d912c641a5c864d3c86775ad39e986663507fc992679255a",
+        "manifest_row": 1831,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/fabric/fabric_01_r03.png",
+        "sha256": "4a816561168ffc250eec510a346ae448ec35c2280061ef5459c6343a426e671b",
+        "manifest_row": 1082,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/fabric/fabric_13_r01.png",
+        "sha256": "30d531bdc9ed94f3d527098a5323c2a97fcba1f52b7352fe0e3fe951df7fe14b",
+        "manifest_row": 1350,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/concrete/concrete_01_r08.png",
+        "sha256": "f2a9289f7d331b852fccbe397fd3be0e5e5d253123774ddcc7bf76132a23d58b",
+        "manifest_row": 757,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/test/concrete/concrete_06_r02.png",
+        "sha256": "7ff501dd50e3d12aa4c5b13857e14112cfb4a344c731f3d4b6bbb5b2f507ad1a",
+        "manifest_row": 91,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/test/ceramic/ceramic_04_r30.png",
+        "sha256": "0850d68bdd69b4342e19b2e4e3c0603dc950a4ed678de3a4fa2ebf4dde4dfb85",
+        "manifest_row": 29,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/leather/leather_11_r12.png",
+        "sha256": "e0e8e30e42fb5e497972fc535a464f4edbb5c3f29d05a503b25309a79ecbd6c2",
+        "manifest_row": 1601,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/metal/metal_08_r30.png",
+        "sha256": "ba8504ed4a1a437f4c40c9a635ce71e6a37f09cbf5875103db99dcfe57749dfc",
+        "manifest_row": 1889,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/test/ceramic/ceramic_10_r22.png",
+        "sha256": "6427547665c7722e82c5022b44367c80ee43d0527f35ca2b04c2c206d004bfee",
+        "manifest_row": 51,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/train/stone/stone_11_r24.png",
+        "sha256": "64c117f742ea8b0da71459493a1d3c821c4f9dc2c7301678c49131af6cf1a29e",
+        "manifest_row": 2303,
+        "rgb_size": [
+          512,
+          512
+        ]
+      },
+      {
+        "image_path": "dataset/val/fabric/fabric_06_r30.png",
+        "sha256": "8d86bff8f3a3563c981d83c4b3b34e1ecf695cf7bf36d552f832922af19c38c2",
+        "manifest_row": 2909,
+        "rgb_size": [
+          512,
+          512
+        ]
+      }
+    ],
+    "selection_rule": "NumPy default_rng(seed).permutation(manifest rows), first max(batches); each batch uses the first batch_size images every trial."
+  },
+  "deployment": {
+    "artifact": {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\control_model.joblib",
+      "bytes": 198959,
+      "sha256": "c7530c0a4d00b8966547561ffb3c976b65fe69cf9888957cc8c3c2041e5dee06"
+    },
+    "sidecar": {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\control_model_metadata.json",
+      "bytes": 698544,
+      "sha256": "8024925a56425431f2d805771ad3bf635eb1ae27599daa8ef14725a87f9a53de"
+    },
+    "artifact_role": "classifier_and_scaler_only",
+    "pretrained_weight_files": [
+      {
+        "path": "C:\\Users\\dianb\\.cache\\huggingface\\hub\\models--timm--convnext_tiny.fb_in22k_ft_in1k\\snapshots\\bc48a87f119bae1b06418f5340bfa97ef75d4609\\model.safetensors",
+        "bytes": 114374272,
+        "sha256": "77b619e187de71bce58721689da0c009e84cc20677293d7d43105307e34d868a",
+        "repository": "timm/convnext_tiny.fb_in22k_ft_in1k",
+        "revision": "bc48a87f119bae1b06418f5340bfa97ef75d4609",
+        "weights_file": "model.safetensors",
+        "runtime_instances": [
+          "convnext_224"
+        ]
+      }
+    ],
+    "unique_pretrained_weight_bytes": 114374272,
+    "total_deployment_bytes": 115271775,
+    "dependency_note": "Pinned cached pretrained safetensors required; joblib is only scaler/head.",
+    "backbone_instances": [
+      {
+        "name": "convnext_224",
+        "model": "convnext_tiny.fb_in22k_ft_in1k",
+        "resolution": 224,
+        "parameters": 27820128,
+        "weights_sha256": "77b619e187de71bce58721689da0c009e84cc20677293d7d43105307e34d868a"
+      }
+    ],
+    "runtime_backbone_instances": 1,
+    "head_parameters": 5383,
+    "scaler_state_elements_excluded_from_parameters": 2304,
+    "runtime_unique_parameters": 27825511,
+    "unique_source_parameters_including_head": 27825511,
+    "parameter_scope": "Runtime: unique resident Parameter objects plus fitted head coef/intercept. Unique source: each (weight-file SHA256, used parameter name) once using original checkpoint shapes, plus fitted head; neural: exported model parameters. Excludes buffers/scaler state and discarded pretrained classifier parameters. File bytes include complete files and are not inferred from parameter counts."
+  },
+  "artifact_metadata": {
+    "recipe": {
+      "name": "convnext_pooled224",
+      "parts": [
+        "convnext_224_pooled"
+      ]
+    },
+    "protocol": {
+      "schema_version": 1,
+      "name": "frozen-feature-v3",
+      "class_order": [
+        "wood",
+        "metal",
+        "stone",
+        "concrete",
+        "ceramic",
+        "fabric",
+        "leather"
+      ],
+      "seed": 20261027,
+      "outer_folds": 5,
+      "inner_folds": 3,
+      "group_column": "source_group",
+      "split_method": "StratifiedKFold on sorted unique source groups, expanded to image rows; every source group has one class",
+      "selection_metric": "macro_f1",
+      "tie_break": "within absolute tolerance of best score: candidate declaration order, then ascending C",
+      "tie_tolerance": 1e-12,
+      "C": [
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ],
+      "head": {
+        "solver": "lbfgs",
+        "max_iter": 3000,
+        "tol": 0.0001,
+        "class_weight": "balanced",
+        "penalty": "l2"
+      },
+      "scaler": {
+        "with_mean": true,
+        "with_std": true
+      },
+      "sample_weight": "none; unweighted per-image fit with fixed class_weight=balanced",
+      "convergence_policy": "fail run on ConvergenceWarning; no automatic solver or protocol change",
+      "split_failure_policy": "fail before scored fits if class support or group isolation is invalid; no adaptive fallback",
+      "control": "convnext_pooled224",
+      "precision": "float32; no autocast; patch std correction=0; TF32 disabled",
+      "preprocess": "PIL RGB; EXIF transpose; resize shorter edge floor(size/crop_pct) with PIL bicubic; longer edge floor; rounded center crop; float32 /255; model mean/std",
+      "foreground_crop": "not included; model-specific deterministic center preprocessing only",
+      "models": {
+        "dino": {
+          "name": "vit_small_patch14_reg4_dinov2.lvd142m",
+          "repository": "timm/vit_small_patch14_reg4_dinov2.lvd142m",
+          "revision": "c04b5193082a8d5b0c4856c7937384a48136c5de",
+          "weights_file": "model.safetensors",
+          "weights_sha256": "dca70548ecd7b03ffba6172c4db403014511b5ee6073f9fca72ba9e6e602a25d",
+          "width": 384,
+          "patch_size": 14,
+          "num_prefix_tokens": 5,
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ],
+          "crop_pct": 1.0,
+          "resolutions": [
+            224,
+            336
+          ],
+          "position_resize": "timm checkpoint_filter_fn bicubic antialias=True"
+        },
+        "convnext": {
+          "name": "convnext_tiny.fb_in22k_ft_in1k",
+          "repository": "timm/convnext_tiny.fb_in22k_ft_in1k",
+          "revision": "bc48a87f119bae1b06418f5340bfa97ef75d4609",
+          "weights_file": "model.safetensors",
+          "weights_sha256": "77b619e187de71bce58721689da0c009e84cc20677293d7d43105307e34d868a",
+          "width": 768,
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ],
+          "crop_pct": 0.875,
+          "resolutions": [
+            224
+          ]
+        }
+      },
+      "candidates": [
+        {
+          "name": "dino_cls224",
+          "parts": [
+            "dino_224_cls"
+          ]
+        },
+        {
+          "name": "dino_cls_mean224",
+          "parts": [
+            "dino_224_cls",
+            "dino_224_mean"
+          ]
+        },
+        {
+          "name": "dino_multiscale",
+          "parts": [
+            "dino_224_cls",
+            "dino_224_mean",
+            "dino_224_std",
+            "dino_336_cls",
+            "dino_336_mean",
+            "dino_336_std"
+          ]
+        },
+        {
+          "name": "convnext_pooled224",
+          "parts": [
+            "convnext_224_pooled"
+          ]
+        },
+        {
+          "name": "dino_multiscale_convnext",
+          "parts": [
+            "dino_224_cls",
+            "dino_224_mean",
+            "dino_224_std",
+            "dino_336_cls",
+            "dino_336_mean",
+            "dino_336_std",
+            "convnext_224_pooled"
+          ]
+        }
+      ],
+      "interpretation": {
+        "primary": "Nested selection-procedure OOF research estimate on all historical development data, including the old test split.",
+        "candidate_oof": "Descriptive predeclared candidate ablations with C selected in each outer training partition.",
+        "control_oof": "Predeclared ConvNeXt control; C selected independently in each outer training partition.",
+        "final": "Selected by grouped inner CV on all development data, then fitted on all development data. Also export independently C-selected all-development ConvNeXt control. No new test is used.",
+        "fresh_holdout": "Apply final saved recipe, scaler and head without fitting; evaluate only after selection is frozen."
+      },
+      "sources": [
+        "https://github.com/facebookresearch/dinov2",
+        "https://huggingface.co/timm/vit_small_patch14_reg4_dinov2.lvd142m",
+        "https://huggingface.co/timm/convnext_tiny.fb_in22k_ft_in1k",
+        "https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html"
+      ]
+    },
+    "protocol_sha256": "9069a92661a348052dd65da67dadd612d8e0b00e5918fa161bc7ce831985cb41",
+    "input_features": 768
+  },
+  "hardware": {
+    "hostname": "Dian_Zephyrus",
+    "processor": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "machine": "AMD64",
+    "logical_cpu_count": 24,
+    "device": "cuda",
+    "torch_threads": 4,
+    "torch_interop_threads": 12,
+    "thread_pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "libiomp",
+        "filepath": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      }
+    ],
+    "execution": {
+      "deterministic_algorithms": true,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": false,
+      "matmul_allow_tf32": false,
+      "float32_matmul_precision": "highest",
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": null,
+        "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "HF_HOME": null,
+        "HF_HUB_CACHE": null,
+        "TORCH_HOME": null
+      }
+    },
+    "cuda": {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+      "total_memory_bytes": 8585216000,
+      "compute_capability": [
+        8,
+        9
+      ],
+      "uuid": "b5ceaa54-bed9-4389-c644-4618c493a168"
+    }
+  },
+  "csv_sha256": "6a914ac13dcffbfe955690885b4a51391713ef3737709ce2634225ab56991d25"
+}

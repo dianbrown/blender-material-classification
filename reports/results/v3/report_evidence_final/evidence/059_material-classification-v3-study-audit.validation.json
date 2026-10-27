@@ -1,0 +1,39 @@
+{
+  "all_entry_hashes_verified": true,
+  "archive": "material-classification-v3-study-audit.zip",
+  "class_counts": {
+    "ceramic": 540,
+    "concrete": 540,
+    "fabric": 540,
+    "leather": 540,
+    "metal": 540,
+    "stone": 540,
+    "wood": 540
+  },
+  "crc_verified": true,
+  "dataset_license": "",
+  "entries": 3927,
+  "images": 3780,
+  "manifest_sha256": "1de0d87eaae8b4f29b80fa25776f65f0c71b553b1dcd9671d4eaa55f378e17b2",
+  "manifest_verified": true,
+  "material_ids": 126,
+  "model_scores_accessed": false,
+  "png_bytes_changed_by_metadata_removal": 3780,
+  "private_path_scan_passed": true,
+  "release_approved": false,
+  "schema_version": 1,
+  "sha256": "4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da",
+  "size_bytes": 1005048843,
+  "source_and_pixel_hashes_verified": true,
+  "source_groups": 122,
+  "split_counts": {
+    "development": 3150,
+    "test": 630
+  },
+  "split_source_groups": {
+    "development": 101,
+    "test": 21
+  },
+  "status": "AUDIT ONLY / NOT YET PUBLISHED",
+  "upload_performed": false
+}

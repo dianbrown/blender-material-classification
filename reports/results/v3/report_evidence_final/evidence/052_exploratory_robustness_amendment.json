@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "declared_at_utc": "2026-10-27T10:01:14.197690+00:00",
+  "kind": "exploratory_post_holdout_sensitivity",
+  "model": "dinov2_finetuned",
+  "primary_model_unchanged": "frozen_selected",
+  "lock_sha256": "4a5c02f5d9fc6c38b5de227db5520c89a29c0d75da94b689abc4e9f41f88d0bf",
+  "motivation": "Fine-tuned comparison scored86.83% clean while primary scored80.16%; primary JPEG30 sensitivity59.05% motivates descriptive comparison, not new model selection.",
+  "conditions": "Exactly the same five preregistered corruption datasets; no new conditions, training or parameter fitting.",
+  "interpretation": "Added after clean model scores and primary robustness were observed. This is exploratory and must not be called preregistered independent confirmation. The primary model and all checkpoint bytes remain fixed."
+}

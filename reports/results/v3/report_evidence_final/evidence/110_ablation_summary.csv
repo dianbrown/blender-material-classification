@@ -1,0 +1,6 @@
+Candidate,Accuracy (%),Macro F1,Log loss (nats)
+dino_cls224,78.349,0.7847,0.6956
+dino_cls_mean224,78.540,0.7868,0.6987
+dino_multiscale,79.810,0.7982,0.8388
+convnext_pooled224,68.857,0.6861,1.0603
+dino_multiscale_convnext,79.841,0.7991,0.7719

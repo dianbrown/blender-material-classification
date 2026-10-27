@@ -1,0 +1,2 @@
+label,scope,interpretation
+ConvNeXt control,fresh_holdout,Locked clean holdout evaluation; primary role fixed before predictions.

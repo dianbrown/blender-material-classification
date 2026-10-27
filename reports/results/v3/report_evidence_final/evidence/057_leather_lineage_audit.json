@@ -1,0 +1,1203 @@
+{
+  "retrieved_at_utc": "2026-10-27T07:13:23.435882+00:00",
+  "api_url": "https://ambientcg.com/api/v3/assets?q=leather&type=material&limit=100&include=technique,relations,title,tags,url,releaseDate",
+  "assets": [
+    {
+      "id": "Leather037",
+      "technique": "surface-photometric-stereo",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather038",
+        "previous": "Leather036A"
+      },
+      "title": "Leather 037",
+      "tags": [
+        "37",
+        "brown",
+        "clean",
+        "dark",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather037",
+      "releaseDate": "2022-08-14"
+    },
+    {
+      "id": "Leather038",
+      "technique": "surface-photometric-stereo",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather039",
+        "previous": "Leather037"
+      },
+      "title": "Leather 038",
+      "tags": [
+        "38",
+        "brown",
+        "fine",
+        "leather",
+        "orange",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather038",
+      "releaseDate": "2025-03-14"
+    },
+    {
+      "id": "Leather030",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance005"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather031",
+        "previous": "Leather029"
+      },
+      "title": "Leather 030",
+      "tags": [
+        "30",
+        "brown",
+        "dark",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather030",
+      "releaseDate": "2021-02-21"
+    },
+    {
+      "id": "Leather026",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather027",
+        "previous": "Leather025"
+      },
+      "title": "Leather 026",
+      "tags": [
+        "26",
+        "black",
+        "dark",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather026",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather039",
+      "technique": "surface-photometric-stereo",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": null,
+        "previous": "Leather038"
+      },
+      "title": "Leather 039",
+      "tags": [
+        "39",
+        "bright",
+        "fine",
+        "leather",
+        "light",
+        "rough",
+        "suede"
+      ],
+      "url": "https://ambientcg.com/a/Leather039",
+      "releaseDate": "2025-03-14"
+    },
+    {
+      "id": "Leather034C",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather034A",
+          "Leather034B",
+          "Leather034D"
+        ],
+        "next": "Leather035A",
+        "previous": "Leather033A"
+      },
+      "title": "Leather 034 C",
+      "tags": [
+        "34",
+        "black",
+        "brown",
+        "dark",
+        "leather",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather034C",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather027",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather028",
+        "previous": "Leather026"
+      },
+      "title": "Leather 027",
+      "tags": [
+        "27",
+        "black",
+        "dark",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather027",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather035D",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather035A",
+          "Leather035B",
+          "Leather035C"
+        ],
+        "next": "Leather036A",
+        "previous": "Leather034A"
+      },
+      "title": "Leather 035 D",
+      "tags": [
+        "35",
+        "beige",
+        "leather",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather035D",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather033A",
+      "technique": "surface-approximated",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [
+          "Leather033B",
+          "Leather033C"
+        ],
+        "next": "Leather034A",
+        "previous": "Leather032"
+      },
+      "title": "Leather 033 A",
+      "tags": [
+        "33",
+        "brown",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather033A",
+      "releaseDate": "2022-03-20"
+    },
+    {
+      "id": "Leather033C",
+      "technique": "surface-approximated",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [
+          "Leather033A",
+          "Leather033B"
+        ],
+        "next": "Leather034A",
+        "previous": "Leather032"
+      },
+      "title": "Leather 033 C",
+      "tags": [
+        "33",
+        "brown",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather033C",
+      "releaseDate": "2022-03-20"
+    },
+    {
+      "id": "Leather032",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance005"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather033A",
+        "previous": "Leather031"
+      },
+      "title": "Leather 032",
+      "tags": [
+        "32",
+        "black",
+        "leather",
+        "scratched"
+      ],
+      "url": "https://ambientcg.com/a/Leather032",
+      "releaseDate": "2021-02-21"
+    },
+    {
+      "id": "Leather028",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance005"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather029",
+        "previous": "Leather027"
+      },
+      "title": "Leather 028",
+      "tags": [
+        "28",
+        "brown",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather028",
+      "releaseDate": "2021-02-21"
+    },
+    {
+      "id": "Leather034D",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather034A",
+          "Leather034B",
+          "Leather034C"
+        ],
+        "next": "Leather035A",
+        "previous": "Leather033A"
+      },
+      "title": "Leather 034 D",
+      "tags": [
+        "34",
+        "brown",
+        "dark",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather034D",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather031",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance005"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather032",
+        "previous": "Leather030"
+      },
+      "title": "Leather 031",
+      "tags": [
+        "31",
+        "black",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather031",
+      "releaseDate": "2021-02-21"
+    },
+    {
+      "id": "Leather011",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance002"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather012",
+        "previous": "Leather010"
+      },
+      "title": "Leather 011",
+      "tags": [
+        "11",
+        "couch",
+        "leather",
+        "red",
+        "sofa"
+      ],
+      "url": "https://ambientcg.com/a/Leather011",
+      "releaseDate": "2019-01-20"
+    },
+    {
+      "id": "Leather014",
+      "technique": "surface-approximated",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather015",
+        "previous": "Leather013"
+      },
+      "title": "Leather 014",
+      "tags": [
+        "14",
+        "brown",
+        "leather",
+        "old",
+        "scratched",
+        "scratches",
+        "scuffs",
+        "used",
+        "vintage"
+      ],
+      "url": "https://ambientcg.com/a/Leather014",
+      "releaseDate": "2019-02-13"
+    },
+    {
+      "id": "Leather036D",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather036A",
+          "Leather036B",
+          "Leather036C"
+        ],
+        "next": "Leather037",
+        "previous": "Leather035A"
+      },
+      "title": "Leather 036 D",
+      "tags": [
+        "36",
+        "diamond",
+        "leather",
+        "red",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather036D",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather025",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather026",
+        "previous": "Leather024"
+      },
+      "title": "Leather 025",
+      "tags": [
+        "25",
+        "leather",
+        "rough",
+        "smooth",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather025",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather012",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance002"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather013",
+        "previous": "Leather011"
+      },
+      "title": "Leather 012",
+      "tags": [
+        "12",
+        "couch",
+        "leather",
+        "sofa",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather012",
+      "releaseDate": "2019-01-21"
+    },
+    {
+      "id": "Leather033B",
+      "technique": "surface-approximated",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [
+          "Leather033A",
+          "Leather033C"
+        ],
+        "next": "Leather034A",
+        "previous": "Leather032"
+      },
+      "title": "Leather 033 B",
+      "tags": [
+        "33",
+        "brown",
+        "leather"
+      ],
+      "url": "https://ambientcg.com/a/Leather033B",
+      "releaseDate": "2022-03-20"
+    },
+    {
+      "id": "Leather029",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance005"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather030",
+        "previous": "Leather028"
+      },
+      "title": "Leather 029",
+      "tags": [
+        "29",
+        "brown",
+        "leather",
+        "light"
+      ],
+      "url": "https://ambientcg.com/a/Leather029",
+      "releaseDate": "2021-02-21"
+    },
+    {
+      "id": "Leather024",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather025",
+        "previous": "Leather023"
+      },
+      "title": "Leather 024",
+      "tags": [
+        "24",
+        "leather",
+        "red",
+        "shiny",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather024",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather023",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather024",
+        "previous": "Leather022"
+      },
+      "title": "Leather 023",
+      "tags": [
+        "23",
+        "beige",
+        "brown",
+        "leather",
+        "light",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather023",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather008",
+      "technique": "surface-approximated",
+      "relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather009",
+        "previous": "Leather007"
+      },
+      "title": "Leather 008",
+      "tags": [
+        "8",
+        "black",
+        "crocodile",
+        "dark",
+        "leather",
+        "skin",
+        "snake"
+      ],
+      "url": "https://ambientcg.com/a/Leather008",
+      "releaseDate": "2018-07-04"
+    },
+    {
+      "id": "Leather022",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather023",
+        "previous": "Leather021"
+      },
+      "title": "Leather 022",
+      "tags": [
+        "22",
+        "brown",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather022",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather009",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance002"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather010",
+        "previous": "Leather008"
+      },
+      "title": "Leather 009",
+      "tags": [
+        "9",
+        "black",
+        "couch",
+        "leather",
+        "sofa"
+      ],
+      "url": "https://ambientcg.com/a/Leather009",
+      "releaseDate": "2019-01-18"
+    },
+    {
+      "id": "Leather035C",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather035A",
+          "Leather035B",
+          "Leather035D"
+        ],
+        "next": "Leather036A",
+        "previous": "Leather034A"
+      },
+      "title": "Leather 035 C",
+      "tags": [
+        "35",
+        "beige",
+        "leather",
+        "stitched",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather035C",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather021",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance004"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather022",
+        "previous": "Leather020"
+      },
+      "title": "Leather 021",
+      "tags": [
+        "21",
+        "black",
+        "brown",
+        "dark",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather021",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather004",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather005",
+        "previous": "Leather003"
+      },
+      "title": "Leather 004",
+      "tags": [
+        "4",
+        "cloth",
+        "leather",
+        "smooth",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather004",
+      "releaseDate": "2018-06-29"
+    },
+    {
+      "id": "Leather034B",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather034A",
+          "Leather034C",
+          "Leather034D"
+        ],
+        "next": "Leather035A",
+        "previous": "Leather033A"
+      },
+      "title": "Leather 034 B",
+      "tags": [
+        "34",
+        "black",
+        "brown",
+        "dark",
+        "leather",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather034B",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather034A",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather034B",
+          "Leather034C",
+          "Leather034D"
+        ],
+        "next": "Leather035A",
+        "previous": "Leather033A"
+      },
+      "title": "Leather 034 A",
+      "tags": [
+        "34",
+        "black",
+        "brown",
+        "dark",
+        "leather",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather034A",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather002",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather003",
+        "previous": "Leather001"
+      },
+      "title": "Leather 002",
+      "tags": [
+        "2",
+        "brown",
+        "cloth",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather002",
+      "releaseDate": "2018-06-26"
+    },
+    {
+      "id": "Leather001",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather002",
+        "previous": null
+      },
+      "title": "Leather 001",
+      "tags": [
+        "1",
+        "brown",
+        "cloth",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather001",
+      "releaseDate": "2018-06-25"
+    },
+    {
+      "id": "Leather013",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance002"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather014",
+        "previous": "Leather012"
+      },
+      "title": "Leather 013",
+      "tags": [
+        "13",
+        "couch",
+        "dark",
+        "leather",
+        "red",
+        "sofa"
+      ],
+      "url": "https://ambientcg.com/a/Leather013",
+      "releaseDate": "2019-01-22"
+    },
+    {
+      "id": "Leather005",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather006",
+        "previous": "Leather004"
+      },
+      "title": "Leather 005",
+      "tags": [
+        "5",
+        "leather",
+        "red",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather005",
+      "releaseDate": "2018-06-30"
+    },
+    {
+      "id": "Leather035B",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather035A",
+          "Leather035C",
+          "Leather035D"
+        ],
+        "next": "Leather036A",
+        "previous": "Leather034A"
+      },
+      "title": "Leather 035 B",
+      "tags": [
+        "35",
+        "beige",
+        "leather",
+        "stitched",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather035B",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather035A",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather035B",
+          "Leather035C",
+          "Leather035D"
+        ],
+        "next": "Leather036A",
+        "previous": "Leather034A"
+      },
+      "title": "Leather 035 A",
+      "tags": [
+        "35",
+        "beige",
+        "leather",
+        "stitched",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather035A",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather016",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather017",
+        "previous": "Leather015"
+      },
+      "title": "Leather 016",
+      "tags": [
+        "16",
+        "beige",
+        "leather",
+        "perforated",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather016",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather018",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather019",
+        "previous": "Leather017"
+      },
+      "title": "Leather 018",
+      "tags": [
+        "18",
+        "leather",
+        "light",
+        "perforated",
+        "smooth",
+        "white"
+      ],
+      "url": "https://ambientcg.com/a/Leather018",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather036C",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather036A",
+          "Leather036B",
+          "Leather036D"
+        ],
+        "next": "Leather037",
+        "previous": "Leather035A"
+      },
+      "title": "Leather 036 C",
+      "tags": [
+        "36",
+        "diamond",
+        "leather",
+        "red",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather036C",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather010",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance002"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather011",
+        "previous": "Leather009"
+      },
+      "title": "Leather 010",
+      "tags": [
+        "10",
+        "brown",
+        "couch",
+        "leather",
+        "sofa"
+      ],
+      "url": "https://ambientcg.com/a/Leather010",
+      "releaseDate": "2019-01-19"
+    },
+    {
+      "id": "Leather036B",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather036A",
+          "Leather036C",
+          "Leather036D"
+        ],
+        "next": "Leather037",
+        "previous": "Leather035A"
+      },
+      "title": "Leather 036 B",
+      "tags": [
+        "36",
+        "diamond",
+        "leather",
+        "red",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather036B",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather007",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather008",
+        "previous": "Leather006"
+      },
+      "title": "Leather 007",
+      "tags": [
+        "7",
+        "brown",
+        "dark",
+        "leather",
+        "rough",
+        "used"
+      ],
+      "url": "https://ambientcg.com/a/Leather007",
+      "releaseDate": "2018-07-03"
+    },
+    {
+      "id": "Leather020",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather021",
+        "previous": "Leather019"
+      },
+      "title": "Leather 020",
+      "tags": [
+        "20",
+        "dark",
+        "leather",
+        "perforated",
+        "red",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather020",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather003",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather004",
+        "previous": "Leather002"
+      },
+      "title": "Leather 003",
+      "tags": [
+        "3",
+        "brown",
+        "cloth",
+        "leather",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather003",
+      "releaseDate": "2018-06-27"
+    },
+    {
+      "id": "Leather015",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather016",
+        "previous": "Leather014"
+      },
+      "title": "Leather 015",
+      "tags": [
+        "15",
+        "brown",
+        "dark",
+        "leather",
+        "perforated",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather015",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather036A",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance006"
+        ],
+        "children": [],
+        "variations": [
+          "Leather036B",
+          "Leather036C",
+          "Leather036D"
+        ],
+        "next": "Leather037",
+        "previous": "Leather035A"
+      },
+      "title": "Leather 036 A",
+      "tags": [
+        "36",
+        "diamond",
+        "leather",
+        "red",
+        "stitched"
+      ],
+      "url": "https://ambientcg.com/a/Leather036A",
+      "releaseDate": "2022-06-12"
+    },
+    {
+      "id": "Leather017",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather018",
+        "previous": "Leather016"
+      },
+      "title": "Leather 017",
+      "tags": [
+        "17",
+        "beige",
+        "leather",
+        "light",
+        "perforated",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather017",
+      "releaseDate": "2020-02-09"
+    },
+    {
+      "id": "Leather006",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance001"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather007",
+        "previous": "Leather005"
+      },
+      "title": "Leather 006",
+      "tags": [
+        "6",
+        "brown",
+        "dark",
+        "leather",
+        "rough",
+        "used"
+      ],
+      "url": "https://ambientcg.com/a/Leather006",
+      "releaseDate": "2018-07-01"
+    },
+    {
+      "id": "Leather019",
+      "technique": "surface-fully-procedural",
+      "relations": {
+        "parents": [
+          "LeatherSubstance003"
+        ],
+        "children": [],
+        "variations": [],
+        "next": "Leather020",
+        "previous": "Leather018"
+      },
+      "title": "Leather 019",
+      "tags": [
+        "19",
+        "brown",
+        "dark",
+        "leather",
+        "perforated",
+        "smooth"
+      ],
+      "url": "https://ambientcg.com/a/Leather019",
+      "releaseDate": "2020-02-09"
+    }
+  ],
+  "decision": "Select only the three photometric-stereo sources. Reject original IDs, shared substance parents, and letter variants. Leather001-007 share one unrepresented procedural parent, not seven independent sources; omit procedural extra. Leather014 and Leather033A-C have approximated maps and no scan provenance; absence of a parent is insufficient evidence of physical independence from older approximated Leather008. Do not expand to five with uncertain families."
+}

@@ -1,0 +1,5 @@
+Pipeline,Log loss,Brier score,ECE (15 bins)
+Primary frozen fusion,0.6745,0.3018,0.0948
+ConvNeXt control,0.8611,0.3543,0.0847
+Fixed ResNet-50,0.7097,0.3075,0.1050
+Fine-tuned DINOv2,0.5234,0.2310,0.1411

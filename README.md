@@ -4,9 +4,9 @@ Seven-class classification of synthetic Blender PBR renders with source-family
 separation, locked model selection and traceable measured evidence. **V3 is
 complete: the preselected primary achieved 80.16% clean holdout accuracy.**
 
-[Final PDF](reports/v3/report.pdf) ? [Report Markdown](reports/v3/report.md) ?
-[Executed results notebook](notebooks/05_v3_results.ipynb) ?
-[Model card](MODEL_CARD.md) ? [Dataset card](DATASET.md)
+[Final PDF](reports/v3/report.pdf) | [Report Markdown](reports/v3/report.md) |
+[Executed results notebook](notebooks/05_v3_results.ipynb) |
+[Model card](MODEL_CARD.md) | [Dataset card](DATASET.md)
 
 ## Completed results
 
@@ -37,12 +37,22 @@ The lock at 09:51:05 UTC preceded first fresh prediction at 09:54:06 UTC on
 
 ## Quickstart: saved checkpoints
 
-Use Python 3.13 and the recorded V3 environment. Frozen inference also requires
-`timm`, `safetensors`, `huggingface-hub`, `joblib` and `threadpoolctl` beyond
-base project dependencies. Exact executed versions are in
+Use Python 3.13 and [requirements-v3-lock.txt](requirements-v3-lock.txt), which
+pins the executed V3 dependencies, including frozen-feature and PDF tooling.
+The older `pyproject.toml` pins describe V1; installing its dependencies over V3
+would change the validated environment. On the Windows CUDA machine, run:
+
+```powershell
+./scripts/setup_v3.ps1
+./.venv/Scripts/Activate.ps1
+python -m pip install -c requirements-v3-lock.txt -r requirements-notebook.txt
+```
+
+The setup script uses `uv` and verifies CUDA availability. The final command
+adds optional notebook tooling. Exact execution details are in
 [environment.json](reports/results/v3/environment.json) and cache/checkpoint
-metadata; the older dependency lock does not describe every V3 dependency.
-PDF rebuilding needs ReportLab. Notebook setup uses `requirements-notebook.txt`.
+metadata. CPU inference works in a compatible environment; the supplied setup
+script specifically prepares the recorded Windows CUDA environment.
 
 Checkpoints and pretrained caches are local artifacts, **not included in Git**.
 Obtain trusted files and verify hashes in `final_model_lock.json`. Frozen

@@ -1,0 +1,786 @@
+[
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\assembly.json",
+    "path": "evidence/000_assembly.json",
+    "source_sha256": "59d06a26d0162d41c1430ff4a3f89552189d6ab534e61c1e96789154fb8bcdd2",
+    "sha256": "59d06a26d0162d41c1430ff4a3f89552189d6ab534e61c1e96789154fb8bcdd2",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\protocol.json",
+    "path": "evidence/001_protocol.json",
+    "source_sha256": "210528560f493100ee87d3c169526916d7309084e559016b18b81b4d8262e3ad",
+    "sha256": "19892a29ec46f4f3a501d60a00b698154f733e26cb56998abed0919ea9fce07b",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\environment.json",
+    "path": "evidence/002_environment.json",
+    "source_sha256": "a777e96a79794ba0754cc8f168777214c6d190caf9224bfffab914a3df4abf96",
+    "sha256": "05fd03cb0b2b2a0306411652e9c3fa803cd7fb8a80882aeeaf573c3d4f407804",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\data_audit.json",
+    "path": "evidence/003_data_audit.json",
+    "source_sha256": "7b996068fb67ea964af384fdd13e06414aca58f7694ac8da2ffdcc602bec4de0",
+    "sha256": "7b996068fb67ea964af384fdd13e06414aca58f7694ac8da2ffdcc602bec4de0",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\run.json",
+    "path": "evidence/004_run.json",
+    "source_sha256": "69428eee87617c6b613bbdd15845c10265c80f8c000c5655da387011e55026d3",
+    "sha256": "1bcfcabd3afc67e78729e21a93d8a8958994f5bc92f4c59e9dfcbd382f6e1a00",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\model_metadata.json",
+    "path": "evidence/005_model_metadata.json",
+    "source_sha256": "064088063f993b46d9652d2cb313d5d9c072824e5862932f5dfaef435b2ff7db",
+    "sha256": "5b21e171d2a4c8dd860828eb847b0717145abac31a3cc5c53aa7f60f439c6b8e",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\search_history.csv",
+    "path": "evidence/006_search_history.csv",
+    "source_sha256": "91d1999b6abbb241bf2fdcaf6d3a7695440f55dbed05743690bbcd54cd3c30bb",
+    "sha256": "6a2e735408e52706f13d082377142f04292abd954dd351929941a18ecea87052",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features_final\\cache.json",
+    "path": "evidence/007_cache.json",
+    "source_sha256": "c7f70fb1a05a155567276e96d80a044cd5a81deb6bc57d29ccbffc9e99b95ae6",
+    "sha256": "42a6e94a87c5a8af2eaf208550cead645f97d9b490bf2da287266f4b29b674b8",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_selected\\evaluation.json",
+    "path": "evidence/008_evaluation.json",
+    "source_sha256": "47ab0366fc08a6b19ccb06ed89744613d853ef28e58e18a88f95733fa0ccda4c",
+    "sha256": "3c44d2bd0c29bec637e8073b17184928d1507be71c778af547a37a27a49d487a",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\selected_oof.csv",
+    "path": "evidence/009_selected_oof.csv",
+    "source_sha256": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d",
+    "sha256": "c9711f7f16fb2878ac51398f9177bbbac46907d9a8ed8431bae1339f41012409",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_control\\evaluation.json",
+    "path": "evidence/010_evaluation.json",
+    "source_sha256": "1768a25b9992631d549e0da94b59cb8dde3cb65c97d192f45767772af1a6b0cd",
+    "sha256": "85d7924d56b9d5c26fdd43c0533b904ba75f2b2418d42f90f36227915fb67b30",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\control_oof.csv",
+    "path": "evidence/011_control_oof.csv",
+    "source_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+    "sha256": "2e2c751206c0263ad9ec76c9f196c37f0c4302ec015bf267d1b0c23f7b3721df",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_resnet\\evaluation.json",
+    "path": "evidence/012_evaluation.json",
+    "source_sha256": "56ec5a358bd342cedaf345e27ca1c0927886bc716ec4d2298a0f24cf2532f1bb",
+    "sha256": "e8669b25d6f4cacb01045f0cc831854e4e9a2d1d46773750dbaed1fa0d2776e6",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\resnet_oof.csv",
+    "path": "evidence/013_resnet_oof.csv",
+    "source_sha256": "b840528ae807d1c52f1f44c4dca227f5d3080386295e7fb85b6a74c37d868123",
+    "sha256": "43c68648f931078df4218c11d2670fd9164bff7148364d117567e7a37bf855d9",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_selected\\evaluation.json",
+    "path": "evidence/014_evaluation.json",
+    "source_sha256": "869b20ad50cb5a1410e9f287a542b8376d70cabdffcb3bd10a0900960e3887fd",
+    "sha256": "87a8937958502f217d8a3d157c34b4079aa0ed3ca0b5e627b94c5f2b11e611ba",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_selected\\predictions.csv",
+    "path": "evidence/015_predictions.csv",
+    "source_sha256": "3f7a5777e70017eaaeef68be6910b478999618d4febe13bd9f36fe59904ca895",
+    "sha256": "53bd53cc1a0463c4be8460fecba6aa498fcb27f9d58be90e9813eab498ab0ea2",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\selection_lock_adapter.json",
+    "path": "evidence/016_selection_lock_adapter.json",
+    "source_sha256": "b30dcb1f1f9f43dbc2e1cd8f8640f8deace686566c0bad63f8ca7b6c8139c131",
+    "sha256": "b30dcb1f1f9f43dbc2e1cd8f8640f8deace686566c0bad63f8ca7b6c8139c131",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\source_identity_audit.json",
+    "path": "evidence/017_source_identity_audit.json",
+    "source_sha256": "3026cd20f4c64a5a621e585a59788b785b9a21a119b7fc5e43064f56b9768b49",
+    "sha256": "3026cd20f4c64a5a621e585a59788b785b9a21a119b7fc5e43064f56b9768b49",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_control\\evaluation.json",
+    "path": "evidence/018_evaluation.json",
+    "source_sha256": "f30284615e64eedb92350cc83a4a741cca57001da9996ff5a64555308290a5e7",
+    "sha256": "f2e56cb8f1c861fb13bb4f4e2e02656ca0ad5e5876541ae6f100d653bbc495f2",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_control\\predictions.csv",
+    "path": "evidence/019_predictions.csv",
+    "source_sha256": "ba73faf8b5be298e4af55a377a5051646f0fb56389954bd5ef003d67e8ab47f4",
+    "sha256": "7fada3a3bacd8d1a75680a96a06d97889e55765019363b1ca44db2bedd2e10ad",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\resnet_fixed\\evaluation.json",
+    "path": "evidence/020_evaluation.json",
+    "source_sha256": "8d49526b7ce6d188323937dd2eed23a2e13a6f188b60d58508708b8e48de7177",
+    "sha256": "b0dca89f62e5e3fbc0ef271c8e243a3d560a79f9aa8e26de16947de625eb19b0",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\resnet_fixed\\predictions.csv",
+    "path": "evidence/021_predictions.csv",
+    "source_sha256": "c0c3a74511cc0de4b50017d8f11ac84e47933915e081c94cc893539bff47335d",
+    "sha256": "c2b9023463abe2d9ad150804555c0a6c16ed242f12b8007826331fc1b7682b65",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\dinov2_finetuned\\evaluation.json",
+    "path": "evidence/022_evaluation.json",
+    "source_sha256": "1c24847eec90baced2d6d0f2efebaa251feb243cb9a9a90fcc9e7badd65ef6a3",
+    "sha256": "d84500c1ca5938f465d92fdb2d03ea925c5b614ee6d5bfaa45987f0ad7ec7e76",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\dinov2_finetuned\\predictions.csv",
+    "path": "evidence/023_predictions.csv",
+    "source_sha256": "f8348870acbab3c59ee3beb9aa5aa5ef371ac3b44c1ccd62e47a61ec8f576924",
+    "sha256": "4828bbc01a4071809c37c2e8fec3d4260d48a356bcc4a2335b60fb7099a305bd",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\guard_revalidation_comparison.json",
+    "path": "evidence/024_guard_revalidation_comparison.json",
+    "source_sha256": "f14fe2a5297d4b924a47489d2f1e8e2a130a54559c0ee5be986627fd4bead3ad",
+    "sha256": "a7ba9043aff9a2a6ef83177244c789765a5386883b5ea0d83827d9e6ad180894",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\provenance_verification.json",
+    "path": "evidence/025_provenance_verification.json",
+    "source_sha256": "64868b62e5d5cb9c019b1a43e6015798abada922034cf7317907b898f0dac72f",
+    "sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\frozen_initial\\paired_selected_vs_control.json",
+    "path": "evidence/026_paired_selected_vs_control.json",
+    "source_sha256": "85b090f29cfd377e3ace10e4226e7818d1f6e29ca129d2986e38ed4273c8ed7a",
+    "sha256": "85b090f29cfd377e3ace10e4226e7818d1f6e29ca129d2986e38ed4273c8ed7a",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout_dataset\\qc.json",
+    "path": "evidence/027_qc.json",
+    "source_sha256": "2daa2338ed5fa24192b33385198f5b988729cea887f81e0ed9f12ea2bc254734",
+    "sha256": "7d16ee46caf513dd20665a78f0b374c33aea3362fc925ab91a711e8ce91a61c9",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_BASELINE_AMENDMENT.md",
+    "path": "evidence/028_V3_BASELINE_AMENDMENT.md",
+    "source_sha256": "b5f329c5e2ef6875857fa2e9388b674874091bfdb14b3509cc15991140e2a884",
+    "sha256": "b5f329c5e2ef6875857fa2e9388b674874091bfdb14b3509cc15991140e2a884",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_FINETUNE_AMENDMENT.md",
+    "path": "evidence/029_V3_FINETUNE_AMENDMENT.md",
+    "source_sha256": "a2274f804ba4e4a3cb5bd46ab10d0b18cdeb997d934b9512cf64ab563c24e665",
+    "sha256": "a2274f804ba4e4a3cb5bd46ab10d0b18cdeb997d934b9512cf64ab563c24e665",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_KAGGLE_RELEASE.md",
+    "path": "evidence/030_V3_KAGGLE_RELEASE.md",
+    "source_sha256": "1ec85ebfec1122907ecd2422574ecfacdcee1fe9fca1e23cfaaa71c0370fffa1",
+    "sha256": "1ec85ebfec1122907ecd2422574ecfacdcee1fe9fca1e23cfaaa71c0370fffa1",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\integrated_validation.json",
+    "path": "evidence/031_integrated_validation.json",
+    "source_sha256": "5e6257f8cf31f4d95d5cf2ce908a4439d154fd1c2b1c83bfc8e3c1eeccbfc345",
+    "sha256": "5e6257f8cf31f4d95d5cf2ce908a4439d154fd1c2b1c83bfc8e3c1eeccbfc345",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features-final.execution.json",
+    "path": "evidence/032_features-final.execution.json",
+    "source_sha256": "7b4177f54a9adaad403b03be888f9d9182582cd4111587116bb2dfec3457b976",
+    "sha256": "9bece6f0052f1a2e34e1fad7a44b8f614d0a6aafb642ef6c38d6bc1f1ee92bc1",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\train-final.execution.json",
+    "path": "evidence/033_train-final.execution.json",
+    "source_sha256": "4475a9795dfd4c980fddcd9b195c64cbdc467d9d8043977ec5a16e8abc8a1f8d",
+    "sha256": "5e3a2982d948924f278fc38cfdb870afe6315ebaa2951dc33b601f0411afb156",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\fold_assignments.csv",
+    "path": "evidence/034_fold_assignments.csv",
+    "source_sha256": "dd7acc49926c93df92147b64710ef864dcb9f4045553cf8e39a763d6127237e0",
+    "sha256": "67984a30a252febe188b6a946c303473d3a6454ad00470195a5d34b28d3e2db5",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\folds.json",
+    "path": "evidence/035_folds.json",
+    "source_sha256": "d7dfe10e53f0f4006250642715b68cc0203a049f6b6c248e48196f90b5fba046",
+    "sha256": "b76b7bf77395f284c2fcdde48a2767bea85a4df701e4133b3891c17abacc931e",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\final_folds.json",
+    "path": "evidence/036_final_folds.json",
+    "source_sha256": "b28957dbb352b19c544bb878ef7e76f7c25439977f825ce4e169805a2e17897a",
+    "sha256": "741e7df72441e7bd18ab3ec0b046da2d8be3f3d4beefdb2d8a5045fc82af3268",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\fold_choices.json",
+    "path": "evidence/037_fold_choices.json",
+    "source_sha256": "369f1e0f2d4370b7751089e8cd3e67777892b0d5cd6169d190cd015afa020d44",
+    "sha256": "c6d1d29760a7a5a1b770f703a41e3ad0f0ede677648693c1dc86df6d17cb7545",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\metrics.json",
+    "path": "evidence/038_metrics.json",
+    "source_sha256": "ec1559759342f831a3b58a107f57f90c7674ee51f637a7da0cc26ab8ccc13399",
+    "sha256": "592114772f2446d9607142923e26446caddc1b256e59cf7ddb7e12f91cfd93b7",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\diagnostics.json",
+    "path": "evidence/039_diagnostics.json",
+    "source_sha256": "a96692cf538d90c08a9fbeb4b4a0a44d2bddeb0d723084558dc691c1262e7c28",
+    "sha256": "cc1178b749be568e3919291961df9a0dc1a5bc7c86c4960031d61e14099de260",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\chosen_images.csv",
+    "path": "evidence/040_chosen_images.csv",
+    "source_sha256": "b95111c16aa950429f36fcc98845447e130cf89097f17d6e5118130f713ed0a2",
+    "sha256": "a72020f72ee1bc44d468d258cedabd44942c13d95566a98720040e0dd840e9c0",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\source_predictions.csv",
+    "path": "evidence/041_source_predictions.csv",
+    "source_sha256": "365e1a181763c74ee78a35610dac716a38d1493b1fdf47010d9c6c6a40d96d5d",
+    "sha256": "575fd8baef2dd65930c449af3200679e52451f0b2f8036f9c4732349d108b515",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_cls224.csv",
+    "path": "evidence/042_dino_cls224.csv",
+    "source_sha256": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17",
+    "sha256": "3bc19b49acb4c8db9e264f877a31ffc94b6a455cda4fab319dc3d7198cb7ee53",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_cls_mean224.csv",
+    "path": "evidence/043_dino_cls_mean224.csv",
+    "source_sha256": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741",
+    "sha256": "270e3fb1dcd1bf0de5952f14cb73504258bff55d6de6acc84b50910e68702812",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_multiscale.csv",
+    "path": "evidence/044_dino_multiscale.csv",
+    "source_sha256": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684",
+    "sha256": "abcd8f339d8c9df8b980d4452c4d38901386b0c4492d1dae5d3e61fa24c32292",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\convnext_pooled224.csv",
+    "path": "evidence/045_convnext_pooled224.csv",
+    "source_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+    "sha256": "2e2c751206c0263ad9ec76c9f196c37f0c4302ec015bf267d1b0c23f7b3721df",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_multiscale_convnext.csv",
+    "path": "evidence/046_dino_multiscale_convnext.csv",
+    "source_sha256": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547",
+    "sha256": "b2ebd420d3d4b8d7894b99d7d6b9c66efdba5509bad8406736bb40ba94a079c1",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_preview_inputs\\preview_gallery_selection.csv",
+    "path": "evidence/047_preview_gallery_selection.csv",
+    "source_sha256": "c2f709adc80c7bd45e10fbb744233eb379b7ff00bf6ef00090b57f226342f5e5",
+    "sha256": "c2f709adc80c7bd45e10fbb744233eb379b7ff00bf6ef00090b57f226342f5e5",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\model_choice.json",
+    "path": "evidence/048_model_choice.json",
+    "source_sha256": "7e302569a1a649d0b94e7bcfb0c3f21f94769f28c9a52a747a4ce581f41b2541",
+    "sha256": "7e302569a1a649d0b94e7bcfb0c3f21f94769f28c9a52a747a4ce581f41b2541",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\final_model_lock.json",
+    "path": "evidence/049_final_model_lock.json",
+    "source_sha256": "4a5c02f5d9fc6c38b5de227db5520c89a29c0d75da94b689abc4e9f41f88d0bf",
+    "sha256": "4a5c02f5d9fc6c38b5de227db5520c89a29c0d75da94b689abc4e9f41f88d0bf",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\final_execution_summary.json",
+    "path": "evidence/050_final_execution_summary.json",
+    "source_sha256": "54eb3bcc72cd4b0ed4f0dc9ffedf5f55d56fc6c0c96fa50ce973e7467418dc41",
+    "sha256": "801e15d118170948ca181b1a42d0af8eec3997cfda14921cf88a50bcc8b4c2f5",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\neural_execution_summary.json",
+    "path": "evidence/051_neural_execution_summary.json",
+    "source_sha256": "78b37bbc9832376acee6e0a80795315cb1bf10b4083ab03b07972ae12d9be3a6",
+    "sha256": "b7f385bd0d259b4611a6e2bd22cb363bed411f916a0a4c1495c76d90733d99c9",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\exploratory_robustness_amendment.json",
+    "path": "evidence/052_exploratory_robustness_amendment.json",
+    "source_sha256": "ba911be5bb210f1c6142069d77b765820292b8971415e7e44658aa907e588ea5",
+    "sha256": "ba911be5bb210f1c6142069d77b765820292b8971415e7e44658aa907e588ea5",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\paired_selected_vs_resnet.json",
+    "path": "evidence/053_paired_selected_vs_resnet.json",
+    "source_sha256": "377bfd51659fa1e8334ac6062ef3eabca9b18cbbc995b54d424022ddb7a37c95",
+    "sha256": "377bfd51659fa1e8334ac6062ef3eabca9b18cbbc995b54d424022ddb7a37c95",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_STUDY_DATASET_RELEASE.md",
+    "path": "evidence/054_V3_STUDY_DATASET_RELEASE.md",
+    "source_sha256": "3659619accb092533f6aa4204d00a8c838de70ecb8e47bfd96a06894cd2fb67f",
+    "sha256": "3659619accb092533f6aa4204d00a8c838de70ecb8e47bfd96a06894cd2fb67f",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_FINAL_REVIEW.md",
+    "path": "evidence/055_V3_FINAL_REVIEW.md",
+    "source_sha256": "6c16327bce86c1c05edb74206150b659f86c991f036b0f3070ac44f523dcfbdc",
+    "sha256": "6c16327bce86c1c05edb74206150b659f86c991f036b0f3070ac44f523dcfbdc",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\source_registry.json",
+    "path": "evidence/056_source_registry.json",
+    "source_sha256": "1ec17a474b03a5ed7e154580c08821c795e2eda860e78b17e3b5ec645dd6e493",
+    "sha256": "1ec17a474b03a5ed7e154580c08821c795e2eda860e78b17e3b5ec645dd6e493",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\leather_lineage_audit.json",
+    "path": "evidence/057_leather_lineage_audit.json",
+    "source_sha256": "d1c788e0bde90092312281829040fc9dc6e9cd1b812deb6701ee024366131b65",
+    "sha256": "d1c788e0bde90092312281829040fc9dc6e9cd1b812deb6701ee024366131b65",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\preparation_validation.json",
+    "path": "evidence/058_preparation_validation.json",
+    "source_sha256": "1847ffe4910643c5e53ddb996edf0dec2f983bd247e5eb9b84a79d006a5b9927",
+    "sha256": "1847ffe4910643c5e53ddb996edf0dec2f983bd247e5eb9b84a79d006a5b9927",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\release-staging\\material-classification-v3-study-audit.validation.json",
+    "path": "evidence/059_material-classification-v3-study-audit.validation.json",
+    "source_sha256": "89f6e0f701bcd18daf29180b247ef82fb99a923a337bf295453dcc85caf8dce9",
+    "sha256": "89f6e0f701bcd18daf29180b247ef82fb99a923a337bf295453dcc85caf8dce9",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\model_comparison.csv",
+    "path": "evidence/060_model_comparison.csv",
+    "source_sha256": "19918cae5dcb38e4064db195c95f83c8d70190babc7ca1423413a6ebf4c65b6a",
+    "sha256": "ef4311772f88e898d9636e92ef9f5acddbf37f00a37534bedb1cb8471297f92a",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_dinov2_finetuned_vs_frozen_selected.json",
+    "path": "evidence/061_paired_dinov2_finetuned_vs_frozen_selected.json",
+    "source_sha256": "480509439ac2a2e0870b71f9b5b559a34d3b9faef10eba03f492d05516603ee3",
+    "sha256": "480509439ac2a2e0870b71f9b5b559a34d3b9faef10eba03f492d05516603ee3",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_frozen_selected_vs_frozen_control.json",
+    "path": "evidence/062_paired_frozen_selected_vs_frozen_control.json",
+    "source_sha256": "e357dbcc2ff9bb373d5f1d21231598d5c37d4fde7e35ecd2f29050df4dd6a289",
+    "sha256": "e357dbcc2ff9bb373d5f1d21231598d5c37d4fde7e35ecd2f29050df4dd6a289",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_frozen_selected_vs_resnet_fixed.json",
+    "path": "evidence/063_paired_frozen_selected_vs_resnet_fixed.json",
+    "source_sha256": "d6760384e13b639ba06a2b8ac09ec931ff3efc3e4d17b5c77498b676eb149834",
+    "sha256": "d6760384e13b639ba06a2b8ac09ec931ff3efc3e4d17b5c77498b676eb149834",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\dinov2_finetuned\\benchmark.json",
+    "path": "evidence/064_benchmark.json",
+    "source_sha256": "21ff9c634343266073e649cd5afafc08afd56af49a9c4955ec361913da9a92a8",
+    "sha256": "2de8bfc89bd8814f0d840fd912540cce4e97cd6b15c95f7ecaad847d75bf5439",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\frozen_control\\benchmark.json",
+    "path": "evidence/065_benchmark.json",
+    "source_sha256": "c2280af0c7c1516e31c9f670b2689881acc12bffb50b53b7b5d9f528ef85cea7",
+    "sha256": "95dd3a4c9c673fc3bbb6d6eee011468808d087923419e79c1c97e1ec5990f469",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\frozen_selected\\benchmark.json",
+    "path": "evidence/066_benchmark.json",
+    "source_sha256": "217b38d9237337d6c590dc2e5633ab6cc79f17d2086cad1e904d0332b05ef299",
+    "sha256": "a73eb0f4635a4f3434695f18089456e1236cd5b612b1220bb8261ba6d2823b54",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\resnet_fixed\\benchmark.json",
+    "path": "evidence/067_benchmark.json",
+    "source_sha256": "894fe18b4a6fe7f871947afc989285742512476a671bb12fdc5ef8d3e11b2d2c",
+    "sha256": "eb99aeac787ffe20d0bf9d8dcf9b584648656be6a5a196a830b8fd4564f86d70",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\all_development\\progress.json",
+    "path": "evidence/068_progress.json",
+    "source_sha256": "cf8b658517f90c2629a4effa4d6a51d271bc99ed83bfc21fcb56c6ed4b1dde69",
+    "sha256": "d9b41030190313e06e3a72b51c8dd557ba95b32e4bc6caafda141553b401bb18",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_0\\progress.json",
+    "path": "evidence/069_progress.json",
+    "source_sha256": "68a8a65f03a12a7d4f6eb7dec943828b419a02a6ec8ad369877d52c9d6089ea9",
+    "sha256": "a39bcd935c501170a0dde1fb9e16ece2bf755541ab8faf4d19171cd304c9d1c8",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_1\\progress.json",
+    "path": "evidence/070_progress.json",
+    "source_sha256": "8b3f803c53b78d8ba82747313cd99794bb5479d4781fa280bd74cf7ef5f78782",
+    "sha256": "cb4dd3397750b37d221f6130945f5777be835ed9dcaaf8d5695371fef04a7b3d",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_2\\progress.json",
+    "path": "evidence/071_progress.json",
+    "source_sha256": "c3eafd46b297ee041dab0c0073bcf19e37743f5de3965c4df33aaeb68774db91",
+    "sha256": "d314a3389729f0e4810963ac6ee3c9ac4e0ece4be7aa984d5020cc42050953ca",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_0\\progress.json",
+    "path": "evidence/072_progress.json",
+    "source_sha256": "312879b6a0db50cbc291ce064a3bbefe62c841e151063c8c953f4d5823e67560",
+    "sha256": "460309086e41ac99cdaa0e9e691f546f82c668e92630e29189dae9e16cf6bbdf",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_1\\progress.json",
+    "path": "evidence/073_progress.json",
+    "source_sha256": "e2ea67dd57fad15d7c32a52351b245df6083604ef7735a28acf29c72d30adcfa",
+    "sha256": "dc6cb822a4ac6b2fdf2c3aaf623a677c303911345614d177e1c615d672e02896",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_2\\progress.json",
+    "path": "evidence/074_progress.json",
+    "source_sha256": "1d69e3b3f63c4a395b6a23ab0aa8b9b4e09e988cd3eedf4079311311b223694d",
+    "sha256": "f8a3108fb6aec63034bae00d11328907d561af1738fecc11378a095559c766d5",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_0\\history.csv",
+    "path": "evidence/075_history.csv",
+    "source_sha256": "42a4f834b83f5a24507f661871710f33260d767d6fac7838bf3eb20a95c1e714",
+    "sha256": "6eefdce8db9a021887a8ef94ec3bffdab3b8ff157363374cf12fd078ec857128",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_1\\history.csv",
+    "path": "evidence/076_history.csv",
+    "source_sha256": "ad2fc13bf34f5204b38836ce9cc3ed4110af3b5fdb9a33460d05e6d3cd177ef3",
+    "sha256": "d4895cc6d4c1e7259f6eb7692c420214ebeae66c2163f75cd38ddebdfaf36689",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_2\\history.csv",
+    "path": "evidence/077_history.csv",
+    "source_sha256": "693a0238f4af7c58f678f7231cb859fef217166df15e16739929815da49d4107",
+    "sha256": "9d6eac0924681ab691f147b3374ba464a09b57aa32451c7582f132ef102365cc",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_3\\history.csv",
+    "path": "evidence/078_history.csv",
+    "source_sha256": "d51f33abf16acbacbd448f5ab95262b2c13e4bd39c43405de8ce90153f8cdb75",
+    "sha256": "931920dba716eef2ff777b1a580cbb094e5e4c35a1b9d025ba4e268dd470efa0",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_4\\history.csv",
+    "path": "evidence/079_history.csv",
+    "source_sha256": "8165e029fde689d6038fd1b889021a566b0170a055e927b7bbbda95b82fe2afb",
+    "sha256": "22cf6420e312dc1c0202b29ec4f2c0780a0cec41e6cfa05443867ac4a94f6ce7",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\final_history.csv",
+    "path": "evidence/080_final_history.csv",
+    "source_sha256": "01c922bab50733f84a5e769807ec708df74fad540af32f55881f15f8dccbe2e5",
+    "sha256": "76241f94e5fa172519d2e6071d086a6d9d1151a1152a2b2d7dd8d186cb7ae6e3",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\dinov2_exploratory\\comparison.csv",
+    "path": "evidence/081_comparison.csv",
+    "source_sha256": "59bd3801edca3d038582811eb7f882cdfb0e849d6c1a6deebf2c56a0e22326e0",
+    "sha256": "ba5eccc28d5e72fd08d415baa561b3e5855c961b18256d6ca9a994d33f0f6cee",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\dinov2_exploratory\\per_class_recall.csv",
+    "path": "evidence/082_per_class_recall.csv",
+    "source_sha256": "3fec4dba5aefbc4694ca303b7b7668413046addb9410e1e95582840501044f3a",
+    "sha256": "ec169cb0f23dc81a71901880e0ce11488fef40f575bb5e51d8be1f5458e0d93e",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\primary\\comparison.csv",
+    "path": "evidence/083_comparison.csv",
+    "source_sha256": "92636e434c3fad62bfcde8468707b6f094f2ac8095528d14c2b9df9ca8d3fd5d",
+    "sha256": "cbcbd1acfe5eeb6fac5b14aac19023386df949c8b3286709066c14a1c0831c86",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\primary\\per_class_recall.csv",
+    "path": "evidence/084_per_class_recall.csv",
+    "source_sha256": "d41bc060b488630f61a46bcf01a4c344a8c78a816975eb4406e138c84822d121",
+    "sha256": "825a5840e01ecba51f5404f7c73fb54cd54a2a10b9241be8a02dfb8573dc0c7f",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\selection.json",
+    "path": "evidence/085_selection.json",
+    "source_sha256": "093eee4484ac23a2e871eb63ba892b7228cb0785b9fd6ecfeb74cbe026652a8c",
+    "sha256": "920763f9ae280bebe27a31eb57b96c108e81cfaa98b8e64229aec5ae3c790845",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\gallery_selection.json",
+    "path": "evidence/086_gallery_selection.json",
+    "source_sha256": "82de4d621b8e62c6cebc0c1148dee040247472659d960636c5a6768b2344986e",
+    "sha256": "82de4d621b8e62c6cebc0c1148dee040247472659d960636c5a6768b2344986e",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\prepare_publication.py",
+    "path": "evidence/087_prepare_publication.py",
+    "source_sha256": "5c9298a0a5e99686a1097eda43029892675fb96bfa266638d48f54df8e06b4a4",
+    "sha256": "5c9298a0a5e99686a1097eda43029892675fb96bfa266638d48f54df8e06b4a4",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_results.csv",
+    "path": "evidence/088_fresh_results.csv",
+    "source_sha256": "7cd9e3324c0f34ae9ee8a9f18828b03ffded11a4a8f56f570585063a98216469",
+    "sha256": "7cd9e3324c0f34ae9ee8a9f18828b03ffded11a4a8f56f570585063a98216469",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\study_counts.csv",
+    "path": "evidence/089_study_counts.csv",
+    "source_sha256": "29722a7828e4fd67a6af6eccd0954ca467f414053079e1f61613f7c499a6d518",
+    "sha256": "29722a7828e4fd67a6af6eccd0954ca467f414053079e1f61613f7c499a6d518",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dataset_gallery.png",
+    "path": "evidence/090_dataset_gallery.png",
+    "source_sha256": "9c5b5257caf1ded1ec91ccf0c937e86a897b2140ae1a6a9dd5cf8ee53ed1f44a",
+    "sha256": "9c5b5257caf1ded1ec91ccf0c937e86a897b2140ae1a6a9dd5cf8ee53ed1f44a",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\pipelines.csv",
+    "path": "evidence/091_pipelines.csv",
+    "source_sha256": "5bea50160ce87c437b7e68283bf52f9240872774851198d449cf7a3d9e61e0e8",
+    "sha256": "5bea50160ce87c437b7e68283bf52f9240872774851198d449cf7a3d9e61e0e8",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dino_actual_curves.png",
+    "path": "evidence/092_dino_actual_curves.png",
+    "source_sha256": "f7a75985d0ebf6080d1a0ac0895a94838c2c31b9ec3ee86ceee295a9daa43a45",
+    "sha256": "f7a75985d0ebf6080d1a0ac0895a94838c2c31b9ec3ee86ceee295a9daa43a45",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\resnet_actual_curves.png",
+    "path": "evidence/093_resnet_actual_curves.png",
+    "source_sha256": "09e1e6e29356fdd2a708c9f16458f7b7be9ccf716f29d17f3ce2a7ae74669dc9",
+    "sha256": "09e1e6e29356fdd2a708c9f16458f7b7be9ccf716f29d17f3ce2a7ae74669dc9",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\initial_results.csv",
+    "path": "evidence/094_initial_results.csv",
+    "source_sha256": "d9f8d7f73bc8c084197dbf219d9c095ad84da30dbefbc9d6f9bb19b4bc73f016",
+    "sha256": "d9f8d7f73bc8c084197dbf219d9c095ad84da30dbefbc9d6f9bb19b4bc73f016",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\historical_v1.csv",
+    "path": "evidence/095_historical_v1.csv",
+    "source_sha256": "dc495212c0cdee29aec5db4465771f6c9117b58a7614b1ddd6bd6fa535b8f6f1",
+    "sha256": "dc495212c0cdee29aec5db4465771f6c9117b58a7614b1ddd6bd6fa535b8f6f1",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_results.csv",
+    "path": "evidence/096_fresh_results.csv",
+    "source_sha256": "7cd9e3324c0f34ae9ee8a9f18828b03ffded11a4a8f56f570585063a98216469",
+    "sha256": "7cd9e3324c0f34ae9ee8a9f18828b03ffded11a4a8f56f570585063a98216469",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_accuracy.png",
+    "path": "evidence/097_fresh_accuracy.png",
+    "source_sha256": "8b1a5c6750b9f8b6cf045e7cfc2009c6eeeef21837ed3b19285f189fb80ecca4",
+    "sha256": "8b1a5c6750b9f8b6cf045e7cfc2009c6eeeef21837ed3b19285f189fb80ecca4",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_confusion.png",
+    "path": "evidence/098_primary_confusion.png",
+    "source_sha256": "b0c39abb9db9e43be50fb69be2c7949aaf9baabc1223a576606ff0b324b695ff",
+    "sha256": "b0c39abb9db9e43be50fb69be2c7949aaf9baabc1223a576606ff0b324b695ff",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_perclass.csv",
+    "path": "evidence/099_primary_perclass.csv",
+    "source_sha256": "3b0d3a79bc3640cdb81b488ea7922540ed138f0131f2f1dcfc78581b28a2116a",
+    "sha256": "3b0d3a79bc3640cdb81b488ea7922540ed138f0131f2f1dcfc78581b28a2116a",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dino_confusion.png",
+    "path": "evidence/100_dino_confusion.png",
+    "source_sha256": "ba1d77201ba82bc66799f1d10885d2277fefdef6e944a90b3083e60d760516e4",
+    "sha256": "ba1d77201ba82bc66799f1d10885d2277fefdef6e944a90b3083e60d760516e4",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\paired_fresh.csv",
+    "path": "evidence/101_paired_fresh.csv",
+    "source_sha256": "56f7d269149dc89a69ed5940b05a3be66ac7ffbd3cb29dc04954da8b4fe7a6ba",
+    "sha256": "56f7d269149dc89a69ed5940b05a3be66ac7ffbd3cb29dc04954da8b4fe7a6ba",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\calibration_risk.png",
+    "path": "evidence/102_calibration_risk.png",
+    "source_sha256": "b419190266dcf216ad0f08c9610ffe5c926c153ea7eb7126f9614016633f3647",
+    "sha256": "b419190266dcf216ad0f08c9610ffe5c926c153ea7eb7126f9614016633f3647",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\calibration.csv",
+    "path": "evidence/103_calibration.csv",
+    "source_sha256": "e7de689efbc7dcd07c200b0c756a9b43096c54b31af534070383f6dc8a20f1da",
+    "sha256": "e7de689efbc7dcd07c200b0c756a9b43096c54b31af534070383f6dc8a20f1da",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_errors.png",
+    "path": "evidence/104_primary_errors.png",
+    "source_sha256": "464cbb532f1aac1dc5d90a05a03aba9193ee4b33436b5cd97b09256821846527",
+    "sha256": "464cbb532f1aac1dc5d90a05a03aba9193ee4b33436b5cd97b09256821846527",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\robustness.png",
+    "path": "evidence/105_robustness.png",
+    "source_sha256": "14d52948c7be40599cff7cf35724f39f0297587f07927b9400b9251d721301a4",
+    "sha256": "14d52948c7be40599cff7cf35724f39f0297587f07927b9400b9251d721301a4",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\robustness.csv",
+    "path": "evidence/106_robustness.csv",
+    "source_sha256": "c6c5ebd9aaf620a5113ce23185c6ae549df46464a7ab39a94eb066e6e614fefc",
+    "sha256": "c6c5ebd9aaf620a5113ce23185c6ae549df46464a7ab39a94eb066e6e614fefc",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\benchmarks.csv",
+    "path": "evidence/107_benchmarks.csv",
+    "source_sha256": "aa24037728f6c082b701d5706b106b7202179dcf7d70d5ffe81a4f6899fe8acb",
+    "sha256": "aa24037728f6c082b701d5706b106b7202179dcf7d70d5ffe81a4f6899fe8acb",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\compute.png",
+    "path": "evidence/108_compute.png",
+    "source_sha256": "448e12411619e7f4f10de0132e897f938beb1ed19831d245350e15bdd45631b1",
+    "sha256": "448e12411619e7f4f10de0132e897f938beb1ed19831d245350e15bdd45631b1",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\frozen_search.png",
+    "path": "evidence/109_frozen_search.png",
+    "source_sha256": "379dad8cff05be262dc411d1efc05d84dc28033f7d32e8a0812a2916c9859aa6",
+    "sha256": "379dad8cff05be262dc411d1efc05d84dc28033f7d32e8a0812a2916c9859aa6",
+    "normalization": "none"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_preview_inputs\\ablation_summary.csv",
+    "path": "evidence/110_ablation_summary.csv",
+    "source_sha256": "b242c31d5073be1a9575e523f7d0ed95854e3b33dc0db8d8e26ecdd5cd5e2f04",
+    "sha256": "b242c31d5073be1a9575e523f7d0ed95854e3b33dc0db8d8e26ecdd5cd5e2f04",
+    "normalization": "UTF-8 without BOM; LF"
+  },
+  {
+    "source": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_intervals.csv",
+    "path": "evidence/111_primary_intervals.csv",
+    "source_sha256": "c6d0760288e9ea4f1636201fe2fb4d7cbd4e2176d138ef5c38dd30b704995e44",
+    "sha256": "c6d0760288e9ea4f1636201fe2fb4d7cbd4e2176d138ef5c38dd30b704995e44",
+    "normalization": "UTF-8 without BOM; LF"
+  }
+]

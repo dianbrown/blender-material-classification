@@ -1,0 +1,5 @@
+Pipeline / role,Accuracy,95% accuracy CI,Macro F1
+Primary frozen fusion,80.16%,66.03-93.65%,0.7952
+ConvNeXt control,75.56%,61.59-88.73%,0.7566
+Fixed ResNet-50,77.62%,63.65-90.48%,0.7665
+Fine-tuned DINOv2,86.83%,76.98-95.87%,0.8631

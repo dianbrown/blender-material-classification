@@ -1,0 +1,6 @@
+Condition,Primary accuracy,DINOv2 accuracy
+Low brightness,78.25%,85.24%
+High brightness,83.02%,89.05%
+Gaussian blur,77.14%,80.00%
+JPEG quality 30,59.05%,75.40%
+Resolution 128,75.08%,83.17%

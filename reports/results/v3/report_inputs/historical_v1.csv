@@ -1,0 +1,5 @@
+Historical V1 model,Test accuracy,Test Macro F1
+custom_cnn,49.76%,0.4902
+resnet50,69.76%,0.6829
+convnext_tiny,61.19%,0.5690
+vit_b16,60.00%,0.5624

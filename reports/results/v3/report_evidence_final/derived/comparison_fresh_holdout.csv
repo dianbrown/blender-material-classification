@@ -1,0 +1,5 @@
+model,scope,images,sources,accuracy,macro_f1,evidence
+Primary frozen fusion,fresh_holdout,630,21,0.801587,0.795203,derived/frozen_selected_summary.json
+ConvNeXt control,fresh_holdout,630,21,0.755556,0.756564,derived/frozen_control_summary.json
+Fixed ResNet-50,fresh_holdout,630,21,0.776190,0.766481,derived/resnet_fixed_summary.json
+Fine-tuned DINOv2,fresh_holdout,630,21,0.868254,0.863071,derived/dinov2_finetuned_summary.json

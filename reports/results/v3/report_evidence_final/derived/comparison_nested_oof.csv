@@ -1,0 +1,4 @@
+model,scope,images,sources,accuracy,macro_f1,evidence
+Frozen selection,nested_oof,3150,101,0.793968,0.795485,derived/selected_summary.json
+ConvNeXt control,nested_oof,3150,101,0.688571,0.686128,derived/control_summary.json
+Fixed ResNet-50,nested_oof,3150,101,0.715556,0.713501,derived/resnet_summary.json

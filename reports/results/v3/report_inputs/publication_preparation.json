@@ -1,0 +1,8 @@
+{
+  "status": "validated",
+  "pages_requested": 21,
+  "clean_prediction_accuracy_checks": 4,
+  "primary_precedes_predictions": true,
+  "all_fresh_paired_accuracy_intervals_include_zero": true,
+  "no_training_or_inference": true
+}
