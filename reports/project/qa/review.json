@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "total_pages": 19,
+  "main_pages": 14,
+  "reference_pages": [
+    15
+  ],
+  "appendix_pages": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "visually_inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "renderers": [
+    "PyMuPDF",
+    "Poppler 26.09.0 pdftoppm at 100 dpi"
+  ],
+  "inspection": "All pages reviewed, including page-level plots and five final contact sheets. No clipping, overlapping text, missing glyphs, broken tables or pagination spill observed.",
+  "renderer_messages": [
+    "Poppler reported unavailable optional Symbol and ArialUnicode display fonts. The report uses ASCII text and raster plot labels; visual review found no missing glyphs."
+  ],
+  "automated_checks": {
+    "pytest": "8 passed in 0.97s",
+    "ruff": "All checks passed",
+    "layout": "19 pages, zero out-of-bounds blocks",
+    "source_evidence": "same 630 images and 21 source groups for all four pipelines; primary locked before predictions"
+  },
+  "training_or_inference_performed": false,
+  "previous_reports_modified": false,
+  "assessment_gaps": "See ../../ASSIGNMENT_COVERAGE.md"
+}
