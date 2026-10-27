@@ -1,6 +1,7 @@
 use crate::{
     config::Config,
     data::{CLASSES, Model, Study, title},
+    jellyfish::Jellyfish,
     worker::{Event, Prediction, Worker},
 };
 use gpui::{prelude::*, *};
@@ -95,6 +96,7 @@ pub struct Studio {
     focus: FocusHandle,
     scroll: ScrollHandle,
     options: ViewOptions,
+    jellyfish: Entity<Jellyfish>,
     _poll: Task<()>,
 }
 
@@ -316,11 +318,19 @@ impl Studio {
         }
         bottom = bottom.child(self.toolbar(cx));
         div()
+            .relative()
             .size_full()
             .flex()
             .flex_col()
             .px_8()
             .pb_7()
+            .child(
+                div()
+                    .absolute()
+                    .inset_0()
+                    .overflow_hidden()
+                    .child(self.jellyfish.clone()),
+            )
             .child(
                 div()
                     .h(px(48.))
@@ -1065,6 +1075,7 @@ impl Studio {
             focus,
             scroll: ScrollHandle::new(),
             options: ViewOptions::default(),
+            jellyfish: cx.new(|_| Jellyfish::new()),
             _poll: poll,
         }
     }

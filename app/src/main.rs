@@ -1,6 +1,7 @@
 #![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
 mod config;
 mod data;
+mod jellyfish;
 mod ui;
 mod worker;
 use config::Config;
