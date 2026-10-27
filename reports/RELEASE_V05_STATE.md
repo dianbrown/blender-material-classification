@@ -108,3 +108,32 @@ Tests/QA receiptscanbepublishedasseparatevalidationJSON; avoidclaimingbenchmark
 numbersfromdemo. Exactv0.5tagdoesnotexistyet. RepositoryPRIVATE remainsunchanged.
 NeedfinalPRbodyready/CIpass/mergetomain(userauthorizedthisrelease),createv0.5tag
 atfinalmaincommit,uploadassetsandpublishGitHubrelease. NoKagglefullarchiveupload.
+
+## Final installer and clean recording validation, 2026-10-27
+
+The full build completed successfully. The single-file installer exceeded the
+GitHub asset limit, so the builder produced a spanned release: Setup.exe,
+Setup-1.bin and Setup-2.bin. Only dist/installer-v0.5/release is deliverable.
+The final native hash remains 34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2.
+
+Actual silent installation into an isolated LocalAppData QA directory passed.
+All 22,812 payload files were verified after installation. Native CPU and CUDA
+predictions passed from the installed copy. The cube icon, sample and ready
+worker were observed in its native window; Start Menu targets were verified.
+The app closed gracefully. Silent uninstall returned zero, removed the app,
+runtime, shortcuts and registry entry, and preserved a user-owned sentinel.
+Evidence: reports/results/demo/release_v05_validation.json and local logs under
+artifacts/release-v05. The QA sentinel directory is intentionally retained.
+
+The user rejected the previous recording because it included the Computer Use
+cursor overlay. Its replacement is a direct Windows.Graphics.Capture recording
+with capture_cursor=0, encoded as an 18-second GIF/MP4. Representative final
+frames show the actual prediction, Details, Study and Samples without the
+cursor or halo. Browser decode, advancing playback and loop wrap passed.
+README now embeds material-studio-loop.gif and links to the release MP4 asset.
+Exact media hashes and capture settings: reports/results/demo/showcase_validation.json.
+
+Remaining: push these documentation/media changes, obtain hosted CI on the
+final head, merge PR3, tag v0.5 on main, upload and publish the installer files,
+checksums, receipt and clean MP4. Keep repository visibility unchanged. No
+full Kaggle dataset upload. Unwatch PR3 before the final user handoff.

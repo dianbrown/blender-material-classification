@@ -1,9 +1,14 @@
 # Material Studio v0.5 for Windows
 
-Download `MaterialStudio-0.5.0-windows-x64-Setup.exe` from the release assets.
-If the release also contains matching `Setup-*.bin` files, download **every**
-slice into the same folder as the EXE. Keep the filenames unchanged. Run the
-EXE; the slices are installation data, not separate programs or ZIP archives.
+Download all three files from the v0.5 release assets into the same folder:
+
+- `MaterialStudio-0.5.0-windows-x64-Setup.exe`
+- `MaterialStudio-0.5.0-windows-x64-Setup-1.bin`
+- `MaterialStudio-0.5.0-windows-x64-Setup-2.bin`
+
+Keep the filenames unchanged and run the EXE. The BIN files are installation
+data, not separate programs. The split keeps each download below GitHub's
+per-file limit; installation combines them automatically.
 
 Setup installs for the current user, by default in
 `%LOCALAPPDATA%\Programs\Material Studio`, without requesting administrator

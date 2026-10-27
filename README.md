@@ -11,6 +11,8 @@ and compare the models using the project's measured results.
 ## Classroom demo
 
 [Download the v0.5 Windows installer](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.5).
+Download **Setup.exe and both Setup-1.bin / Setup-2.bin files** into the same
+folder, then run Setup.exe. Keep all three filenames unchanged.
 It installs Material Studio for your Windows account and creates a Start Menu
 shortcut. All **four trained models**, **21 sample images** and the Python
 runtime are included; no separate Python setup, model download or server is
@@ -47,10 +49,10 @@ study primary. This recommendation does not establish statistical superiority.
 Class probabilities are not guarantees; arbitrary photographs have not been
 validated.
 
-![A looping tour of Material Studio](docs/images/material-studio-demo.gif)
+![A looping tour of Material Studio](docs/images/material-studio-loop.gif)
 
-Actual app screens and local predictions; pauses shortened for the tour.
-[Watch or download the MP4](docs/images/material-studio-demo.mp4).
+A recording of live classification, study results and samples; pauses shortened.
+[Download the MP4](https://github.com/dianbrown/blender-material-classification/releases/download/v0.5/material-studio-loop.mp4).
 
 ## Project submission
 

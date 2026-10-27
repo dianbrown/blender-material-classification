@@ -1,57 +1,69 @@
 {
-  "kind": "actual native application screen tour",
-  "source_executable_sha256": "35fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2",
-  "final_ui_layout_unchanged": true,
-  "source_frames": [
-    {
-      "name": "01-workspace.png",
-      "sha256": "18d0dd81a51ddadd959a525fe8cd3f8f10d57debb33fc3e2aafb8bf63836342b"
-    },
-    {
-      "name": "02-loading.png",
-      "sha256": "04c7fd57d3c1353393c9cfe4c67bf1470d1eacce2ad165a50c79a29a2ec01f09"
-    },
-    {
-      "name": "03-prediction.png",
-      "sha256": "334af348b75738a00298ef4a4b5c09a2d97d5fa1cc1c7deb2e2252075d794f03"
-    },
-    {
-      "name": "04-details.png",
-      "sha256": "e80ed1ac641bc8c370fd7008efd39487faf89a867cd1eae490ee6b3dc0b404e9"
-    },
-    {
-      "name": "05-study.png",
-      "sha256": "dacec337724ba6423362328b8b4ec85f9344ae24545e0bb3ea99a98292708124"
-    },
-    {
-      "name": "06-samples.png",
-      "sha256": "77fcd79af8b9d80b8ee44aa5cdd1ae8e4d55169ad030d5f262788d8653756a58"
-    },
-    {
-      "name": "07-metal.png",
-      "sha256": "fe60e6c6ee697ba07f12a8f0ad205ef377178e84f5298e0482a3cc5b28a308cb"
-    },
-    {
-      "name": "08-metal-prediction.png",
-      "sha256": "99ed041dcebc3a187780ed1db20536d743658bdae8cb12b760ae7546711ed391"
+  "kind": "Direct native application window recording",
+  "source_executable_sha256": "34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2",
+  "capture": {
+    "backend": "Windows.Graphics.Capture via FFmpeg 9.0.2 gfxcapture",
+    "capture_cursor": false,
+    "display_border": false,
+    "source": {
+      "bytes": 345765,
+      "sha256": "ca46693e917cbd6887f292660c6d351f88759a5a9b3fef863b4e86e07dc8178c"
     }
-  ],
-  "source_frames_visually_inspected": true,
-  "encoded_representative_frames_visually_inspected": true,
-  "edits": "window title bar cropped; resized to960px; pauses shortened; GIFpaletteencoding",
-  "benchmark_timing": false,
-  "gif": {
-    "bytes": 1050517,
-    "frames": 178,
-    "duration_ms": 17800,
-    "loop": 0,
-    "sizes": [
+  },
+  "edits": {
+    "source_intervals_seconds": [
       [
-        960,
-        646
+        0,
+        4
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        21,
+        25
+      ],
+      [
+        31,
+        35
       ]
     ],
-    "sha256": "c519b0fac769f8a9d007c2cdae602b21f0bedc6c725031aa9dffab7e99116b12"
+    "description": "Pauses shortened; client area resized; no synthetic UI or results"
   },
-  "mp4_sha256": "0f878e27c946cd4d46f8c967e6033ea63009865a26c20c075514d71c022ff638"
+  "representative_encoded_frames_visually_inspected": true,
+  "computer_use_cursor_or_halo_visible": false,
+  "benchmark_timing": false,
+  "gif": {
+    "bytes": 788531,
+    "sha256": "85ad61757cb20ea8dbe7e08dc377d7957dfe8990d3c4bfbec8b89c9a35f480c6",
+    "frames": 216,
+    "duration_ms": 18000,
+    "loop": 0,
+    "size": [
+      960,
+      646
+    ]
+  },
+  "mp4": {
+    "bytes": 268682,
+    "sha256": "83359e025145afbd83846442c9cd5210d47ccdaa5cfa0744a23b833287190648",
+    "duration_seconds": 18,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "size": [
+      960,
+      646
+    ]
+  },
+  "browser_validation": {
+    "scope": "Local browser decode and loop playback of exact release media",
+    "gif_loaded": true,
+    "video_error": null,
+    "video_paused": false,
+    "loop_enabled": true,
+    "wrap_verified": true,
+    "time_after_wrap_seconds": 1.209435
+  },
+  "supersedes": "Snapshot tour containing an automation cursor overlay"
 }
