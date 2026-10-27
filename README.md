@@ -17,20 +17,20 @@ unknown future holdout result.
   decision remain pending. Nothing has been uploaded. See
   [release preparation](reports/V3_KAGGLE_RELEASE.md) and [DATASET.md](DATASET.md).
 - Five-by-three nested source-group CV for the frozen DINOv2/ConvNeXt feature
-  selector and matched ConvNeXt control is complete. Input-validation fixes are
-  being rerun into `artifacts/v3/features_final` and `artifacts/v3/run_final`.
-  The initial `run` and intermediate `run_validated` are preserved. Equality
-  against the initial predictions must be verified; it is not assumed.
+  selector and matched ConvNeXt control is complete. The reviewed rerun in
+  `artifacts/v3/features_final` and `artifacts/v3/run_final` exactly reproduced
+  all seven feature arrays and seven OOF prediction files. The initial `run`
+  and intermediate `run_validated` remain preserved.
 - A fixed ten-epoch ResNet-50 baseline on the same outer folds was declared
-  before v3 scores. Its GPU training is pending. It supplies the third assessed
+  before v3 scores. Its GPU training is running. It supplies the third assessed
   architecture only when its matched predictions exist.
 - Partial DINOv2 fine-tuning (last two blocks; two learning rates, three development
   folds) is a bounded **exploratory follow-up after the initial result**. It is
   pending and does not create a new unbiased nested-CV estimate.
 - The fresh registry specifies **21 new CC0 sources, three per class, and 630
-  images**. The fresh endpoint has not been scored. Complete the render/identity
-  checks and lock the model choice before predictions; the fresh endpoint becomes
-  primary when its independently audited results are available.
+  images**. Rendering and model-free QC are complete. Use the derived
+  `metadata/v3_holdout/classification_manifest.csv` for model inputs. The fresh
+  endpoint has not been scored; model choice must be locked before predictions.
 
 ## Completed initial frozen experiment
 

@@ -192,3 +192,11 @@ fine-tuned DINO once on the fresh classifier manifest; retain all results.
 Primary cannot be swapped based on the fresh ranking. Evaluate CIs/paired
 differences, run fixed corruptions, finalize report/cards and visual QA,
 independent final claim review, full checks and PR/Linear completion.
+
+Full-suite rerun completed: **344 passed, 1 Windows symlink-permission skip,
+1 existing V1 scheduler warning**, 104.47 seconds. Record:
+`reports/results/v3/integrated_validation.json`. Real CPU image inference passed.
+Neural GPU owner reports ResNet first two epochs ~34 seconds each; long runs are
+active. Report-preview task `v3-report-preview-20261027-r1` builds/visually checks
+an internal actual-data PDF while training proceeds; it may return report-only
+fix commits. No final report is available yet.

@@ -94,9 +94,10 @@ the frozen audit bytes themselves are preserved.
 
 The separate `metadata/v3_holdout` registry specifies **21 new CC0 sources,
 three per class, and 630 images**. It is excluded from the original release
-package. Fresh scoring is pending. Production rendering/integrity work and
-pre-prediction model locking must finish before it can support an independent
-endpoint. A line-ending-only freeze-hash repair did not change the frozen
+package. All 630 renders passed model-free integrity checks. The classifier
+view is `metadata/v3_holdout/classification_manifest.csv`; the original renderer
+manifest remains separate. Fresh scoring awaits the pre-prediction model lock.
+A line-ending-only freeze-hash repair did not change the frozen
 configuration, registry or model-selection policy.
 
 Fresh ceramic/concrete definitions are restricted relative to the broad

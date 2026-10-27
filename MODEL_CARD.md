@@ -17,13 +17,13 @@ control is retained alongside them. Exact checkpoint revisions, weight hashes,
 preprocessing, class order and implementation/environment hashes are recorded
 in protocol, cache and model metadata. Do not reconstruct them from this prose.
 
-The input-validation rerun uses planned canonical `artifacts/v3/features_final`
+The completed input-validation rerun uses canonical `artifacts/v3/features_final`
 and `artifacts/v3/run_final`. It follows fixes for feature provenance and path
 identity (including Windows dot/space aliases and resolved file identities).
 No actual dataset changes were reported. Initial and intermediate runs are
-preserved. Equivalence to initial predictions is **pending verification**, not
-implied by unchanged data. A report must bind the sidecar to its own feature
-cache record and actual weight bytes.
+preserved. All seven feature arrays and seven OOF prediction files reproduced
+exactly (maximum probability difference zero). A report must still bind the
+sidecar to its own feature-cache record and actual weight bytes.
 
 ## Evaluation evidence
 
@@ -59,9 +59,9 @@ satisfies the third-architecture assessment only after matched-fold evaluation.
 No unavailable scores or plausible training curves are supplied here.
 
 The independently collected fresh endpoint has 21 registered new CC0 sources,
-three per class, and a 630-image corpus specification. It has not been scored.
-The parent must finish integrity checks and explicitly freeze the model choice
-before fresh predictions. Its measured result will become the primary endpoint;
+three per class, and 630 rendered images that passed model-free QC. It has not
+been scored. Model choice must be explicitly frozen before fresh predictions.
+Its measured result will become the primary endpoint;
 it must not overwrite or retroactively justify the initial nested experiment.
 
 ## Inputs, outputs and use
