@@ -1,0 +1,31 @@
+// The build script provides these values from Cargo.toml and the asset directory.
+// GPUI supplies RT_MANIFEST: do not duplicate or override its DPI/privilege settings.
+#pragma code_page(65001)
+1 ICON MATERIAL_STUDIO_ICON
+
+1 VERSIONINFO
+FILEVERSION MATERIAL_STUDIO_VERSION_NUM
+PRODUCTVERSION MATERIAL_STUDIO_VERSION_NUM
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0x0L
+FILEOS 0x40004L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Material Studio\0"
+            VALUE "FileVersion", MATERIAL_STUDIO_VERSION_STR
+            VALUE "InternalName", "material-studio\0"
+            VALUE "OriginalFilename", "material-studio.exe\0"
+            VALUE "ProductName", "Material Studio\0"
+            VALUE "ProductVersion", MATERIAL_STUDIO_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
