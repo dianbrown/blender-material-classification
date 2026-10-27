@@ -11,8 +11,8 @@ material decisions.
 Material Studio defaults to the exploratory fine-tuned DINOv2 model. Its
 observed accuracy and lower batch-one latency than fusion support a provisional
 classroom recommendation for comparable renders. This does not change the
-preselected primary or establish superiority. Final native app QA and portable
-packaging remain in progress; the study results are separate from app validation.
+preselected primary or establish superiority. Native app QA and portable
+CPU/CUDA integration passed; study results remain separate from app validation.
 
 Input is RGB with recorded model-specific resize, crop and normalization.
 Output is a probability vector over `wood`, `metal`, `stone`, `concrete`,

@@ -1,45 +1,70 @@
-# Material Studio review and validation
+﻿# Material Studio review and validation
 
-## Inference service
+## Native interface
 
-Independent worker review found one P2: inherited HF_HOME or HF_HUB_CACHE could
-override the packaged offline weights. Fixed in18c79da: when a bundled cache
-exists, explicitly set both variables before importing the ML libraries. The
-new subprocess regression uses three conflicting inherited cache settings and
-successfully resolves a dummy bundled snapshot without network access.
-Worker/report focused tests:34passed. Asset tests:2passed separately.
+The final interface follows the user's monochrome reference: a 160 px sidebar,
+one image workspace, compact controls, subtle acrylic, optional prediction
+details, a grayscale study matrix and a filtered sample gallery.
 
-Actual demonstration smoke:16cold/warm requests across all four models on CUDA
-and CPU, using one development image. CPU probabilities exactly match the
-reviewed prediction APIs. Source:reports/results/demo/inference_smoke.json.
-These are integration checks, not new study accuracy or throughput estimates.
+Actual desktop checks covered live DINOv2 predictions, model changes clearing
+prior results, model/sample menus, seven-class details, the Study matrix,
+sample filtering, About, keyboard classification, Escape and graceful exit.
+The earlier desktop-lock capture failure was resolved after the user unlocked
+the desktop. Screenshots are retained in artifacts/material-studio/ui-qa;
+the public screenshot is [the actual app](../docs/images/material-studio.png).
 
-## Native application
+Independent reviews identified and verified fixes for the incorrect ConvNeXt
+label, recoverable image errors discarding the worker/cache, clipped captions,
+and hidden disclosure state consuming Escape during inference. The final fix
+checks current-page visibility and prediction presence; stale responses still
+require the active request ID. The final scoped review at 5a27bc2 reports no
+remaining P1/P2 findings. Rust formatting, release build and 19 regular tests
+pass. The opt-in real-model valid-invalid-valid test was separately run before
+the UI-only redesign; it is not counted among the regular tests.
 
-Official pinned GPUI, Rust1.99.0; formatting, checking,11unit tests and release
-build passed in the implementation worktree. Real Rust-to-Python DINO smoke
-passed after a Windows verbatim-path normalization defect was caught and fixed.
-Evidence:artifacts/material-studio/rust-worker-smoke-fixed.json. The earlier
-failed smoke is retained. Release requires VCRUNTIME140.dll beside the executable;
-other recorded imports are Windows system libraries. Shaders are embedded.
+Release executable SHA-256:
+65531935d8c785358f3d85c5382f37b3a970b716e6be5b8a7daf4ee868bacbdb.
+Official GPUI and Rust 1.99 remain pinned. VCRUNTIME140.dll accompanies the
+portable distribution; shaders are embedded.
 
-Native visual/interaction checks remain pending. Window opens and responds, but
-Computer Use activation returned GetCursorPos access denied0x80070005; refreshed
-capture was black. The user was asked to unlock the desktop. This is not recorded
-as a visual pass or diagnosed as an application rendering defect.
+## Inference and runtime
+
+Bundled HF_HOME and HF_HUB_CACHE override inherited settings before loader
+imports. A subprocess regression verifies this with conflicting host settings.
+Actual source-worker smoke completed 16 cold/warm requests across all four
+models on CUDA and CPU. CPU probabilities exactly match the reviewed APIs.
+Evidence: reports/results/demo/inference_smoke.json. An earlier packaged
+runtime passed eight CPU predictions from an external working directory with
+restricted PATH and conflicting cache settings. These are integration checks,
+not new study accuracy or throughput estimates.
+
+The full Python suite passed 566 tests, with two Windows symlink-permission
+skips and one existing warning in the mocked legacy OOM test. Demo/report Ruff
+checks pass. The final monochrome package passed all four models cold/warm on
+CPU and CUDA (16 predictions), with empty stderr and exact repeated probabilities.
+Its native executable launched outside the checkout and completed live inference.
+The later opacity-only update in 515b650 exposes more Acrylic blur. It built
+successfully; the refresh verified all 22,797 previous payload entries and
+updated the executable plus its manifest record. Models/runtime remain identical.
+Latest executable SHA-256:
+35fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2.
+See reports/results/demo/application_validation.json and docs/DEMO_PACKAGING.md.
+Earlier distribution folders are superseded candidates.
 
 ## Academic submission
 
-New report:14main pages,1reference page,4appendices; all19rendered and inspected
-by its author,8evidence/layout tests pass. Group/student fields blank. A separate
-review verified aggregate/per-class metrics,23fold allocations, corruption
-results, metadata and actual learning curves. No report P1/P2finding.
+The assignment-aligned report has 14 main pages, one reference page and four
+appendices. All 19 pages were rendered and visually inspected; eight report
+evidence/layout tests pass. Student names and numbers remain blank. Independent
+review verified metrics, folds, corruptions, metadata and real learning curves
+without a report P1/P2 finding.
 
-Presentation:14editable slides, author-rendered and visually inspected. Review
-found one P2:slide11/notes did not explicitly carry the report's provisional DINO
-classroom recommendation. Author correction is underway; fusion must remain the
-predeclared study primary. Presentation-builder formatting corrected98f5365;
-AST and literal values were preserved. Final changed slide QA remains pending.
+The 14-slide editable presentation and PDF were visually inspected. Slide 11
+carries the provisional DINOv2 classroom recommendation while retaining fusion
+as the predeclared study primary. Slide 13, notes and guides match Classify /
+Study / Samples / About and optional Details. The latest render comparison
+confirms the other 13 pages are unchanged.
 
-Full native Standards and Spec reviews are running on010ffdb. Portable-package
-assembly, runtime smoke and final integrated test/CI results remain pending.
+Missing epoch-wise ResNet validation histories and unequal tuning budgets remain
+disclosed. No missing measurements were fabricated. Dataset publication,
+student details and oral delivery remain with the owner.

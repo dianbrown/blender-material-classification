@@ -158,3 +158,64 @@ failedcollectorlintthenfixedaa80650 locally. Lastpushcc273b6;latercommitsnotyet
 pushed. Needfinalpush/tests/PR2body/readyafterredesign, noPRwatchactive.
 Newpresentationfollowup studio-presentation-minimal-nav askedauthoralignnav/
 demoDetailsreferenceswithnewUIonly, preservemetrics andQAchangedpages.
+
+## Recovered continuation and final design
+
+Recovered completed monochrome implementation afd695a after the child usage-limit
+failure; integrated as bbc42d4. Presentation navigation commit 942401b integrated
+as 8a4ee8c. README/model/data/coverage update 62a86f2 integrated as 57e66b0.
+No implementation was lost, and no training or study rescoring occurred.
+
+Actual native QA completed on monochrome views. Live leather 92.2% and wood
+95.2% DINO results observed; Details, model changes, popovers, Study matrix,
+Samples filtering, About, keyboard classification and graceful close verified.
+Found busy-label overlap and corrected nonshrinking labels/spacer sizing.
+Independent new review found hidden disclosures consuming Escape. Fixed in
+5a27bc2 with current-page/prediction visibility gates and regression; independent
+follow-up reports resolved and no remaining scoped P1/P2. 19 Rust tests pass,
+plus successful release build. Final executable SHA256:
+65531935d8c785358f3d85c5382f37b3a970b716e6be5b8a7daf4ee868bacbdb.
+
+New package building at dist/MaterialStudio-release via session 73055. Never
+use the old teal MaterialStudio or MaterialStudio-final candidates as delivery.
+Prepared runtime reused; copied sources/DATASET must remain unchanged during
+assembly. All UI processes closed. Operational final worker smoke script at
+artifacts/material-studio/verify_final_package.py runs all four models cold/warm
+on CPU then CUDA from external temp cwd, bundled runtime, conflicting HF vars.
+Run only after package assembly. Then launch packaged exe from external cwd
+without resources/python overrides and verify actual native prediction.
+
+Documentation screenshot docs/images/material-studio.png is actual monochrome
+native app. Final README/coverage currently honestly mark final package QA
+pending; replace those statements after actual completion. Review document
+updated. Remaining: package smoke/native launch, final evidence/docs status,
+push PR2 and CI, finish Linear. Feature PR2 remains draft; prior PR1 already
+merged/main updated and v3 branch deleted. No Kaggle/public binary upload.
+
+## Final portable verification and requested Acrylic adjustment
+
+The monochrome portable package completed: 22,798 files, 5,151,660,569 bytes.
+All four models passed cold/warm CPU and CUDA smoke (16 predictions), empty
+stderr, exact repeated probabilities, external cwd, no PYTHONPATH, system-only
+PATH and conflicting host cache vars. Packaged native app launched without
+resource/Python overrides and completed live DINO wood95.2% prediction.
+User physical Escape stopped the close/capture action; no further UI input was
+made. User then requested slightly more translucency like Zen. UI-only commit
+515b650 reduces root alpha232->176, sidebar184->56, toolbar237->200; foreground
+and opaque mode unchanged. Official Zen Acrylic docs checked. Release build
+passes; new exe SHA25635fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2.
+The local package refresh verifies all prior payload hashes, saves original
+binary/manifest and updates only exe+manifest; operational script
+artifacts/material-studio/refresh_glass_binary.py, session93010. No new UI driving
+requested/performed for this opacity-only pass. Need collect completion then
+packaged Rust-worker smoke, final docs/commit/push/CI. Model paths and Kaggle
+state remain unchanged. Focused report/demo/package suite67passed36.71sec;
+native notice validation311deps/445texts passes with two known exceptions.
+
+Final package refresh completed, all22,797 prior payload hashes verified; only
+native exe and package manifest updated, backups retained. Current packaged
+native Rust-to-Python smoke from externalcwd passed CUDA wood95.2296%, startup
+120.87ms, firstload16.25sec; runtimeandweightsunchanged. Evidence
+artifacts/material-studio/glass-native-smoke.json and glass-refresh.json.
+All local implementation/report/package deliverables complete; final GitHub CI
+is next. No further desktop automation performed after the physicalEscape stop.

@@ -1,13 +1,13 @@
 # Material Studio classroom demo
 
-This is the expected workflow for the redesigned minimal native GPUI app under integration. Navigation is **Classify / Study / Samples / About**. The redesigned application has not yet been visually verified here. Complete the rehearsal checklist below before claiming that live inference works.
+The verified native GPUI app uses **Classify / Study / Samples / About** navigation. Native visual checks and packaged CPU/CUDA inference passed on the development machine. Rehearse on the classroom machine before presenting.
 
 ## Before class
 
 - Open `reports/presentation/material_classification.pptx` and keep the PDF available as a slide fallback. Fill in the deliberately blank group-member field only with the presenters' actual names.
 - Confirm the lecturer's duration. The guide budgets about ten minutes, including a short demo, but the brief does not prescribe ten minutes.
 - Agree speaking hand-offs. Every member must participate and understand the full study.
-- Launch the final Material Studio build using the parent project's verified run instructions. This guide does not assume an executable name or invent a launch command.
+- Open `dist/MaterialStudio-release/MaterialStudio.exe`. Keep the complete portable folder together; no separate Python installation is needed.
 - Confirm the required local checkpoints, preprocessing metadata and sample images are available without a network connection. Use the machine's supported device. The published GPU timings do not predict classroom CPU latency.
 - Rehearse one complete image prediction per supported model. Verify that changing the input or model cannot leave an old result appearing as a new prediction. Confirm the concise class/confidence result and the full probabilities under Details match the displayed model and image.
 - Check that the loading state is visible while inference runs, and that failures clearly report unavailable runtime or model files.
@@ -30,11 +30,11 @@ Use the app's Study and Samples views if available. Otherwise use slides 7-11 an
 
 ## Integration sign-off for the parent
 
-- [ ] Build and open the final GPUI application.
-- [ ] Confirm Classify, Study, Samples and About navigation, plus the single image and compact bottom toolbar with Open image, Samples, model menu and Classify.
-- [ ] Run fresh inference for an image and a built-in sample on the classroom device.
-- [ ] Check model switching, the concise class/confidence result, Details probabilities, loading, failure messages and stale-result handling.
-- [ ] Check stored comparison metrics and confusions against the slide values.
+- [x] Build and open the final GPUI application, including the portable executable outside the checkout.
+- [x] Confirm Classify, Study, Samples and About navigation, plus the single image and compact bottom toolbar with Open image, Samples, model menu and Classify.
+- [x] Run fresh inference for a file-picker image and built-in samples on this machine; repeat on any different classroom device.
+- [x] Check model switching, the concise class/confidence result, Details probabilities, loading, failure handling and stale-result rejection through native interaction and integration tests.
+- [x] Check stored comparison metrics and confusions against the slide values.
 - [ ] Rehearse the offline fallback and complete presenter hand-offs.
 
 The user retains the Kaggle upload and dataset-release decision. No upload is part of this demo or presentation build.

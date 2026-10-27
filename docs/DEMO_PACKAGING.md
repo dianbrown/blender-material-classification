@@ -61,7 +61,7 @@ notice bundle generated from its actual `Cargo.lock`.
 ```powershell
 $exe = Join-Path $repo 'artifacts/material-studio/cargo-target/release/material-studio.exe'
 $notices = Join-Path $repo 'app/THIRD_PARTY_NOTICES.txt'
-$output = Join-Path $repo 'dist/MaterialStudio'
+$output = Join-Path $repo 'dist/MaterialStudio-release'
 # Use the reviewed, redistributable MSVC runtime selected during PE inspection.
 $vcRuntime = Join-Path $env:SystemRoot 'System32/vcruntime140.dll'
 $exeHash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -230,3 +230,26 @@ Small synthetic tests (no model loading, no large copies):
 & $python -m pytest tests/test_demo_package.py -q
 & $python -m ruff check scripts/demo/package_app.py tests/test_demo_package.py
 ```
+
+## Verified local release
+
+Use `dist/MaterialStudio-release/MaterialStudio.exe`. The initial assembled
+monochrome package contained 22,798 files and 5,151,660,569 bytes (about 4.8 GiB).
+All payload hashes and source/model identities passed assembly verification.
+The final packaged worker passed all four models cold/warm on CPU and CUDA,
+from an external temporary directory with restricted PATH, no PYTHONPATH and
+conflicting host cache variables. Evidence:
+`artifacts/material-studio/final-package-worker-smoke.json`.
+
+The packaged native executable also opened outside the checkout without root or
+Python overrides, rendered its bundled example and completed a live prediction.
+The latest UI-only refresh reduces neutral panel opacity to expose more native
+Acrylic blur. Its executable SHA-256 is
+`35fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2`.
+The refresh verifies the entire previous payload, retains its original binary
+and manifest in local QA artifacts, replaces only the executable and updates its
+manifest entry. Models, runtime, licenses and sample pixels are unchanged.
+Final refresh evidence: `artifacts/material-studio/glass-refresh.json`.
+
+Earlier `dist/MaterialStudio` and `dist/MaterialStudio-final` folders are retained
+candidates with the superseded interface. They are not the recommended demo.

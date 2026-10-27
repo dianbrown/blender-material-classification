@@ -8,15 +8,16 @@ and compare the models using the project's measured results.
 
 ## Classroom demo
 
-The final portable folder is being assembled locally at
-`dist/MaterialStudio-release/` (approximately **4.8 GiB**). After final QA and
-packaging, open `dist/MaterialStudio-release/MaterialStudio.exe`. **Keep the
+Open `dist/MaterialStudio-release/MaterialStudio.exe` in the locally built
+portable folder (approximately **4.8 GiB**). **Keep the
 entire folder together**: it contains the Python runtime, model weights and
 examples. This is a locally generated package, not a GitHub download. It is
-designed for local inference without a server or internet connection; final
-native visual QA and packaged-runtime verification are still in progress.
+verified for local inference without a server or internet connection. The
+packaged runtime passed all four models on CPU and CUDA; the native executable
+also completed a live prediction when launched outside the repository.
 
-The minimal monochrome interface has four views: **Classify / Study / Samples /
+The neutral Acrylic background is gently translucent, with crisp foreground
+content. The minimal interface has four views: **Classify / Study / Samples /
 About**. Classify shows one image with a compact bottom toolbar: **Open image**,
 **Samples**, the **model menu**, then **Classify**.
 
@@ -36,8 +37,7 @@ study primary. This recommendation does not establish statistical superiority.
 Class probabilities are not guarantees; arbitrary photographs have not been
 validated.
 
-[Application screenshot](docs/images/material-studio.png) — planned after final
-visual QA.
+![Material Studio running a local prediction](docs/images/material-studio.png)
 
 ## Project submission
 
@@ -51,7 +51,7 @@ visual QA.
 
 The report follows the ITRI626 project structure. Group-member and student-number
 fields are intentionally blank at the user's request. The report and slides
-are available; final native app QA and portable packaging remain in progress.
+and the verified classroom application are ready for rehearsal.
 
 ## Measured results
 
