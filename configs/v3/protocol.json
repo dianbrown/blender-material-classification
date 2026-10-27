@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "name": "frozen-feature-v3",
+  "class_order": ["wood", "metal", "stone", "concrete", "ceramic", "fabric", "leather"],
+  "seed": 20261027,
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "group_column": "source_group",
+  "split_method": "StratifiedKFold on sorted unique source groups, expanded to image rows; every source group has one class",
+  "selection_metric": "macro_f1",
+  "tie_break": "within absolute tolerance of best score: candidate declaration order, then ascending C",
+  "tie_tolerance": 1e-12,
+  "C": [0.01, 0.1, 1.0, 10.0],
+  "head": {"solver": "lbfgs", "max_iter": 3000, "tol": 0.0001, "class_weight": "balanced", "penalty": "l2"},
+  "scaler": {"with_mean": true, "with_std": true},
+  "sample_weight": "none; unweighted per-image fit with fixed class_weight=balanced",
+  "convergence_policy": "fail run on ConvergenceWarning; no automatic solver or protocol change",
+  "split_failure_policy": "fail before scored fits if class support or group isolation is invalid; no adaptive fallback",
+  "control": "convnext_pooled224",
+  "precision": "float32; no autocast; patch std correction=0; TF32 disabled",
+  "preprocess": "PIL RGB; EXIF transpose; resize shorter edge floor(size/crop_pct) with PIL bicubic; longer edge floor; rounded center crop; float32 /255; model mean/std",
+  "foreground_crop": "not included; model-specific deterministic center preprocessing only",
+  "models": {
+    "dino": {
+      "name": "vit_small_patch14_reg4_dinov2.lvd142m",
+      "repository": "timm/vit_small_patch14_reg4_dinov2.lvd142m",
+      "revision": "c04b5193082a8d5b0c4856c7937384a48136c5de",
+      "weights_file": "model.safetensors",
+      "weights_sha256": "dca70548ecd7b03ffba6172c4db403014511b5ee6073f9fca72ba9e6e602a25d",
+      "width": 384, "patch_size": 14, "num_prefix_tokens": 5,
+      "mean": [0.485, 0.456, 0.406], "std": [0.229, 0.224, 0.225],
+      "crop_pct": 1.0, "resolutions": [224, 336],
+      "position_resize": "timm checkpoint_filter_fn bicubic antialias=True"
+    },
+    "convnext": {
+      "name": "convnext_tiny.fb_in22k_ft_in1k",
+      "repository": "timm/convnext_tiny.fb_in22k_ft_in1k",
+      "revision": "bc48a87f119bae1b06418f5340bfa97ef75d4609",
+      "weights_file": "model.safetensors",
+      "weights_sha256": "77b619e187de71bce58721689da0c009e84cc20677293d7d43105307e34d868a",
+      "width": 768,
+      "mean": [0.485, 0.456, 0.406], "std": [0.229, 0.224, 0.225],
+      "crop_pct": 0.875, "resolutions": [224]
+    }
+  },
+  "candidates": [
+    {"name": "dino_cls224", "parts": ["dino_224_cls"]},
+    {"name": "dino_cls_mean224", "parts": ["dino_224_cls", "dino_224_mean"]},
+    {"name": "dino_multiscale", "parts": ["dino_224_cls", "dino_224_mean", "dino_224_std", "dino_336_cls", "dino_336_mean", "dino_336_std"]},
+    {"name": "convnext_pooled224", "parts": ["convnext_224_pooled"]},
+    {"name": "dino_multiscale_convnext", "parts": ["dino_224_cls", "dino_224_mean", "dino_224_std", "dino_336_cls", "dino_336_mean", "dino_336_std", "convnext_224_pooled"]}
+  ],
+  "interpretation": {
+    "primary": "Nested selection-procedure OOF research estimate on all historical development data, including the old test split.",
+    "candidate_oof": "Descriptive predeclared candidate ablations with C selected in each outer training partition.",
+    "control_oof": "Predeclared ConvNeXt control; C selected independently in each outer training partition.",
+    "final": "Selected by grouped inner CV on all development data, then fitted on all development data. Also export independently C-selected all-development ConvNeXt control. No new test is used.",
+    "fresh_holdout": "Apply final saved recipe, scaler and head without fitting; evaluate only after selection is frozen."
+  },
+  "sources": [
+    "https://github.com/facebookresearch/dinov2",
+    "https://huggingface.co/timm/vit_small_patch14_reg4_dinov2.lvd142m",
+    "https://huggingface.co/timm/convnext_tiny.fb_in22k_ft_in1k",
+    "https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html"
+  ]
+}
