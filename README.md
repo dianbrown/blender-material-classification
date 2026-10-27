@@ -154,8 +154,7 @@ are retained under `scripts/v3`, `src/material_classifier/v3`, `metadata/v3` and
 The native frontend is under `app`; the persistent local inference service is
 under `src/material_classifier/demo`. UI rendering stays separate from model
 loading and inference. Live-image inference preserves the reviewed preprocessing
-and saved model weights. The earlier ML work in PR #1 is merged; the Material
-Studio feature in PR #2 is not yet merged.
+and saved model weights.
 
 ## Attribution
 
