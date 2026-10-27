@@ -60,3 +60,51 @@ childfile. MakePR/review/CI/merge asappropriate(userauthorizedrelease), tagv0.5
 atfinalsourcecommit, ghreleaseuploadinstallerassets(each<2GiB),checksums/video,
 publishrelease. Do NOT claimfinishuntilactualreleaseexists. ToolwatchPRonlywhen
 readytowait; unwatchforhandoff. MainpriorPR1/2merged,noremainingopenPRs initially.
+
+## Installer execution and review handoff (15:09 local)
+
+Integrated installer ea18546 from01acfa5. Compiler actualpath in childworktree,
+Inno7.1.0; initial fullbuild rejected27untracked.pyc introduced by nativePython
+startup, beforecompilation. Nativeworkernow-B8be57b8 plus actualchildflagregression;
+19Rusttests/buildpass. Removedonlyuntracked__pycache__/*.pyc with checkedabsolute
+packagepaths, allinventoriedpayloadretained. Operationalrefresh script
+artifacts/release-v05/refresh_worker_binary.py replacednativeexeandmanifest,
+backupsinbefore-worker-startup-fix. FINALexe34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2,
+12509184bytes. NativeCPUrealpredictionwiththisexecreatedzeroPYC.
+
+Current fullinstaller build SESSION99304 running auto(singlefirst) fromparent.
+Preverification22812payloadfilespassed; InnoISCCPID69172 begancompressionaround
+15:06 local. Output growing (~509MB at15:09) at
+ dist/installer-v0.5/build/single/assets/MaterialStudio-0.5.0-windows-x64-Setup.exe
+Do NOTuploadoruseuntilbuildercompletespostverification andmovesfilesinto
+ dist/installer-v0.5/release/
+Compilerlog dist/installer-v0.5/build/single/compiler.log mayremainbuffereduntilend.
+Builderauto repeatsas2,000,000,000byteslicesifEXE>=2GiB. Session99304output will
+reportfinish/receipt. Nootherbuild/GPU/UIprocessactive. Failedinitialbuilddidnot
+createoutputdirectory, samesuccessfuloutputrootreusedsafely.
+
+IndependentStandards/Spec round1foundonlysameP2 stalehash docs/INSTALLATION.md65.
+Corrected98a76cc. Freshrelease05-hash-fix-review-r2confirmedcommand+manifest+EXE
+allmatch34c525..., no remainingP1/P2inbothscopes. Summaryreports/RELEASE_V05_REVIEW.md.
+Integrated94Python tests pass/4skips(1symlinkpermission+3optincompiler/install;
+agentseparatelyranactualtinyfixture37pass1skip),Ruffpass. Initialiconresourcebuild
+CPUoptinpassed; startupfixsubprocessfixtureandrealCPUrunpassed. No newscoring.
+
+PR3 draft https://github.com/dianbrown/blender-material-classification/pull/3
+linked; branchrelease/v0.5. Willpushdocreview/finalhandoffthenwatchCI toresume.
+Notyetmerged/tagged/published. Final installeractualinstall/uninstallQArequired:
+freshLocalAppData/MaterialStudio-QA-<guid>; confirmnormalAppIduninstallregistry
+notalreadyinuse; optionaluniqueStartMenuGroupwithoutdesktop toverifyshortcuticon.
+CLI /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /TASKS="" /DIR=... /GROUP=... .
+Verifyinstalledpayloadhashes, nativeexternalcwdCPU/CUDAbridge,actualUIicon/sample,
+closeapp; adduser-ownedsentinel thenrunownedunins000.exe silent andproveitsurvives.
+Neverrecursive-deletearbitrarydirs. Installer mayaddicon/installreceipt/uninsfiles
+outsidepackageinventory; usepackagerverify(whichvalidatesrecordedfiles) not
+builderinventory(whichrejectsextras) oninstalledfolder. No-Bdirectruntimecalls
+wouldcreatepycache; allnativeworkersnow-B, directtestcallsuse-Btoo.
+
+Finalreleaseassets: setupEXE+(binsifany),SHA256SUMS,buildreceipt,smallMP4optional.
+Tests/QA receiptscanbepublishedasseparatevalidationJSON; avoidclaimingbenchmark
+numbersfromdemo. Exactv0.5tagdoesnotexistyet. RepositoryPRIVATE remainsunchanged.
+NeedfinalPRbodyready/CIpass/mergetomain(userauthorizedthisrelease),createv0.5tag
+atfinalmaincommit,uploadassetsandpublishGitHubrelease. NoKagglefullarchiveupload.
