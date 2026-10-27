@@ -13,6 +13,7 @@ from holdout_common import (  # noqa: E402
     digest,
     fingerprint,
     inside,
+    matches_text_digest,
     read_json,
     require_suffix,
     validate_identity_audit,
@@ -54,9 +55,9 @@ def main(argv=None):
     validate_config(config)
     validate_identity_audit(registry, read_json(args.identity_audit))
     validate_receipt(registry, receipt, args.sources_root)
-    if config["selection_sha256"] != registry["selection_sha256"] or config[
-        "identity_audit_sha256"
-    ] != digest(args.identity_audit):
+    if config["selection_sha256"] != registry["selection_sha256"] or not matches_text_digest(
+        args.identity_audit, config["identity_audit_sha256"]
+    ):
         raise ValueError("selection or identity audit differs from frozen protocol")
     run = read_json(args.dataset_root / "run_fingerprint.json")
     run_hash = run.pop("run_sha256")

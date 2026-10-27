@@ -22,6 +22,7 @@ from holdout_common import (  # noqa: E402
     digest,
     fingerprint,
     inside,
+    matches_text_digest,
     read_json,
     require_suffix,
     validate_identity_audit,
@@ -423,7 +424,7 @@ def main(argv=None):
     validate_paths(args)
     config = read_json(args.config)
     validate_config(config)
-    if digest(args.original_manifest) != config["original_manifest_sha256"]:
+    if not matches_text_digest(args.original_manifest, config["original_manifest_sha256"]):
         raise ValueError("original source manifest changed")
     import bpy
     from mathutils import Vector
@@ -438,7 +439,7 @@ def main(argv=None):
         registry, receipt = read_json(args.registry), read_json(args.receipt)
         validate_registry(registry, args.original_manifest)
         validate_identity_audit(registry, read_json(args.identity_audit))
-        if digest(args.identity_audit) != config["identity_audit_sha256"]:
+        if not matches_text_digest(args.identity_audit, config["identity_audit_sha256"]):
             raise ValueError("source identity audit changed since protocol freeze")
         validate_receipt(registry, receipt, args.sources_root)
         if config["selection_sha256"] != registry["selection_sha256"]:

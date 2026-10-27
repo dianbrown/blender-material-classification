@@ -42,6 +42,16 @@ def test_frozen_sources_balanced_and_excluded(registry):
     assert all(a["technique"] == "surface-photometric-stereo" for a in leather)
 
 
+def test_frozen_text_hash_allows_only_checkout_newlines(tmp_path):
+    path = tmp_path / "evidence.json"
+    path.write_bytes(b'{\r\n  "source": "fixed"\r\n}\r\n')
+    frozen = common.digest(path)
+    path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
+    assert common.matches_text_digest(path, frozen)
+    path.write_bytes(path.read_bytes().replace(b"fixed", b"changed"))
+    assert not common.matches_text_digest(path, frozen)
+
+
 def test_identity_audit_uses_original_map_hashes(registry):
     audit = common.read_json(ROOT / "metadata/v3_holdout/source_identity_audit.json")
     common.validate_identity_audit(registry, audit)

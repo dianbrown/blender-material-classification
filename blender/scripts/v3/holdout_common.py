@@ -20,6 +20,17 @@ def digest(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
+def matches_text_digest(path, expected):
+    """Accept only LF/CRLF checkout differences for explicitly textual frozen inputs."""
+    raw = Path(path).read_bytes()
+    raw.decode("utf-8")  # Never apply newline equivalence to binary source assets.
+    lf = raw.replace(b"\r\n", b"\n")
+    return expected in {
+        hashlib.sha256(content).hexdigest()
+        for content in (raw, lf, lf.replace(b"\n", b"\r\n"))
+    }
+
+
 def fingerprint(value):
     return hashlib.sha256(
         json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode()
@@ -119,7 +130,7 @@ def validate_registry(registry, original_manifest):
     payload = {k: v for k, v in registry.items() if k != "selection_sha256"}
     if registry.get("selection_sha256") != fingerprint(payload):
         raise ValueError("frozen selection fingerprint mismatch")
-    if digest(original_manifest) != registry["original_manifest_sha256"]:
+    if not matches_text_digest(original_manifest, registry["original_manifest_sha256"]):
         raise ValueError("original source manifest changed")
     with Path(original_manifest).open(encoding="utf-8-sig", newline="") as stream:
         originals = list(csv.DictReader(stream))
