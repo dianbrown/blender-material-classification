@@ -1,0 +1,1725 @@
+{
+  "slide_width": 960,
+  "slide_height": 540,
+  "font": "Aptos",
+  "slides": [
+    {
+      "title": "Recognising materials\nin Blender renders",
+      "seconds": 20,
+      "notes": "Introduce the problem as visual appearance classification in a controlled rendering setting. The practical aim is to assist material browsing or organisation. Leave the group-member fields blank until the presenters supply their names. This rehearsal plan is about ten minutes, not a lecturer-assigned duration.",
+      "sources": [
+        "ITRI626 practical project brief, sections 2, 10 and 12.2",
+        "reports/v3/report.md, Abstract and section 1"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "ITRI626  /  Deep learning for image classification",
+          "x": 48,
+          "y": 62,
+          "w": 800,
+          "h": 32,
+          "size": 19,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Seven classes. Three model families.\nAssessment on unseen source groups.",
+          "x": 48,
+          "y": 285,
+          "w": 670,
+          "h": 78,
+          "size": 25,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Group members:",
+          "x": 48,
+          "y": 419,
+          "w": 170,
+          "h": 28,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "",
+          "x": 220,
+          "y": 416,
+          "w": 680,
+          "h": 60,
+          "size": 20,
+          "color": "20364A",
+          "bold": false,
+          "name": "Group members - intentionally blank"
+        }
+      ]
+    },
+    {
+      "title": "The problem and seven classes",
+      "seconds": 40,
+      "notes": "An image receives one of seven appearance labels. This could help search a rendered asset library. The categories are wood, metal, stone, concrete, ceramic, fabric and leather. Each picture is an actual held-out render selected by path, without filtering by correctness. The same sphere makes texture and reflectance informative, but this does not identify physical composition. In the development collection, ceramic includes mosaic or terrazzo-like appearances and concrete includes plaster or painted walls.",
+      "sources": [
+        "reports/results/v3/report_inputs/gallery_selection.json",
+        "reports/v3/report.md, sections 1-2"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "Classify material appearance to support browsing of rendered assets",
+          "x": 48,
+          "y": 105,
+          "w": 860,
+          "h": 42,
+          "size": 23,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_wood.png",
+          "x": 48,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Wood",
+          "x": 48,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_metal.png",
+          "x": 174,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Metal",
+          "x": 174,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_stone.png",
+          "x": 300,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Stone",
+          "x": 300,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_concrete.png",
+          "x": 426,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Concrete",
+          "x": 426,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_ceramic.png",
+          "x": 552,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Ceramic",
+          "x": 552,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_fabric.png",
+          "x": 678,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Fabric",
+          "x": 678,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "image",
+          "path": "assets/class_leather.png",
+          "x": 804,
+          "y": 183,
+          "w": 116,
+          "h": 116
+        },
+        {
+          "kind": "text",
+          "text": "Leather",
+          "x": 804,
+          "y": 313,
+          "w": 120,
+          "h": 27,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "One RGB image, one label",
+          "x": 48,
+          "y": 385,
+          "w": 800,
+          "h": 34,
+          "size": 26,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Appearance categories do not establish physical composition.",
+          "x": 48,
+          "y": 432,
+          "w": 860,
+          "h": 40,
+          "size": 20,
+          "color": "20364A",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Dataset provenance and group separation",
+      "seconds": 50,
+      "notes": "The study has 3,780 balanced RGB images at 512 by 512 pixels, with 30 rendered views per material. Development contains 450 images per class and the fresh holdout 90 per class. Source textures come from Poly Haven and ambientCG under CC0. They include scanned and procedural assets, so we do not describe all sources as independent physical scans. Labels follow audited asset identity and appearance. Known generator relatives are merged into groups. Thirty views of a texture remain correlated. No known development-to-holdout family or exact-map reuse remains, but unknown physical ancestry cannot be ruled out. The rendered-dataset release licence is still an owner decision.",
+      "sources": [
+        "reports/results/v3/data_audit.json",
+        "metadata/v3_holdout/source_identity_audit.json",
+        "reports/results/v3/report_inputs/study_counts.csv",
+        "https://polyhaven.com/license",
+        "https://docs.ambientcg.com/license/"
+      ],
+      "items": [
+        {
+          "kind": "table",
+          "data": [
+            [
+              "Population",
+              "Images",
+              "Material IDs",
+              "Source groups"
+            ],
+            [
+              "Development",
+              "3,150",
+              "105",
+              "101"
+            ],
+            [
+              "Fresh test",
+              "630",
+              "21",
+              "21"
+            ]
+          ],
+          "x": 48,
+          "y": 115,
+          "w": 864,
+          "h": 160,
+          "widths": [
+            0.33,
+            0.2,
+            0.23,
+            0.24
+          ],
+          "size": 21,
+          "heat": false
+        },
+        {
+          "kind": "text",
+          "text": "30 views per material. Each class has 450 development + 90 test images.",
+          "x": 48,
+          "y": 296,
+          "w": 864,
+          "h": 45,
+          "size": 20,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Poly Haven + ambientCG CC0 texture assets\nScanned and procedural sources rendered in Blender",
+          "x": 48,
+          "y": 358,
+          "w": 864,
+          "h": 73,
+          "size": 23,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Known relatives stay together. Unknown physical ancestry remains a caveat.",
+          "x": 48,
+          "y": 456,
+          "w": 864,
+          "h": 40,
+          "size": 19,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Three model families, four pipelines",
+      "seconds": 50,
+      "notes": "ConvNeXt is a modern convolutional model, ResNet is a residual convolutional network, and DINOv2 uses a vision transformer. All use pretrained weights. A frozen ConvNeXt control and fixed ResNet baseline provide family comparisons. The primary fuses DINOv2 and ConvNeXt features and fits a scaled, class-balanced logistic classifier. DINO pools CLS, patch mean and patch standard deviation at two resolutions, excluding register tokens from patch pooling. The partially fine-tuned DINO model is exploratory. These are complete pipeline comparisons because pretraining data, resolution and compute budgets differ.",
+      "sources": [
+        "reports/results/v3/frozen_initial/protocol.json",
+        "configs/v3/finetune.json",
+        "reports/results/v3/resnet_baseline/config.json",
+        "reports/v3/report.md, section 5",
+        "https://arxiv.org/abs/2304.07193",
+        "https://arxiv.org/abs/2201.03545",
+        "https://arxiv.org/abs/1512.03385"
+      ],
+      "items": [
+        {
+          "kind": "table",
+          "data": [
+            [
+              "Pipeline",
+              "Transfer learning",
+              "Input"
+            ],
+            [
+              "Primary fusion",
+              "Frozen DINOv2 + ConvNeXt\n3,072 features, logistic head",
+              "224 + 336"
+            ],
+            [
+              "ConvNeXt control",
+              "Frozen ConvNeXt-Tiny\nLogistic head",
+              "224"
+            ],
+            [
+              "Fixed ResNet-50",
+              "ImageNet weights\nAdapt layer4 and classifier",
+              "224"
+            ],
+            [
+              "Fine-tuned DINOv2",
+              "Pretrained ViT-S/14 + registers\nAdapt last two blocks and head",
+              "336"
+            ]
+          ],
+          "x": 48,
+          "y": 112,
+          "w": 864,
+          "h": 322,
+          "widths": [
+            0.28,
+            0.54,
+            0.18
+          ],
+          "size": 19,
+          "heat": false
+        },
+        {
+          "kind": "text",
+          "text": "Architecture, pretraining, resolution and adaptation budgets differ.",
+          "x": 48,
+          "y": 459,
+          "w": 860,
+          "h": 42,
+          "size": 20,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Experimental setup",
+      "seconds": 55,
+      "notes": "The frozen selection uses five outer source-group folds and three inner grouped folds, seed 20261027. Inner folds select five representations and C in 0.01, 0.1, 1 and 10 by Macro F1. The scaler and classifier are fitted inside each training partition. All original images are development data because the historical test had already been consulted. The neural comparison uses the same development pool and the same final holdout. DINO searches two learning rates in a bounded three-fold exploratory follow-up. Preprocessing converts to RGB, uses model-specific resize and centre crop and pretrained normalisation. Neural training alone adds small random crops, horizontal flips and mild colour jitter. ResNet uses AdamW with a cosine schedule for ten fixed epochs. DINO uses AdamW and development early stopping, then a fixed five-epoch final fit. Both have effective batch size 32, label-smoothed cross entropy and weight decay 0.01. Development Macro F1 selected the frozen primary before any fresh scores. Four fixed models then received one clean evaluation each.",
+      "sources": [
+        "reports/results/v3/frozen_initial/protocol.json",
+        "configs/v3/finetune.json",
+        "reports/results/v3/resnet_baseline/config.json",
+        "reports/results/v3/model_choice.json",
+        "reports/results/v3/final_model_lock.json"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "Development and selection",
+          "x": 48,
+          "y": 112,
+          "w": 420,
+          "h": 32,
+          "size": 23,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "5 outer / 3 inner grouped folds\nFrozen features + fold-local scaling\nRepresentation and regularisation search\nSeed 20261027",
+          "x": 48,
+          "y": 162,
+          "w": 425,
+          "h": 165,
+          "size": 21,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Transfer and preprocessing",
+          "x": 510,
+          "y": 112,
+          "w": 405,
+          "h": 32,
+          "size": 23,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "RGB, resize/crop, pretrained normalisation\nTraining only: crops, flips, mild colour jitter\nResNet: 10 fixed epochs\nDINOv2: bounded search, 5 final epochs",
+          "x": 510,
+          "y": 162,
+          "w": 402,
+          "h": 170,
+          "size": 20,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Choose on development data. Lock every model. Evaluate once on the same 630 images.",
+          "x": 48,
+          "y": 373,
+          "w": 864,
+          "h": 75,
+          "size": 26,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "DINOv2 adaptation is exploratory. Test ranking does not choose the primary.",
+          "x": 48,
+          "y": 467,
+          "w": 864,
+          "h": 37,
+          "size": 18,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Actual learning curves",
+      "seconds": 50,
+      "notes": "These are the complete recorded histories for all three development folds at the selected DINO backbone learning rate of 1e-5. Solid curves show training and dashed curves development validation. No curve is a fresh-test result. The training fit becomes strong while validation varies by source fold. Validation chooses the learning rate and epoch count, so it is optimistic for that selection. The six-fit search also includes 3e-6, whose mean best development Macro F1 was 0.76250 versus 0.77248 at 1e-5. Best epochs 6, 5 and 3 imply five final epochs. ResNet has actual training-only logs for its fixed schedule and no epoch-wise validation curve. The frozen logistic head has regularisation-search diagnostics, not neural learning epochs.",
+      "sources": [
+        "reports/results/v3/finetune_development/lr_1e-05_fold_0/progress.json",
+        "reports/results/v3/finetune_development/lr_1e-05_fold_1/progress.json",
+        "reports/results/v3/finetune_development/lr_1e-05_fold_2/progress.json",
+        "reports/results/v3/finetune_development/selection.json",
+        "reports/results/v3/resnet_baseline/final_history.csv"
+      ],
+      "items": [
+        {
+          "kind": "chart",
+          "title": "Loss",
+          "categories": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "series": [
+            {
+              "name": "Fold 1 train",
+              "values": [
+                1.382480564771914,
+                0.7575457992506962,
+                0.42751046489266786,
+                0.3058519737393248,
+                0.27983424160994735,
+                0.2704531791163426,
+                0.26606226364771524,
+                0.26381652694122465,
+                0.26248025391616076
+              ],
+              "color": "137F82",
+              "dash": false
+            },
+            {
+              "name": "Fold 1 validation",
+              "values": [
+                1.0488079122594884,
+                0.813854693077706,
+                0.6899274925927859,
+                0.714674297753755,
+                0.7200166294166633,
+                0.7311445670084911,
+                0.7473660821313257,
+                0.7459811483417546,
+                0.7539963193841883
+              ],
+              "color": "137F82",
+              "dash": true
+            },
+            {
+              "name": "Fold 2 train",
+              "values": [
+                1.4622641561144873,
+                0.7637695028668359,
+                0.432008376462119,
+                0.3073545182886578,
+                0.27899654825528464,
+                0.26986147914613995,
+                0.26516186294101535,
+                0.26312903358822776
+              ],
+              "color": "A25524",
+              "dash": false
+            },
+            {
+              "name": "Fold 2 validation",
+              "values": [
+                1.1289375784283593,
+                0.9023417141323998,
+                0.7534437718845549,
+                0.7797005950836908,
+                0.7545918447630746,
+                0.8062079761141823,
+                0.7770398589542934,
+                0.7949594203631083
+              ],
+              "color": "A25524",
+              "dash": true
+            },
+            {
+              "name": "Fold 3 train",
+              "values": [
+                1.2798502374578404,
+                0.6178375356727176,
+                0.36613311458517006,
+                0.2869855289106016,
+                0.2724978371902748,
+                0.2659406207225941
+              ],
+              "color": "65549D",
+              "dash": false
+            },
+            {
+              "name": "Fold 3 validation",
+              "values": [
+                1.3190047418228303,
+                1.1656688420459478,
+                1.070554747966805,
+                1.0635325410149314,
+                1.093325681638236,
+                1.087220559216509
+              ],
+              "color": "65549D",
+              "dash": true
+            }
+          ],
+          "x": 40,
+          "y": 125,
+          "w": 440,
+          "h": 300,
+          "chart_type": "line",
+          "ymin": 0,
+          "ymax": null,
+          "ylabel": "Cross-entropy"
+        },
+        {
+          "kind": "chart",
+          "title": "Macro F1",
+          "categories": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "series": [
+            {
+              "name": "Fold 1 train",
+              "values": [
+                0.5840549940541075,
+                0.865934148458441,
+                0.9698133870382039,
+                0.998519707774447,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "color": "137F82",
+              "dash": false
+            },
+            {
+              "name": "Fold 1 validation",
+              "values": [
+                0.8096321345244405,
+                0.8289303584704483,
+                0.8213695390371665,
+                0.8190391774964445,
+                0.8361690053019972,
+                0.8401072901378714,
+                0.828141388639474,
+                0.8274831249490904,
+                0.8367368780522193
+              ],
+              "color": "137F82",
+              "dash": true
+            },
+            {
+              "name": "Fold 2 train",
+              "values": [
+                0.5332982974003352,
+                0.8866538154850618,
+                0.9628915492045242,
+                0.9990476084654908,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "color": "A25524",
+              "dash": false
+            },
+            {
+              "name": "Fold 2 validation",
+              "values": [
+                0.7195502165306438,
+                0.7566542532090199,
+                0.8010672415886074,
+                0.800559294186313,
+                0.8029839348091382,
+                0.7801943885765079,
+                0.7820534558295206,
+                0.7957450167234467
+              ],
+              "color": "A25524",
+              "dash": true
+            },
+            {
+              "name": "Fold 3 train",
+              "values": [
+                0.643369262842352,
+                0.9160201197972914,
+                0.9820464847373905,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "color": "65549D",
+              "dash": false
+            },
+            {
+              "name": "Fold 3 validation",
+              "values": [
+                0.5555178733336777,
+                0.5949533046885433,
+                0.6743554298153329,
+                0.6616097541750827,
+                0.6313349699864902,
+                0.6373669296538432
+              ],
+              "color": "65549D",
+              "dash": true
+            }
+          ],
+          "x": 495,
+          "y": 125,
+          "w": 440,
+          "h": 300,
+          "chart_type": "line",
+          "ymin": 0,
+          "ymax": 1,
+          "ylabel": "Macro F1"
+        },
+        {
+          "kind": "text",
+          "text": "DINOv2, selected learning rate 1e-5. Solid: training. Dashed: development validation.",
+          "x": 48,
+          "y": 443,
+          "w": 864,
+          "h": 32,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Training fit improves faster than validation. Fresh test data never set epochs.",
+          "x": 48,
+          "y": 484,
+          "w": 864,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "title": "Clean test results on unseen sources",
+      "seconds": 55,
+      "notes": "The primary achieves 505 correct images out of 630, or 80.16%, with Macro F1 0.7952. Its 95% source-group bootstrap interval is 66.03 to 93.65%. The point target of 80% is met but the lower bound is below 80%. Fine-tuned DINOv2 records 86.83% and Macro F1 0.8631. It stays an exploratory comparison. Its paired accuracy advantage over the primary is 6.67 percentage points with interval minus 2.06 to plus 16.19, which includes zero. Thus the ranking does not establish superiority. The control interval is 61.59 to 88.73%, ResNet 63.65 to 90.48%, and DINOv2 76.98 to 95.87%. Intervals use 10,000 class-stratified cluster draws over 21 sources, conditional on these saved predictions.",
+      "sources": [
+        "reports/results/v3/fresh/frozen_selected/evaluation.json",
+        "reports/results/v3/fresh/frozen_control/evaluation.json",
+        "reports/results/v3/fresh/resnet_fixed/evaluation.json",
+        "reports/results/v3/fresh/dinov2_finetuned/evaluation.json",
+        "reports/results/v3/report_inputs/paired_fresh.csv"
+      ],
+      "items": [
+        {
+          "kind": "table",
+          "data": [
+            [
+              "Pipeline",
+              "Accuracy",
+              "Macro P",
+              "Macro R",
+              "Macro F1"
+            ],
+            [
+              "Primary frozen fusion",
+              "80.16%",
+              "0.812",
+              "0.802",
+              "0.7952"
+            ],
+            [
+              "ConvNeXt control",
+              "75.56%",
+              "0.793",
+              "0.756",
+              "0.7566"
+            ],
+            [
+              "Fixed ResNet-50",
+              "77.62%",
+              "0.789",
+              "0.776",
+              "0.7665"
+            ],
+            [
+              "Fine-tuned DINOv2",
+              "86.83%",
+              "0.897",
+              "0.868",
+              "0.8631"
+            ]
+          ],
+          "x": 48,
+          "y": 115,
+          "w": 864,
+          "h": 228,
+          "widths": [
+            0.36,
+            0.16,
+            0.16,
+            0.16,
+            0.16
+          ],
+          "size": 20,
+          "heat": false
+        },
+        {
+          "kind": "text",
+          "text": "Primary: 80.16% accuracy, 95% CI 66.03-93.65%",
+          "x": 48,
+          "y": 368,
+          "w": 864,
+          "h": 40,
+          "size": 26,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "The 80% point target is met. The lower confidence bound is below 80%.",
+          "x": 48,
+          "y": 416,
+          "w": 864,
+          "h": 38,
+          "size": 20,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Exploratory DINOv2 advantage: +6.67 pp, paired 95% CI -2.06 to +16.19 pp.\nHigher observed accuracy does not establish superiority.",
+          "x": 48,
+          "y": 463,
+          "w": 864,
+          "h": 52,
+          "size": 18,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Primary errors and per-class performance",
+      "seconds": 55,
+      "notes": "Read the matrix by rows: true class first, prediction second. Every row has 90 images. Ceramic is often called stone, with 30 of its 90 images following that error. Leather is called concrete in 22 cases. Wood, metal and fabric reach perfect recall on the three sampled sources per class, which is not a population guarantee. Ceramic precision is 1.000 but recall is only 0.578, illustrating that missing many examples can coexist with few false positive labels. All values are saved point metrics, not newly scored results.",
+      "sources": [
+        "reports/results/v3/fresh/frozen_selected/image_confusion_matrix.csv",
+        "reports/results/v3/fresh/frozen_selected/image_per_class.csv"
+      ],
+      "items": [
+        {
+          "kind": "table",
+          "data": [
+            [
+              "True / pred.",
+              "Wd",
+              "Mt",
+              "St",
+              "Co",
+              "Ce",
+              "Fa",
+              "Le"
+            ],
+            [
+              "Wood",
+              "90",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "Metal",
+              "0",
+              "90",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "Stone",
+              "12",
+              "0",
+              "60",
+              "0",
+              "0",
+              "0",
+              "18"
+            ],
+            [
+              "Concrete",
+              "18",
+              "6",
+              "2",
+              "61",
+              "0",
+              "0",
+              "3"
+            ],
+            [
+              "Ceramic",
+              "0",
+              "8",
+              "30",
+              "0",
+              "52",
+              "0",
+              "0"
+            ],
+            [
+              "Fabric",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "90",
+              "0"
+            ],
+            [
+              "Leather",
+              "0",
+              "0",
+              "0",
+              "22",
+              "0",
+              "6",
+              "62"
+            ]
+          ],
+          "x": 42,
+          "y": 150,
+          "w": 520,
+          "h": 275,
+          "widths": [
+            0.24,
+            0.10857142857142857,
+            0.10857142857142857,
+            0.10857142857142857,
+            0.10857142857142857,
+            0.10857142857142857,
+            0.10857142857142857,
+            0.10857142857142857
+          ],
+          "size": 16,
+          "heat": true
+        },
+        {
+          "kind": "table",
+          "data": [
+            [
+              "Class",
+              "P",
+              "R",
+              "F1"
+            ],
+            [
+              "Wood",
+              "0.750",
+              "1.000",
+              "0.857"
+            ],
+            [
+              "Metal",
+              "0.865",
+              "1.000",
+              "0.928"
+            ],
+            [
+              "Stone",
+              "0.652",
+              "0.667",
+              "0.659"
+            ],
+            [
+              "Concrete",
+              "0.735",
+              "0.678",
+              "0.705"
+            ],
+            [
+              "Ceramic",
+              "1.000",
+              "0.578",
+              "0.732"
+            ],
+            [
+              "Fabric",
+              "0.938",
+              "1.000",
+              "0.968"
+            ],
+            [
+              "Leather",
+              "0.747",
+              "0.689",
+              "0.717"
+            ]
+          ],
+          "x": 585,
+          "y": 150,
+          "w": 333,
+          "h": 275,
+          "widths": [
+            0.34,
+            0.22,
+            0.22,
+            0.22
+          ],
+          "size": 16,
+          "heat": false
+        },
+        {
+          "kind": "text",
+          "text": "Confusion counts (90 per true class)",
+          "x": 44,
+          "y": 112,
+          "w": 520,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Precision, recall and F1",
+          "x": 585,
+          "y": 112,
+          "w": 333,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Wd wood   Mt metal   St stone   Co concrete   Ce ceramic   Fa fabric   Le leather",
+          "x": 44,
+          "y": 438,
+          "w": 870,
+          "h": 28,
+          "size": 15,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Ceramic to stone: 30 errors. Leather to concrete: 22 errors.",
+          "x": 48,
+          "y": 480,
+          "w": 860,
+          "h": 34,
+          "size": 24,
+          "color": "20364A",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "title": "Correct and incorrect predictions",
+      "seconds": 40,
+      "notes": "These four examples use the saved primary predictions. The correct wood and metal examples are from the unfiltered class gallery. The ceramic and leather failures come from the report error gallery. They are selected illustrations rather than a representative performance estimate. Point to visual ambiguity in texture and reflectance as a plausible explanation, not a causal attribution. Model probabilities can be high for wrong answers and are not calibrated certainty. Show the predicted class and confidence for each.",
+      "sources": [
+        "reports/results/v3/report_inputs/gallery_selection.json",
+        "reports/results/v3/fresh/frozen_selected/predictions.csv"
+      ],
+      "items": [
+        {
+          "kind": "image",
+          "path": "assets/example_1.png",
+          "x": 48,
+          "y": 145,
+          "w": 196,
+          "h": 196
+        },
+        {
+          "kind": "text",
+          "text": "True: wood",
+          "x": 48,
+          "y": 359,
+          "w": 205,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Predicted: wood",
+          "x": 48,
+          "y": 392,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Score: 99.5%",
+          "x": 48,
+          "y": 424,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "image",
+          "path": "assets/example_2.png",
+          "x": 272,
+          "y": 145,
+          "w": 196,
+          "h": 196
+        },
+        {
+          "kind": "text",
+          "text": "True: metal",
+          "x": 272,
+          "y": 359,
+          "w": 205,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Predicted: metal",
+          "x": 272,
+          "y": 392,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Score: 96.7%",
+          "x": 272,
+          "y": 424,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "image",
+          "path": "assets/example_3.png",
+          "x": 496,
+          "y": 145,
+          "w": 196,
+          "h": 196
+        },
+        {
+          "kind": "text",
+          "text": "True: ceramic",
+          "x": 496,
+          "y": 359,
+          "w": 205,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Predicted: stone",
+          "x": 496,
+          "y": 392,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Score: 96.9%",
+          "x": 496,
+          "y": 424,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "A25524",
+          "bold": false
+        },
+        {
+          "kind": "image",
+          "path": "assets/example_4.png",
+          "x": 720,
+          "y": 145,
+          "w": 196,
+          "h": 196
+        },
+        {
+          "kind": "text",
+          "text": "True: leather",
+          "x": 720,
+          "y": 359,
+          "w": 205,
+          "h": 28,
+          "size": 19,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Predicted: concrete",
+          "x": 720,
+          "y": 392,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Score: 89.9%",
+          "x": 720,
+          "y": 424,
+          "w": 205,
+          "h": 28,
+          "size": 18,
+          "color": "A25524",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "A high predicted probability can accompany an incorrect label.",
+          "x": 48,
+          "y": 482,
+          "w": 860,
+          "h": 35,
+          "size": 23,
+          "color": "20364A",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "title": "JPEG compression exposes a weakness",
+      "seconds": 40,
+      "notes": "These saved corruption results use the same 630 images and five deterministic transforms. The primary drops from 80.16% clean accuracy to 59.05% at JPEG quality 30, a 21.11 percentage point loss. DINOv2 falls from 86.83% to 75.40%. Primary corruption tests were predeclared, whereas the DINOv2 corruption comparison was applied after observing clean and primary-corruption scores and is explicitly post hoc. Compression is the largest degradation here, but these tests do not substitute for new scenes or real-camera data.",
+      "sources": [
+        "reports/results/v3/robustness/primary/comparison.csv",
+        "reports/results/v3/robustness/dinov2_exploratory/comparison.csv",
+        "reports/results/v3/exploratory_robustness_amendment.json"
+      ],
+      "items": [
+        {
+          "kind": "chart",
+          "title": "Accuracy under image corruption",
+          "categories": [
+            "Clean",
+            "Darker",
+            "Brighter",
+            "Blur",
+            "JPEG 30",
+            "128 px"
+          ],
+          "series": [
+            {
+              "name": "Primary",
+              "values": [
+                80.15873015873017,
+                78.25396825396825,
+                83.01587301587303,
+                77.14285714285715,
+                59.04761904761905,
+                75.07936507936508
+              ],
+              "color": "137F82"
+            },
+            {
+              "name": "DINOv2 (post hoc)",
+              "values": [
+                86.82539682539682,
+                85.23809523809524,
+                89.04761904761904,
+                80.0,
+                75.39682539682539,
+                83.17460317460318
+              ],
+              "color": "A25524"
+            }
+          ],
+          "x": 45,
+          "y": 110,
+          "w": 870,
+          "h": 320,
+          "chart_type": "bar",
+          "ymin": 0,
+          "ymax": 100,
+          "ylabel": "Accuracy (%)"
+        },
+        {
+          "kind": "text",
+          "text": "Primary: 80.16% clean to 59.05% at JPEG quality 30",
+          "x": 48,
+          "y": 443,
+          "w": 865,
+          "h": 38,
+          "size": 27,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "DINOv2 corruption results are a post hoc exploratory comparison.",
+          "x": 48,
+          "y": 489,
+          "w": 865,
+          "h": 29,
+          "size": 18,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Efficiency and model recommendation",
+      "seconds": 45,
+      "notes": "On the recorded RTX 4070 Laptop GPU, ResNet has the lowest warm batch-one median latency. The primary is slower because it uses multiple backbone passes. Required storage includes the backbones, not just the small classifier head. Timing starts from predecoded RGB and includes preprocessing and probabilities, but excludes disk reading and decoding. These are CUDA measurements, not classroom CPU measurements. Keep frozen fusion as the preselected study result. Fine-tuned DINOv2 is a promising next deployment candidate because it has higher observed accuracy and lower measured latency than the primary, but it needs an independently planned confirmation. Choose ResNet only if the speed trade-off is acceptable.",
+      "sources": [
+        "reports/results/v3/benchmarks/frozen_selected/benchmark.json",
+        "reports/results/v3/benchmarks/frozen_control/benchmark.json",
+        "reports/results/v3/benchmarks/resnet_fixed/benchmark.json",
+        "reports/results/v3/benchmarks/dinov2_finetuned/benchmark.json"
+      ],
+      "items": [
+        {
+          "kind": "table",
+          "data": [
+            [
+              "Pipeline",
+              "Warm median",
+              "Storage"
+            ],
+            [
+              "Primary frozen fusion",
+              "42.88 ms",
+              "203.6 MB"
+            ],
+            [
+              "ConvNeXt control",
+              "14.20 ms",
+              "115.3 MB"
+            ],
+            [
+              "Fixed ResNet-50",
+              "9.46 ms",
+              "95.3 MB"
+            ],
+            [
+              "Fine-tuned DINOv2",
+              "13.86 ms",
+              "88.0 MB"
+            ]
+          ],
+          "x": 48,
+          "y": 113,
+          "w": 864,
+          "h": 215,
+          "widths": [
+            0.5,
+            0.25,
+            0.25
+          ],
+          "size": 21,
+          "heat": false
+        },
+        {
+          "kind": "text",
+          "text": "Retain frozen fusion as the primary study model.\nConfirm DINOv2 on new sources before a deployment decision.",
+          "x": 48,
+          "y": 357,
+          "w": 864,
+          "h": 80,
+          "size": 25,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "RTX 4070 Laptop GPU. Warm batch 1, predecoded RGB.\nIncludes preprocessing and probabilities, excludes disk I/O and decoding.",
+          "x": 48,
+          "y": 461,
+          "w": 864,
+          "h": 48,
+          "size": 17,
+          "color": "20364A",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Limitations and next experiment",
+      "seconds": 40,
+      "notes": "Only 21 new groups, three per class, give wide uncertainty despite 630 images. Asset provenance is audited but some common physical ancestry and backbone pretraining overlap may remain unknown. Sources combine scanned and procedural textures, and restricted class definitions and renderer differences affect transfer. No genuine photograph test has been performed. Pipeline comparison also combines architecture, resolution, pretraining and compute changes. The next experiment should be frozen before data collection, add more independent sources in ceramic, concrete, stone and leather, vary scene and camera, include real photographs, and test compression systematically. Reusing this now-scored holdout for tuning would require another fresh assessment.",
+      "sources": [
+        "reports/v3/report.md, sections 3, 5 and 16",
+        "reports/results/v3/provenance_verification.json"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "Few independent sources",
+          "x": 48,
+          "y": 119,
+          "w": 410,
+          "h": 33,
+          "size": 25,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Three test groups per class\nRelated views share texture evidence\nUnknown ancestry can remain",
+          "x": 48,
+          "y": 168,
+          "w": 410,
+          "h": 115,
+          "size": 22,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Restricted domain",
+          "x": 510,
+          "y": 119,
+          "w": 402,
+          "h": 33,
+          "size": 25,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Scanned and procedural assets\nControlled Blender scenes\nNo real-photograph validation",
+          "x": 510,
+          "y": 168,
+          "w": 402,
+          "h": 115,
+          "size": 22,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Next: a fixed evaluation plan with more independent sources,\nnew scenes and photographs, and compression coverage.",
+          "x": 48,
+          "y": 337,
+          "w": 864,
+          "h": 103,
+          "size": 27,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Model comparisons do not isolate architecture or equal-compute effects.",
+          "x": 48,
+          "y": 477,
+          "w": 864,
+          "h": 35,
+          "size": 19,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Material Studio demo and conclusion",
+      "seconds": 50,
+      "notes": "Use the separate classroom guide. The expected app sequence is Classify, Results, then Dataset. Select an image or built-in sample and model, start a prediction, let the loading state complete, and inspect probabilities. Only call this a live prediction after the actual runtime has completed inference for that input. In Results, compare stored model metrics and confusions, then inspect the class gallery in Dataset. The app is under parallel integration and this workflow is not yet verified here. If runtime inference is unavailable, explicitly announce the offline fallback and use stored results or slide 9 examples. Conclude that source-aware evaluation supports the primary point target, but uncertainty and compression weakness limit broad claims.",
+      "sources": [
+        "docs/CLASSROOM_DEMO.md",
+        "reports/results/v3/fresh/frozen_selected/evaluation.json"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "Classify",
+          "x": 48,
+          "y": 118,
+          "w": 245,
+          "h": 36,
+          "size": 27,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Image or sample\nChoose model\nLoading, then probabilities",
+          "x": 48,
+          "y": 168,
+          "w": 260,
+          "h": 121,
+          "size": 23,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Results",
+          "x": 350,
+          "y": 118,
+          "w": 245,
+          "h": 36,
+          "size": 27,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Stored model comparison\nConfusion matrices\nClass-level errors",
+          "x": 350,
+          "y": 168,
+          "w": 260,
+          "h": 121,
+          "size": 23,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Dataset",
+          "x": 652,
+          "y": 118,
+          "w": 260,
+          "h": 36,
+          "size": 27,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Browse the gallery\nInspect source variety\nExplain group separation",
+          "x": 652,
+          "y": 168,
+          "w": 260,
+          "h": 121,
+          "size": 23,
+          "color": "20364A",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "The primary meets the clean point target.\nWide uncertainty and JPEG weakness limit the claim.",
+          "x": 48,
+          "y": 339,
+          "w": 864,
+          "h": 88,
+          "size": 29,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "Offline fallback: show stored results, clearly labelled as stored.",
+          "x": 48,
+          "y": 471,
+          "w": 864,
+          "h": 36,
+          "size": 20,
+          "color": "A25524",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "title": "Sources",
+      "seconds": 10,
+      "notes": "Experimental claims come from the saved evaluations, prediction tables, training histories and audit records cited in each slide note. These papers explain the model families and evaluation principles. Provider pages establish the source-texture licence, not a licence decision for the rendered collection. All presenters should be able to discuss the full study. Invite questions.",
+      "sources": [
+        "ITRI626 practical project brief, sections 10 and 12.2",
+        "reports/v3/report.md, References"
+      ],
+      "items": [
+        {
+          "kind": "text",
+          "text": "Oquab et al. (2024), DINOv2",
+          "x": 48,
+          "y": 112,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "arxiv.org/abs/2304.07193",
+          "x": 48,
+          "y": 137,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Darcet et al. (2024), Vision Transformers Need Registers",
+          "x": 48,
+          "y": 166,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "arxiv.org/abs/2309.16588",
+          "x": 48,
+          "y": 191,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Liu et al. (2022), A ConvNet for the 2020s",
+          "x": 48,
+          "y": 220,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "arxiv.org/abs/2201.03545",
+          "x": 48,
+          "y": 245,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "He et al. (2016), Deep Residual Learning",
+          "x": 48,
+          "y": 274,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "arxiv.org/abs/1512.03385",
+          "x": 48,
+          "y": 299,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Cawley & Talbot (2010), Model selection bias",
+          "x": 48,
+          "y": 328,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "jmlr.org/papers/v11/cawley10a.html",
+          "x": 48,
+          "y": 353,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Poly Haven and ambientCG, CC0 asset licences",
+          "x": 48,
+          "y": 382,
+          "w": 865,
+          "h": 25,
+          "size": 18,
+          "color": "20364A",
+          "bold": true
+        },
+        {
+          "kind": "text",
+          "text": "polyhaven.com/license    docs.ambientcg.com/license/",
+          "x": 48,
+          "y": 407,
+          "w": 865,
+          "h": 22,
+          "size": 15,
+          "color": "137F82",
+          "bold": false
+        },
+        {
+          "kind": "text",
+          "text": "Study evidence: saved evaluations, predictions, training histories and source audits.\nExact local sources are cited in slide notes and the speaking guide.",
+          "x": 48,
+          "y": 458,
+          "w": 864,
+          "h": 55,
+          "size": 18,
+          "color": "20364A",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

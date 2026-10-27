@@ -1,0 +1,66 @@
+{
+  "slides": 14,
+  "rehearsal_seconds": 600,
+  "raw_scores_verified": true,
+  "holdout_rows_each": 630,
+  "holdout_groups_each": 21,
+  "example_labels_verified": true,
+  "images": [
+    {
+      "path": "reports\\presentation\\assets\\class_wood.png",
+      "source": "wood/polyhaven_bamboo_veneer_r01.png",
+      "sha256": "3ffaa0e3972b9060b64fb0765e39a7da30f7c75e358129ef470168b44b0937b1"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_metal.png",
+      "source": "metal/ambientcg_Metal063_r01.png",
+      "sha256": "82a597a6aa831150ec9d2914c9546cbea22ca9d3db0828c766f46a359a92f41f"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_stone.png",
+      "source": "stone/polyhaven_cliff_side_r01.png",
+      "sha256": "263a05edfc0d5fcd0435b134692c820086181bcca1590de7bad6b193f3e3f983"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_concrete.png",
+      "source": "concrete/polyhaven_brushed_concrete_r01.png",
+      "sha256": "0a570c4fba43bfa52f3c1e81c19913b9f5d74ebc336bb8a08519cd3793f04fd8"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_ceramic.png",
+      "source": "ceramic/polyhaven_brown_floor_tiles_r01.png",
+      "sha256": "0b3c834e1a76f2caab7e48b46d439285131f89a467603a39690e253b450d8472"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_fabric.png",
+      "source": "fabric/polyhaven_crepe_satin_r01.png",
+      "sha256": "03ae81d4ea9d4e0d4fe8df3d4e39b912385786010af33af0aa6183c6878c6324"
+    },
+    {
+      "path": "reports\\presentation\\assets\\class_leather.png",
+      "source": "leather/ambientcg_Leather037_r01.png",
+      "sha256": "891a653e84a9cd3268664fb865ffb06437b98548caa8f6a9aeee1e64b6003d51"
+    },
+    {
+      "path": "reports\\presentation\\assets\\example_1.png",
+      "source": "wood/polyhaven_bamboo_veneer_r01.png",
+      "sha256": "3ffaa0e3972b9060b64fb0765e39a7da30f7c75e358129ef470168b44b0937b1"
+    },
+    {
+      "path": "reports\\presentation\\assets\\example_2.png",
+      "source": "metal/ambientcg_Metal063_r01.png",
+      "sha256": "82a597a6aa831150ec9d2914c9546cbea22ca9d3db0828c766f46a359a92f41f"
+    },
+    {
+      "path": "reports\\presentation\\assets\\example_3.png",
+      "source": "ceramic/polyhaven_rounded_square_tiled_wall_r09.png",
+      "sha256": "717ed6dd25e253eb089fb687ff6f4753839e270c1893c49325e7ab934047fb51"
+    },
+    {
+      "path": "reports\\presentation\\assets\\example_4.png",
+      "source": "leather/ambientcg_Leather039_r13.png",
+      "sha256": "a54224b96fe8398c92e0c6a373e6bb47605988ad34277e64cdcb3b35817026d8"
+    }
+  ],
+  "model_training_or_inference_performed": false
+}

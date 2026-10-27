@@ -1,0 +1,147 @@
+{
+  "package_integrity": {
+    "chart_count": 3,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 14,
+    "relationship_part_count": 46,
+    "slide_count": 14,
+    "status": "pass"
+  },
+  "geometry": {
+    "finding_count": 0,
+    "findings": [],
+    "slide_count": 14,
+    "slide_size_in": [
+      13.3333,
+      7.5
+    ],
+    "warning_count": 0,
+    "warnings": []
+  },
+  "native_chart_data": {
+    "claim_boundary": "OOXML/workbook structural validation only; source provenance and native PowerPoint opening remain separate checks.",
+    "expected_quantitative_chart_slides": [
+      6,
+      10
+    ],
+    "failed_slide_count": 0,
+    "failed_slides": [],
+    "formal_human_reviewed": false,
+    "native_application_open_verified": false,
+    "package_sha256": "61437c9f09fe69941dacd6d9373ea059af8de624008d705019de919eb4cb2332",
+    "passed": true,
+    "required_embedded_workbook_slides": [
+      6,
+      10
+    ],
+    "results": [
+      {
+        "approved_source_figure_exception": false,
+        "charts": [
+          {
+            "cache_reference_ranges_verified": true,
+            "embedded_workbook_count": 1,
+            "embedded_workbook_sheet_count": 1,
+            "native_chart_types": [
+              "lineChart"
+            ],
+            "numeric_cache_point_count": 46,
+            "series_formula_count": 18,
+            "workbook_numeric_cell_count": 46
+          },
+          {
+            "cache_reference_ranges_verified": true,
+            "embedded_workbook_count": 1,
+            "embedded_workbook_sheet_count": 1,
+            "native_chart_types": [
+              "lineChart"
+            ],
+            "numeric_cache_point_count": 46,
+            "series_formula_count": 18,
+            "workbook_numeric_cell_count": 46
+          }
+        ],
+        "failure_codes": [],
+        "native_chart_count": 2,
+        "raster_picture_count": 0,
+        "required_native_chart_count": 1,
+        "slide_number": 6,
+        "status": "passed"
+      },
+      {
+        "approved_source_figure_exception": false,
+        "charts": [
+          {
+            "cache_reference_ranges_verified": true,
+            "embedded_workbook_count": 1,
+            "embedded_workbook_sheet_count": 1,
+            "native_chart_types": [
+              "barChart"
+            ],
+            "numeric_cache_point_count": 12,
+            "series_formula_count": 6,
+            "workbook_numeric_cell_count": 12
+          }
+        ],
+        "failure_codes": [],
+        "native_chart_count": 1,
+        "raster_picture_count": 0,
+        "required_native_chart_count": 1,
+        "slide_number": 10,
+        "status": "passed"
+      }
+    ],
+    "schema_version": "owner-private.quantitative-chart-native-gate.v1",
+    "slide_count": 14,
+    "source_attachments_accessed": false,
+    "target_application": "portable",
+    "validated_slide_count": 2
+  },
+  "chart_titles": {
+    "checks": [
+      {
+        "chart": 1,
+        "slide": 6,
+        "status": "present"
+      },
+      {
+        "chart": 2,
+        "slide": 6,
+        "status": "present"
+      },
+      {
+        "chart": 1,
+        "slide": 10,
+        "status": "present"
+      }
+    ],
+    "finding_count": 0,
+    "findings": [],
+    "native_chart_count": 3,
+    "native_powerpoint_verified": false,
+    "passed": true,
+    "presentation_sha256": "61437c9f09fe69941dacd6d9373ea059af8de624008d705019de919eb4cb2332",
+    "schema_version": "presentation-native-chart-titles.v1",
+    "slide_count": 14,
+    "source_text_emitted": false,
+    "unresolved_linked_title_count": 0
+  },
+  "pdf": {
+    "pages": 14,
+    "dimensions_points": [
+      960,
+      540
+    ],
+    "author_blank": true,
+    "all_pages_rendered": true
+  },
+  "source_paths": {
+    "all_local_note_sources_exist": true
+  },
+  "artifact_session_import": {
+    "status": "unavailable",
+    "reason": "Workspace dependency loader and artifact-tool package are unavailable on this Windows host. Native PowerPoint opened and rendered the final deck instead."
+  }
+}
