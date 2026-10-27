@@ -1285,14 +1285,16 @@ def main():
         "Material Studio demo and conclusion",
         50,
         (
-            "Use the separate classroom guide. The expected app sequence is "
-            "Classify, Results, then Dataset. Select an image or built-in sample "
-            "and model, start a prediction, let the loading state complete, and "
-            "inspect probabilities. Only call this a live prediction after the "
-            "actual runtime has completed inference for that input. In Results, "
-            "compare stored model metrics and confusions, then inspect the class "
-            "gallery in Dataset. The app is under parallel integration and this "
-            "workflow is not yet verified here. If runtime inference is "
+            "Use the separate classroom guide. Navigation is Classify, Study, Samples "
+            "and About. Classify shows one image with a compact bottom toolbar: "
+            "Open image, Samples, the model menu and Classify. Choose an image or "
+            "sample and model, start classification, and let the loading state complete. "
+            "Explain the concise class and confidence result, then open Details for "
+            "the full probability distribution. Only call this a live prediction after "
+            "the actual runtime has completed inference for that input. In Study, "
+            "compare stored model metrics and confusions, then browse the class gallery "
+            "in Samples. About is available in navigation. The redesigned minimal app "
+            "has not yet been visually verified here. If runtime inference is "
             "unavailable, explicitly announce the offline fallback and use stored"
             " results or slide 9 examples. Conclude that source-aware evaluation "
             "supports the primary point target, but uncertainty and compression "
@@ -1301,12 +1303,20 @@ def main():
         ["docs/CLASSROOM_DEMO.md", "reports/results/v3/fresh/frozen_selected/evaluation.json"],
     )
     text(s, "Classify", 48, 118, 245, 36, 27, bold=True)
-    text(s, "Image or sample\nChoose model\nLoading, then probabilities", 48, 168, 260, 121, 23)
-    text(s, "Results", 350, 118, 245, 36, 27, bold=True)
+    text(
+        s,
+        "Open image / Samples\nModel menu, Classify\nClass and confidence\nDetails: probabilities",
+        48,
+        168,
+        260,
+        136,
+        22,
+    )
+    text(s, "Study", 350, 118, 245, 36, 27, bold=True)
     text(
         s, "Stored model comparison\nConfusion matrices\nClass-level errors", 350, 168, 260, 121, 23
     )
-    text(s, "Dataset", 652, 118, 260, 36, 27, bold=True)
+    text(s, "Samples", 652, 118, 260, 36, 27, bold=True)
     text(
         s,
         "Browse the gallery\nInspect source variety\nExplain group separation",

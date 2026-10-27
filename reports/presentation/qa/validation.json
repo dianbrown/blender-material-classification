@@ -30,7 +30,7 @@
     "failed_slides": [],
     "formal_human_reviewed": false,
     "native_application_open_verified": false,
-    "package_sha256": "8e4bf56d4227a936ba115fe0cde6ae0e673fe85bd21e8515d697ce91e5949a34",
+    "package_sha256": "28413c3a697c164913c558d45cf5558652e1dc5bb5de0adbaf893225e243144f",
     "passed": true,
     "required_embedded_workbook_slides": [
       6,
@@ -122,7 +122,7 @@
     "native_chart_count": 3,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "8e4bf56d4227a936ba115fe0cde6ae0e673fe85bd21e8515d697ce91e5949a34",
+    "presentation_sha256": "28413c3a697c164913c558d45cf5558652e1dc5bb5de0adbaf893225e243144f",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 14,
     "source_text_emitted": false,

@@ -21,3 +21,9 @@ Material Studio itself was not tested during this task. The parent must verify t
 Slide 11, its embedded notes and the speaking guide now provisionally recommend fine-tuned DINOv2 for classroom use with comparable renders, retain fusion as the predeclared study primary, and require independent confirmation before broader deployment. PowerPoint COM rebuilt and exported the deck successfully. The updated slide and its PDF page were inspected at full size and have no observed clipping or overlap.
 
 Compared with commit `89044ad`, only slide 11 changes in the content specification, PowerPoint PNGs and PDF page pixels. The other 13 PDF pages are pixel-identical at 1600 x 900, and their PowerPoint PNGs are byte-identical. The slide 11 metrics table, all chart XML and all embedded workbook contents are unchanged. Author fields remain blank. Standard validation and Ruff checks pass. `recommendation_update.json` records these comparisons. No Material Studio UI interaction occurred.
+
+## Minimal app navigation update
+
+The demo is slide 13 in this deck. Its labels and notes now follow Classify, Study, Samples and About, with the compact toolbar, concise class/confidence result and full probabilities under Details described in the notes and classroom guide. PowerPoint COM rebuilt the deck successfully. Slide 13 and its PDF page were inspected at full size with no observed clipping or overlap.
+
+Compared with commit `b27ceac`, only slide 13 changes in the content specification, PowerPoint PNGs and PDF pixels. The other 13 pages are unchanged. Metrics tables, chart XML, workbook contents and the slide 11 recommendation are unchanged. Standard validation and Ruff checks pass. `demo_navigation_update.json` records the comparisons. The redesigned Material Studio app was not controlled or visually verified, and the guides retain that limitation.
