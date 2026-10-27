@@ -10,6 +10,7 @@ import csv
 import math
 import os
 import random
+import subprocess
 import sys
 from pathlib import Path
 
@@ -381,6 +382,42 @@ def existing_rows(manifest, out, planned, width, height):
     return rows
 
 
+def gpu_identity(platform, inventory_probe=None):
+    """Drawing-context queries may be unavailable in background EEVEE before rendering."""
+    try:
+        return {
+            "vendor": platform.vendor_get(),
+            "renderer": platform.renderer_get(),
+            "version": platform.version_get(),
+            "backend": platform.backend_type_get(),
+            "query_status": "drawing_context_available",
+        }
+    except SystemError as exc:
+        if inventory_probe is None:
+
+            def inventory_probe():
+                result = subprocess.run(
+                    ["nvidia-smi", "--query-gpu=name,uuid,driver_version", "--format=csv,noheader"],
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                    timeout=10,
+                    creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+                )
+                return result.stdout.strip()
+
+        try:
+            inventory = inventory_probe()
+        except (OSError, subprocess.SubprocessError):
+            inventory = None
+        return {
+            "query_status": "drawing_context_unavailable_in_background",
+            "reason": str(exc),
+            "nvidia_device_inventory": inventory,
+            "note": "Inventory records installed GPUs; it is not a drawing-context query.",
+        }
+
+
 def main(argv=None):
     args = parse_args(argv)
     validate_paths(args)
@@ -427,12 +464,7 @@ def main(argv=None):
     if not smoke:
         import gpu
 
-        runtime["gpu"] = {
-            "vendor": gpu.platform.vendor_get(),
-            "renderer": gpu.platform.renderer_get(),
-            "version": gpu.platform.version_get(),
-            "backend": gpu.platform.backend_type_get(),
-        }
+        runtime["gpu"] = gpu_identity(gpu.platform)
     run = {
         "selection_sha256": selection_hash,
         "source_sha256": source_hash,

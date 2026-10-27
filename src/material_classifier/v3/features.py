@@ -12,6 +12,7 @@ import importlib.metadata
 import json
 import os
 import platform
+import posixpath
 import time
 from contextlib import contextmanager
 from pathlib import Path
@@ -111,8 +112,20 @@ def read_manifest(path):
     missing = set(MANIFEST_COLUMNS) - set(frame.columns)
     if missing:
         raise ValueError(f"Manifest lacks columns: {sorted(missing)}")
-    if frame.empty or frame["image_path"].duplicated().any():
+    if frame.empty:
         raise ValueError("Manifest must be nonempty with unique image_path values")
+    paths = frame["image_path"].str.replace("\\", "/", regex=False)
+    if any(
+        not path.strip() or path.startswith("/") or ":" in path or ".." in path.split("/")
+        for path in paths
+    ):
+        raise ValueError("Manifest image paths must be relative without traversal")
+    paths = paths.map(posixpath.normpath)
+    if paths.eq(".").any():
+        raise ValueError("Manifest image paths must name files")
+    if paths.str.casefold().duplicated().any():
+        raise ValueError("Manifest contains duplicate image path aliases")
+    frame["image_path"] = paths
     for column in MANIFEST_COLUMNS:
         if frame[column].str.strip().eq("").any():
             raise ValueError(f"Manifest has empty {column}")
@@ -120,6 +133,8 @@ def read_manifest(path):
         raise ValueError("Manifest contains unknown class labels")
     if frame.groupby("source_group")["class"].nunique().gt(1).any():
         raise ValueError("Each source_group must belong to exactly one class")
+    if frame.groupby("material_id")["source_group"].nunique().gt(1).any():
+        raise ValueError("Each material_id must belong to exactly one source_group")
     return frame.reset_index(drop=True)
 
 

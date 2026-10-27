@@ -274,6 +274,15 @@ def test_train_artifacts_and_new_image_inference_parity(tmp_path, small_protocol
         model_factory=dummy_factory,
     )
     assert (fresh_output / "metrics.json").is_file()
+    from material_classifier.v3.evaluation import evaluate_predictions
+
+    evaluated = evaluate_predictions(
+        fresh_output / "predictions.csv",
+        CLASS_NAMES,
+        estimate_type="fresh_holdout",
+        n_bootstrap=0,
+    )
+    assert evaluated["estimate_kind"] == "fresh_holdout"
     shared_cache = fresh_output / "features"
     predict_manifest(
         output / "control_model.joblib",

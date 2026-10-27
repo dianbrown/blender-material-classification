@@ -132,6 +132,7 @@ def validate_predictions(path, summary, classes, endpoint):
     """Verify the declared population and scalar metrics against supplied predictions."""
     matrix = [[0] * len(classes) for _ in classes]
     groups, materials, images, folds = {}, {}, set(), set()
+    group_classes = {}
     with path.open(newline="", encoding="utf-8-sig") as stream:
         reader = csv.DictReader(stream)
         columns = {
@@ -156,6 +157,11 @@ def validate_predictions(path, summary, classes, endpoint):
                 require(image not in images, "Duplicate image in endpoint predictions")
                 images.add(image)
                 group = nonempty(row["source_group"], "source_group")
+                require(
+                    group not in group_classes or group_classes[group] == truth,
+                    "Source group contains multiple classes",
+                )
+                group_classes[group] = truth
                 material = nonempty(row["material_id"], "material_id")
                 fold = row["outer_fold"]
                 if endpoint == "nested_oof":

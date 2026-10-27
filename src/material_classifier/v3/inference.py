@@ -211,6 +211,7 @@ def predict_manifest(
         with threadpool_limits(limits=min(cpu_threads, os.cpu_count() or 1, 8)):
             probabilities = class_probabilities(bundle["pipeline"], X)
         predictions = prediction_frame(frame, probabilities)
+        predictions["outer_fold"] = "holdout" if evaluate else "prediction_only"
         predictions.to_csv(output / "predictions.csv", index=False)
         if evaluate:
             write_json(
