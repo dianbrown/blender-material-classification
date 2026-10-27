@@ -8,7 +8,7 @@ interface built with Rust GPUI and PyTorch.
 
 **Wood · Metal · Stone · Concrete · Ceramic · Fabric · Leather**
 
-![A looping tour of Material Studio](docs/images/material-studio-loop.gif)
+![Material Studio classifying a wood sample while ASCII jellyfish swim behind the interface](docs/images/material-studio-jellyfish.gif)
 
 ## Install
 

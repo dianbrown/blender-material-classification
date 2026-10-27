@@ -849,7 +849,7 @@ impl Studio {
 
     fn about_page(&self, cx: &mut Context<Self>) -> Div {
         let mut content = div().w_full().max_w(px(680.)).flex().flex_col().gap_6().child(section_title("About Material Studio"))
-            .child(muted("A local classroom demonstration of material recognition. Images stay on this computer."))
+            .child(muted("A classroom demonstration of material recognition."))
             .child(div().flex().flex_col().gap_3().child(section_title("The study")).child(muted("Seven appearance classes, three model families and four saved models. The preselected frozen DINOv2 + ConvNeXt fusion remains the primary study. Fine-tuned DINOv2 is the default for the demonstration, and a comparison in the study."))
                 .child(muted("Source groups stay independent between development and holdout. Related rendered views are not independent evidence.")))
             .child(div().flex().flex_col().gap_3().child(section_title("Limits")).child(muted("Appearance is not physical composition. These models were studied on synthetic images with archival class conventions. Lighting, geometry and texture scale affect predictions. Live scores are not calibrated certainty, and arbitrary real-world images have not been validated.")))
