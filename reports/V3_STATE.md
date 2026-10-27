@@ -317,3 +317,10 @@ is staged in artifacts/v3/results-summary.html, previewed at widths728 and360;
 publish with html_render only at final delivery. Linear PER-371 is Done,
 PER-373 In Progress, all assigned only to HectoLogic.
 
+Results notebook integrated as8882c69, text encoding corrected and all cells
+re-executed in parent asfb06687: notebooks/05_v3_results.ipynb has30cells,
+16executed code cells,11plots,61evidence hashes and no error outputs; nbformat
+and Ruff pass. Optional notebook pins in requirements-notebook.txt preserve
+the ML lock. Linux CI on e049381 passed in2m47s, resolving provenance portability.
+Final report task remains active. Do not deliver the preliminary preview as final.
+
