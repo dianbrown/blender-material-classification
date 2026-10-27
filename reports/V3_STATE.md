@@ -324,3 +324,26 @@ and Ruff pass. Optional notebook pins in requirements-notebook.txt preserve
 the ML lock. Linux CI on e049381 passed in2m47s, resolving provenance portability.
 Final report task remains active. Do not deliver the preliminary preview as final.
 
+## Final delivery — 2026-10-27
+
+Final report agent completed; source/docs integrated f5636f0 and measured
+publication bundle aab557a. reports/v3/report.pdf is final:21pages,17body,
+1references,3appendices; all pages rendered/visually checked,153evidencefiles
+validated. Parent rechecked evidence loader and PDF/Markdownhashes and inspected
+pages1,10,14,21. Notebook remains fully executed. Final claims review
+v3-final-claims-review-20261027-r1 reports no actionable findings,61notebook
+digests and112sourceinventoryentries verified. Review report V3_FINAL_REVIEW.md.
+
+Final full local tests:499passed2Windows-symlinkskips1legacy mocked warning,
+112.40seconds. Ruff anddiffchecks pass. Latest model/report artifacts unchanged;
+GPU idle. Final PR description written; final GitHub checks pending at handoff
+record time. PR #1 is to be marked ready and left open for user review, not
+merged. Dataset publication remains deferred exactly as requested: complete
+local studyZIP exists, licenseunset,release_approved=false,noKaggleupload.
+
+Primary80.16%accuracyCI66.03-93.65%; exploratorycomparisonDINO86.83%CI76.98-95.87%.
+ReportPDF,Markdown,notebook,README,model/datacards andevidencearecommitted.
+Localcheckpointpaths remain inMODEL_CARD.md andfinal_model_lock.json; no public
+weightsURLinvented. Inline results-summaryHTML inartifacts/v3 ispreviewedand
+ready toshowatfinaldelivery. No active delegated tasks remain.
+
