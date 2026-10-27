@@ -137,7 +137,9 @@ def prepare_assets(root, data_root, output):
             samples.append(
                 {
                     "id": sample_id,
-                    "label": f"{class_name.title()} · {row['source_material_name'].replace('_', ' ')}",
+                    "label": (
+                        f"{class_name.title()} · {row['source_material_name'].replace('_', ' ')}"
+                    ),
                     "class_name": class_name,
                     "path": relative,
                     "source_group": row["source_group"],
