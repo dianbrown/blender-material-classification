@@ -200,3 +200,17 @@ Neural GPU owner reports ResNet first two epochs ~34 seconds each; long runs are
 active. Report-preview task `v3-report-preview-20261027-r1` builds/visually checks
 an internal actual-data PDF while training proceeds; it may return report-only
 fix commits. No final report is available yet.
+
+Additional CPU-only task `v3-neural-robustness-20261027-r1` implements corruption
+evaluation adapters for ResNet/DINO without changing any active training code.
+It owns only new neural_robustness module/CLI/tests. Proposed final lock schema:
+schema_version=1; frozen_at_utc; primary_model; class_order; selection_rule;
+models mapping names to artifact_path/artifact_sha256/metadata_path/
+metadata_sha256/role; holdout containing manifest_sha256, n_images=630,
+source_group_count=21. Create the actual lock only after all development choices
+are complete and BEFORE fresh inference. This adapter requires that lock and
+matches each clean prediction run to the named model and holdout manifest.
+
+GPU milestone: ResNet outer fold0 completed ten epochs plus final-only
+assessment in438.37 seconds; fold1 running. Latest fold peak allocated/reserved
+GPU memory443371008/526385152 bytes, no skipped updates. Keep the fixed recipe.
