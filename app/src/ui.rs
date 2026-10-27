@@ -10,6 +10,10 @@ use std::{
 };
 
 const BG: u32 = 0x151515;
+// Let the native Acrylic backdrop show through without fading foreground content.
+const GLASS_BACKGROUND: u32 = 0x151515b0;
+const GLASS_SIDEBAR: u32 = 0x1c1c1c38;
+const GLASS_TOOLBAR: u32 = 0x202020c8;
 const BORDER: u32 = 0x323232;
 const TEXT: u32 = 0xe7e7e7;
 const MUTED: u32 = 0x939393;
@@ -170,7 +174,7 @@ impl Studio {
             .flex_col()
             .px_3()
             .py_5()
-            .bg(rgba(0x1c1c1cb8))
+            .bg(rgba(GLASS_SIDEBAR))
             .border_r_1()
             .border_color(rgba(0xffffff0b))
             .child(
@@ -363,7 +367,7 @@ impl Studio {
             .rounded_lg()
             .border_1()
             .border_color(rgb(BORDER))
-            .bg(rgba(0x202020ed))
+            .bg(rgba(GLASS_TOOLBAR))
             .child(
                 control("open-image", "Open image")
                     .on_click(cx.listener(|s, _, window, cx| s.open(&OpenImage, window, cx))),
@@ -934,7 +938,7 @@ impl Render for Studio {
             .bg(if self.config.opaque {
                 rgb(BG)
             } else {
-                rgba(0x151515e8)
+                rgba(GLASS_BACKGROUND)
             })
             .track_focus(&self.focus)
             .on_action(cx.listener(Self::open))
