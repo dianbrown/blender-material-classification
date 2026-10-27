@@ -55,15 +55,15 @@ impl ViewOptions {
             Some(menu)
         };
     }
-    fn dismiss(&mut self) -> bool {
-        if self.menu.take().is_some() {
+    fn dismiss(&mut self, page: Page, has_prediction: bool) -> bool {
+        if page == Page::Classify && self.menu.take().is_some() {
             return true;
         }
-        if self.details {
+        if page == Page::Classify && has_prediction && self.details {
             self.details = false;
             return true;
         }
-        if self.study_details {
+        if page == Page::Results && self.study_details {
             self.study_details = false;
             return true;
         }
@@ -107,6 +107,7 @@ fn control(id: impl Into<ElementId>, text: impl Into<SharedString>) -> Stateful<
     div()
         .id(id)
         .h(px(34.))
+        .flex_shrink_0()
         .px_3()
         .flex()
         .items_center()
@@ -379,7 +380,7 @@ impl Studio {
                         cx.notify();
                     })),
             )
-            .child(div().flex_1());
+            .child(div().flex_1().min_w_0());
         if busy {
             let elapsed = self.started.map(|t| t.elapsed().as_secs()).unwrap_or(0);
             row = row.child(
@@ -389,10 +390,11 @@ impl Studio {
                     "Finishing previous image…".into()
                 })
                 .text_size(px(11.))
+                .flex_shrink_0()
                 .px_2(),
             );
         } else if !self.ready && self.error.is_none() {
-            row = row.child(muted("Starting…").text_size(px(11.)).px_2());
+            row = row.child(muted("Starting…").text_size(px(11.)).flex_shrink_0().px_2());
         }
         row = row.child(
             control("model-menu", format!("{name}  ⌄"))
@@ -949,7 +951,7 @@ impl Render for Studio {
 
 #[cfg(test)]
 mod tests {
-    use super::{Menu, ViewOptions, model_short};
+    use super::{Menu, Page, ViewOptions, model_short};
     #[test]
     fn frozen_control_label_identifies_convnext() {
         assert_eq!(model_short("frozen_control"), "Frozen ConvNeXt");
@@ -977,12 +979,26 @@ mod tests {
             details: true,
             ..Default::default()
         };
-        assert!(view.dismiss());
+        assert!(view.dismiss(Page::Classify, true));
         assert_eq!(view.menu, None);
         assert!(view.details);
-        assert!(view.dismiss());
+        assert!(view.dismiss(Page::Classify, true));
         assert!(!view.details);
-        assert!(!view.dismiss());
+        assert!(!view.dismiss(Page::Classify, true));
+    }
+    #[test]
+    fn hidden_disclosures_do_not_consume_prediction_cancellation() {
+        let mut view = ViewOptions {
+            details: true,
+            study_details: true,
+            ..Default::default()
+        };
+        // A new inference removes the previous prediction: its details are hidden.
+        assert!(!view.dismiss(Page::Classify, false));
+        // A disclosure on another page cannot intercept Escape on Classify.
+        view.details = false;
+        assert!(!view.dismiss(Page::Classify, true));
+        assert!(view.dismiss(Page::Results, false));
     }
 }
 
@@ -1170,6 +1186,7 @@ impl Studio {
         let id = format!("prediction-{}", self.serial);
         match self.worker.predict(id.clone(), model.id.clone(), path) {
             Ok(()) => {
+                self.options.details = false;
                 self.active_id = Some(id);
                 self.prediction = None;
                 self.error = None;
@@ -1181,7 +1198,7 @@ impl Studio {
         cx.notify();
     }
     fn cancel(&mut self, _: &Cancel, _: &mut Window, cx: &mut Context<Self>) {
-        if self.options.dismiss() {
+        if self.options.dismiss(self.page, self.prediction.is_some()) {
             cx.notify();
             return;
         }
