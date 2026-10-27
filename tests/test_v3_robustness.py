@@ -258,7 +258,7 @@ def test_old_test_data_and_aliased_paths_rejected(sample):
     rb.source_frame(manifest, root, "development_diagnostic")
     frame.loc[1, "image_path"] = "./wood.png"
     frame.to_csv(manifest, index=False)
-    with pytest.raises(ValueError, match="aliased"):
+    with pytest.raises(ValueError, match="alias"):
         rb.source_frame(manifest, root, "development_diagnostic")
     with pytest.raises(ValueError, match="Explicit"):
         rb.source_frame(manifest, root, None)
