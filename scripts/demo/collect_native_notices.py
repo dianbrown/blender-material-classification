@@ -18,8 +18,23 @@ from pathlib import Path
 
 TARGET = "x86_64-pc-windows-msvc"
 ZED_REV = "aed37547d8543000494fb69101c05daec5891068"
-NOTICE_NAME = re.compile(r"^(?:unlicen[sc]e|licen[sc]e|copying|copyright|notices?|thirdpartynotices|patents|authors)(?:$|[._-])", re.I)
-SOURCE_SUFFIXES = {".rs", ".c", ".h", ".cpp", ".hpp", ".cc", ".s", ".asm", ".wgsl", ".hlsl", ".metal"}
+NOTICE_NAME = re.compile(
+    r"^(?:unlicen[sc]e|licen[sc]e|copying|copyright|notices?|thirdpartynotices|patents|authors)(?:$|[._-])",
+    re.I,
+)
+SOURCE_SUFFIXES = {
+    ".rs",
+    ".c",
+    ".h",
+    ".cpp",
+    ".hpp",
+    ".cc",
+    ".s",
+    ".asm",
+    ".wgsl",
+    ".hlsl",
+    ".metal",
+}
 
 
 def digest(data: bytes) -> str:
@@ -27,7 +42,12 @@ def digest(data: bytes) -> str:
 
 
 def normalized(text: str) -> str:
-    return "\n".join(line.rstrip() for line in text.replace("\r\n", "\n").replace("\r", "\n").splitlines()).strip() + "\n"
+    return (
+        "\n".join(
+            line.rstrip() for line in text.replace("\r\n", "\n").replace("\r", "\n").splitlines()
+        ).strip()
+        + "\n"
+    )
 
 
 def lf_digest(data: bytes) -> str:
@@ -36,7 +56,9 @@ def lf_digest(data: bytes) -> str:
 
 
 def dump(path: Path, obj: object) -> None:
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    path.write_text(
+        json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
 
 
 def html_text(value: str) -> str:
@@ -62,7 +84,9 @@ def selected_graph(metadata: dict) -> tuple[dict, dict, set, set]:
                 if kind["kind"] == "dev":
                     continue
                 proc = any("proc-macro" in t["kind"] for t in packages[dep["pkg"]]["targets"])
-                next_role = "build" if role == "build" or kind["kind"] == "build" or proc else "runtime"
+                next_role = (
+                    "build" if role == "build" or kind["kind"] == "build" or proc else "runtime"
+                )
                 pending.append((dep["pkg"], next_role))
     selected = {k for k, _ in states} - {root}
     runtime = {k for k, role in states if role == "runtime"} - {root}
@@ -97,7 +121,9 @@ def collect(args: argparse.Namespace) -> None:
     def upstream(name: str) -> str:
         path = out / "upstream" / name
         if "sha256_lf" in upstream_sources[name]:
-            assert lf_digest(path.read_bytes()) == upstream_sources[name]["sha256_lf"], f"Upstream file changed: {name}"
+            assert lf_digest(path.read_bytes()) == upstream_sources[name]["sha256_lf"], (
+                f"Upstream file changed: {name}"
+            )
         return add(path.read_text(encoding="utf-8"), upstream_sources[name]["url"])
 
     apache = upstream("Apache-2.0.txt")
@@ -111,16 +137,24 @@ def collect(args: argparse.Namespace) -> None:
         directory = Path(p["manifest_path"]).parent
         raw_manifest = Path(p["manifest_path"]).read_bytes()
         source = p["source"]
-        if source.startswith("git+") and ("zed-industries/zed" not in source or not source.endswith("#" + ZED_REV)):
+        if source.startswith("git+") and (
+            "zed-industries/zed" not in source or not source.endswith("#" + ZED_REV)
+        ):
             raise ValueError(f"Unexpected git revision: {source}")
         entry = {
-            "name": p["name"], "version": p["version"], "id": key,
-            "source": source, "repository": p["repository"],
-            "license_declared": p["license"], "authors": p["authors"],
+            "name": p["name"],
+            "version": p["version"],
+            "id": key,
+            "source": source,
+            "repository": p["repository"],
+            "license_declared": p["license"],
+            "authors": p["authors"],
             "role": "runtime" if key in runtime else "build-tool",
             "features": nodes[key]["features"],
-            "checksum": locked_p.get("checksum"), "manifest_sha256": digest(raw_manifest),
-            "evidence": [], "exceptions": [],
+            "checksum": locked_p.get("checksum"),
+            "manifest_sha256": digest(raw_manifest),
+            "evidence": [],
+            "exceptions": [],
         }
         vcs = directory / ".cargo_vcs_info.json"
         if vcs.exists():
@@ -129,7 +163,11 @@ def collect(args: argparse.Namespace) -> None:
         # Legacy Cargo slash syntax denotes OR; do not silently rewrite AND.
         spdx = re.sub(r"\s*/\s*", " OR ", declared)
         entry["spdx"] = spdx
-        chosen = "Apache-2.0" if "Apache-2.0" in spdx else ("MIT" if re.search(r"\bMIT\b", spdx) else spdx)
+        chosen = (
+            "Apache-2.0"
+            if "Apache-2.0" in spdx
+            else ("MIT" if re.search(r"\bMIT\b", spdx) else spdx)
+        )
         if " AND " in spdx:
             if spdx != "(MIT OR Apache-2.0) AND Unicode-3.0":
                 raise ValueError(f"Unreviewed conjunctive license: {spdx}")
@@ -139,13 +177,20 @@ def collect(args: argparse.Namespace) -> None:
             entry["upstream_lookup"] = {
                 "date": "2026-10-27",
                 "url": "https://gitlab.redox-os.org/redox-os/seahash/-/raw/94b632aeac099031c373599313d5b5f0acbbaec0/LICENSE",
-                "result": "HTTP 403; archive has no license file or copyright notice. No substitute copyright statement invented.",
+                "result": (
+                    "HTTP 403; archive has no license file or copyright notice. "
+                    "No substitute copyright statement invented."
+                ),
             }
         elif p["name"] == "simd_helpers":
             entry["upstream_lookup"] = {
                 "date": "2026-10-27",
                 "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/trees/ca1a2f84aa386d758e98f8a609d990263932fb85?recursive=1",
-                "result": "Exact published revision tree inspected: no LICENSE, COPYING or NOTICE file. LICENSE and LICENSE-MIT raw paths returned HTTP 404.",
+                "result": (
+                    "Exact published revision tree inspected: no LICENSE, COPYING"
+                    " or NOTICE file. LICENSE and LICENSE-MIT raw paths returned "
+                    "HTTP 404."
+                ),
             }
         found = []
         for path in sorted(directory.rglob("*")):
@@ -171,7 +216,13 @@ def collect(args: argparse.Namespace) -> None:
                 raise ValueError(f"Unresolved or abbreviated license: {path}")
             text_id = add(text, f"{source} :: {p['name']}-{p['version']}/{rel}")
             found.append(text_id)
-            evidence = {"path": rel, "sha256": digest(data), "text": text_id, "kind": "license-file", "encoding": encoding}
+            evidence = {
+                "path": rel,
+                "sha256": digest(data),
+                "text": text_id,
+                "kind": "license-file",
+                "encoding": encoding,
+            }
             if resolved != path:
                 evidence["resolved_pointer"] = path.read_text(encoding="utf-8").strip()
                 evidence["resolved_sha256"] = digest(resolved.read_bytes())
@@ -185,15 +236,39 @@ def collect(args: argparse.Namespace) -> None:
             if any(x in {"tests", "benches", "examples", ".git"} for x in rel_parts):
                 continue
             content = path.read_text(encoding="utf-8", errors="replace")
-            if not re.search(r"copyright|SPDX-License-Identifier|redistribution and use|permission is hereby granted", content, re.I):
+            if not re.search(
+                (
+                    "copyright|SPDX-License-Identifier|redistribution and "
+                    "use|permission is hereby granted"
+                ),
+                content,
+                re.I,
+            ):
                 continue
             blocks = re.findall(r"/\*.*?\*/", content, re.S)
             blocks.extend(re.findall(r"(?:^[ \t]*(?://|;)[^\n]*(?:\n|$))+", content, re.M))
             for block in blocks:
-                if not re.search(r"copyright|SPDX-License-Identifier|redistribution and use|permission is hereby granted", block, re.I):
+                if not re.search(
+                    (
+                        "copyright|SPDX-License-Identifier|redistribution and "
+                        "use|permission is hereby granted"
+                    ),
+                    block,
+                    re.I,
+                ):
                     continue
-                text_id = add(block, f"{source} :: {p['name']}-{p['version']}/{path.relative_to(directory).as_posix()}")
-                entry["evidence"].append({"path": path.relative_to(directory).as_posix(), "kind": "source-notice", "text": text_id})
+                text_id = add(
+                    block,
+                    f"{source} :: {p['name']}-{p['version']}/"
+                    f"{path.relative_to(directory).as_posix()}",
+                )
+                entry["evidence"].append(
+                    {
+                        "path": path.relative_to(directory).as_posix(),
+                        "kind": "source-notice",
+                        "text": text_id,
+                    }
+                )
         if "Apache-2.0" in chosen:
             entry["evidence"].append({"kind": "standard-license", "text": apache})
         if p["name"] in {"taffy", "pulp-wasm-simd-flag"}:
@@ -202,10 +277,19 @@ def collect(args: argparse.Namespace) -> None:
         elif not found and "Apache-2.0" not in chosen:
             text_id = upstream("MIT.txt") if chosen == "MIT" else None
             if text_id:
-                entry["evidence"].append({"kind": "standard-license-template-only", "text": text_id})
-            issue = "Published archive has no license file; exact upstream copyright/permission notice could not be obtained. Manifest SPDX and authors are retained; the standard template does not supply the missing copyright notice."
+                entry["evidence"].append(
+                    {"kind": "standard-license-template-only", "text": text_id}
+                )
+            issue = (
+                "Published archive has no license file; exact upstream "
+                "copyright/permission notice could not be obtained. Manifest SPDX"
+                " and authors are retained; the standard template does not supply"
+                " the missing copyright notice."
+            )
             entry["exceptions"].append(issue)
-            exceptions.append({"package": p["name"] + " " + p["version"], "role": entry["role"], "issue": issue})
+            exceptions.append(
+                {"package": p["name"] + " " + p["version"], "role": entry["role"], "issue": issue}
+            )
         if not entry["evidence"]:
             raise ValueError(f"No license evidence at all: {key}")
         inventory.append(entry)
@@ -218,20 +302,42 @@ def collect(args: argparse.Namespace) -> None:
     rust_references = []
 
     def replace_pre(match: re.Match) -> str:
-        text_id = add(html.unescape(match.group(1)), "Rust 1.99.0 distribution: share/doc/rust/COPYRIGHT-library.html")
+        text_id = add(
+            html.unescape(match.group(1)),
+            "Rust 1.99.0 distribution: share/doc/rust/COPYRIGHT-library.html",
+        )
         rust_references.append(text_id)
         return "<p>Full notice text: " + text_id + "</p>"
 
     rust_mapping = re.sub(r"<pre>(.*?)</pre>", replace_pre, rust_html, flags=re.S)
     rust_mapping = html_text(rust_mapping)
-    rust_mapping_id = add(rust_mapping, "Rust 1.99.0 distribution: share/doc/rust/COPYRIGHT-library.html (HTML rendered as plain text; pre blocks deduplicated)")
+    rust_mapping_id = add(
+        rust_mapping,
+        (
+            "Rust 1.99.0 distribution: share/doc/rust/COPYRIGHT-library.html "
+            "(HTML rendered as plain text; pre blocks deduplicated)"
+        ),
+    )
     rust_terms = []
     # Include only licenses referenced by the library collection, not compiler
     # or documentation-only GPL/GCC/OFL/CC-BY-SA license files.
-    for name in ["Apache-2.0", "MIT", "Unicode-3.0", "BSD-2-Clause", "ISC", "LLVM-exception", "NCSA"]:
+    for name in [
+        "Apache-2.0",
+        "MIT",
+        "Unicode-3.0",
+        "BSD-2-Clause",
+        "ISC",
+        "LLVM-exception",
+        "NCSA",
+    ]:
         path = args.rust_doc / "licenses" / (name + ".txt")
         if name in rust_mapping and path.exists():
-            rust_terms.append(add(path.read_text(encoding="utf-8"), "Rust 1.99.0 distribution: share/doc/rust/licenses/" + path.name))
+            rust_terms.append(
+                add(
+                    path.read_text(encoding="utf-8"),
+                    "Rust 1.99.0 distribution: share/doc/rust/licenses/" + path.name,
+                )
+            )
     toolchain_manifest = args.rust_doc.parents[2] / "lib/rustlib/multirust-channel-manifest.toml"
     toolchain = tomllib.loads(toolchain_manifest.read_text(encoding="utf-8"))
     rust_version = toolchain["pkg"]["rust"]["version"]
@@ -239,46 +345,141 @@ def collect(args: argparse.Namespace) -> None:
         raise ValueError("Expected installed Rust 1.99.0 notice collection")
 
     graph = {
-        "target": TARGET, "command": "cargo metadata --locked --offline --format-version 1 --filter-platform " + TARGET,
-        "raw_metadata_sha256": digest(metadata_bytes), "cargo_lock_sha256": digest(lock_bytes),
+        "target": TARGET,
+        "command": "cargo metadata --locked --offline --format-version 1 --filter-platform "
+        + TARGET,
+        "raw_metadata_sha256": digest(metadata_bytes),
+        "cargo_lock_sha256": digest(lock_bytes),
         "app_manifest_sha256": digest(args.manifest.read_bytes()),
         "cargo_lock_lf_sha256": lf_digest(lock_bytes),
         "app_manifest_lf_sha256": lf_digest(args.manifest.read_bytes()),
-        "root": root["name"] + " " + root["version"], "root_id": root["id"],
+        "root": root["name"] + " " + root["version"],
+        "root_id": root["id"],
         "zed_revision": ZED_REV,
-        "selection": "Transitive closure of root resolve node, normal and build edges; dev edges excluded. Input must already be filtered by Cargo for Windows. Build tools/proc macros retained conservatively, not claimed to be linked.",
-        "nodes": [{"id": k, "features": nodes[k]["features"], "deps": [d for d in nodes[k]["deps"] if any(t["kind"] != "dev" for t in d["dep_kinds"])]} for k in sorted(selected | {root["id"]})],
-        "excluded_lock_packages": [{"name": p["name"], "version": p["version"], "source": p.get("source")} for p in lock["package"] if (p["name"], p["version"], p.get("source")) not in {(q["name"], q["version"], q["source"]) for q in inventory} and p["name"] != root["name"]],
+        "selection": (
+            "Transitive closure of root resolve node, normal and build edges; dev"
+            " edges excluded. Input must already be filtered by Cargo for "
+            "Windows. Build tools/proc macros retained conservatively, not "
+            "claimed to be linked."
+        ),
+        "nodes": [
+            {
+                "id": k,
+                "features": nodes[k]["features"],
+                "deps": [
+                    d for d in nodes[k]["deps"] if any(t["kind"] != "dev" for t in d["dep_kinds"])
+                ],
+            }
+            for k in sorted(selected | {root["id"]})
+        ],
+        "excluded_lock_packages": [
+            {"name": p["name"], "version": p["version"], "source": p.get("source")}
+            for p in lock["package"]
+            if (p["name"], p["version"], p.get("source"))
+            not in {(q["name"], q["version"], q["source"]) for q in inventory}
+            and p["name"] != root["name"]
+        ],
     }
     bundle = {
-        "schema_version": 1, "target": TARGET, "dependency_count": len(inventory),
-        "runtime_dependency_count": len(runtime), "build_only_dependency_count": len(selected - runtime),
-        "rust": {"version": rust_version, "source": "https://github.com/rust-lang/rust", "copyright_library_sha256": digest((args.rust_doc / "COPYRIGHT-library.html").read_bytes()), "mapping_text": rust_mapping_id, "license_texts": sorted(set(rust_references + rust_terms)), "scope": "Upstream toolchain library notice collection is intentionally conservative across supported library platforms; compiler-only COPYRIGHT.html is excluded."},
+        "schema_version": 1,
+        "target": TARGET,
+        "dependency_count": len(inventory),
+        "runtime_dependency_count": len(runtime),
+        "build_only_dependency_count": len(selected - runtime),
+        "rust": {
+            "version": rust_version,
+            "source": "https://github.com/rust-lang/rust",
+            "copyright_library_sha256": digest(
+                (args.rust_doc / "COPYRIGHT-library.html").read_bytes()
+            ),
+            "mapping_text": rust_mapping_id,
+            "license_texts": sorted(set(rust_references + rust_terms)),
+            "scope": (
+                "Upstream toolchain library notice collection is intentionally "
+                "conservative across supported library platforms; compiler-only "
+                "COPYRIGHT.html is excluded."
+            ),
+        },
         "exceptions": exceptions,
         "release_checks": [
-            "This local-demo inventory transparently retains the exact notice gaps listed in exceptions; it is not a certification of complete licensing compliance or approval for external binary publication.",
-            "Match Cargo.lock, Cargo.toml, target, features and Rust toolchain to these hashes; regenerate after dependency changes.",
-            "Parent's PE inspection reported adjacent VCRUNTIME140.dll, other imports supplied by Windows (including ICU/D3D11/DComp/DirectWrite), and no fxc/dxcompiler runtime. The packager owns Microsoft CRT distribution terms and final file inventory; this Cargo bundle does not supply those terms. Recheck imports if the executable changes.",
-            "Python inference runtime, ML packages, model weights, textures and application assets require the packager's separate notices and provenance. No application-code license is chosen here.",
+            (
+                "This local-demo inventory transparently retains the exact notice"
+                " gaps listed in exceptions; it is not a certification of "
+                "complete licensing compliance or approval for external binary "
+                "publication."
+            ),
+            (
+                "Match Cargo.lock, Cargo.toml, target, features and Rust "
+                "toolchain to these hashes; regenerate after dependency changes."
+            ),
+            (
+                "Parent's PE inspection reported adjacent VCRUNTIME140.dll, other"
+                " imports supplied by Windows (including "
+                "ICU/D3D11/DComp/DirectWrite), and no fxc/dxcompiler runtime. The"
+                " packager owns Microsoft CRT distribution terms and final file "
+                "inventory; this Cargo bundle does not supply those terms. "
+                "Recheck imports if the executable changes."
+            ),
+            (
+                "Python inference runtime, ML packages, model weights, textures "
+                "and application assets require the packager's separate notices "
+                "and provenance. No application-code license is chosen here."
+            ),
         ],
         "packages": inventory,
         "texts": {k: {"sha256": k, "sources": text_sources[k]} for k in sorted(texts)},
     }
     lines = [
-        "MATERIAL STUDIO — WINDOWS NATIVE THIRD-PARTY NOTICES", "",
-        f"Target: {TARGET}", f"Cargo dependencies: {len(inventory)} ({len(runtime)} normal runtime dependencies; {len(selected - runtime)} build-only tools/proc macros)",
-        f"GPUI/Zed framework revision: {ZED_REV}", f"Rust standard library: {rust_version}",
-        "", "This file is self-contained: each package maps to SHA-256 text IDs whose complete contents appear below. Identical texts are included once. Supplementary JSON records graph selection, checksums, features, source paths and validation evidence.",
-        "The graph is Windows-specific and contains only the application dependency closure, not unrelated Zed applications. The 14 selected Zed framework crates declare Apache-2.0 in their individual manifests; the Zed root application license is not substituted.",
-        "Declared SPDX expressions and the permissive option used for this notice bundle are both recorded. Supplied alternate license texts and embedded notices are retained. Build tools are included conservatively because generated code may enter the binary. A runtime dependency entry is not a claim that every function survives linker dead-code elimination.",
-        "Rust's supplied standard-library collection also covers some other library targets; it is retained conservatively and does not assert that all those components are present on Windows.",
-        "", "UNRESOLVED NOTICE EVIDENCE / RELEASE CHECKS", "",
+        "MATERIAL STUDIO — WINDOWS NATIVE THIRD-PARTY NOTICES",
+        "",
+        f"Target: {TARGET}",
+        f"Cargo dependencies: {len(inventory)} "
+        f"({len(runtime)} normal runtime dependencies; "
+        f"{len(selected - runtime)} build-only tools/proc macros)",
+        f"GPUI/Zed framework revision: {ZED_REV}",
+        f"Rust standard library: {rust_version}",
+        "",
+        (
+            "This file is self-contained: each package maps to SHA-256 text IDs "
+            "whose complete contents appear below. Identical texts are included "
+            "once. Supplementary JSON records graph selection, checksums, "
+            "features, source paths and validation evidence."
+        ),
+        (
+            "The graph is Windows-specific and contains only the application "
+            "dependency closure, not unrelated Zed applications. The 14 selected "
+            "Zed framework crates declare Apache-2.0 in their individual "
+            "manifests; the Zed root application license is not substituted."
+        ),
+        (
+            "Declared SPDX expressions and the permissive option used for this "
+            "notice bundle are both recorded. Supplied alternate license texts "
+            "and embedded notices are retained. Build tools are included "
+            "conservatively because generated code may enter the binary. A "
+            "runtime dependency entry is not a claim that every function survives"
+            " linker dead-code elimination."
+        ),
+        (
+            "Rust's supplied standard-library collection also covers some other "
+            "library targets; it is retained conservatively and does not assert "
+            "that all those components are present on Windows."
+        ),
+        "",
+        "UNRESOLVED NOTICE EVIDENCE / RELEASE CHECKS",
+        "",
     ]
     lines.extend(f"{e['package']} ({e['role']}): {e['issue']}" for e in exceptions)
     lines.extend(bundle["release_checks"])
     lines += ["", "PACKAGE-TO-TEXT MAPPING", ""]
     for p in inventory:
-        lines += [f"{p['name']} {p['version']} [{p['role']}]", f"Source: {p['source']}", f"SPDX: {p['spdx']}", f"License option used: {p['license_option_used']}", "Manifest authors (not a substitute for copyright notices): " + ("; ".join(p["authors"]) or "not specified")]
+        lines += [
+            f"{p['name']} {p['version']} [{p['role']}]",
+            f"Source: {p['source']}",
+            f"SPDX: {p['spdx']}",
+            f"License option used: {p['license_option_used']}",
+            "Manifest authors (not a substitute for copyright notices): "
+            + ("; ".join(p["authors"]) or "not specified"),
+        ]
         for text_id in sorted({e["text"] for e in p["evidence"]}):
             lines.append("Text: " + text_id)
         lines.extend("EXCEPTION: " + e for e in p["exceptions"])
@@ -292,7 +493,11 @@ def collect(args: argparse.Namespace) -> None:
     args.notices.write_text(notices, encoding="utf-8", newline="\n")
     bundle["notices_sha256"] = digest(args.notices.read_bytes())
     bundle["notices_lf_sha256"] = lf_digest(args.notices.read_bytes())
-    bundle["text_normalization"] = "UTF-8, LF line endings, trailing line whitespace removed; original source bytes separately fingerprinted. Git CRLF checkout conversion is accepted for bundle and input validation."
+    bundle["text_normalization"] = (
+        "UTF-8, LF line endings, trailing line whitespace removed; original "
+        "source bytes separately fingerprinted. Git CRLF checkout conversion "
+        "is accepted for bundle and input validation."
+    )
     dump(out / "inventory.json", bundle)
     dump(out / "windows-dependency-graph.json", graph)
     validate(args)
@@ -304,7 +509,11 @@ def validate(args: argparse.Namespace) -> None:
     raw = args.notices.read_bytes()
     assert lf_digest(raw) == bundle["notices_lf_sha256"], "Notices digest mismatch"
     notice_text = raw.decode("utf-8").replace("\r\n", "\n")
-    blocks = dict(re.findall(r"={78}\nTEXT ([a-f0-9]{64})\n={78}\n(.*?)(?=\n={78}\nTEXT |\Z)", notice_text, re.S))
+    blocks = dict(
+        re.findall(
+            r"={78}\nTEXT ([a-f0-9]{64})\n={78}\n(.*?)(?=\n={78}\nTEXT |\Z)", notice_text, re.S
+        )
+    )
     assert set(blocks) == set(bundle["texts"]), "Text index mismatch"
     for key, value in blocks.items():
         assert digest(normalized(value).encode("utf-8")) == key, f"Text digest mismatch: {key}"
@@ -316,7 +525,10 @@ def validate(args: argparse.Namespace) -> None:
     for p in bundle["packages"]:
         assert p["spdx"] != "NOASSERTION" and p["evidence"]
         assert all(e["text"] in blocks for e in p["evidence"])
-        assert p["exceptions"] or any(e["kind"] in {"license-file", "pinned-upstream-license", "standard-license"} for e in p["evidence"])
+        assert p["exceptions"] or any(
+            e["kind"] in {"license-file", "pinned-upstream-license", "standard-license"}
+            for e in p["evidence"]
+        )
         bodies = "\n".join(blocks[e["text"]] for e in p["evidence"])
         clauses = {
             "Apache-2.0": r"TERMS AND CONDITIONS FOR USE",
@@ -327,7 +539,9 @@ def validate(args: argparse.Namespace) -> None:
             "Zlib": r"altered source versions",
         }
         for term in p["license_option_used"].split(" AND "):
-            assert term in clauses and re.search(clauses[term], bodies, re.I | re.S), f"Missing license body for {p['name']}: {term}"
+            assert term in clauses and re.search(clauses[term], bodies, re.I | re.S), (
+                f"Missing license body for {p['name']}: {term}"
+            )
     reachable = set()
     pending = [graph["root_id"]]
     nodes = {n["id"]: n for n in graph["nodes"]}
@@ -340,10 +554,25 @@ def validate(args: argparse.Namespace) -> None:
     assert bundle["rust"]["mapping_text"] in blocks
     assert all(t in blocks for t in bundle["rust"]["license_texts"])
     if args.lock:
-        assert lf_digest(args.lock.read_bytes()) == graph["cargo_lock_lf_sha256"], "Cargo.lock changed"
+        assert lf_digest(args.lock.read_bytes()) == graph["cargo_lock_lf_sha256"], (
+            "Cargo.lock changed"
+        )
     if args.manifest:
-        assert lf_digest(args.manifest.read_bytes()) == graph["app_manifest_lf_sha256"], "Cargo.toml changed"
-    print(json.dumps({"dependencies_accounted": len(ids), "unique_texts": len(blocks), "unresolved_notice_exceptions": len(bundle["exceptions"]), "notices_bytes": len(raw), "validation": "passed; exceptions remain explicitly unresolved"}, indent=2))
+        assert lf_digest(args.manifest.read_bytes()) == graph["app_manifest_lf_sha256"], (
+            "Cargo.toml changed"
+        )
+    print(
+        json.dumps(
+            {
+                "dependencies_accounted": len(ids),
+                "unique_texts": len(blocks),
+                "unresolved_notice_exceptions": len(bundle["exceptions"]),
+                "notices_bytes": len(raw),
+                "validation": "passed; exceptions remain explicitly unresolved",
+            },
+            indent=2,
+        )
+    )
 
 
 def main() -> None:
