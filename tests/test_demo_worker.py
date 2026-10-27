@@ -354,3 +354,35 @@ def test_every_prediction_runs_forward_and_no_bug_cpu_fallback(monkeypatch, tmp_
     )
     assert response["error"]["code"] == "inference_failed"
     assert runtime.device.type == "cuda"  # No reconfigure/retry on a model failure.
+
+
+def test_bundled_cache_overrides_inherited_hub_settings_in_fresh_process(tmp_path):
+    revision = "a" * 40
+    snapshot = (
+        tmp_path / "runtime/huggingface/hub/models--example--demo/snapshots" / revision
+    )
+    snapshot.mkdir(parents=True)
+    (snapshot / "weights.bin").write_bytes(b"offline test fixture")
+    environment = os.environ.copy()
+    environment.update(
+        HF_HOME=str(tmp_path / "unrelated-home"),
+        HF_HUB_CACHE=str(tmp_path / "unrelated-hub"),
+        HUGGINGFACE_HUB_CACHE=str(tmp_path / "unrelated-legacy-cache"),
+        PYTHONPATH=str(Path(__file__).resolve().parents[1] / "src"),
+    )
+    script = """
+import pathlib, sys
+from material_classifier.demo.runtime import ModelRuntime
+ModelRuntime(sys.argv[1], 'cpu').configure()
+from huggingface_hub import hf_hub_download
+result = hf_hub_download('example/demo', 'weights.bin', revision='a' * 40,
+                         local_files_only=True)
+assert pathlib.Path(result).read_bytes() == b'offline test fixture'
+assert pathlib.Path(result).is_relative_to(pathlib.Path(sys.argv[1]))
+print('bundled-cache-ok')
+"""
+    completed = subprocess.run(
+        [sys.executable, "-c", script, str(tmp_path)],
+        env=environment, capture_output=True, text=True, timeout=60, check=True,
+    )
+    assert "bundled-cache-ok" in completed.stdout

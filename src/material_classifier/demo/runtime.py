@@ -163,7 +163,9 @@ class ModelRuntime:
         os.environ["TRANSFORMERS_OFFLINE"] = "1"
         bundled_cache = self.root / "runtime/huggingface"
         if bundled_cache.is_dir():
-            os.environ.setdefault("HF_HOME", str(bundled_cache))
+            # A portable package must not depend on a developer's inherited cache.
+            os.environ["HF_HOME"] = str(bundled_cache)
+            os.environ["HF_HUB_CACHE"] = str(bundled_cache / "hub")
         try:
             import torch
 
