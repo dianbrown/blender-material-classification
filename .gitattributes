@@ -22,3 +22,5 @@
 *.pdf binary
 *.docx binary
 *.pptx binary
+*.gif binary
+*.mp4 binary

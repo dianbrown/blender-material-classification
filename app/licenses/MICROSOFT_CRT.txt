@@ -1,0 +1,53 @@
+MATERIAL STUDIO: MICROSOFT VISUAL C++ RUNTIME EVIDENCE
+Audit date: 2026-10-27
+
+Microsoft Visual C++ Runtime (vcruntime140.dll)
+Copyright resource: © Microsoft Corporation. All rights reserved.
+
+Installed x64 redistributable candidate:
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Redist\MSVC\14.44.35112\x64\Microsoft.VC143.CRT\vcruntime140.dll
+File version: 14.44.35211.0
+SHA-256: d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066
+Authenticode: Valid; signer Microsoft Windows / Microsoft Corporation.
+
+This is the installed REDIST candidate for app-local release packaging,
+conditional on the final build toolset being compatible with 14.44. The
+14.44.35112 folder name is not the DLL file version. The previous package
+instead matched C:\Windows\System32\vcruntime140.dll, version 14.50.35719.0,
+SHA-256 184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2.
+This evidence does not itself copy or replace any packaged DLL.
+The native agent confirmed MSVC 14.44.35207, linker 14.44.35228 and PE
+linker version 14.44 for v0.5.0; the candidate matches that toolset family.
+
+Microsoft's Visual Studio 2022 REDIST list covers unmodified runtime files
+under VC\redist, excludes debug_nonredist, and makes distribution conditional
+on the applicable Visual Studio license terms. It is not an unconditional
+permission inferred merely from the DLL being present on this computer.
+https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution
+The installed BuildTools Licenses\1033\Redist.txt points to that list via:
+https://aka.ms/vs/17/redist.txt
+
+Microsoft supports using a runtime at least as recent as the build toolset.
+Do not use the older REDIST candidate if final build evidence identifies a
+newer toolset. Version compatibility does not establish license entitlement.
+https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute
+
+The Visual Studio Community 2022 terms include distribution requirements,
+including additional application functionality and protective terms for
+distributors/external end users. The Build Tools terms are a supplement;
+they do not establish this publisher's Visual Studio entitlement. Official
+texts are retained for reference, without asserting that Community is the
+publisher's edition or that its requirements have been satisfied:
+upstream/Microsoft-VS2022-Community-Terms.txt
+upstream/Microsoft-VS2022-BuildTools-Terms.txt
+https://visualstudio.microsoft.com/license-terms/vs2022-ga-community/
+https://visualstudio.microsoft.com/license-terms/vs2022-ga-diagnosticbuildtools/
+
+release-evidence/crt-provenance.json records the candidate, prior System32
+copy, and Python-distributed CRT copies separately. Python's existing
+runtime/vcruntime140*.dll files are version 14.42.34438.0 and are not the
+app-adjacent DLL. Recheck the final package manifest after packaging.
+
+This is provenance and conditional license evidence, not a compliance
+certification, a new license agreement, or a license for Material Studio's
+own code, models, or rendered dataset.

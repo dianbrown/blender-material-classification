@@ -56,3 +56,26 @@ Thumbs.db
 *.tmp
 *.temp
 *.log
+
+# Local academic deliverables and their supporting files
+/report.pdf
+/report.docx
+/reports/project/
+/reports/presentation/
+/reports/v3/
+/reports/ASSIGNMENT_COVERAGE.md
+/reports/RUBRIC_AUDIT.md
+/reports/REPORT_ASSETS.md
+/docs/CLASSROOM_DEMO.md
+/scripts/report/
+/scripts/build_project_report.py
+/tests/test_project_report.py
+
+# Local implementation handoffs and release coordination notes
+/reports/MATERIAL_STUDIO_PLAN.md
+/reports/MATERIAL_STUDIO_REVIEW.md
+/reports/MATERIAL_STUDIO_STATE.md
+/reports/RELEASE_V05_PLAN.md
+/reports/RELEASE_V05_REVIEW.md
+/reports/RELEASE_V05_STATE.md
+/reports/V3_STATE.md

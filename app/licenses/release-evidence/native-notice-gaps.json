@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-27",
+  "packages": {
+    "seahash": {
+      "version": "4.1.0",
+      "revision": "94b632aeac099031c373599313d5b5f0acbbaec0",
+      "archive_url": "https://static.crates.io/crates/seahash/seahash-4.1.0.crate",
+      "archive_sha256": "1c107b6f4780854c8b126e228ea8869f4d7b71260f962fefb57b996b8959ba6b",
+      "files": [
+        {
+          "path": "seahash-4.1.0/.cargo_vcs_info.json",
+          "sha256": "891efcfccd34579199c16b76ea79adcb7356226765300af5c18a574e6ecdaf61"
+        },
+        {
+          "path": "seahash-4.1.0/.gitignore",
+          "sha256": "9cc2c8cc102e0b2a0a177c8f594abc9b9776300a04473c24b45d52c1007a4119"
+        },
+        {
+          "path": "seahash-4.1.0/.gitlab-ci.yml",
+          "sha256": "5c7a196a17ca1517693e56cd2fade762e08caaed77119f16e62b88f28b9cf31f"
+        },
+        {
+          "path": "seahash-4.1.0/Cargo.toml",
+          "sha256": "1d610f6d1bce065add6ec5f2fb764e97eeda505afbe26271acc5f3d73a8c410a"
+        },
+        {
+          "path": "seahash-4.1.0/Cargo.toml.orig",
+          "sha256": "dd213de338ca98b7ef7a2562bcf4e4214d215d1a8277750a6a72b4e809c8d0dd"
+        },
+        {
+          "path": "seahash-4.1.0/README.md",
+          "sha256": "38357210ef69a97bf9858ff22661cb1c2384179f5e6b73143cb33193e36c6473"
+        },
+        {
+          "path": "seahash-4.1.0/benches/bench.rs",
+          "sha256": "b06245bcf2fd0ef28a15dcdb89c6482f82f285aa928158e5518acf64e858dacd"
+        },
+        {
+          "path": "seahash-4.1.0/logo.png",
+          "sha256": "993cef1046e27ab784907dc50ad35abaa889683e6ef1d3127cd4fe450d561772"
+        },
+        {
+          "path": "seahash-4.1.0/src/buffer.rs",
+          "sha256": "24476bc2a380d78e0b70f8465ee90b0ea1ce8bd761474766d93491c633a85cbe"
+        },
+        {
+          "path": "seahash-4.1.0/src/helper.rs",
+          "sha256": "d266d15724dbe705818aa31db08027a63bee077e5859e3e3d06ee7192c258a2f"
+        },
+        {
+          "path": "seahash-4.1.0/src/impl_std.rs",
+          "sha256": "1a83d003954cb11e6712922573d3de978c8646113838b3ca033e6b3e129c1d14"
+        },
+        {
+          "path": "seahash-4.1.0/src/lib.rs",
+          "sha256": "09694fcbc9ebede5a5edd79debd23cae4d8b5c37c104e9b87a4952d7f4fc199a"
+        },
+        {
+          "path": "seahash-4.1.0/src/reference.rs",
+          "sha256": "15898feb23b1241dd4dd80f0f53f5819715c6ba0a45e57a3f61b7acc099bdb84"
+        },
+        {
+          "path": "seahash-4.1.0/src/stream.rs",
+          "sha256": "72e765d1ef7ec098fb3303d5635a3d543515d80052ebb5ce8ce6e478c7a8e91f"
+        },
+        {
+          "path": "seahash-4.1.0/tests/chunking.rs",
+          "sha256": "7faed951772ccd4366c1871b774879139f77bce3750bc68225d72012f0416d76"
+        },
+        {
+          "path": "seahash-4.1.0/tests/quickchecks.rs",
+          "sha256": "e45e1819bcdc9dedc0c7068f5aad6502b283288677e2a13bf0667feea3575100"
+        }
+      ],
+      "source_header_result": "All archive Rust files inspected; no copyright, SPDX or permission notice. Manifests declare MIT.",
+      "status": "unresolved-exact-MIT-notice",
+      "lookups": [
+        {
+          "url": "https://gitlab.redox-os.org/redox-os/seahash/-/raw/94b632aeac099031c373599313d5b5f0acbbaec0/LICENSE",
+          "date": "2026-10-27",
+          "status": 404
+        },
+        {
+          "url": "https://gitlab.redox-os.org/api/v4/projects/597/repository/tree?ref=94b632aeac099031c373599313d5b5f0acbbaec0&recursive=true&per_page=100",
+          "date": "2026-10-27",
+          "status": 200,
+          "response_sha256": "cfbb13c0a4cbd61b9acef27f6b84841cdec2156eed0332d5e8c355d105487d15",
+          "saved_response": "release-evidence/seahash-4.1.0-tree.json",
+          "prior_attempt_status": 403,
+          "pagination": {
+            "x_total": 17,
+            "x_total_pages": 1,
+            "x_next_page": ""
+          },
+          "saved_json_lf_sha256": "37b21ad0412240f73fc8cd3c2b12f6564e6add31af8e7198168fd4246f8a18ab"
+        }
+      ],
+      "archive_source_git_blobs_verified": [
+        "benches/bench.rs",
+        "src/buffer.rs",
+        "src/helper.rs",
+        "src/impl_std.rs",
+        "src/lib.rs",
+        "src/reference.rs",
+        "src/stream.rs",
+        "tests/chunking.rs",
+        "tests/quickchecks.rs"
+      ]
+    },
+    "simd_helpers": {
+      "version": "0.1.0",
+      "revision": "ca1a2f84aa386d758e98f8a609d990263932fb85",
+      "archive_url": "https://static.crates.io/crates/simd_helpers/simd_helpers-0.1.0.crate",
+      "archive_sha256": "95890f873bec569a0362c235787f3aca6e1e887302ba4840839bcc6459c42da6",
+      "files": [
+        {
+          "path": "simd_helpers-0.1.0/.gitignore",
+          "sha256": "6b937008e0a58a438c32574627db6961a4d2aff4bf5c703d4e45cb56ef3b168a"
+        },
+        {
+          "path": "simd_helpers-0.1.0/Cargo.toml.orig",
+          "sha256": "b41497677a5498040f2eb3fc089e3c2c38c413dca64f41dc57a115e26480461d"
+        },
+        {
+          "path": "simd_helpers-0.1.0/Cargo.toml",
+          "sha256": "42364d200c5cc7792960bdf10354a108b6c68ca49f2e1567967e2d5b1dba37a6"
+        },
+        {
+          "path": "simd_helpers-0.1.0/README.md",
+          "sha256": "e672b974ba905441c8eee630f10bc351f4e8e462c99d178b334ae3e48d8ca7f5"
+        },
+        {
+          "path": "simd_helpers-0.1.0/src/lib.rs",
+          "sha256": "7776fe38ba2018bdd2e744e42b0affa34966797ededdf381144bb92bb41e194c"
+        },
+        {
+          "path": "simd_helpers-0.1.0/tests/cold_for.rs",
+          "sha256": "930a9b0c072b7036d57ef9df3f5c24716e24b75d7a2aebf9d89ff8c69d68fadb"
+        },
+        {
+          "path": "simd_helpers-0.1.0/.cargo_vcs_info.json",
+          "sha256": "50b2d207be467a8a75522908c5ce1d1298a2cb3f9ea8abe8b3f741d124b6e9c1"
+        }
+      ],
+      "source_header_result": "All archive Rust files inspected; no copyright, SPDX or permission notice. Manifests declare MIT.",
+      "status": "unresolved-exact-MIT-notice",
+      "lookups": [
+        {
+          "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/trees/ca1a2f84aa386d758e98f8a609d990263932fb85?recursive=1",
+          "date": "2026-10-27",
+          "status": 200,
+          "response_sha256": "fe5b840ac06a764a770fe88eacebeaaa7584e6db2a27a893df70bed55d03d26a",
+          "saved_response": "release-evidence/simd_helpers-0.1.0-tree.json",
+          "saved_json_lf_sha256": "f7beedf50cd14a226fd4af882efcdafaa8e9e0b7d46fe94107e76f10c7b013ba"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/lu-zero/simd_helpers/ca1a2f84aa386d758e98f8a609d990263932fb85/LICENSE",
+          "date": "2026-10-27",
+          "status": 404
+        },
+        {
+          "url": "https://raw.githubusercontent.com/lu-zero/simd_helpers/ca1a2f84aa386d758e98f8a609d990263932fb85/LICENSE-MIT",
+          "date": "2026-10-27",
+          "status": 404
+        }
+      ],
+      "archive_source_git_blobs_verified": [
+        "src/lib.rs",
+        "tests/cold_for.rs"
+      ]
+    }
+  },
+  "conclusion": "Neither exact MIT notice recovered; manifest authors are not substituted for copyright."
+}

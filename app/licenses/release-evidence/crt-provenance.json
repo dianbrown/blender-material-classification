@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-27",
+  "scope": "Candidate installed REDIST provenance and prior package comparison; final packaging and toolset verification remain separate.",
+  "files": [
+    {
+      "path": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Redist/MSVC/14.44.35112/x64/Microsoft.VC143.CRT/vcruntime140.dll",
+      "bytes": 124544,
+      "file_version": "14.44.35211.0",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "path": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Redist/MSVC/14.44.35112/x64/Microsoft.VC143.CRT/vcruntime140_1.dll",
+      "bytes": 49792,
+      "file_version": "14.44.35211.0",
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "path": "C:/Windows/System32/vcruntime140.dll",
+      "bytes": 123472,
+      "file_version": "14.50.35719.0",
+      "sha256": "184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "path": "C:/Users/dianb/blender-material-classification/dist/MaterialStudio-release/vcruntime140.dll",
+      "bytes": 123472,
+      "file_version": "14.50.35719.0",
+      "sha256": "184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "path": "C:/Users/dianb/blender-material-classification/dist/MaterialStudio-release/runtime/vcruntime140.dll",
+      "bytes": 120400,
+      "file_version": "14.42.34438.0",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    },
+    {
+      "path": "C:/Users/dianb/blender-material-classification/dist/MaterialStudio-release/runtime/vcruntime140_1.dll",
+      "bytes": 49776,
+      "file_version": "14.42.34438.0",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "copyright": "Ã‚Â© Microsoft Corporation. All rights reserved.",
+      "signature_status": "Valid",
+      "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    }
+  ],
+  "redist_list_url": "https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution",
+  "toolset_compatibility_url": "https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute",
+  "terms_url": "https://visualstudio.microsoft.com/license-terms/vs2022-ga-community/",
+  "final_toolset": {
+    "source": "Native icon agent confirmation relayed by parent on 2026-10-27",
+    "msvc_directory_version": "14.44.35207",
+    "linker_file_version": "14.44.35228",
+    "pe_linker_version": "14.44",
+    "conclusion": "Candidate REDIST 14.44.35211 is in the matching 14.44 toolset family; this does not establish license entitlement."
+  },
+  "final_native_executable": {
+    "version": "0.5.0",
+    "sha256": "579a53ba797cb874ddafbf7f71aa4891a9be73c320c4981f90381710f8f1dc2e",
+    "source": "Parent final native build report, 2026-10-27"
+  }
+}

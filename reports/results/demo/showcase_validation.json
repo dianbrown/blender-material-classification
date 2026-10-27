@@ -1,0 +1,69 @@
+{
+  "kind": "Direct native application window recording",
+  "source_executable_sha256": "34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2",
+  "capture": {
+    "backend": "Windows.Graphics.Capture via FFmpeg 9.0.2 gfxcapture",
+    "capture_cursor": false,
+    "display_border": false,
+    "source": {
+      "bytes": 345765,
+      "sha256": "ca46693e917cbd6887f292660c6d351f88759a5a9b3fef863b4e86e07dc8178c"
+    }
+  },
+  "edits": {
+    "source_intervals_seconds": [
+      [
+        0,
+        4
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        21,
+        25
+      ],
+      [
+        31,
+        35
+      ]
+    ],
+    "description": "Pauses shortened; client area resized; no synthetic UI or results"
+  },
+  "representative_encoded_frames_visually_inspected": true,
+  "computer_use_cursor_or_halo_visible": false,
+  "benchmark_timing": false,
+  "gif": {
+    "bytes": 788531,
+    "sha256": "85ad61757cb20ea8dbe7e08dc377d7957dfe8990d3c4bfbec8b89c9a35f480c6",
+    "frames": 216,
+    "duration_ms": 18000,
+    "loop": 0,
+    "size": [
+      960,
+      646
+    ]
+  },
+  "mp4": {
+    "bytes": 268682,
+    "sha256": "83359e025145afbd83846442c9cd5210d47ccdaa5cfa0744a23b833287190648",
+    "duration_seconds": 18,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "size": [
+      960,
+      646
+    ]
+  },
+  "browser_validation": {
+    "scope": "Local browser decode and loop playback of exact release media",
+    "gif_loaded": true,
+    "video_error": null,
+    "video_paused": false,
+    "loop_enabled": true,
+    "wrap_verified": true,
+    "time_after_wrap_seconds": 1.209435
+  },
+  "supersedes": "Snapshot tour containing an automation cursor overlay"
+}

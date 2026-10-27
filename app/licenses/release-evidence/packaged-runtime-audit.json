@@ -1,0 +1,727 @@
+{
+  "date": "2026-10-27",
+  "scope": "Bounded existing MaterialStudio-release package inspection before v0.5 refresh; presence and provenance evidence, not all-component legal certification. Model weights and large DLLs not rehashed.",
+  "python": "3.13.5",
+  "python_distributions": [
+    {
+      "distribution": "anyio-4.15.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/anyio-4.15.1.dist-info/licenses/LICENSE",
+          "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0",
+          "bytes": 1081
+        }
+      ]
+    },
+    {
+      "distribution": "click-8.5.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/click-8.5.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+          "bytes": 1475
+        }
+      ]
+    },
+    {
+      "distribution": "cloudpickle-3.1.2.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/cloudpickle-3.1.2.dist-info/licenses/LICENSE",
+          "sha256": "3029ea34173e9fdc233ad315dc6b100bd1ea71f529b1c1af97664a272fdc55f5",
+          "bytes": 1754
+        }
+      ]
+    },
+    {
+      "distribution": "colorama-0.4.6.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+          "bytes": 1491
+        }
+      ]
+    },
+    {
+      "distribution": "filelock-3.32.3.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/filelock-3.32.3.dist-info/licenses/LICENSE",
+          "sha256": "608c89d5060ae9921adccf3236695bc654a9946e12323ef6c021dfa04e294d48",
+          "bytes": 1088
+        }
+      ]
+    },
+    {
+      "distribution": "fsspec-2026.7.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/fsspec-2026.7.0.dist-info/licenses/LICENSE",
+          "sha256": "2dc35496ce53a7307915c008a844aad53e772b49b34cdd00445067691407ec94",
+          "bytes": 1513
+        }
+      ]
+    },
+    {
+      "distribution": "h11-0.16.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/h11-0.16.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361",
+          "bytes": 1124
+        }
+      ]
+    },
+    {
+      "distribution": "hf_xet-1.7.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/hf_xet-1.7.0.dist-info/licenses/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "bytes": 11558
+        }
+      ]
+    },
+    {
+      "distribution": "httpcore2-2.16.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/httpcore2-2.16.0.dist-info/licenses/LICENSE.md",
+          "sha256": "c4df125c807b0613501e943a5c92496dd11d2c16604ce396097a8dde396304d9",
+          "bytes": 1599
+        }
+      ]
+    },
+    {
+      "distribution": "httpx2-2.16.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/httpx2-2.16.0.dist-info/licenses/LICENSE.md",
+          "sha256": "7e7d6dbaf7fe160d39fd6e84fd02c33cab96bcbea34d36998d545bceb4a19c30",
+          "bytes": 1589
+        }
+      ]
+    },
+    {
+      "distribution": "huggingface_hub-2.3.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/huggingface_hub-2.3.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ]
+    },
+    {
+      "distribution": "idna-3.20.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/idna-3.20.dist-info/licenses/LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+          "bytes": 1541
+        }
+      ]
+    },
+    {
+      "distribution": "jinja2-3.1.6.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/jinja2-3.1.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+          "bytes": 1475
+        }
+      ]
+    },
+    {
+      "distribution": "joblib-1.6.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/joblib-1.6.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "42612911c1872c5e4b43f6ae0e8ee59467cd350332241cf72ce90640264fae6a",
+          "bytes": 1527
+        }
+      ]
+    },
+    {
+      "distribution": "markupsafe-3.0.3.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/markupsafe-3.0.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4",
+          "bytes": 1503
+        }
+      ]
+    },
+    {
+      "distribution": "mpmath-1.3.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/mpmath-1.3.0.dist-info/LICENSE",
+          "sha256": "c26cae81da4508e5e249985777a33821f183223ebb74d7f8cfbf90fe7eef2fb7",
+          "bytes": 1537
+        }
+      ]
+    },
+    {
+      "distribution": "narwhals-2.27.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/narwhals-2.27.1.dist-info/licenses/LICENSE.md",
+          "sha256": "811445f30147b8f0c9d444c9025fd528f9532c54b7b83f6e2368473dc91cfdf0",
+          "bytes": 1082
+        }
+      ]
+    },
+    {
+      "distribution": "networkx-3.6.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/networkx-3.6.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "3cf7c3a179d817b23b8b8568211769fefdf93797d207d984b8b2fa24d0220b33",
+          "bytes": 1763
+        }
+      ]
+    },
+    {
+      "distribution": "numpy-2.5.2.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/LICENSE.txt",
+          "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+          "bytes": 45831
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/ma/LICENSE",
+          "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+          "bytes": 1616
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/LICENSE.md",
+          "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+          "bytes": 3582
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+          "sha256": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+          "bytes": 21155
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+          "sha256": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+          "bytes": 1441
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+          "sha256": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+          "bytes": 1573
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+          "sha256": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+          "bytes": 1542
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+          "sha256": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+          "bytes": 704
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+          "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+          "bytes": 1039
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+          "sha256": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+          "bytes": 2805
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+          "sha256": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+          "bytes": 2986
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+          "sha256": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+          "bytes": 1176
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+          "sha256": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+          "bytes": 1540
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+          "sha256": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+          "bytes": 1253
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+          "sha256": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+          "bytes": 340
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+          "sha256": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+          "bytes": 2314
+        },
+        {
+          "path": "runtime/Lib/site-packages/numpy-2.5.2.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+          "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+          "bytes": 1523
+        }
+      ]
+    },
+    {
+      "distribution": "packaging-26.3.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+          "bytes": 197
+        },
+        {
+          "path": "runtime/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "bytes": 10174
+        },
+        {
+          "path": "runtime/Lib/site-packages/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+          "bytes": 1344
+        }
+      ]
+    },
+    {
+      "distribution": "pandas-3.1.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSE",
+          "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+          "bytes": 1634
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+          "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+          "bytes": 1360
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+          "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+          "bytes": 2889
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+          "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+          "bytes": 1099
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+          "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+          "bytes": 1264
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+          "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+          "bytes": 1104
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+          "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+          "bytes": 6203
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+          "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+          "bytes": 1542
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+          "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+          "bytes": 11519
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+          "bytes": 13936
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+          "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+          "bytes": 1486
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+          "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+          "bytes": 1058
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+          "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+          "bytes": 1059
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+          "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+          "bytes": 1249
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+          "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+          "bytes": 5974
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+          "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+          "bytes": 1606
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+          "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+          "bytes": 10767
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+          "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+          "bytes": 1337
+        },
+        {
+          "path": "runtime/Lib/site-packages/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+          "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+          "bytes": 1079
+        }
+      ]
+    },
+    {
+      "distribution": "pillow-12.3.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/pillow-12.3.0.dist-info/licenses/LICENSE",
+          "sha256": "4f7866a74802c6326f81faff59a56546b6aec2b10b91973e0e9308de95e79857",
+          "bytes": 78016
+        }
+      ]
+    },
+    {
+      "distribution": "python_dateutil-3.0.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/python_dateutil-3.0.0.dist-info/licenses/LICENSE",
+          "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+          "bytes": 2889
+        }
+      ]
+    },
+    {
+      "distribution": "pyyaml-6.0.3.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+          "bytes": 1101
+        }
+      ]
+    },
+    {
+      "distribution": "safetensors-0.8.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/safetensors-0.8.0.dist-info/licenses/LICENSE",
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+          "bytes": 11558
+        }
+      ]
+    },
+    {
+      "distribution": "scikit_learn-1.9.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/scikit_learn-1.9.1.dist-info/licenses/COPYING",
+          "sha256": "014b1b1ad74cf00997f7081a1635c3c203cd70c08f39c13d9a39347fcd464979",
+          "bytes": 2629
+        }
+      ]
+    },
+    {
+      "distribution": "scipy-1.18.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/scipy-1.18.1.dist-info/LICENSE.txt",
+          "sha256": "f0f5c56b298ec9795df1199edc328a987242716d14a1bde6813112e22dc15f99",
+          "bytes": 45881
+        }
+      ]
+    },
+    {
+      "distribution": "setuptools-78.1.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/setuptools-78.1.0.dist-info/licenses/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+          "bytes": 1023
+        }
+      ]
+    },
+    {
+      "distribution": "six-1.17.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/six-1.17.0.dist-info/LICENSE",
+          "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+          "bytes": 1066
+        }
+      ]
+    },
+    {
+      "distribution": "sympy-1.14.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/sympy-1.14.0.dist-info/licenses/AUTHORS",
+          "sha256": "82b1038521b0696c63c90b31ed4a0a2c9c4c16871c648b157b07ca44b6f18f8d",
+          "bytes": 55779
+        },
+        {
+          "path": "runtime/Lib/site-packages/sympy-1.14.0.dist-info/licenses/LICENSE",
+          "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286",
+          "bytes": 7885
+        }
+      ]
+    },
+    {
+      "distribution": "threadpoolctl-3.7.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/threadpoolctl-3.7.0.dist-info/licenses/LICENSE",
+          "sha256": "81ac619075248b06e53660b652d10e485f4675f5d0ae0f97ea22370da1f7e23b",
+          "bytes": 1507
+        }
+      ]
+    },
+    {
+      "distribution": "timm-1.0.30.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/timm-1.0.30.dist-info/licenses/LICENSE",
+          "sha256": "71b111620fa32c17a80ccd6db2da759d31a591e497d8b5f382174f59d1b59d49",
+          "bytes": 11343
+        }
+      ]
+    },
+    {
+      "distribution": "torch-2.11.0+cu128.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/torch-2.11.0+cu128.dist-info/LICENSE",
+          "sha256": "3e289336d947fdf82f085f2a5ca757088084dd67d6530d46b4f02eb07461bb13",
+          "bytes": 385089
+        },
+        {
+          "path": "runtime/Lib/site-packages/torch-2.11.0+cu128.dist-info/NOTICE",
+          "sha256": "1c3dec6c0342c7ed9e12af59b296c7bb1d394af5cf881db74191cc8299efce5c",
+          "bytes": 24088
+        }
+      ]
+    },
+    {
+      "distribution": "torchvision-0.26.0+cu128.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/torchvision-0.26.0+cu128.dist-info/LICENSE",
+          "sha256": "c06363f9d33627dc5173b13522444cc85fbb4739f63e16d4587d5c0a165b5b1e",
+          "bytes": 1546
+        }
+      ]
+    },
+    {
+      "distribution": "tqdm-4.70.1.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/tqdm-4.70.1.dist-info/licenses/LICENCE",
+          "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+          "bytes": 1985
+        }
+      ]
+    },
+    {
+      "distribution": "truststore-0.10.5.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/truststore-0.10.5.dist-info/licenses/LICENSE",
+          "sha256": "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca",
+          "bytes": 1086
+        }
+      ]
+    },
+    {
+      "distribution": "typing_extensions-4.16.0.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+          "bytes": 13936
+        }
+      ]
+    },
+    {
+      "distribution": "tzdata-2026.5.dist-info",
+      "notice_files": [
+        {
+          "path": "runtime/Lib/site-packages/tzdata-2026.5.dist-info/licenses/LICENSE",
+          "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+          "bytes": 625
+        },
+        {
+          "path": "runtime/Lib/site-packages/tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "runtime/LICENSE.txt",
+      "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120",
+      "bytes": 33861
+    },
+    {
+      "path": "licenses/APACHE-2.0.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "bytes": 10174
+    },
+    {
+      "path": "licenses/MODEL_ATTRIBUTION.txt",
+      "sha256": "1b75c6a9edb9cdebd823c0588069268b8b3bffc78db0679df7c48107c0186126",
+      "bytes": 2164
+    },
+    {
+      "path": "app/assets/study.json",
+      "sha256": "343e37e3244b8bba9ff25ca47170cfb016f86c76085e76e83eee2a101009cda6",
+      "bytes": 30473
+    },
+    {
+      "path": "package-manifest.json",
+      "sha256": "47d024a39294cbfe3607076cb5fc04cec81603a9daca06ea52b03b7e2979a723",
+      "bytes": 4400815
+    },
+    {
+      "path": "runtime-manifest.json",
+      "sha256": "9cec6e3347318c83a91d0e4d42d4341affdd7a0012d2d7b38bc48b3af144efbb",
+      "bytes": 4388106
+    },
+    {
+      "path": "vcruntime140.dll",
+      "sha256": "184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2",
+      "bytes": 123472
+    },
+    {
+      "path": "runtime/vcruntime140.dll",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "bytes": 120400
+    },
+    {
+      "path": "runtime/vcruntime140_1.dll",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "bytes": 49776
+    }
+  ],
+  "model_specs": [
+    {
+      "name": "vit_small_patch14_reg4_dinov2.lvd142m",
+      "repository": "timm/vit_small_patch14_reg4_dinov2.lvd142m",
+      "revision": "c04b5193082a8d5b0c4856c7937384a48136c5de",
+      "weights_file": "model.safetensors",
+      "weights_sha256": "dca70548ecd7b03ffba6172c4db403014511b5ee6073f9fca72ba9e6e602a25d",
+      "width": 384,
+      "patch_size": 14,
+      "num_prefix_tokens": 5,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "crop_pct": 1.0,
+      "resolutions": [
+        224,
+        336
+      ],
+      "position_resize": "timm checkpoint_filter_fn bicubic antialias=True"
+    },
+    {
+      "name": "convnext_tiny.fb_in22k_ft_in1k",
+      "repository": "timm/convnext_tiny.fb_in22k_ft_in1k",
+      "revision": "bc48a87f119bae1b06418f5340bfa97ef75d4609",
+      "weights_file": "model.safetensors",
+      "weights_sha256": "77b619e187de71bce58721689da0c009e84cc20677293d7d43105307e34d868a",
+      "width": 768,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "crop_pct": 0.875,
+      "resolutions": [
+        224
+      ]
+    }
+  ],
+  "sample_count": 21,
+  "sample_source_licenses": [
+    "CC0-1.0"
+  ],
+  "sample_files_present": true,
+  "cuda": "12.8",
+  "cudnn_api_version": 91900,
+  "cudnn_dll_file_version": "9.19.0.56",
+  "version_probe": "torch import and torch.backends.cudnn.version(), no tensor/inference workload; torch.cuda.is_initialized() unexpectedly reported True afterward; process exited.",
+  "torch_lib_dll_names": [
+    "c10.dll",
+    "c10_cuda.dll",
+    "caffe2_nvrtc.dll",
+    "cublas64_12.dll",
+    "cublasLt64_12.dll",
+    "cudart64_12.dll",
+    "cudnn64_9.dll",
+    "cudnn_adv64_9.dll",
+    "cudnn_cnn64_9.dll",
+    "cudnn_engines_precompiled64_9.dll",
+    "cudnn_engines_runtime_compiled64_9.dll",
+    "cudnn_graph64_9.dll",
+    "cudnn_heuristic64_9.dll",
+    "cudnn_ops64_9.dll",
+    "cufft64_11.dll",
+    "cufftw64_11.dll",
+    "cupti64_2025.1.1.dll",
+    "curand64_10.dll",
+    "cusolver64_11.dll",
+    "cusolverMg64_11.dll",
+    "cusparse64_12.dll",
+    "libiomp5md.dll",
+    "libiompstubs5md.dll",
+    "nvJitLink_120_0.dll",
+    "nvToolsExt64_1.dll",
+    "nvperf_host.dll",
+    "nvrtc-builtins64_128.dll",
+    "nvrtc64_120_0.alt.dll",
+    "nvrtc64_120_0.dll",
+    "shm.dll",
+    "torch.dll",
+    "torch_cpu.dll",
+    "torch_cuda.dll",
+    "torch_global_deps.dll",
+    "torch_python.dll",
+    "uv.dll",
+    "zlibwapi.dll"
+  ]
+}

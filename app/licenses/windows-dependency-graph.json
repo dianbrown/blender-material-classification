@@ -1,13 +1,13 @@
 {
   "target": "x86_64-pc-windows-msvc",
   "command": "cargo metadata --locked --offline --format-version 1 --filter-platform x86_64-pc-windows-msvc",
-  "raw_metadata_sha256": "dac1080d373ef3c3496a94e239b65f33a783e062a26fd4df2428988435257909",
-  "cargo_lock_sha256": "9d8edc784fc2f764e0e4d715f512101b29e8aa32f86c7589d93cfaa527c061f4",
-  "app_manifest_sha256": "5d1999946bbe13e8f1923e0b22382151c2088b09f14b037aed970185d03af968",
-  "cargo_lock_lf_sha256": "9d8edc784fc2f764e0e4d715f512101b29e8aa32f86c7589d93cfaa527c061f4",
-  "app_manifest_lf_sha256": "5d1999946bbe13e8f1923e0b22382151c2088b09f14b037aed970185d03af968",
-  "root": "material-studio 0.1.0",
-  "root_id": "path+file:///C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-7684f8fb/app#material-studio@0.1.0",
+  "raw_metadata_sha256": "5a8910f7639a82fc671d8459bc0eb725698de90da974dedb98fa9c2ce43d6fe6",
+  "cargo_lock_sha256": "9a5e982f62e161d76395d28f5f5a77f973ee3bf16c87ffd99734308e5ff8079f",
+  "app_manifest_sha256": "4acc796e53ca065eac2a16688f2a50aa61afdd39cafcc48e2cdb4edd4dbb4f4d",
+  "cargo_lock_lf_sha256": "9a5e982f62e161d76395d28f5f5a77f973ee3bf16c87ffd99734308e5ff8079f",
+  "app_manifest_lf_sha256": "4acc796e53ca065eac2a16688f2a50aa61afdd39cafcc48e2cdb4edd4dbb4f4d",
+  "root": "material-studio 0.5.0",
+  "root_id": "path+file:///C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-c71f6a15/app#material-studio@0.5.0",
   "zed_revision": "aed37547d8543000494fb69101c05daec5891068",
   "selection": "Transitive closure of root resolve node, normal and build edges; dev edges excluded. Input must already be filtered by Cargo for Windows. Build tools/proc macros retained conservatively, not claimed to be linked.",
   "nodes": [
@@ -1311,7 +1311,7 @@
       "deps": []
     },
     {
-      "id": "path+file:///C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-7684f8fb/app#material-studio@0.1.0",
+      "id": "path+file:///C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-c71f6a15/app#material-studio@0.5.0",
       "features": [],
       "deps": [
         {

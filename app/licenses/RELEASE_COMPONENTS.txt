@@ -1,0 +1,53 @@
+MATERIAL STUDIO v0.5: SUPPLEMENTAL RELEASE NOTICE EVIDENCE
+Audit date: 2026-10-27
+
+The native Cargo/Rust notice collection is ../THIRD_PARTY_NOTICES.txt.
+Exact MIT notice gaps remain for seahash 4.1.0 and simd_helpers 0.1.0.
+release-evidence/native-notice-gaps.json records the published crate archive
+hashes, file inventories and official upstream request results. No author
+name or generic template has been promoted into an invented copyright.
+
+Microsoft runtime: see MICROSOFT_CRT.txt and the official terms retained in
+upstream/. A REDIST provenance finding is conditional; it is not a claim
+of entitlement or satisfaction of all distribution requirements.
+
+Python / ML runtime: the inspected pre-refresh MaterialStudio-release folder
+contains Python 3.13.5, runtime/LICENSE.txt, and license files in every one
+of its 38 Python dist-info directories. Keep those complete directories,
+including torch-2.11.0+cu128.dist-info/LICENSE and NOTICE. Their presence is
+recorded with hashes in release-evidence/packaged-runtime-audit.json. This
+bounded inspection does not certify every vendored library's obligations.
+
+NVIDIA CUDA/cuDNN: this package's PyTorch reports CUDA 12.8 and cuDNN 91900
+(9.19.0); cudnn64_9.dll file version is 9.19.0.56. Keep these official texts:
+upstream/NVIDIA-CUDA-12.8.0-EULA.txt
+upstream/NVIDIA-CUDA-12.8.1-EULA.txt
+upstream/NVIDIA-cuDNN-9.19.0-EULA.txt
+upstream/NVIDIA-cuDNN-9.19.0-Acknowledgements.txt
+upstream/NVIDIA-cuDNN-9.19.0-Notices.txt
+The two CUDA patch-release EULA article texts are identical. Both are
+retained because torch.version.cuda identifies the 12.8 series, not a patch
+release. Sources and response/text hashes are in upstream/sources.json.
+The CUDA text includes the SDK agreement, CUDA supplement, redistribution
+list and third-party notices. These agreements condition redistribution
+on identified distributable components and application distribution terms.
+Retaining them does not certify the final component mapping or compliance.
+
+Models: retain package-root licenses/MODEL_ATTRIBUTION.txt and APACHE-2.0.txt,
+and the timm/torchvision/PyTorch distribution notices. The existing attribution
+identifies DINOv2 (Apache-2.0), ConvNeXt (MIT), and the study-fitted/fine-tuned
+models. The existing ConvNeXt MIT notice matches the upstream notice text.
+Pinned pretrained model revisions and hashes from the runtime manifest are
+recorded in release-evidence/packaged-runtime-audit.json; this audit does not
+rehash large model weights or assign a new license to study checkpoints.
+
+Samples: the package contains 21 authorized demo images. Each entry in
+app/assets/study.json identifies attribution, source URL and CC0-1.0 source
+texture license. Preserve that file and DATASET.md. Source-texture terms
+do not assign a broad license to the rendered study dataset. The full Kaggle
+ZIP and its unset license are outside this release and were not changed.
+
+The user authorized publication of the app, these demo assets and models.
+This evidence adds no approval gate and chooses no broad project or dataset
+license. Final packaging must retain these files and refresh its own manifest;
+the recorded runtime audit describes the inspected pre-refresh package.

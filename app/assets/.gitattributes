@@ -1,0 +1,2 @@
+# Override /app/** text normalization for Windows icon containers.
+*.ico binary

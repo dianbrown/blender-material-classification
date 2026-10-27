@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Material Studio cube</title>
+  <polygon fill="#e1e2e3" points="128,20 222,74 128,128 34,74"/>
+  <polygon fill="#b4b6b9" points="34,74 128,128 128,236 34,182"/>
+  <polygon fill="#85898e" points="128,128 222,74 222,182 128,236"/>
+  <path d="M 128,20 L 222,74 L 222,182 L 128,236 L 34,182 L 34,74 Z M 128,128 L 222,74 M 128,128 L 128,236 M 128,128 L 34,74" fill="none" stroke="#45494e" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

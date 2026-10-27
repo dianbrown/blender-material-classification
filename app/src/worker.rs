@@ -261,6 +261,7 @@ impl Process {
     fn start(config: &Config, stop: &AtomicBool) -> Result<Self, String> {
         let mut command = Command::new(&config.python);
         command
+            .arg("-B")
             .arg("-u")
             .arg(config.root.join("scripts/demo/worker.py"))
             .arg("--root")
@@ -457,6 +458,7 @@ mod tests {
         std::fs::create_dir_all(root.join("scripts/demo")).unwrap();
         std::fs::write(root.join("scripts/demo/worker.py"), r#"
 import json, os, pathlib, sys
+assert sys.flags.dont_write_bytecode, "Worker startup must not create installation cache files"
 root = pathlib.Path(__file__).resolve().parents[2]
 with (root / 'processes.txt').open('a') as log:
     log.write(str(os.getpid()) + '\n')

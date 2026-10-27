@@ -225,7 +225,8 @@ def test_dependency_closure_markers_extras_and_version_checks(monkeypatch):
         pkg.distribution_closure(["core>=3"])
 
 
-def test_full_assembly_preserves_layout_and_attribution(resources, tmp_path):
+@pytest.mark.parametrize("release_version", [None, "0.5.0"])
+def test_full_assembly_preserves_layout_and_attribution(resources, tmp_path, release_version):
     root, hub = resources
     for relative in (
         "scripts/demo/worker.py",
@@ -278,7 +279,13 @@ def test_full_assembly_preserves_layout_and_attribution(resources, tmp_path):
         native_dlls=[dll],
         exe_sha256=pkg.sha256(exe),
         smoke=False,
+        release_version=release_version,
     )
+    assert manifest["release_version"] == release_version
+    assert manifest["release_status"] == ("prepared-release" if release_version else "candidate")
+    if release_version:
+        assert "Material Studio 0.5.0" in (output / "START_HERE.txt").read_text()
+        assert "Candidate build" not in (output / "START_HERE.txt").read_text()
     assert (output / "MaterialStudio.exe").read_bytes() == b"MZfake executable"
     assert (output / "scripts/v3/finetune.py").read_bytes() == (
         root / "scripts/v3/finetune.py"

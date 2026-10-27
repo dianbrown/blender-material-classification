@@ -1,0 +1,77 @@
+{
+  "version": "0.5.0",
+  "layout": "spanned",
+  "payload_files_verified_after_installation": 22812,
+  "payload_bytes": 5147500218,
+  "native_executable_sha256": "34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2",
+  "installation_exit": 0,
+  "installed_native_gui": "Observed cube icon, sample image and ready worker in isolated installed copy",
+  "installed_inference": {
+    "cpu": {
+      "ok": true,
+      "startup_ms": 266.0354,
+      "predicted_class": "wood",
+      "probabilities": [
+        0.952295948092334,
+        0.011972532652489518,
+        0.004475242126936327,
+        0.005820804310260394,
+        0.01006132941704645,
+        0.008371920636326363,
+        0.007002222764606858
+      ],
+      "inference_ms": 404.8137999488972,
+      "load_ms": 16866.45699996734,
+      "device": "cpu"
+    },
+    "cuda": {
+      "ok": true,
+      "startup_ms": 177.0925,
+      "predicted_class": "wood",
+      "probabilities": [
+        0.9522962113439526,
+        0.011972478947990884,
+        0.0044751947461883265,
+        0.005820785835599088,
+        0.01006124492906582,
+        0.008371882670417467,
+        0.007002201526785848
+      ],
+      "inference_ms": 555.6976999505423,
+      "load_ms": 12347.069300012665,
+      "device": "cuda"
+    }
+  },
+  "uninstall": {
+    "uninstaller_exit": 0,
+    "sentinel_preserved": true,
+    "exe_removed": true,
+    "runtime_removed": true,
+    "shortcuts_removed": true,
+    "registry_removed": true
+  },
+  "assets": {
+    "build-receipt.json": {
+      "bytes": 2714,
+      "sha256": "18982a24c2fa2dc25ff68f94ce632762cada4528ae62c2ca9371895a078f099b"
+    },
+    "MaterialStudio-0.5.0-windows-x64-Setup-1.bin": {
+      "bytes": 1995656704,
+      "sha256": "abadf988b3d6b0df6c4999e7f19a545dea6b267d3cf09eef9b91407be3667eb8"
+    },
+    "MaterialStudio-0.5.0-windows-x64-Setup-2.bin": {
+      "bytes": 181790060,
+      "sha256": "4521a1d99a6a3557a8c599f61370f8b8b0484f5c927ba2427b4ff5cf8d71dfab"
+    },
+    "MaterialStudio-0.5.0-windows-x64-Setup.exe": {
+      "bytes": 4342986,
+      "sha256": "735568d031ec036bf1089726ff1439dbba088a9e18a6c3d871a1ef04e81c7c95"
+    },
+    "SHA256SUMS.txt": {
+      "bytes": 420,
+      "sha256": "cefc769781db56e452dc3fd2562a39ef22ebbdaab174a431fea33962af1b3c9b"
+    }
+  },
+  "scope": "Local Windows x64 installation, isolated from development environment; not a clean-machine compatibility guarantee",
+  "signed": false
+}
