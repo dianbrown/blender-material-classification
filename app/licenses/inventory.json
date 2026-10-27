@@ -96,10 +96,10 @@
     }
   ],
   "release_checks": [
-    "This local-demo inventory transparently retains the exact notice gaps listed in exceptions; it is not a certification of complete licensing compliance or approval for external binary publication.",
+    "This release inventory transparently retains the exact notice gaps listed in exceptions; it is not a certification of complete licensing compliance or approval for external binary publication.",
     "Match Cargo.lock, Cargo.toml, target, features and Rust toolchain to these hashes; regenerate after dependency changes.",
-    "Parent's PE inspection reported adjacent VCRUNTIME140.dll, other imports supplied by Windows (including ICU/D3D11/DComp/DirectWrite), and no fxc/dxcompiler runtime. The packager owns Microsoft CRT distribution terms and final file inventory; this Cargo bundle does not supply those terms. Recheck imports if the executable changes.",
-    "Python inference runtime, ML packages, model weights, textures and application assets require the packager's separate notices and provenance. No application-code license is chosen here."
+    "Microsoft CRT provenance and conditional redistribution terms are documented separately in app/licenses/MICROSOFT_CRT.txt and app/licenses/release-evidence/crt-provenance.json. Match the final DLL and build toolset; recheck PE imports after executable changes.",
+    "Python/runtime and model notices remain in the packaged runtime and licenses directories. Supplemental official CUDA 12.8 and cuDNN 9.19.0 terms are in app/licenses/upstream; see app/licenses/RELEASE_COMPONENTS.txt for scope and evidence. No application-code or rendered-dataset license is chosen here."
   ],
   "packages": [
     {
@@ -13685,7 +13685,7 @@
       "upstream_lookup": {
         "date": "2026-10-27",
         "url": "https://gitlab.redox-os.org/redox-os/seahash/-/raw/94b632aeac099031c373599313d5b5f0acbbaec0/LICENSE",
-        "result": "HTTP 403; archive has no license file or copyright notice. No substitute copyright statement invented."
+        "result": "Earlier lookup HTTP 403; release audit raw URL HTTP 404. Exact-revision GitLab tree API succeeded on retry: all 17 entries inspected, no license file. Archive sources match upstream blobs and contain no copyright notice. See release-evidence/native-notice-gaps.json for archive hashes and fresh requests. No copyright statement invented."
       }
     },
     {
@@ -23597,7 +23597,7 @@
       ]
     }
   },
-  "notices_sha256": "ddec5ed3a00c1698f53d463d961ebe617dec0a8b05688771e88f3f9d81953750",
-  "notices_lf_sha256": "ddec5ed3a00c1698f53d463d961ebe617dec0a8b05688771e88f3f9d81953750",
+  "notices_sha256": "5bd32e7b3be4d81c08457a0a4edceb86cb23db82a41d4fa34b8ffd1c0011e051",
+  "notices_lf_sha256": "5bd32e7b3be4d81c08457a0a4edceb86cb23db82a41d4fa34b8ffd1c0011e051",
   "text_normalization": "UTF-8, LF line endings, trailing line whitespace removed; original source bytes separately fingerprinted. Git CRLF checkout conversion is accepted for bundle and input validation."
 }

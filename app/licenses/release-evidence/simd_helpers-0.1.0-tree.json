@@ -1,0 +1,61 @@
+{
+  "sha": "ca1a2f84aa386d758e98f8a609d990263932fb85",
+  "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/trees/ca1a2f84aa386d758e98f8a609d990263932fb85",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "693699042b1a8ccf697636d3cd34b200f3a8278b",
+      "size": 30,
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/blobs/693699042b1a8ccf697636d3cd34b200f3a8278b"
+    },
+    {
+      "path": "Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17ab16390dd3d9dd00d5bf3c0227d086d0476232",
+      "size": 367,
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/blobs/17ab16390dd3d9dd00d5bf3c0227d086d0476232"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f608520d22eec3bfe0b204d00aae2ff05021f4a6",
+      "size": 439,
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/blobs/f608520d22eec3bfe0b204d00aae2ff05021f4a6"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "535176064a4dd23ea46e631b02fa1a7e6e1e3167",
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/trees/535176064a4dd23ea46e631b02fa1a7e6e1e3167"
+    },
+    {
+      "path": "src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7db09d5a3c2958b2fdcb53f68192e3f3a2d9235b",
+      "size": 590,
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/blobs/7db09d5a3c2958b2fdcb53f68192e3f3a2d9235b"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "58dcb2e33012454cacf1a19ccbe5ad8592a9f847",
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/trees/58dcb2e33012454cacf1a19ccbe5ad8592a9f847"
+    },
+    {
+      "path": "tests/cold_for.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba73cc5ce78326f09f983ba0068efccfffbafcbe",
+      "size": 101,
+      "url": "https://api.github.com/repos/lu-zero/simd_helpers/git/blobs/ba73cc5ce78326f09f983ba0068efccfffbafcbe"
+    }
+  ],
+  "truncated": false
+}

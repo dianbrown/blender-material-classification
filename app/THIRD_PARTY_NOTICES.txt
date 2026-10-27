@@ -14,10 +14,10 @@ UNRESOLVED NOTICE EVIDENCE / RELEASE CHECKS
 
 seahash 4.1.0 (runtime): Published archive has no license file; exact upstream copyright/permission notice could not be obtained. Manifest SPDX and authors are retained; the standard template does not supply the missing copyright notice.
 simd_helpers 0.1.0 (build-tool): Published archive has no license file; exact upstream copyright/permission notice could not be obtained. Manifest SPDX and authors are retained; the standard template does not supply the missing copyright notice.
-This local-demo inventory transparently retains the exact notice gaps listed in exceptions; it is not a certification of complete licensing compliance or approval for external binary publication.
+This release inventory transparently retains the exact notice gaps listed in exceptions; it is not a certification of complete licensing compliance or approval for external binary publication.
 Match Cargo.lock, Cargo.toml, target, features and Rust toolchain to these hashes; regenerate after dependency changes.
-Parent's PE inspection reported adjacent VCRUNTIME140.dll, other imports supplied by Windows (including ICU/D3D11/DComp/DirectWrite), and no fxc/dxcompiler runtime. The packager owns Microsoft CRT distribution terms and final file inventory; this Cargo bundle does not supply those terms. Recheck imports if the executable changes.
-Python inference runtime, ML packages, model weights, textures and application assets require the packager's separate notices and provenance. No application-code license is chosen here.
+Microsoft CRT provenance and conditional redistribution terms are documented separately in app/licenses/MICROSOFT_CRT.txt and app/licenses/release-evidence/crt-provenance.json. Match the final DLL and build toolset; recheck PE imports after executable changes.
+Python/runtime and model notices remain in the packaged runtime and licenses directories. Supplemental official CUDA 12.8 and cuDNN 9.19.0 terms are in app/licenses/upstream; see app/licenses/RELEASE_COMPONENTS.txt for scope and evidence. No application-code or rendered-dataset license is chosen here.
 
 PACKAGE-TO-TEXT MAPPING
 

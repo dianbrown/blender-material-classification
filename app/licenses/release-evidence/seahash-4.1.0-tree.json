@@ -1,0 +1,121 @@
+[
+  {
+    "id": "31a3ed237f242432056cab994d867d09c211d963",
+    "name": "benches",
+    "type": "tree",
+    "path": "benches",
+    "mode": "040000"
+  },
+  {
+    "id": "2f102348c3cbc4fca5c234a1ebe476498ceb051f",
+    "name": "src",
+    "type": "tree",
+    "path": "src",
+    "mode": "040000"
+  },
+  {
+    "id": "8a32b409e79a6ff1917d6de7806eef03519c89e7",
+    "name": "tests",
+    "type": "tree",
+    "path": "tests",
+    "mode": "040000"
+  },
+  {
+    "id": "ca98cd96efdc228b0c0d0e264bfc0ce9ddadfdd7",
+    "name": ".gitignore",
+    "type": "blob",
+    "path": ".gitignore",
+    "mode": "100644"
+  },
+  {
+    "id": "a18ea28b27f7f595e1a9199a304d905996c023c6",
+    "name": ".gitlab-ci.yml",
+    "type": "blob",
+    "path": ".gitlab-ci.yml",
+    "mode": "100644"
+  },
+  {
+    "id": "70505b2e1801019eb6068204091fc526ce5db3ac",
+    "name": "Cargo.toml",
+    "type": "blob",
+    "path": "Cargo.toml",
+    "mode": "100644"
+  },
+  {
+    "id": "db664b102872a984e22904837ae3984ab42c0b71",
+    "name": "README.md",
+    "type": "blob",
+    "path": "README.md",
+    "mode": "100644"
+  },
+  {
+    "id": "ae2206817e5e46dcd00f91f7dc92a4a72011cd0f",
+    "name": "bench.rs",
+    "type": "blob",
+    "path": "benches/bench.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "6656ffa60bf4c2e34e73564fd1c06a8a19601120",
+    "name": "logo.png",
+    "type": "blob",
+    "path": "logo.png",
+    "mode": "100644"
+  },
+  {
+    "id": "72dcacef358bc2f27858911abe7da705f7b324d0",
+    "name": "buffer.rs",
+    "type": "blob",
+    "path": "src/buffer.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "567880ac6b7ff7e180b3ae9d1fad2461d1c3e053",
+    "name": "helper.rs",
+    "type": "blob",
+    "path": "src/helper.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "bec348345adf73fbc358988b9789416d056d0e8a",
+    "name": "impl_std.rs",
+    "type": "blob",
+    "path": "src/impl_std.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "45799d87f8d27cde786edb39f3b1f32d5f40351f",
+    "name": "lib.rs",
+    "type": "blob",
+    "path": "src/lib.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "2585014d89f11915d69d201475ea265d937e1340",
+    "name": "reference.rs",
+    "type": "blob",
+    "path": "src/reference.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "cf35ebcaa38e85b9c0432c377b39a8294d7c6a79",
+    "name": "stream.rs",
+    "type": "blob",
+    "path": "src/stream.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "4416f1fe916a20a98ada1ec6de64a3bbbabb4f3f",
+    "name": "chunking.rs",
+    "type": "blob",
+    "path": "tests/chunking.rs",
+    "mode": "100644"
+  },
+  {
+    "id": "f9f11a8c22d7ce1994b56867e4b42f192d99c47d",
+    "name": "quickchecks.rs",
+    "type": "blob",
+    "path": "tests/quickchecks.rs",
+    "mode": "100644"
+  }
+]

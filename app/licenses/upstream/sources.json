@@ -22,5 +22,67 @@
     "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9",
     "retrieved_on": "2026-10-27",
     "sha256_lf": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+  },
+  "NVIDIA-CUDA-12.8.0-EULA.txt": {
+    "url": "https://docs.nvidia.com/cuda/archive/12.8.0/eula/index.html",
+    "final_url": "https://docs.nvidia.com/cuda/archive/12.8.0/eula/index.html",
+    "retrieved": "2026-10-27",
+    "response_sha256": "6722d4c310a2ec9ad869ede3371a648fe2cfc2baaf8e1ece2c35e1dccc05752c",
+    "sha256_lf": "28fada2866a62f25d01179fcdaba185d0cdc41793b4e8c978f393a451c57feb3",
+    "transformation": "Full article text extracted from official HTML with BeautifulSoup get_text; navigation and heading permalink glyphs omitted; UTF-8 LF."
+  },
+  "NVIDIA-CUDA-12.8.1-EULA.txt": {
+    "url": "https://docs.nvidia.com/cuda/archive/12.8.1/eula/index.html",
+    "final_url": "https://docs.nvidia.com/cuda/archive/12.8.1/eula/index.html",
+    "retrieved": "2026-10-27",
+    "response_sha256": "6722d4c310a2ec9ad869ede3371a648fe2cfc2baaf8e1ece2c35e1dccc05752c",
+    "sha256_lf": "28fada2866a62f25d01179fcdaba185d0cdc41793b4e8c978f393a451c57feb3",
+    "transformation": "Full article text extracted from official HTML with BeautifulSoup get_text; navigation and heading permalink glyphs omitted; UTF-8 LF."
+  },
+  "NVIDIA-cuDNN-9.19.0-EULA.txt": {
+    "url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/eula.html",
+    "final_url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/eula.html",
+    "retrieved": "2026-10-27",
+    "response_sha256": "a28ad049b0fc356d7d9f7f5fa81d38d482f966eef95e7d6a276bc5c12f36cf23",
+    "sha256_lf": "881b644c19d24a5c1c9b332bdcc51fcfc98a752abcc9d31d389ec7c778538f1b",
+    "transformation": "Full article text extracted from official HTML with BeautifulSoup get_text; navigation and heading permalink glyphs omitted; UTF-8 LF."
+  },
+  "NVIDIA-cuDNN-9.19.0-Acknowledgements.txt": {
+    "url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/acknowledgements.html",
+    "final_url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/acknowledgements.html",
+    "retrieved": "2026-10-27",
+    "response_sha256": "1ea25994f11a45f771f5d1033a725d7e01c2fa08fa81627cfd7ce78c2ca82157",
+    "sha256_lf": "4123a947d28d985cf38806aad34b9761e83cba1c58d9a62cde673f7bc8a12077",
+    "transformation": "Full article text extracted from official HTML with BeautifulSoup get_text; navigation and heading permalink glyphs omitted; UTF-8 LF."
+  },
+  "NVIDIA-cuDNN-9.19.0-Notices.txt": {
+    "url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/notices.html",
+    "final_url": "https://docs.nvidia.com/deeplearning/cudnn/backend/v9.19.0/reference/notices.html",
+    "retrieved": "2026-10-27",
+    "response_sha256": "b03aca1a90b11bdccb2532b54292c1fde1a5e7b9dbcde12d23cb6f6dd9267184",
+    "sha256_lf": "526fdc8a78ce4554053a81526532d8b6dd0f8f5d5f90dbfce789c5de141cc06d",
+    "transformation": "Full article text extracted from official HTML with BeautifulSoup get_text; navigation and heading permalink glyphs omitted; UTF-8 LF."
+  },
+  "Microsoft-VS2022-Community-Terms.txt": {
+    "url": "https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-Community-License-EN.docx",
+    "retrieved": "2026-10-27",
+    "response_sha256": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540",
+    "sha256_lf": "c1d9d033945c6edc5a6348970c08ffa70c0460a89c10eb41f342d7539e5aeb48",
+    "transformation": "DOCX word/document.xml paragraph text extracted in order; UTF-8 LF. Automatic list markers are not expanded. Supplementary reference, not a claim of license entitlement. Trailing line whitespace removed."
+  },
+  "Microsoft-VS2022-BuildTools-Terms.txt": {
+    "url": "https://visualstudio.microsoft.com/wp-content/uploads/2024/03/Visual-Studio-2022-Diagnostic-Build-Tools-Agent-License_Update-March-2024_EN.docx",
+    "retrieved": "2026-10-27",
+    "response_sha256": "2f66b86a00e8d9833789897ce23d05a4a2dbea370cf39c8c1098dbc17d0e7bdc",
+    "sha256_lf": "0c748a8650a48da3fffc63b0006f58239d85605cea332b75e102b1abd84c266e",
+    "transformation": "DOCX word/document.xml paragraph text extracted in order; UTF-8 LF. Automatic list markers are not expanded. Supplementary reference, not a claim of license entitlement. Trailing line whitespace removed."
+  },
+  "Microsoft-VS2022-REDIST-Link.txt": {
+    "url": "https://aka.ms/vs/17/redist.txt",
+    "local_source": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Licenses\\1033\\Redist.txt",
+    "retrieved": "2026-10-27",
+    "sha256": "da53b097e02b08e0fc69706102a60bc384fe756426ae4dc4a855e96f95cb2b9c",
+    "sha256_lf": "bc10a369c1dc09000fcf5ae6420ffaf473c6359ce76a32615686f18dae1b67d6",
+    "scope": "Installed upstream pointer to the official current redistribution list, not the full list."
   }
 }

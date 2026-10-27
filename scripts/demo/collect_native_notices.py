@@ -178,8 +178,12 @@ def collect(args: argparse.Namespace) -> None:
                 "date": "2026-10-27",
                 "url": "https://gitlab.redox-os.org/redox-os/seahash/-/raw/94b632aeac099031c373599313d5b5f0acbbaec0/LICENSE",
                 "result": (
-                    "HTTP 403; archive has no license file or copyright notice. "
-                    "No substitute copyright statement invented."
+                    "Earlier lookup HTTP 403; release audit raw URL HTTP 404. "
+                    "Exact-revision GitLab tree API succeeded on retry: all "
+                    "17 entries inspected, no license file. Archive sources "
+                    "match upstream blobs and contain no copyright notice. See "
+                    "release-evidence/native-notice-gaps.json for archive hashes "
+                    "and fresh requests. No copyright statement invented."
                 ),
             }
         elif p["name"] == "simd_helpers":
@@ -403,7 +407,7 @@ def collect(args: argparse.Namespace) -> None:
         "exceptions": exceptions,
         "release_checks": [
             (
-                "This local-demo inventory transparently retains the exact notice"
+                "This release inventory transparently retains the exact notice"
                 " gaps listed in exceptions; it is not a certification of "
                 "complete licensing compliance or approval for external binary "
                 "publication."
@@ -413,17 +417,18 @@ def collect(args: argparse.Namespace) -> None:
                 "toolchain to these hashes; regenerate after dependency changes."
             ),
             (
-                "Parent's PE inspection reported adjacent VCRUNTIME140.dll, other"
-                " imports supplied by Windows (including "
-                "ICU/D3D11/DComp/DirectWrite), and no fxc/dxcompiler runtime. The"
-                " packager owns Microsoft CRT distribution terms and final file "
-                "inventory; this Cargo bundle does not supply those terms. "
-                "Recheck imports if the executable changes."
+                "Microsoft CRT provenance and conditional redistribution terms "
+                "are documented separately in app/licenses/MICROSOFT_CRT.txt "
+                "and app/licenses/release-evidence/crt-provenance.json. Match "
+                "the final DLL and build toolset; recheck PE imports after "
+                "executable changes."
             ),
             (
-                "Python inference runtime, ML packages, model weights, textures "
-                "and application assets require the packager's separate notices "
-                "and provenance. No application-code license is chosen here."
+                "Python/runtime and model notices remain in the packaged "
+                "runtime and licenses directories. Supplemental official CUDA "
+                "12.8 and cuDNN 9.19.0 terms are in app/licenses/upstream; see "
+                "app/licenses/RELEASE_COMPONENTS.txt for scope and evidence. "
+                "No application-code or rendered-dataset license is chosen here."
             ),
         ],
         "packages": inventory,
@@ -504,6 +509,11 @@ def collect(args: argparse.Namespace) -> None:
 
 
 def validate(args: argparse.Namespace) -> None:
+    sources = json.loads((args.output / "upstream/sources.json").read_text(encoding="utf-8"))
+    for name, source in sources.items():
+        assert lf_digest((args.output / "upstream" / name).read_bytes()) == source["sha256_lf"], (
+            f"Upstream or supplemental text changed: {name}"
+        )
     bundle = json.loads((args.output / "inventory.json").read_text(encoding="utf-8"))
     graph = json.loads((args.output / "windows-dependency-graph.json").read_text(encoding="utf-8"))
     raw = args.notices.read_bytes()
@@ -566,6 +576,7 @@ def validate(args: argparse.Namespace) -> None:
             {
                 "dependencies_accounted": len(ids),
                 "unique_texts": len(blocks),
+                "upstream_files_verified": len(sources),
                 "unresolved_notice_exceptions": len(bundle["exceptions"]),
                 "notices_bytes": len(raw),
                 "validation": "passed; exceptions remain explicitly unresolved",
