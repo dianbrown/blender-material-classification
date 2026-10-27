@@ -8,6 +8,7 @@ download. Resume files are epoch transactions, separate from deployment weights.
 from __future__ import annotations
 
 import gc
+import hashlib
 import os
 import random
 import shutil
@@ -249,7 +250,7 @@ def run_epoch(model, loader, device, config, optimizer=None, scaler=None):
     total_loss, labels, predictions = 0.0, [], []
     n = len(loader.dataset)
     effective = config["batch_size"] * config["accumulation_steps"]
-    seen, steps = 0, 0
+    seen, steps, skipped_steps = 0, 0, 0
     if training:
         optimizer.zero_grad(set_to_none=True)
     for index, (batch, target) in enumerate(loader):
@@ -274,16 +275,25 @@ def run_epoch(model, loader, device, config, optimizer=None, scaler=None):
             nn.utils.clip_grad_norm_(
                 [p for p in model.parameters() if p.requires_grad],
                 config["clip_grad_norm"],
-                error_if_nonfinite=True,
+                error_if_nonfinite=not scaler.is_enabled(),
             )
+            previous_scale = scaler.get_scale()
             scaler.step(optimizer)
             scaler.update()
+            skipped = scaler.get_scale() < previous_scale
             optimizer.zero_grad(set_to_none=True)
-            steps += 1
+            steps += int(not skipped)
+            skipped_steps += int(skipped)
         total_loss += float(loss.detach())
         labels.extend(target.detach().cpu().tolist())
         predictions.extend(logits.detach().argmax(dim=1).cpu().tolist())
-    return {**metrics_from_predictions(total_loss, labels, predictions), "optimizer_steps": steps}
+    return {
+        **metrics_from_predictions(total_loss, labels, predictions),
+        "optimizer_steps": steps,
+        "attempted_optimizer_steps": steps + skipped_steps,
+        "amp_skipped_steps": skipped_steps,
+        "amp_scale": scaler.get_scale() if training else None,
+    }
 
 
 def atomic_torch_save(path, value):
@@ -503,6 +513,26 @@ def choose_selection(results, config):
     }
 
 
+def decoded_hash(path):
+    """Hash EXIF-normalized RGB pixels and dimensions, independent of file encoding."""
+    with Image.open(path) as image:
+        rgb = ImageOps.exif_transpose(image).convert("RGB")
+        digest = hashlib.sha256(str(rgb.size).encode())
+        digest.update(rgb.tobytes())
+    return digest.hexdigest()
+
+
+def neural_source_identity(manifest, frame, data_root):
+    return {
+        **source_identity(manifest, frame, data_root),
+        "source_groups": sorted(set(frame["source_group"])),
+        "material_ids": sorted(set(frame["material_id"])),
+        "decoded_rgb_sha256": sorted(
+            {decoded_hash(image_file(data_root, path)) for path in frame["image_path"]}
+        ),
+    }
+
+
 def training_identity(manifest, data_root, frozen_run, protocol, config, device):
     validate_config(config, protocol)
     frame = read_manifest(manifest)
@@ -533,11 +563,7 @@ def training_identity(manifest, data_root, frozen_run, protocol, config, device)
         "protocol": protocol,
         "protocol_sha256": json_hash(protocol),
         "source_hashes": source_hashes(),
-        "source": {
-            **source,
-            "source_groups": sorted(set(frame["source_group"])),
-            "material_ids": sorted(set(frame["material_id"])),
-        },
+        "source": neural_source_identity(manifest, frame, data_root),
         "folds_sha256": file_hash(frozen_run / "final_folds.json"),
         "frozen_model_sha256": frozen_hash,
         "frozen_metadata_sha256": file_hash(frozen_run / "model_metadata.json"),
@@ -635,16 +661,7 @@ def run_finetune(
                     "run_identity_sha256": record["identity_sha256"],
                     "interpretation": config["interpretation"],
                 }
-                if source_identity(manifest, frame, data_root) != {
-                    key: identity["source"][key]
-                    for key in (
-                        "manifest_sha256",
-                        "rows",
-                        "image_paths",
-                        "sources",
-                        "source_content_sha256",
-                    )
-                }:
+                if neural_source_identity(manifest, frame, data_root) != identity["source"]:
                     raise ValueError("Development source changed during selection")
                 write_json(output / "selection.json", selection)
                 record.update(
@@ -695,16 +712,7 @@ def run_finetune(
                 epochs=selection["final_epochs"],
             )
             # Rehash the development corpus before releasing either final artifact.
-            if source_identity(manifest, frame, data_root) != {
-                key: identity["source"][key]
-                for key in (
-                    "manifest_sha256",
-                    "rows",
-                    "image_paths",
-                    "sources",
-                    "source_content_sha256",
-                )
-            }:
+            if neural_source_identity(manifest, frame, data_root) != identity["source"]:
                 raise ValueError("Development source content changed during training")
             saved = checked_load(
                 output / "resume/all_development" / progress["checkpoint"],
@@ -807,6 +815,9 @@ def load_deployed(
 
 
 def verify_fresh(frame, source, training):
+    required = ("source_groups", "material_ids", "image_paths", "sources", "decoded_rgb_sha256")
+    if any(not training.get(key) for key in required) or not source.get("decoded_rgb_sha256"):
+        raise ValueError("Missing training/evaluation identity for fresh evaluation")
     if set(frame["source_group"]) & set(training["source_groups"]) or set(
         frame["material_id"]
     ) & set(training["material_ids"]):
@@ -815,6 +826,8 @@ def verify_fresh(frame, source, training):
         row["sha256"] for row in source["sources"]
     } & {row["sha256"] for row in training["sources"]}:
         raise ValueError("Fresh evaluation image overlap with development")
+    if set(source["decoded_rgb_sha256"]) & set(training["decoded_rgb_sha256"]):
+        raise ValueError("Fresh evaluation decoded image overlap with development")
 
 
 @torch.inference_mode()
@@ -865,7 +878,7 @@ def predict_finetuned(
         write_json(output / "prediction.json", result)
         return result
     frame = read_manifest(manifest)
-    source = source_identity(manifest, frame, data_root)
+    source = neural_source_identity(manifest, frame, data_root)
     if evaluate:
         verify_fresh(frame, source, metadata["training_source"])
     output.mkdir(parents=True, exist_ok=False)
@@ -889,9 +902,11 @@ def predict_finetuned(
             values.append(logits.softmax(dim=1).double().cpu().numpy())
         probabilities = np.concatenate(values)
         probabilities /= probabilities.sum(axis=1, keepdims=True)
-        if source_identity(manifest, frame, data_root) != source:
+        if neural_source_identity(manifest, frame, data_root) != source:
             raise ValueError("Prediction source changed during inference")
-        prediction_frame(frame, probabilities).to_csv(output / "predictions.csv", index=False)
+        prediction_frame(frame, probabilities, "holdout" if evaluate else "prediction_only").to_csv(
+            output / "predictions.csv", index=False
+        )
         if evaluate:
             write_json(
                 output / "metrics.json",

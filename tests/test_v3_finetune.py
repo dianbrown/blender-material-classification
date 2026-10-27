@@ -7,12 +7,13 @@ import numpy as np
 import pandas as pd
 import pytest
 import torch
-from PIL import Image
+from PIL import Image, ImageOps, PngImagePlugin
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
 from material_classifier.v3 import CLASS_NAMES
 from material_classifier.v3 import finetune as ft
+from material_classifier.v3.evaluation import evaluate_predictions, validate_predictions
 from material_classifier.v3.features import (
     environment,
     file_hash,
@@ -188,6 +189,72 @@ def test_fold_identity_and_sorted_rows(corpus, protocol):
         ft.verify_folds(frame.iloc[::-1], saved, protocol)
 
 
+def test_amp_overflow_skips_update_reduces_scale_and_recovers(config):
+    class HalfLinear(nn.Linear):
+        def forward(self, batch):
+            with torch.autocast("cpu", dtype=torch.float16):
+                logits = super().forward(batch)
+            return logits.float()
+
+    model = HalfLinear(3, len(CLASS_NAMES))
+    nn.init.zeros_(model.weight)
+    nn.init.zeros_(model.bias)
+    before = ft.cpu_state(model)
+    loader = DataLoader(TensorDataset(torch.ones(1, 3), torch.zeros(1, dtype=torch.long)))
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    scaler = torch.amp.GradScaler("cpu", init_scale=131072)
+
+    metrics = ft.run_epoch(model, loader, torch.device("cpu"), config, optimizer, scaler)
+    assert np.isfinite(metrics["loss"])
+    assert metrics["attempted_optimizer_steps"] == metrics["amp_skipped_steps"] == 1
+    assert metrics["optimizer_steps"] == 0
+    assert metrics["amp_scale"] == scaler.get_scale() == 65536
+    for name, value in model.state_dict().items():
+        torch.testing.assert_close(value, before[name], rtol=0, atol=0)
+
+    # Resume must retain the reduced scale, allowing a subsequent finite update.
+    resumed_scaler = torch.amp.GradScaler("cpu")
+    resumed_scaler.load_state_dict(scaler.state_dict())
+    metrics = ft.run_epoch(model, loader, torch.device("cpu"), config, optimizer, resumed_scaler)
+    assert metrics["attempted_optimizer_steps"] == metrics["optimizer_steps"] == 1
+    assert metrics["amp_skipped_steps"] == 0
+    assert metrics["amp_scale"] == 65536
+    assert any(not torch.equal(value, before[name]) for name, value in model.state_dict().items())
+    assert all(torch.isfinite(value).all() for value in model.parameters())
+
+
+def test_disabled_scaler_nonfinite_gradients_still_fail(config):
+    model = nn.Linear(3, len(CLASS_NAMES))
+    model.weight.register_hook(lambda grad: torch.full_like(grad, float("inf")))
+    loader = DataLoader(TensorDataset(torch.ones(1, 3), torch.zeros(1, dtype=torch.long)))
+    with pytest.raises(RuntimeError, match="non-finite"):
+        ft.run_epoch(
+            model,
+            loader,
+            torch.device("cpu"),
+            config,
+            torch.optim.SGD(model.parameters(), lr=0.1),
+            torch.amp.GradScaler("cpu", enabled=False),
+        )
+
+
+@pytest.mark.parametrize("enabled", [False, True])
+def test_nonfinite_logits_still_fail(config, enabled):
+    model = nn.Linear(3, len(CLASS_NAMES))
+    loader = DataLoader(
+        TensorDataset(torch.full((1, 3), float("nan")), torch.zeros(1, dtype=torch.long))
+    )
+    with pytest.raises(FloatingPointError, match="Nonfinite loss/logits"):
+        ft.run_epoch(
+            model,
+            loader,
+            torch.device("cpu"),
+            config,
+            torch.optim.SGD(model.parameters(), lr=0.1),
+            torch.amp.GradScaler("cpu", enabled=enabled),
+        )
+
+
 def test_selection_tie_epoch_floor_and_failures(config):
     results = [
         {"lr": lr, "fold": fold, "status": "complete", "best_score": 0.8, "best_epoch": epoch}
@@ -303,11 +370,7 @@ def test_deployment_prediction_schema_checksums_and_fresh_overlap(tmp_path, tiny
     model = ft.PartialDino(factory(spec, 8), spec, config)
     artifact = tmp_path / "model.pt"
     ft.atomic_torch_save(artifact, ft.cpu_state(model))
-    training = {
-        **source_identity(manifest, frame, tmp_path),
-        "source_groups": frame["source_group"].tolist(),
-        "material_ids": frame["material_id"].tolist(),
-    }
+    training = ft.neural_source_identity(manifest, frame, tmp_path)
     metadata = {
         "class_order": list(CLASS_NAMES),
         "config": config,
@@ -328,11 +391,15 @@ def test_deployment_prediction_schema_checksums_and_fresh_overlap(tmp_path, tiny
         "class",
         "material_id",
         "source_group",
+        "outer_fold",
         "y_true",
         "y_pred",
         *["p_" + c for c in CLASS_NAMES],
     ]
     np.testing.assert_allclose(predictions[["p_" + c for c in CLASS_NAMES]].sum(axis=1), 1)
+    assert set(validate_predictions(tmp_path / "pred/predictions.csv", CLASS_NAMES).outer_fold) == {
+        "prediction_only"
+    }
     assert not (tmp_path / "pred/metrics.json").exists()
     ft.predict_finetuned(
         artifact,
@@ -356,6 +423,45 @@ def test_deployment_prediction_schema_checksums_and_fresh_overlap(tmp_path, tiny
     altered["image_path"] += "fresh"
     with pytest.raises(ValueError, match="image overlap"):
         ft.verify_fresh(altered, training, training)
+
+    fresh = frame.iloc[:1].copy()
+    fresh["source_group"] = "fresh-family"
+    fresh["material_id"] = "fresh-material"
+    fresh["image_path"] = "fresh.png"
+    Image.new("RGB", (10, 12), (251, 252, 253)).save(tmp_path / "fresh.png")
+    fresh_manifest = tmp_path / "fresh.csv"
+    fresh.to_csv(fresh_manifest, index=False)
+    ft.predict_finetuned(
+        artifact,
+        tmp_path,
+        tmp_path / "fresh-output",
+        manifest=fresh_manifest,
+        evaluate=True,
+        model_factory=factory,
+    )
+    csv = tmp_path / "fresh-output/predictions.csv"
+    assert set(validate_predictions(csv, CLASS_NAMES).outer_fold) == {"holdout"}
+    assert (
+        evaluate_predictions(csv, CLASS_NAMES, estimate_type="fresh_holdout", n_bootstrap=0)[
+            "estimate_kind"
+        ]
+        == "fresh_holdout"
+    )
+
+    with Image.open(tmp_path / frame.iloc[0]["image_path"]) as image:
+        pnginfo = PngImagePlugin.PngInfo()
+        pnginfo.add_text("comment", "same pixels, new metadata")
+        image.save(tmp_path / "fresh.png", pnginfo=pnginfo)
+    assert file_hash(tmp_path / "fresh.png") != training["sources"][0]["sha256"]
+    with pytest.raises(ValueError, match="decoded image overlap"):
+        ft.predict_finetuned(
+            artifact,
+            tmp_path,
+            tmp_path / "bad-reencoded",
+            manifest=fresh_manifest,
+            evaluate=True,
+            model_factory=factory,
+        )
     with pytest.raises(ValueError, match="checksum"):
         ft.load_deployed(
             artifact, torch.device("cpu"), expected_sha256="bad", model_factory=factory
@@ -364,6 +470,33 @@ def test_deployment_prediction_schema_checksums_and_fresh_overlap(tmp_path, tiny
         ft.load_deployed(
             artifact, torch.device("cpu"), metadata_sha256="bad", model_factory=factory
         )
+
+
+@pytest.mark.parametrize(
+    "key", ["source_groups", "material_ids", "image_paths", "sources", "decoded_rgb_sha256"]
+)
+def test_fresh_requires_complete_training_identity(tmp_path, corpus, key):
+    manifest, frame = corpus
+    source = ft.neural_source_identity(manifest, frame, tmp_path)
+    incomplete = {name: value for name, value in source.items() if name != key}
+    with pytest.raises(ValueError, match="Missing.*identity"):
+        ft.verify_fresh(frame, source, incomplete)
+
+
+def test_decoded_hash_includes_dimensions_and_normalizes_exif(tmp_path):
+    first, second = tmp_path / "first.png", tmp_path / "second.png"
+    Image.new("RGB", (2, 3), (1, 2, 3)).save(first)
+    Image.new("RGB", (3, 2), (1, 2, 3)).save(second)
+    assert ft.decoded_hash(first) != ft.decoded_hash(second)
+    image = Image.fromarray(np.arange(18, dtype=np.uint8).reshape(2, 3, 3))
+    exif = Image.Exif()
+    exif[274] = 6
+    image.save(first, exif=exif)
+    with Image.open(first) as original:
+        normalized = ImageOps.exif_transpose(original).convert("RGB")
+        normalized.save(second)
+    assert file_hash(first) != file_hash(second)
+    assert ft.decoded_hash(first) == ft.decoded_hash(second)
 
 
 def test_real_parent_fold_contract_without_images(protocol):
@@ -420,6 +553,9 @@ def test_full_selection_final_export_contract(tmp_path, corpus, tiny, protocol, 
     exports = run(resume=True, stage="final", selection_sha256=selection["selection_sha256"])
     assert file_hash(output / exports["frozen"]["path"]) == file_hash(frozen / "model.joblib")
     artifact = output / exports["finetuned"]["path"]
+    assert read_json(artifact.with_suffix(".json"))["training_source"] == (
+        ft.neural_source_identity(manifest, frame, tmp_path)
+    )
     state = torch.load(artifact, weights_only=True)
     assert "head.weight" in state and "optimizer" not in state
     full = read_json(output / "resume/all_development/progress.json")

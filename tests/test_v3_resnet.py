@@ -14,6 +14,7 @@ from torchvision import transforms
 
 from material_classifier.v3 import CLASS_NAMES
 from material_classifier.v3 import resnet_baseline as baseline
+from material_classifier.v3.evaluation import evaluate_predictions, validate_predictions
 from material_classifier.v3.features import json_hash, load_protocol, read_json, write_json
 from material_classifier.v3.learning import grouped_folds, labels_for
 
@@ -252,6 +253,14 @@ def test_full_oof_boundary_fixed_budget_and_final_parity(
     seen_fits, seen_predictions = [], []
 
     def export(model, path, metadata):
+        if len(seen_fits) <= 5:
+            train, test = folds[len(seen_fits) - 1]
+            assert metadata["training_source"]["material_ids"] == sorted(
+                set(frame.iloc[train]["material_id"])
+            )
+            assert not set(metadata["training_source"]["material_ids"]) & set(
+                frame.iloc[test]["material_id"]
+            )
         sample = torch.linspace(-1, 1, 2 * 3 * 8 * 8).reshape(2, 3, 8, 8)
         expected = model(sample).detach()
         result = original_export(model, path, metadata)
@@ -299,6 +308,9 @@ def test_full_oof_boundary_fixed_budget_and_final_parity(
         model_factory=tiny_factory,
     )
     assert result["status"] == "complete"
+    assert result["run_identity"]["training_source"]["material_ids"] == sorted(
+        set(frame["material_id"])
+    )
     assert len(seen_fits) == len(seen_predictions) == 5
     oof = pd.read_csv(output / "resnet_oof.csv")
     assert oof["image_path"].tolist() == frame["image_path"].tolist()
@@ -325,6 +337,7 @@ def test_full_oof_boundary_fixed_budget_and_final_parity(
     artifact = final / "final/model.pt"
     model, metadata = baseline.load_model(artifact, torch.device("cpu"), model_factory=TinyResNet)
     assert metadata["training_source"]["source_groups"] == sorted(set(frame["source_group"]))
+    assert metadata["training_source"]["material_ids"] == sorted(set(frame["material_id"]))
     assert metadata["training_source"]["rows"] == len(frame)
     probabilities = original_predict(model, frame, tmp_path, config, torch.device("cpu"))
     predicted = baseline.predict_manifest(
@@ -336,6 +349,9 @@ def test_full_oof_boundary_fixed_budget_and_final_parity(
         cpu_threads=1,
     )
     np.testing.assert_allclose(predicted[["p_" + name for name in CLASS_NAMES]], probabilities)
+    assert set(
+        validate_predictions(tmp_path / "prediction/predictions.csv", CLASS_NAMES).outer_fold
+    ) == {"prediction_only"}
 
     # Save/reload state_dict has identical logits and carries no optimizer payload.
     reloaded, _ = baseline.load_model(artifact, torch.device("cpu"), model_factory=TinyResNet)
@@ -382,12 +398,31 @@ def test_full_oof_boundary_fixed_budget_and_final_parity(
     Image.new("RGB", (12, 14), (251, 252, 253)).save(tmp_path / "fresh.png")
     fresh_manifest = tmp_path / "fresh.csv"
     fresh.to_csv(fresh_manifest, index=False)
+    with pytest.raises(ValueError, match="material IDs overlap"):
+        baseline.predict_manifest(
+            artifact,
+            fresh_manifest,
+            tmp_path,
+            tmp_path / "bad-material",
+            evaluate=True,
+            model_factory=TinyResNet,
+        )
+    fresh["material_id"] = "independent-fresh-material"
+    fresh.to_csv(fresh_manifest, index=False)
     fresh_output = tmp_path / "fresh-output"
     baseline.predict_manifest(
         artifact, fresh_manifest, tmp_path, fresh_output, evaluate=True, model_factory=TinyResNet
     )
     assert read_json(fresh_output / "prediction_run.json")["status"] == "complete"
     assert (fresh_output / "metrics.json").exists()
+    csv = fresh_output / "predictions.csv"
+    assert set(validate_predictions(csv, CLASS_NAMES).outer_fold) == {"holdout"}
+    assert (
+        evaluate_predictions(csv, CLASS_NAMES, estimate_type="fresh_holdout", n_bootstrap=0)[
+            "estimate_kind"
+        ]
+        == "fresh_holdout"
+    )
 
     # Renaming a training image or changing PNG metadata cannot pass as fresh.
     original_path = tmp_path / frame.iloc[0]["image_path"]
@@ -455,3 +490,17 @@ def test_oom_is_failure_without_retry(config, protocol, development, tmp_path, m
     assert read_json(output / "run.json")["status"] == "failed"
     assert read_json(output / "config.json")["physical_batch_size"] == 16
     assert not (output / "resnet_oof.csv").exists()
+
+
+@pytest.mark.parametrize("key", ["source_groups", "material_ids", "sources", "decoded_rgb_sha256"])
+@pytest.mark.parametrize("missing", [True, False])
+def test_fresh_requires_complete_training_identity(tmp_path, development, key, missing):
+    manifest, frame = development
+    source = baseline.training_identity(manifest, frame, tmp_path)
+    incomplete = copy.deepcopy(source)
+    if missing:
+        del incomplete[key]
+    else:
+        incomplete[key] = []
+    with pytest.raises(ValueError, match="Missing.*identity"):
+        baseline.check_fresh(frame, source, incomplete)

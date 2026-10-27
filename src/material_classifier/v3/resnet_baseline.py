@@ -360,6 +360,7 @@ def decoded_hash(path):
 def training_identity(manifest, frame, data_root):
     identity = source_identity(manifest, frame, data_root)
     identity["source_groups"] = sorted(set(frame["source_group"]))
+    identity["material_ids"] = sorted(set(frame["material_id"]))
     identity["decoded_rgb_sha256"] = sorted(
         {decoded_hash(image_file(data_root, path)) for path in frame["image_path"]}
     )
@@ -496,6 +497,7 @@ def train_run(
                 rows=len(train),
                 image_paths=fit_frame["image_path"].tolist(),
                 source_groups=sorted(set(fit_frame["source_group"])),
+                material_ids=sorted(set(fit_frame["material_id"])),
                 sources=[source["sources"][index] for index in train],
                 decoded_rgb_sha256=sorted(
                     {decoded_hash(image_file(data_root, path)) for path in fit_frame["image_path"]}
@@ -583,10 +585,15 @@ def train_run(
 
 
 def check_fresh(frame, source, training_source):
-    if not training_source.get("source_groups") or not training_source.get("sources"):
+    required = ("source_groups", "material_ids", "sources", "decoded_rgb_sha256")
+    if any(not training_source.get(key) for key in required) or not source.get(
+        "decoded_rgb_sha256"
+    ):
         raise ValueError("Missing final training identity for fresh evaluation")
     if set(frame["source_group"]) & set(training_source["source_groups"]):
         raise ValueError("Fresh evaluation source families overlap development data")
+    if set(frame["material_id"]) & set(training_source["material_ids"]):
+        raise ValueError("Fresh evaluation material IDs overlap development data")
     trained_hashes = {row["sha256"] for row in training_source["sources"]}
     if any(row["sha256"] in trained_hashes for row in source["sources"]):
         raise ValueError("Fresh evaluation image content overlaps development data")
@@ -633,7 +640,9 @@ def predict_manifest(
         probabilities = predict_rows(
             model, frame, data_root, metadata["config"], device, batch_size=batch_size
         )
-        predictions = prediction_frame(frame, probabilities)
+        predictions = prediction_frame(
+            frame, probabilities, "holdout" if evaluate else "prediction_only"
+        )
         predictions.to_csv(output / "predictions.csv", index=False)
         if evaluate:
             write_json(
