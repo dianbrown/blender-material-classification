@@ -80,3 +80,13 @@ packagedexe andnativeUIQA, measuredstartup/inference, independent code/specrevie
 report/PPTpageQA, relevant tests/CI,newfeaturePR and registerwithT3.
 Kaggle publication remains deferred to owner. Preserve existing locked study
 results and scientific endpoint distinctions while changing presentation.
+
+Early assets82d9edf integratedparent10923b2; 2assettests pass. Frontendreceived
+commit/schemaandcanbuildwithactual21samples. NativeGPUIrequiresRust1.98.1;
+installed1.99.0selectedbyapp-localtoolchain withoutchangingdefault1.94.
+PackagerrequiresnativeLICENSE/NOTICEbundle; appagentaskedtosupply actualCargo
+dependency inventory/texts. Runtimepreparationunderartifacts/material-studio.
+Workerownerannouncedshortsequential4modelcold/warmCUDAthenCPUsmokeonone
+developmentgalleryimage; nootherGPUjobsuntilrelease. ParentdoesnoGPUwork.
+DraftPR#2 https://github.com/dianbrown/blender-material-classification/pull/2
+createdandT3linked, feat/material-studio->main. NoPRwatchstarted. PER377linked.
