@@ -1,0 +1,26 @@
+{
+  "Apache-2.0.txt": {
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "retrieved_on": "2026-10-27",
+    "sha256_lf": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "taffy-MIT.txt": {
+    "url": "https://raw.githubusercontent.com/DioxusLabs/taffy/45a56299d366ddb383e593a1f0372158d00e8530/LICENSE",
+    "sha256": "f97daf1a0124413dccf399a4e6626b4b74acd05282f80b6d64ac82225650b77a",
+    "retrieved_on": "2026-10-27",
+    "sha256_lf": "f97daf1a0124413dccf399a4e6626b4b74acd05282f80b6d64ac82225650b77a"
+  },
+  "MIT.txt": {
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/v3.27.0/text/MIT.txt",
+    "sha256": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5",
+    "retrieved_on": "2026-10-27",
+    "sha256_lf": "b05785f9f18e6716bab63424b11454513b9943a222595b70411009202fc592b5"
+  },
+  "pulp-wasm-simd-flag-MIT.txt": {
+    "url": "https://raw.githubusercontent.com/sarah-quinones/pulp/5eb07fd7b68edf0a5e19f71737d315f72a510295/LICENSE",
+    "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9",
+    "retrieved_on": "2026-10-27",
+    "sha256_lf": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+  }
+}
