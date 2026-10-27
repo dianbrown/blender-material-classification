@@ -1,0 +1,69 @@
+{
+  "catalog_name_match_is_local_byte_verification": false,
+  "catalog_name_matches_reported_by_parent": {
+    "Poly Haven": 96,
+    "ambientCG": 9
+  },
+  "local_source_licenses_verified": false,
+  "schema_version": 1,
+  "wood_pair_review": {
+    "catalog_evidence": [
+      {
+        "fields": {
+          "authors": {
+            "Dimitrios Savva": "All"
+          },
+          "date_published": 1760400000,
+          "dimensions": [
+            1000,
+            1000
+          ],
+          "files_hash": "d1c2354499482c26b3648cd72d81f51414f11050",
+          "max_resolution": [
+            8192,
+            8192
+          ],
+          "name": "Wood Table"
+        },
+        "retrieved_at": "2026-10-27",
+        "source_name": "wood_table",
+        "source_url": "https://api.polyhaven.com/info/wood_table"
+      },
+      {
+        "fields": {
+          "authors": {
+            "Dimitrios Savva": "Photography",
+            "Rico Cilliers": "Processing"
+          },
+          "date_published": 1657238400,
+          "dimensions": [
+            549.9999523162842,
+            550.0000715255737
+          ],
+          "files_hash": "92fde8d58df92dd57a0a2854a6a6aeb79317b750",
+          "max_resolution": [
+            8192,
+            8192
+          ],
+          "name": "Wood Table Worn"
+        },
+        "retrieved_at": "2026-10-27",
+        "source_name": "wood_table_worn",
+        "source_url": "https://api.polyhaven.com/info/wood_table_worn"
+      }
+    ],
+    "decision": "Conservatively co-group as precaution:wood_table_derivatives before folds, despite no verified common origin. Independent preregistration review requires this unresolved precaution; it is not exact-byte equivalence.",
+    "exact_base_color_pixels_equal": false,
+    "exact_local_map_bytes_equal": false,
+    "follow_up": "Parent provenance investigation may resolve origin. Frozen grouping must not change after scores; new evidence requires a new protocol version.",
+    "material_ids": [
+      "wood_02",
+      "wood_03"
+    ],
+    "source_material_names": [
+      "wood_table_worn",
+      "wood_table"
+    ],
+    "visual_observation": "Different grain and plank layouts in the local base-color images."
+  }
+}
