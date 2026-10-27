@@ -1,0 +1,122 @@
+{
+  "attribution": "colormass (Photography); Rico Cilliers (Processing). Publisher: Poly Haven.",
+  "author": {
+    "Rico Cilliers": "Processing",
+    "colormass": "Photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "627563d04a347af78d35e5a7a586b4a3",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/jersey_melange_diff_2k.jpg"
+        ],
+        "official_md5": "627563d04a347af78d35e5a7a586b4a3",
+        "official_size_bytes": 4552827,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/jersey_melange/jersey_melange_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_09/jersey_melange_diff_2k.jpg",
+      "sha256": "257e6f6a0e56dade355c3ff94198733c323d04c1f6e8c9e0395f35c0671b7893",
+      "size_bytes": 4552827,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "33245c5b5e53dd8ed45a19c1c8148d9d",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/jersey_melange_nor_gl_2k.exr"
+        ],
+        "official_md5": "33245c5b5e53dd8ed45a19c1c8148d9d",
+        "official_size_bytes": 8068864,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/jersey_melange/jersey_melange_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_09/jersey_melange_nor_gl_2k.exr",
+      "sha256": "ba40c89c07f93f9f2424a540b99358e47a4e890d97b18b450b3a29cbbc4cf7f2",
+      "size_bytes": 8068864,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "5a54490388943c702a73b862219c185f",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/jersey_melange_rough_2k.exr"
+        ],
+        "official_md5": "5a54490388943c702a73b862219c185f",
+        "official_size_bytes": 5388719,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/jersey_melange/jersey_melange_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_09/jersey_melange_rough_2k.exr",
+      "sha256": "ab001d3235583db08563c592efde7346280361da914cf1dc50638c6f9dda5294",
+      "size_bytes": 5388719,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_09",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"a8eb-zkrU+mXwtHgukoQpnKY9FnC1GZc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/jersey_melange",
+    "response_bytes": 43243,
+    "response_sha256": "ffa60cfd529657d6aaea8319a34dac0507c192d3a104529a53729c75dd27ec63",
+    "retrieved_at_utc": "2026-10-27T07:13:29.269615+00:00",
+    "url": "https://api.polyhaven.com/files/jersey_melange"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "jersey_melange",
+  "schema_version": 1,
+  "source_fingerprint": "9ebb71eb0ca307f7ffd35d41db52cea4b757158956ddec842981408473c22528",
+  "source_url": "https://polyhaven.com/a/jersey_melange",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

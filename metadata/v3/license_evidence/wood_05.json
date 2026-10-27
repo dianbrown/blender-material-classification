@@ -1,0 +1,121 @@
+{
+  "attribution": "Jenelle van Heerden (All). Publisher: Poly Haven.",
+  "author": {
+    "Jenelle van Heerden": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "29646b1b28066cd414595040e5cb978e",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/natural_walnut_veneer_diff_2k.jpg"
+        ],
+        "official_md5": "29646b1b28066cd414595040e5cb978e",
+        "official_size_bytes": 2484434,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/natural_walnut_veneer/natural_walnut_veneer_diff_2k.jpg"
+      },
+      "path": "materials/wood/wood_05/natural_walnut_veneer_diff_2k.jpg",
+      "sha256": "4a1a84e9537b291ac0cce1e2b8908fb9b5d1057a246ee0b3c25345565ac9686d",
+      "size_bytes": 2484434,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "7abd2923e2b36d169d8c99e6aa0cb876",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/natural_walnut_veneer_nor_gl_2k.exr"
+        ],
+        "official_md5": "7abd2923e2b36d169d8c99e6aa0cb876",
+        "official_size_bytes": 4094991,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/natural_walnut_veneer/natural_walnut_veneer_nor_gl_2k.exr"
+      },
+      "path": "materials/wood/wood_05/natural_walnut_veneer_nor_gl_2k.exr",
+      "sha256": "0d3cf864b3b9e1d6ef6d5f4d04ff68979ed06c152ca2f0970d0ea0bac85fa72d",
+      "size_bytes": 4094991,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "7269ba97b046d3e6f4173dd96afd0d91",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/natural_walnut_veneer_rough_2k.exr"
+        ],
+        "official_md5": "7269ba97b046d3e6f4173dd96afd0d91",
+        "official_size_bytes": 2414450,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/natural_walnut_veneer/natural_walnut_veneer_rough_2k.exr"
+      },
+      "path": "materials/wood/wood_05/natural_walnut_veneer_rough_2k.exr",
+      "sha256": "4402ffaf32ab8576f0101ab5eba3220332ab917e9aab6bf5de681c72f2880aae",
+      "size_bytes": 2414450,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "wood_05",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"77a1-8vNW/2I9GlSpXyffiZiARkcnCq4\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/natural_walnut_veneer",
+    "response_bytes": 30625,
+    "response_sha256": "349ab0b25e541e1152c3a15d59f4f6d8b4bdd2e4a70cea0a4efae866929128a9",
+    "retrieved_at_utc": "2026-10-27T07:12:57.618551+00:00",
+    "url": "https://api.polyhaven.com/files/natural_walnut_veneer"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "natural_walnut_veneer",
+  "schema_version": 1,
+  "source_fingerprint": "11ae8862dba27f4cd279c8f8046be5936446d332e3d7444658a0da751ad9cfcc",
+  "source_url": "https://polyhaven.com/a/natural_walnut_veneer",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

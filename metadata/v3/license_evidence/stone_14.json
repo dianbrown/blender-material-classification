@@ -1,0 +1,117 @@
+{
+  "attribution": "Charlotte Baglioni (All). Publisher: Poly Haven.",
+  "author": {
+    "Charlotte Baglioni": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "79a1eaac48a3d6720a88c216997dbd67",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "79a1eaac48a3d6720a88c216997dbd67",
+        "official_size_bytes": 2938829,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/granite_tile/granite_tile_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_14/granite_tile_diff_2k.jpg",
+      "sha256": "758f9b1cdce11bc6f6a805cdea18fb789639befe40608020ab6087c5c1cba1e5",
+      "size_bytes": 2938829,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "94c09438f210943de4f9234c1824a936",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "94c09438f210943de4f9234c1824a936",
+        "official_size_bytes": 5472530,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/granite_tile/granite_tile_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_14/granite_tile_nor_gl_2k.exr",
+      "sha256": "3b5b1b4a023971246cf62b59ddd86e01eea6f6b7d0eea2c568ef724309b14c57",
+      "size_bytes": 5472530,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "77fe23def475d5561c5e8874c682a265",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/granite_tile_rough_2k.exr"
+        ],
+        "official_md5": "77fe23def475d5561c5e8874c682a265",
+        "official_size_bytes": 2860645,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/granite_tile/granite_tile_rough_2k.exr"
+      },
+      "path": "materials/stone/stone_14/granite_tile_rough_2k.exr",
+      "sha256": "fb3c478d7b0b751113581fdeb7c3a5d6ea8e4e045c0d004ba75e9046999dd5e5",
+      "size_bytes": 2860645,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_14",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"650a-MrQvQl9iler5FxKxTEvZWQxxVh8\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/granite_tile",
+    "response_bytes": 25866,
+    "response_sha256": "65bfbdc616dfab163f7e2e90d810e76f0bdfd64f486832c57a581ec407336117",
+    "retrieved_at_utc": "2026-10-27T07:13:13.254970+00:00",
+    "url": "https://api.polyhaven.com/files/granite_tile"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "granite_tile",
+  "schema_version": 1,
+  "source_fingerprint": "7e3523c80b5dda16c35d43450ce59cd0fb98e932168ffda50e493125c6d8a562",
+  "source_url": "https://polyhaven.com/a/granite_tile",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

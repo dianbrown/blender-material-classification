@@ -1,0 +1,117 @@
+{
+  "attribution": "Amal Kumar (All). Publisher: Poly Haven.",
+  "author": {
+    "Amal Kumar": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "a7af114ffca2ec2b363acc7d55007439",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "a7af114ffca2ec2b363acc7d55007439",
+        "official_size_bytes": 2802519,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rusty_metal_sheet/rusty_metal_sheet_diff_2k.jpg"
+      },
+      "path": "materials/metal/metal_11/rusty_metal_sheet_diff_2k.jpg",
+      "sha256": "1bba003f3da47728b7108fb54a8f51fec17b3d62d89eefb2bf711688e2e929b6",
+      "size_bytes": 2802519,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "325e7d9f726b1b7bdcca9bdd0e6d267f",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "325e7d9f726b1b7bdcca9bdd0e6d267f",
+        "official_size_bytes": 4836049,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/rusty_metal_sheet/rusty_metal_sheet_nor_gl_2k.exr"
+      },
+      "path": "materials/metal/metal_11/rusty_metal_sheet_nor_gl_2k.exr",
+      "sha256": "6d9bfca54d3dcdfafcc4c9b4b0279ba2c5a2348b93b89abcedeec8963be45db1",
+      "size_bytes": 4836049,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "866a8ab510385520ac1b3d572561e297",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/rusty_metal_sheet_rough_2k.exr"
+        ],
+        "official_md5": "866a8ab510385520ac1b3d572561e297",
+        "official_size_bytes": 4439141,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/rusty_metal_sheet/rusty_metal_sheet_rough_2k.exr"
+      },
+      "path": "materials/metal/metal_11/rusty_metal_sheet_rough_2k.exr",
+      "sha256": "7e439a248cc03813e0ef8bac5cd2d89c4621ee76efd1610a6320d842f50a103a",
+      "size_bytes": 4439141,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "metal_11",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"86ed-y3xvrD6jGL86NXg3BkOlcNp5Jq0\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/rusty_metal_sheet",
+    "response_bytes": 34541,
+    "response_sha256": "a8034e5fbf91371bee9767c393285913dc46c2016297f58c52fe82704410c1ad",
+    "retrieved_at_utc": "2026-10-27T07:13:06.022706+00:00",
+    "url": "https://api.polyhaven.com/files/rusty_metal_sheet"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "rusty_metal_sheet",
+  "schema_version": 1,
+  "source_fingerprint": "6bdb9f7805615794df1e3e6355f3c60d13667c13b20820931aabf22168cf9e9c",
+  "source_url": "https://polyhaven.com/a/rusty_metal_sheet",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

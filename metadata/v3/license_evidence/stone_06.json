@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "4372f38840b6c9d2f3741bea8c2b292b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "4372f38840b6c9d2f3741bea8c2b292b",
+        "official_size_bytes": 3266219,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_06/rock_06_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_06/rock_06_diff_2k.jpg",
+      "sha256": "cd0e306ee8fb9ddc11f8d7c4dc709fa09caf91ebdd7941ab79196654f1789481",
+      "size_bytes": 3266219,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "a170d22f4b8778dd0462e1bf345bd219",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "a170d22f4b8778dd0462e1bf345bd219",
+        "official_size_bytes": 7257035,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/rock_06/rock_06_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_06/rock_06_nor_gl_2k.exr",
+      "sha256": "98151c727c293f76e3368239c558de5536509ed8fe6449952cce68e34fbc0f56",
+      "size_bytes": 7257035,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "cf31fb05da7e9290959b57f675b4b0e3",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/rock_06_rough_2k.jpg"
+        ],
+        "official_md5": "cf31fb05da7e9290959b57f675b4b0e3",
+        "official_size_bytes": 862351,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_06/rock_06_rough_2k.jpg"
+      },
+      "path": "materials/stone/stone_06/rock_06_rough_2k.jpg",
+      "sha256": "f030ddcd6b089037826bafb4f49a3999a364ae33187ff1d1e7f0b1fc4975c883",
+      "size_bytes": 862351,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_06",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6d64-M7uoHh0qvgHmF2978vV1oTdvsYQ\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/rock_06",
+    "response_bytes": 28004,
+    "response_sha256": "2844794f38265147c575e9eccd84bc5da61ba67ff34440432a2f37954a1e5266",
+    "retrieved_at_utc": "2026-10-27T07:13:10.055248+00:00",
+    "url": "https://api.polyhaven.com/files/rock_06"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "rock_06",
+  "schema_version": 1,
+  "source_fingerprint": "0c746acf786a78fcf3d2b79ca3bc7c3e14327af8fb56eb9a1c6c9ff906239cc3",
+  "source_url": "https://polyhaven.com/a/rock_06",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

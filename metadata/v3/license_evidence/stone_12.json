@@ -1,0 +1,117 @@
+{
+  "attribution": "Charlotte Baglioni (All). Publisher: Poly Haven.",
+  "author": {
+    "Charlotte Baglioni": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "2e724b32ab8dd4db86f829cda244e567",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "2e724b32ab8dd4db86f829cda244e567",
+        "official_size_bytes": 3487320,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/stone_tiles_02/stone_tiles_02_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_12/stone_tiles_02_diff_2k.jpg",
+      "sha256": "02e056f5f5fbcbd90212bd4c7b8c1e979a10685a3291b6b25b19eeeb84f7d410",
+      "size_bytes": 3487320,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "85e3805ef4525c75a1640d94be027263",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "85e3805ef4525c75a1640d94be027263",
+        "official_size_bytes": 7630344,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/stone_tiles_02/stone_tiles_02_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_12/stone_tiles_02_nor_gl_2k.exr",
+      "sha256": "025f19639e08ce45de42a0966b42c163e147c323fde190ee8b22a206d1a8c839",
+      "size_bytes": 7630344,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "6243dd9e71a962796dd1bc1c2c452fac",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/stone_tiles_02_rough_2k.exr"
+        ],
+        "official_md5": "6243dd9e71a962796dd1bc1c2c452fac",
+        "official_size_bytes": 4113754,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/stone_tiles_02/stone_tiles_02_rough_2k.exr"
+      },
+      "path": "materials/stone/stone_12/stone_tiles_02_rough_2k.exr",
+      "sha256": "03d8db473d5b28d91812236f33a38a3eba4c90598a9be7722806ec9a5340b2bb",
+      "size_bytes": 4113754,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_12",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"67b1-CtCHmzsmAl+DFDjCleRsPG+mvjo\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/stone_tiles_02",
+    "response_bytes": 26545,
+    "response_sha256": "5d324533d0aeb02d18a8adfcc0edbf475c52040fb53214161d4cadcf443fd504",
+    "retrieved_at_utc": "2026-10-27T07:13:12.416709+00:00",
+    "url": "https://api.polyhaven.com/files/stone_tiles_02"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "stone_tiles_02",
+  "schema_version": 1,
+  "source_fingerprint": "7d97e742b4c294bd22c8f9a1be5e8b920bb233f5c5aa28c899a95a9d0502b85d",
+  "source_url": "https://polyhaven.com/a/stone_tiles_02",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

@@ -551,8 +551,9 @@ def license_blockers(
 ) -> list[str]:
     """Require evidence bound to the audited local source content for every material.
 
-    This validates an explicit human evidence attestation, not the truth of a
-    license fetched from the internet. A name match cannot satisfy this gate.
+    Evidence may be agent-verified; it is not human release approval. Source
+    permissions and the owner's dataset license/publication choices are separate.
+    A name match cannot satisfy the source gate.
     """
     issues = []
     if registry.get("schema_version") != 1:
@@ -572,7 +573,7 @@ def license_blockers(
         valid = (
             entry.get("verification_status") == "verified"
             and entry.get("redistribution_allowed") is True
-            and entry.get("license_spdx") == license_id
+            and entry.get("license_spdx") in KAGGLE_LICENSES
             and entry.get("source_fingerprint") == _fingerprint(maps, mid)
             and _https(entry.get("source_url"))
             and _https(entry.get("evidence_url"))
@@ -586,7 +587,63 @@ def license_blockers(
             valid = False
         if not valid:
             issues.append(f"unresolved source license/provenance: {mid}")
+        elif license_id in KAGGLE_LICENSES:
+            # CC0 inputs support either offered dataset license. Attribution
+            # requirements on CC-BY inputs cannot be discarded by choosing CC0.
+            if entry["license_spdx"] == "CC-BY-4.0":
+                if license_id != "CC-BY-4.0":
+                    issues.append(f"source/dataset license incompatible: {mid}")
+                if not entry.get("attribution") or not _https(entry.get("license_url")):
+                    issues.append(f"source attribution missing: {mid}")
     return issues
+
+
+def _packaged_evidence(registry: dict, registry_root: Path) -> dict[str, bytes]:
+    """Carry exact hash-bound evidence alongside the registry, even in audit ZIPs.
+
+    Missing/unverified sources can be staged for audit. A declared evidence file
+    must exist and match its digest: audit-only never excuses corrupt evidence.
+    Paths remain relative to metadata/license_registry.json inside the archive.
+    """
+    payloads = {}
+    references = registry.get("sources", []) + registry.get("supplemental_evidence", [])
+    for entry in references:
+        evidence = entry.get("evidence_path")
+        if not evidence:
+            continue
+        path = resolve_data_path(registry_root, evidence)
+        if not path.is_file():
+            raise ValueError(f"missing declared evidence: {evidence}")
+        payload = path.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != entry.get("evidence_sha256"):
+            raise ValueError(f"changed declared evidence: {evidence}")
+        # Evidence is portable text, not a way to smuggle raw assets into a ZIP.
+        _no_private_paths(payload.decode("utf-8"))
+        name = "metadata/" + relative_path(evidence)
+        if name.casefold() in {key.casefold() for key in payloads} and name not in payloads:
+            raise ValueError("case-colliding evidence paths")
+        payloads[name] = payload
+    return payloads
+
+
+def _source_attribution(registry: dict) -> str:
+    lines = [
+        "# Source evidence and attribution", "",
+        "Source permissions do not select the rendered dataset's license or authorize upload.",
+        "Evidence paths below are relative to metadata/license_registry.json.",
+        "Provenance metadata retrieval: Powered by Poly Haven. No endorsement is implied.", "",
+    ]
+    for entry in sorted(registry.get("sources", []), key=lambda e: e["material_id"]):
+        lines.extend([
+            f"## {entry['material_id']} — {entry['source_material_name']}", "",
+            f"Source: {entry.get('source_url') or 'unresolved'}",
+            f"Source license: {entry.get('license_spdx') or 'unresolved'}",
+            f"License URL: {entry.get('license_url') or entry.get('evidence_url') or 'unresolved'}",
+            "Attribution: " + (entry.get("attribution") or "not recorded"),
+            f"Evidence: {entry.get('evidence_path') or 'unresolved'}",
+            f"Evidence SHA-256: {entry.get('evidence_sha256') or 'unresolved'}", "",
+        ])
+    return "\n".join(lines)
 
 
 def _no_private_paths(value: object) -> None:
@@ -651,6 +708,7 @@ def package_dataset(
     registry_path = registry_path or audit_dir / "license_registry.json"
     registry = json.loads(registry_path.read_text(encoding="utf-8"))
     blockers = license_blockers(registry, manifest, maps, registry_path.parent)
+    evidence_payloads = _packaged_evidence(registry, registry_path.parent)
     if summary.get("cross_class_conflicts"):
         blockers.append("unresolved cross-class source conflicts; labels retained")
     if blockers and not audit_only:
@@ -663,6 +721,8 @@ def package_dataset(
         blockers=blockers,
         image_count=len(manifest),
         manifest_sha256=summary["manifest_sha256"],
+        dataset_license=registry.get("dataset_license", ""),
+        release_approved=registry.get("release_approved") is True,
     )
     kaggle = dict(
         title="Blender Material Classification V3"
@@ -673,8 +733,8 @@ def package_dataset(
     card = (
         "# Blender material classification v3\n\n"
         + (
-            "**AUDIT ONLY — NOT PUBLISHABLE.** Source licenses/provenance and class conflicts "
-            "must be resolved before redistribution.\n\n"
+            "**AUDIT ONLY — NOT PUBLISHABLE.** Pending release decisions and any evidence "
+            "issues are listed in STAGING_STATUS.json. No upload is authorized.\n\n"
             if audit_only
             else "Local release staging only. No upload has occurred.\n\n"
         )
@@ -689,6 +749,8 @@ def package_dataset(
         "The registry records evidence status and source-content fingerprints. Generator "
         "family links are conservative dependence assumptions, not exact-byte duplicates. "
         "Raw textures and model weights are excluded. EXR maps were hashed, not decoded.\n"
+        "See SOURCES.md and the bundled metadata/license_evidence records for attribution "
+        "and agent verification. Source redistributability is separate from release approval.\n"
     )
     metadata = {
         "metadata/manifest.csv": csv_bytes(
@@ -700,11 +762,20 @@ def package_dataset(
         "STAGING_STATUS.json": json_bytes(status),
         "dataset-metadata.json": json_bytes(kaggle),
         "DATASET_CARD.md": card.encode("utf-8"),
+        "SOURCES.md": _source_attribution(registry).encode("utf-8"),
         "image_hashes.sha256": "".join(
             f"{r['sha256']}  {r['image_path']}\n"
             for r in sorted(manifest, key=lambda r: r["image_path"])
         ).encode(),
     }
+    # Carry the frozen grouping rationale without changing/recomputing any groups.
+    for filename in ("source_groups.json", "source_family_overrides.json"):
+        path = audit_dir / filename
+        if path.is_file():
+            metadata[f"metadata/{filename}"] = json_bytes(json.loads(path.read_text("utf-8")))
+    if {name.casefold() for name in metadata} & {name.casefold() for name in evidence_payloads}:
+        raise ValueError("evidence path collides with package metadata")
+    metadata.update(evidence_payloads)
     for payload in metadata.values():
         _no_private_paths(payload.decode("utf-8"))
     output_zip.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,117 @@
+{
+  "attribution": "Dimitrios Savva (All). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "395a6e658c5603668c54c7d1e3b8ec5c",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "395a6e658c5603668c54c7d1e3b8ec5c",
+        "official_size_bytes": 3653098,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_planks/worn_planks_diff_2k.jpg"
+      },
+      "path": "materials/wood/wood_12/worn_planks_diff_2k.jpg",
+      "sha256": "68c330c041860c7d6fdf1d20f5f7101afe32d04b452d8d23d3d72efb77447245",
+      "size_bytes": 3653098,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "b79a1ac5e01a10d2c1e0a856632ab52f",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "b79a1ac5e01a10d2c1e0a856632ab52f",
+        "official_size_bytes": 4862848,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/worn_planks/worn_planks_nor_gl_2k.exr"
+      },
+      "path": "materials/wood/wood_12/worn_planks_nor_gl_2k.exr",
+      "sha256": "dad5723d9a5cc785dee2c06e7d1bd1e064fd794c603aefcf06f700df3e1cbcfa",
+      "size_bytes": 4862848,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "0a5e94ac3283078d6406547ba149a550",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/worn_planks_rough_2k.exr"
+        ],
+        "official_md5": "0a5e94ac3283078d6406547ba149a550",
+        "official_size_bytes": 3305967,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/worn_planks/worn_planks_rough_2k.exr"
+      },
+      "path": "materials/wood/wood_12/worn_planks_rough_2k.exr",
+      "sha256": "b8cde6fe8e9b6330f513b759a5429bc98ddb25d8f645e30e57ffb3e8228457f5",
+      "size_bytes": 3305967,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "wood_12",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"63b7-AuL/X3rzHn0xUHvvJadEoGsZP+I\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/worn_planks",
+    "response_bytes": 25527,
+    "response_sha256": "0d06a21af26556ba43d79a46519a84bf066f9d18099f34039cb4469bf012325e",
+    "retrieved_at_utc": "2026-10-27T07:13:00.429144+00:00",
+    "url": "https://api.polyhaven.com/files/worn_planks"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "worn_planks",
+  "schema_version": 1,
+  "source_fingerprint": "ee7034376e756bf1fa21f57cc27b84476ab466b456cf4b98155d5d950230ec88",
+  "source_url": "https://polyhaven.com/a/worn_planks",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

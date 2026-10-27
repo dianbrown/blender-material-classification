@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "31c2f1bba041ea5609524c25ff30820e",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "31c2f1bba041ea5609524c25ff30820e",
+        "official_size_bytes": 4732095,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/denmin_fabric_02/denmin_fabric_02_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_14/denmin_fabric_02_diff_2k.jpg",
+      "sha256": "735c5845b8618ee88ca1b5b2aa9e859cead29a657c3f8c7c4498a2b9919587dc",
+      "size_bytes": 4732095,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "6df4331b9692e88bfa400c82da67a63c",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "6df4331b9692e88bfa400c82da67a63c",
+        "official_size_bytes": 7724962,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/denmin_fabric_02/denmin_fabric_02_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_14/denmin_fabric_02_nor_gl_2k.exr",
+      "sha256": "cbcba5df36394697034052c41af357d5e29bf8a7aa6ae9c15a502c524f152c08",
+      "size_bytes": 7724962,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "99e478613ddb8ad4609be8124cdd4659",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/denmin_fabric_02_rough_2k.exr"
+        ],
+        "official_md5": "99e478613ddb8ad4609be8124cdd4659",
+        "official_size_bytes": 4846643,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/denmin_fabric_02/denmin_fabric_02_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_14/denmin_fabric_02_rough_2k.exr",
+      "sha256": "dad6c4fc01d9deb81e3afa2a822e3aa5435a22cda40e6a1056574ea3a6fa7b25",
+      "size_bytes": 4846643,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_14",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"63e3-wvVnXXKg+papAX3XMg8icejo5zg\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/denmin_fabric_02",
+    "response_bytes": 25571,
+    "response_sha256": "d7bd065725a26752a68178c2e665dfb3b1b3e840053cfef0a25cd4f55c6f347d",
+    "retrieved_at_utc": "2026-10-27T07:13:31.244452+00:00",
+    "url": "https://api.polyhaven.com/files/denmin_fabric_02"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "denmin_fabric_02",
+  "schema_version": 1,
+  "source_fingerprint": "90ab78db4d1939f7cf28b6bd304e7c18371d7f4457e175f080a25882d6567cb7",
+  "source_url": "https://polyhaven.com/a/denmin_fabric_02",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

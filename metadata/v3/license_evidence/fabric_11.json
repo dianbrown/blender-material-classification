@@ -1,0 +1,122 @@
+{
+  "attribution": "colormass (Photography); Rico Cilliers (Processing). Publisher: Poly Haven.",
+  "author": {
+    "Rico Cilliers": "Processing",
+    "colormass": "Photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "f9eeefa58c822396d246e97eb58a837b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/wool_boucle_diff_2k.jpg"
+        ],
+        "official_md5": "f9eeefa58c822396d246e97eb58a837b",
+        "official_size_bytes": 4608820,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wool_boucle/wool_boucle_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_11/wool_boucle_diff_2k.jpg",
+      "sha256": "4776e044f74963c2e93d5ca85a53307cb3946c290c6dd397711b119536e4046a",
+      "size_bytes": 4608820,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "af7128b15121fc3a19dabf017cb01874",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/wool_boucle_nor_gl_2k.exr"
+        ],
+        "official_md5": "af7128b15121fc3a19dabf017cb01874",
+        "official_size_bytes": 9836266,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/wool_boucle/wool_boucle_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_11/wool_boucle_nor_gl_2k.exr",
+      "sha256": "3b4ff052c82232754f14ffa9f77e2e0e35af02ed7cb1af160b40ced27de577ff",
+      "size_bytes": 9836266,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "4940db5c9e562ee753828fe06ec6494b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/wool_boucle_rough_2k.exr"
+        ],
+        "official_md5": "4940db5c9e562ee753828fe06ec6494b",
+        "official_size_bytes": 4620278,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/wool_boucle/wool_boucle_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_11/wool_boucle_rough_2k.exr",
+      "sha256": "a0c2e34da903ef994f522bdd92fd75e958730a26cc6dff1a5937d9760f0e8b3f",
+      "size_bytes": 4620278,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_11",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"cb4f-000eqQhDSDcJq43o4XobXVIgIjg\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/wool_boucle",
+    "response_bytes": 52047,
+    "response_sha256": "586b969dc23245d67f46b6284f171d2587e4b1acb1007840446fc52addcfce11",
+    "retrieved_at_utc": "2026-10-27T07:13:30.060584+00:00",
+    "url": "https://api.polyhaven.com/files/wool_boucle"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "wool_boucle",
+  "schema_version": 1,
+  "source_fingerprint": "d9b5d7e0bc6097e9ba1239c083b15389cffab25ea8fc45c5d548efdf153115f3",
+  "source_url": "https://polyhaven.com/a/wool_boucle",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

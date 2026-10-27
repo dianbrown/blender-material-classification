@@ -1,0 +1,122 @@
+{
+  "attribution": "colormass (Photography); Rico Cilliers (Processing). Publisher: Poly Haven.",
+  "author": {
+    "Rico Cilliers": "Processing",
+    "colormass": "Photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "0d71942ca6847c47f243295aa9a6ad72",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/curly_teddy_checkered_diff_2k.jpg"
+        ],
+        "official_md5": "0d71942ca6847c47f243295aa9a6ad72",
+        "official_size_bytes": 2405021,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/curly_teddy_checkered/curly_teddy_checkered_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_02/curly_teddy_checkered_diff_2k.jpg",
+      "sha256": "2ad2b0eabe2082bd516c621b2a9ba5c602c6136738b5a806ee36c2e0c8247c0a",
+      "size_bytes": 2405021,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "013c8c5847b620057e99c8517e5c357d",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/curly_teddy_checkered_nor_gl_2k.exr"
+        ],
+        "official_md5": "013c8c5847b620057e99c8517e5c357d",
+        "official_size_bytes": 5113281,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/curly_teddy_checkered/curly_teddy_checkered_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_02/curly_teddy_checkered_nor_gl_2k.exr",
+      "sha256": "106d8f4d353d51e1814dfc516eb1f7d6f8bdcfc0aaf7ce1bf29b4f22e8589d0a",
+      "size_bytes": 5113281,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "6fc75d4f4f6f155263d2d5ea2043b741",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/curly_teddy_checkered_rough_2k.exr"
+        ],
+        "official_md5": "6fc75d4f4f6f155263d2d5ea2043b741",
+        "official_size_bytes": 2932997,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/curly_teddy_checkered/curly_teddy_checkered_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_02/curly_teddy_checkered_rough_2k.exr",
+      "sha256": "665c81c4bd33cd8a5f107613b6a4179c122314d83fc255cd3169f5e03e08f2c6",
+      "size_bytes": 2932997,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_02",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"e60e-f0kcvvH8EfWPnmvP4eRaVhZ9/Co\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/curly_teddy_checkered",
+    "response_bytes": 58894,
+    "response_sha256": "0c8d605f6d9f71af333912dabe4406b522a6580816d81be8dbd02da01633b40f",
+    "retrieved_at_utc": "2026-10-27T07:13:26.279314+00:00",
+    "url": "https://api.polyhaven.com/files/curly_teddy_checkered"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "curly_teddy_checkered",
+  "schema_version": 1,
+  "source_fingerprint": "1a1e4d933671a408be402c2f324cfbaa2f8185bada2c361ad3ca6ab2f2d2d2e0",
+  "source_url": "https://polyhaven.com/a/curly_teddy_checkered",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

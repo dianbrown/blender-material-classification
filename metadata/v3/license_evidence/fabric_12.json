@@ -1,0 +1,122 @@
+{
+  "attribution": "Greg Zaal (Photography); Rico Cilliers (Processing). Publisher: Poly Haven.",
+  "author": {
+    "Greg Zaal": "Photography",
+    "Rico Cilliers": "Processing"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "b8ff46b2ea7e9ca997fb24d3123b1bd0",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/denim_fabric_06_diff_2k.jpg"
+        ],
+        "official_md5": "b8ff46b2ea7e9ca997fb24d3123b1bd0",
+        "official_size_bytes": 3469007,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/denim_fabric_06/denim_fabric_06_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_12/denim_fabric_06_diff_2k.jpg",
+      "sha256": "ddeaa6edd75e9bb8f01764a3cf591a88cf260b89dadc1ac9ab6185c03ff0cecf",
+      "size_bytes": 3469007,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "7614bc7ba21caeaf94f9ec759a54eccb",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/denim_fabric_06_nor_gl_2k.exr"
+        ],
+        "official_md5": "7614bc7ba21caeaf94f9ec759a54eccb",
+        "official_size_bytes": 10345148,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/denim_fabric_06/denim_fabric_06_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_12/denim_fabric_06_nor_gl_2k.exr",
+      "sha256": "58f3aa440557b64bbcae74611f9ce85ee374eb19b77fc14b16f4076dba1e233d",
+      "size_bytes": 10345148,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "343e3582808ff9548052aa3d0b010cfb",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/denim_fabric_06_rough_2k.exr"
+        ],
+        "official_md5": "343e3582808ff9548052aa3d0b010cfb",
+        "official_size_bytes": 4795411,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/denim_fabric_06/denim_fabric_06_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_12/denim_fabric_06_rough_2k.exr",
+      "sha256": "6020ec6c6fb27ddfdb7b72d21dde5d7c178a0e220df5a330634d634f11b711a6",
+      "size_bytes": 4795411,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_12",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6914-GKKAKIhkEtIsnhCcJjq4ex/y3YU\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/denim_fabric_06",
+    "response_bytes": 26900,
+    "response_sha256": "274682d8297f019563bc7a0e60d76aea9f35bfe588d808ea273de1ba0ccc2eef",
+    "retrieved_at_utc": "2026-10-27T07:13:30.430298+00:00",
+    "url": "https://api.polyhaven.com/files/denim_fabric_06"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "denim_fabric_06",
+  "schema_version": 1,
+  "source_fingerprint": "38b419b145438b1401a02f3c72980b6bebe252d903925301a3af97578f4ba49f",
+  "source_url": "https://polyhaven.com/a/denim_fabric_06",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

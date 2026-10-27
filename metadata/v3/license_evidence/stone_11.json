@@ -1,0 +1,121 @@
+{
+  "attribution": "Charlotte Baglioni (All). Publisher: Poly Haven.",
+  "author": {
+    "Charlotte Baglioni": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "7e1a36a54633669eb8a0f53dfee3683c",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/cobblestone_pavement_diff_2k.jpg"
+        ],
+        "official_md5": "7e1a36a54633669eb8a0f53dfee3683c",
+        "official_size_bytes": 3437228,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/cobblestone_pavement/cobblestone_pavement_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_11/cobblestone_pavement_diff_2k.jpg",
+      "sha256": "e4c9917cd32faecd56986e029c63d8662ab99075448e5b3f0d862493577b731a",
+      "size_bytes": 3437228,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "922bf88cfc9959f8692cb657c320cbb5",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/cobblestone_pavement_nor_gl_2k.exr"
+        ],
+        "official_md5": "922bf88cfc9959f8692cb657c320cbb5",
+        "official_size_bytes": 6463418,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/cobblestone_pavement/cobblestone_pavement_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_11/cobblestone_pavement_nor_gl_2k.exr",
+      "sha256": "1ac32f51980d5c5ed23c1a6b3acf49f586f1c26da6faf7dd9794458da360adff",
+      "size_bytes": 6463418,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "6e2b4f2b3247274a0f1b79c17aee9453",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/cobblestone_pavement_rough_2k.exr"
+        ],
+        "official_md5": "6e2b4f2b3247274a0f1b79c17aee9453",
+        "official_size_bytes": 751619,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/cobblestone_pavement/cobblestone_pavement_rough_2k.exr"
+      },
+      "path": "materials/stone/stone_11/cobblestone_pavement_rough_2k.exr",
+      "sha256": "b8b39f352d2c5c9f35054f844c31d7421a6da02c442800a867e8d5e341ece914",
+      "size_bytes": 751619,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_11",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"8bd8-Uq05bLms3iUkNkILYX0Q5nt1GTw\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/cobblestone_pavement",
+    "response_bytes": 35800,
+    "response_sha256": "94237dff01ab80d5b8f0b9aeeb06a1bae70709f11fda1205a7cdf5c51ca71ea3",
+    "retrieved_at_utc": "2026-10-27T07:13:12.004356+00:00",
+    "url": "https://api.polyhaven.com/files/cobblestone_pavement"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "cobblestone_pavement",
+  "schema_version": 1,
+  "source_fingerprint": "25f55df44fc2990777e5d0ef40943accd4535c570b3c9d4a94142dd578c3d419",
+  "source_url": "https://polyhaven.com/a/cobblestone_pavement",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

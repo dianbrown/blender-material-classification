@@ -1,0 +1,121 @@
+{
+  "attribution": "Dimitrios Savva (All). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "65dc8fd27224adf28f15f69d9d2f109e",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/rock_wall_17_diff_2k.jpg"
+        ],
+        "official_md5": "65dc8fd27224adf28f15f69d9d2f109e",
+        "official_size_bytes": 3360933,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_wall_17/rock_wall_17_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_10/rock_wall_17_diff_2k.jpg",
+      "sha256": "b1f0234cb8d6f60807d237557e30c4c46952d33fece4630400724808d8d2f6c5",
+      "size_bytes": 3360933,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "89a207881f2a33a47ef9bca1722a0402",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/rock_wall_17_nor_gl_2k.exr"
+        ],
+        "official_md5": "89a207881f2a33a47ef9bca1722a0402",
+        "official_size_bytes": 9291828,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/rock_wall_17/rock_wall_17_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_10/rock_wall_17_nor_gl_2k.exr",
+      "sha256": "108c1bbd5ba1e326a0dbdc6ca89de68111b00e153d617e233f67abb8182622f5",
+      "size_bytes": 9291828,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "3ff6a043c1e2b044ec382169bbd1be73",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/rock_wall_17_rough_2k.exr"
+        ],
+        "official_md5": "3ff6a043c1e2b044ec382169bbd1be73",
+        "official_size_bytes": 2303650,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/rock_wall_17/rock_wall_17_rough_2k.exr"
+      },
+      "path": "materials/stone/stone_10/rock_wall_17_rough_2k.exr",
+      "sha256": "a19bc67d2a4a5c7ad5977d9c11bc64cab2a0507bc5ab3a3688e5834cd048f0e5",
+      "size_bytes": 2303650,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_10",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"650c-NrmvoCrimOcpqYfrvGwzaAk+P9U\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/rock_wall_17",
+    "response_bytes": 25868,
+    "response_sha256": "aa41a2916cf59564074ab38a8720680aa3ea0c42f89b17ee1c77e8c5b53599e8",
+    "retrieved_at_utc": "2026-10-27T07:13:11.607496+00:00",
+    "url": "https://api.polyhaven.com/files/rock_wall_17"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "rock_wall_17",
+  "schema_version": 1,
+  "source_fingerprint": "2fae291fa92e9e88ebc1fb0633f92a8904874e1a89a8fa0e47015a9c3d0f882e",
+  "source_url": "https://polyhaven.com/a/rock_wall_17",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

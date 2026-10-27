@@ -1,6 +1,7 @@
 """Real image fixtures exercise path containment, source dependence and release gates."""
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 from zipfile import ZipFile
@@ -377,3 +378,180 @@ def test_git_crlf_checkout_does_not_invalidate_staging(corpus, tmp_path):
     checked_out = tmp_path / "crlf.zip"
     package_dataset(root, out, checked_out, audit_only=True)
     assert original.read_bytes() == checked_out.read_bytes()
+
+
+def test_verified_sources_do_not_choose_license_or_approve_publication(corpus, tmp_path):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    registry.update(dataset_license="", release_approved=False)
+    for entry in registry["sources"]:
+        entry.update(verified_by="agent", human_review_claimed=False)
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    blockers = license_blockers(
+        registry, read_csv(out / "manifest.csv"), read_csv(out / "source_maps.csv"), out
+    )
+    assert blockers == [
+        "release has not been explicitly approved in the registry",
+        "dataset license unresolved/unsupported",
+    ]
+    with pytest.raises(ValueError, match="release blocked"):
+        package_dataset(root, out, tmp_path / "release.zip")
+    status = package_dataset(root, out, tmp_path / "audit.zip", audit_only=True)
+    assert status["blockers"] == blockers
+    assert not status["publishable"] and not status["release_approved"]
+    assert status["dataset_license"] == "" and not status["uploaded"]
+
+
+@pytest.mark.parametrize("source_license,dataset_license,compatible", [
+    ("CC0-1.0", "CC0-1.0", True),
+    ("CC0-1.0", "CC-BY-4.0", True),
+    ("CC-BY-4.0", "CC-BY-4.0", True),
+    ("CC-BY-4.0", "CC0-1.0", False),
+    ("unknown", "CC0-1.0", False),
+    ("CC0-1.0", "unknown", False),
+])
+def test_supported_source_dataset_license_compatibility(
+    corpus, tmp_path, source_license, dataset_license, compatible
+):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    registry["dataset_license"] = dataset_license
+    for entry in registry["sources"]:
+        entry.update(license_spdx=source_license, attribution="Synthetic fixture author",
+                     license_url="https://example.org/fixture/license")
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    target = tmp_path / "release.zip"
+    if compatible:
+        package_dataset(root, out, target)
+        with ZipFile(target) as archive:
+            assert json.loads(archive.read("dataset-metadata.json"))["licenses"] == [
+                {"name": dataset_license}
+            ]
+            assert b"Synthetic fixture author" in archive.read("SOURCES.md")
+    else:
+        with pytest.raises(ValueError, match="release blocked"):
+            package_dataset(root, out, target)
+        assert not target.exists()
+
+
+def test_cc_by_sources_require_carried_attribution(corpus, tmp_path):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    registry["dataset_license"] = "CC-BY-4.0"
+    for entry in registry["sources"]:
+        entry["license_spdx"] = "CC-BY-4.0"
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    with pytest.raises(ValueError, match="source attribution missing"):
+        package_dataset(root, out, tmp_path / "release.zip")
+
+
+def test_evidence_is_self_contained_hash_bound_and_allowlisted(corpus, tmp_path):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    evidence_dir = out / "license_evidence"
+    evidence_dir.mkdir()
+    evidence = evidence_dir / "render.json"
+    evidence.write_bytes(json_bytes({"scope": "synthetic fixture"}))
+    (evidence_dir / "private-unreferenced.txt").write_text("private")
+    registry["supplemental_evidence"] = [dict(
+        evidence_path="license_evidence/render.json", evidence_sha256=sha256_file(evidence)
+    )]
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    target = tmp_path / "evidence.zip"
+    package_dataset(root, out, target, audit_only=True)
+    with ZipFile(target) as archive:
+        carried = json.loads(archive.read("metadata/license_registry.json"))
+        for entry in carried["sources"] + carried["supplemental_evidence"]:
+            payload = archive.read("metadata/" + entry["evidence_path"])
+            assert hashlib.sha256(payload).hexdigest() == entry["evidence_sha256"]
+        assert "metadata/license_evidence/private-unreferenced.txt" not in archive.namelist()
+        assert archive.namelist().count("metadata/evidence.txt") == 1
+
+
+@pytest.mark.parametrize("problem", ["changed", "missing", "traversal", "collision", "private"])
+def test_audit_only_cannot_bypass_declared_evidence_integrity(corpus, tmp_path, problem):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    evidence = out / "evidence.txt"
+    if problem == "changed":
+        evidence.write_text("changed")
+    elif problem == "missing":
+        evidence.unlink()
+    elif problem == "traversal":
+        registry["sources"][0]["evidence_path"] = "../outside.txt"
+    elif problem == "collision":
+        registry["sources"][0].update(
+            evidence_path="manifest.csv", evidence_sha256=sha256_file(out / "manifest.csv")
+        )
+    else:
+        evidence.write_text("C:/Users/private/evidence")
+        for entry in registry["sources"]:
+            entry["evidence_sha256"] = sha256_file(evidence)
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    target = tmp_path / "bad.zip"
+    with pytest.raises(ValueError):
+        package_dataset(root, out, target, audit_only=True)
+    assert not target.exists()
+    assert not list(tmp_path.glob("*.tmp"))
+
+
+@pytest.mark.parametrize("approval", [False, "true", 1, None])
+def test_publication_approval_requires_literal_true(corpus, tmp_path, approval):
+    root, out, _, _, run = corpus
+    run()
+    registry = _approve_fixture_registry(out)
+    registry["release_approved"] = approval
+    (out / "license_registry.json").write_bytes(json_bytes(registry))
+    with pytest.raises(ValueError, match="not been explicitly approved"):
+        package_dataset(root, out, tmp_path / "release.zip")
+
+
+def test_completed_report_ingestion_preserves_fingerprints_and_release_defaults(tmp_path):
+    # Repository metadata only. Real-corpus byte validation is a separate staging run.
+    from scripts.v3.record_provenance import record_provenance
+
+    repo = Path(__file__).resolve().parents[1]
+    audit = tmp_path / "audit"
+    audit.mkdir()
+    for name in ("license_registry.json", "source_maps.csv"):
+        (audit / name).write_bytes((repo / "metadata/v3" / name).read_bytes())
+    before = json.loads((audit / "license_registry.json").read_text())
+    result = record_provenance(
+        repo / "reports/results/v3/provenance_verification.json", audit,
+        repo / "metadata/material_manifest.csv",
+    )
+    after = json.loads((audit / "license_registry.json").read_text())
+    assert result == dict(verified_sources=105, verified_maps=316,
+                          dataset_license="", release_approved=False)
+    assert [e["source_fingerprint"] for e in before["sources"]] == [
+        e["source_fingerprint"] for e in after["sources"]
+    ]
+    assert not after["release_approved"] and after["dataset_license"] == ""
+    for entry in after["sources"]:
+        assert entry["verified_by"] == "agent" and not entry["human_review_claimed"]
+        assert sha256_file(audit / entry["evidence_path"]) == entry["evidence_sha256"]
+
+
+def test_ingestion_rejects_changed_official_comparison_without_writing(tmp_path):
+    from scripts.v3.record_provenance import record_provenance
+
+    repo = Path(__file__).resolve().parents[1]
+    audit = tmp_path / "audit"
+    audit.mkdir()
+    for name in ("license_registry.json", "source_maps.csv"):
+        (audit / name).write_bytes((repo / "metadata/v3" / name).read_bytes())
+    before = (audit / "license_registry.json").read_bytes()
+    report = json.loads((repo / "reports/results/v3/provenance_verification.json").read_text())
+    for match in report["materials"][0]["maps"][0]["official_matches"]:
+        match["official_md5"] = "0" * 32
+    changed = tmp_path / "report.json"
+    changed.write_bytes(json_bytes(report))
+    with pytest.raises(ValueError, match="no matching official bytes"):
+        record_provenance(changed, audit, repo / "metadata/material_manifest.csv")
+    assert (audit / "license_registry.json").read_bytes() == before
+    assert not (audit / "license_evidence").exists()

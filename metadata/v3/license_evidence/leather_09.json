@@ -1,0 +1,133 @@
+{
+  "archive_verification_evidence": {
+    "content_length": "28397378",
+    "downloaded_bytes": 28397378,
+    "etag": null,
+    "expected_size_bytes": 28397378,
+    "http_status": 200,
+    "last_modified": "Tue, 27 Oct 2026 07:14:22 GMT",
+    "md5": "ae2fd99c96d5839d66286e12daf19aac",
+    "resolved_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Leather034B_X3fhj5bg/Leather034B_2K-JPG.zip",
+    "retrieved_at_utc": "2026-10-27T07:14:29.294923+00:00",
+    "sha256": "505c03d854564205aa4ca3dc3ea71513fe8cea08fb67aae7d58fed383eb4333f",
+    "size_matches_metadata": true,
+    "started_at_utc": "2026-10-27T07:14:22.186952+00:00",
+    "url": "https://ambientcg.com/get?file=Leather034B_2K-JPG.zip"
+  },
+  "attribution": "Publisher: ambientCG. Individual author not exposed by the official records; Lennart Demes is the provider operator, not asserted as this asset's author.",
+  "author": {
+    "individual_author_verified": false,
+    "name": null,
+    "publisher": "ambientCG",
+    "publisher_operator": "Lennart Demes"
+  },
+  "author_status": "Individual author not exposed by asset API/page. Lennart Demes is verified as provider operator, not asserted as individual map author.",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "All ambientCG assets are provided under the Creative Commons CC0 1.0 Universal License",
+    "http_status": 200,
+    "resolved_url": "https://docs.ambientcg.com/license/",
+    "response_bytes": 34106,
+    "response_sha256": "60138e09b277c89977841462634b36e99d7bae5b77174777813502069c59461c",
+    "retrieved_at_utc": "2026-10-27T07:18:29.998180+00:00",
+    "summary": "ambientCG states CC0 applies to downloadable assets, permitting modification and redistribution, including commercially.",
+    "url": "https://docs.ambientcg.com/license/"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "d728602a5e82087982934a99c96ddbf4",
+      "official_match": {
+        "archive_member": "Leather034B_2K-JPG_Color.jpg",
+        "archive_sha256": "505c03d854564205aa4ca3dc3ea71513fe8cea08fb67aae7d58fed383eb4333f",
+        "hash_origin": "Computed from HTTPS official archive; not a provider-published hash",
+        "official_member_md5_computed": "d728602a5e82087982934a99c96ddbf4",
+        "official_member_sha256_computed": "fc868e99e0d53e4cd73d7faad2d8c6379c022cf2e05792d7e0193cf1c0f8e165",
+        "official_size_bytes": 3617121,
+        "resolved_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Leather034B_X3fhj5bg/Leather034B_2K-JPG.zip",
+        "sha256_matches": true,
+        "size_matches": true,
+        "url": "https://ambientcg.com/get?file=Leather034B_2K-JPG.zip"
+      },
+      "path": "materials/leather/leather_09/Leather034B_2K-JPG_Color.jpg",
+      "sha256": "fc868e99e0d53e4cd73d7faad2d8c6379c022cf2e05792d7e0193cf1c0f8e165",
+      "size_bytes": 3617121,
+      "verification_status": "official_archive_sha256_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "55ddafaf2e8e4fb10eeba4294f70b972",
+      "official_match": {
+        "archive_member": "Leather034B_2K-JPG_NormalGL.jpg",
+        "archive_sha256": "505c03d854564205aa4ca3dc3ea71513fe8cea08fb67aae7d58fed383eb4333f",
+        "hash_origin": "Computed from HTTPS official archive; not a provider-published hash",
+        "official_member_md5_computed": "55ddafaf2e8e4fb10eeba4294f70b972",
+        "official_member_sha256_computed": "dcbd5149715db0550c07ed1c395798670973fd766dc20565b1f8a44b6c2b2275",
+        "official_size_bytes": 7944617,
+        "resolved_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Leather034B_X3fhj5bg/Leather034B_2K-JPG.zip",
+        "sha256_matches": true,
+        "size_matches": true,
+        "url": "https://ambientcg.com/get?file=Leather034B_2K-JPG.zip"
+      },
+      "path": "materials/leather/leather_09/Leather034B_2K-JPG_NormalGL.jpg",
+      "sha256": "dcbd5149715db0550c07ed1c395798670973fd766dc20565b1f8a44b6c2b2275",
+      "size_bytes": 7944617,
+      "verification_status": "official_archive_sha256_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "ba6bbaf47773b0bbf5e1ebf8aa8b9fba",
+      "official_match": {
+        "archive_member": "Leather034B_2K-JPG_Roughness.jpg",
+        "archive_sha256": "505c03d854564205aa4ca3dc3ea71513fe8cea08fb67aae7d58fed383eb4333f",
+        "hash_origin": "Computed from HTTPS official archive; not a provider-published hash",
+        "official_member_md5_computed": "ba6bbaf47773b0bbf5e1ebf8aa8b9fba",
+        "official_member_sha256_computed": "d2ba98c2b7e9ba0ba1b4144e21c43686584ec389c938bc42c2f29c2d50b34c84",
+        "official_size_bytes": 2734671,
+        "resolved_url": "https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Leather034B_X3fhj5bg/Leather034B_2K-JPG.zip",
+        "sha256_matches": true,
+        "size_matches": true,
+        "url": "https://ambientcg.com/get?file=Leather034B_2K-JPG.zip"
+      },
+      "path": "materials/leather/leather_09/Leather034B_2K-JPG_Roughness.jpg",
+      "sha256": "d2ba98c2b7e9ba0ba1b4144e21c43686584ec389c938bc42c2f29c2d50b34c84",
+      "size_bytes": 2734671,
+      "verification_status": "official_archive_sha256_match"
+    }
+  ],
+  "material_id": "leather_09",
+  "metadata_evidence": {
+    "etag": null,
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://ambientcg.com/api/v2/full_json?id=Leather011,Leather016,Leather034B,Leather022,Leather008,Leather036B,Leather009,Leather030,Leather032&include=displayData,relationshipData,downloadData",
+    "response_bytes": 110512,
+    "response_sha256": "dd20180773abf1cfe5336bdb618dd06afdb4a79f30f2c94eca2847858780e4e0",
+    "retrieved_at_utc": "2026-10-27T07:12:55.769635+00:00",
+    "url": "https://ambientcg.com/api/v2/full_json?id=Leather011,Leather016,Leather034B,Leather022,Leather008,Leather036B,Leather009,Leather030,Leather032&include=displayData,relationshipData,downloadData"
+  },
+  "operator_evidence": {
+    "evidence_excerpt": null,
+    "http_status": 200,
+    "resolved_url": "https://docs.ambientcg.com/legal/",
+    "response_bytes": 56776,
+    "response_sha256": "3f3e0f1c0fd1c5f19f8c1fbbdce2d0af036a3fa63ce1c0d77e38841eb5032e97",
+    "retrieved_at_utc": "2026-10-27T07:18:31.894266+00:00",
+    "summary": "The official imprint names Lennart Demes as site operator; this is not a per-asset authorship declaration.",
+    "url": "https://docs.ambientcg.com/legal/"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "ambientCG",
+  "provider_asset_id": "Leather034B",
+  "schema_version": 1,
+  "source_fingerprint": "2e397be31dffaef276b9def73a4ff6b708f2e1ea715d3b2dc2a27e3b678b2eb3",
+  "source_url": "https://ambientcg.com/a/Leather034B",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T3_official_download_sha256_match",
+  "verification_tier_definition": "Every local source map SHA-256 and size matches decompressed member of a freshly fetched official HTTPS archive. Member hashes computed here, not published by provider.",
+  "verified_by": "agent"
+}

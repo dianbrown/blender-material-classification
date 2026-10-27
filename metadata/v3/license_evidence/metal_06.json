@@ -1,0 +1,121 @@
+{
+  "attribution": "Dimitrios Savva (All). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "d40fa6646c1661d2b03cefca21a4ad1c",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/worn_shutter_diff_2k.jpg"
+        ],
+        "official_md5": "d40fa6646c1661d2b03cefca21a4ad1c",
+        "official_size_bytes": 2111247,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_shutter/worn_shutter_diff_2k.jpg"
+      },
+      "path": "materials/metal/metal_06/worn_shutter_diff_2k.jpg",
+      "sha256": "c716d59e1961052411c1b1185599aea3510068aa3062f2669722b3f2444967d7",
+      "size_bytes": 2111247,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "ae2cab41abf079f8ada23d2c6e91e71b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/worn_shutter_nor_gl_2k.exr"
+        ],
+        "official_md5": "ae2cab41abf079f8ada23d2c6e91e71b",
+        "official_size_bytes": 6542955,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/worn_shutter/worn_shutter_nor_gl_2k.exr"
+      },
+      "path": "materials/metal/metal_06/worn_shutter_nor_gl_2k.exr",
+      "sha256": "c9fa5ae8a8e1fc425dfd7724270de631171190ac704bc3df5acd4932689c3a0e",
+      "size_bytes": 6542955,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "9a3628cd4a739d699fe336764cbbba48",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/worn_shutter_rough_2k.exr"
+        ],
+        "official_md5": "9a3628cd4a739d699fe336764cbbba48",
+        "official_size_bytes": 763950,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/worn_shutter/worn_shutter_rough_2k.exr"
+      },
+      "path": "materials/metal/metal_06/worn_shutter_rough_2k.exr",
+      "sha256": "8dd11d50479f61add6b4387cc73a762118d0385a931fc47ab2be53fa842e8685",
+      "size_bytes": 763950,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "metal_06",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"64fd-8uqPj0QtJmj4YTapAjw0u+tbr54\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/worn_shutter",
+    "response_bytes": 25853,
+    "response_sha256": "ad2eb31cbd90b658f7b47db9c60760004f53633791459980105d5ffcf6e4529a",
+    "retrieved_at_utc": "2026-10-27T07:13:04.042708+00:00",
+    "url": "https://api.polyhaven.com/files/worn_shutter"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "worn_shutter",
+  "schema_version": 1,
+  "source_fingerprint": "c17e3106c40f88ddcbe9cab97ee3619154112a608847d84623813f10fbda7616",
+  "source_url": "https://polyhaven.com/a/worn_shutter",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

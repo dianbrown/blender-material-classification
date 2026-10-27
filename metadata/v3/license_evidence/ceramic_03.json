@@ -1,0 +1,117 @@
+{
+  "attribution": "Amal Kumar (All). Publisher: Poly Haven.",
+  "author": {
+    "Amal Kumar": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "0c665a6c83fe0d4c13d4f6b4b3bf3471",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "0c665a6c83fe0d4c13d4f6b4b3bf3471",
+        "official_size_bytes": 3786941,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/marble_mosaic_tiles/marble_mosaic_tiles_diff_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_03/marble_mosaic_tiles_diff_2k.jpg",
+      "sha256": "d853a543e869e38c257f270acb2ad7f181e6fd05bcd25b1ae57f9ca5f2840dac",
+      "size_bytes": 3786941,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "b97ca34a2c243977a258abfccf5a8626",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "b97ca34a2c243977a258abfccf5a8626",
+        "official_size_bytes": 7697793,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/marble_mosaic_tiles/marble_mosaic_tiles_nor_gl_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_03/marble_mosaic_tiles_nor_gl_2k.exr",
+      "sha256": "e6105e5c17516c878ef80138998f88214ec87a8392e776f8541d10de5294a5ad",
+      "size_bytes": 7697793,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "d2422be72926c5369d55cdb6d77202a8",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/marble_mosaic_tiles_rough_2k.exr"
+        ],
+        "official_md5": "d2422be72926c5369d55cdb6d77202a8",
+        "official_size_bytes": 3244521,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/marble_mosaic_tiles/marble_mosaic_tiles_rough_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_03/marble_mosaic_tiles_rough_2k.exr",
+      "sha256": "710abba7316d8dc9904624225214b8ae12f4196835c3ffd973f0f143cb389de0",
+      "size_bytes": 3244521,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "ceramic_03",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"8a4b-hs/dv446o4LxdpYedwmRqd9Vebs\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/marble_mosaic_tiles",
+    "response_bytes": 35403,
+    "response_sha256": "9d7b7ba731bc1d609fbc131f72af0c29d8e02e925d15ee98b4644278101838ef",
+    "retrieved_at_utc": "2026-10-27T07:13:20.811851+00:00",
+    "url": "https://api.polyhaven.com/files/marble_mosaic_tiles"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "marble_mosaic_tiles",
+  "schema_version": 1,
+  "source_fingerprint": "d5970a80991665d50f9f68d2c29abe1fcefd5917774f35f3c14785bd94df6c7e",
+  "source_url": "https://polyhaven.com/a/marble_mosaic_tiles",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}
