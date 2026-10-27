@@ -546,8 +546,19 @@ def application_inputs(root, model_items):
 
 
 def build_package(
-    root, runtime, exe, native_notices, output, *, native_dlls=(), exe_sha256=None, smoke=True
+    root,
+    runtime,
+    exe,
+    native_notices,
+    output,
+    *,
+    native_dlls=(),
+    exe_sha256=None,
+    smoke=True,
+    release_version=None,
 ):
+    if release_version is not None and not re.fullmatch(r"\d+\.\d+\.\d+", release_version):
+        raise ValueError("Release version must use major.minor.patch")
     root, runtime = Path(root).resolve(), Path(runtime).resolve()
     document, runtime_files = verify_manifest(runtime, RUNTIME_MANIFEST)
     if document.get("kind") != "prepared-runtime":
@@ -608,17 +619,22 @@ def build_package(
     if apache is None:
         raise ValueError("Prepared runtime lacks the Apache-2.0 license text")
     items.append(Item(apache.source, "licenses/APACHE-2.0.txt", apache.expected))
-    generated = {
-        "START_HERE.txt": "Material Studio - local Windows demo\n\n"
+    build_label = (
+        f"Material Studio {release_version} - offline Windows application\n\n"
+        if release_version
+        else "Material Studio - local Windows demo\n\n"
         "Candidate build; native UI verification is recorded separately.\n"
-        "Double-click MaterialStudio.exe. Keep this entire folder together.\n"
+    )
+    generated = {
+        "START_HERE.txt": build_label
+        + "Double-click MaterialStudio.exe. Keep this entire folder together.\n"
         "All four locked models, Python and CUDA libraries are bundled.\n"
         "Inference is offline. Device auto uses CUDA when available, otherwise CPU.\n"
         "This is a portable folder, not a single-file executable.\n"
         "Stored study results are distinct from live predictions.\n"
         "See DATASET.md, app/assets/study.json, app/THIRD_PARTY_NOTICES, licenses/\n"
         "and the licenses in Python dist-info directories.\n"
-        "Local demonstration only; this command does not publish weights or samples.\n",
+        "This packaging command does not upload or publish files.\n",
         "licenses/MODEL_ATTRIBUTION.txt": model_notices(),
     }
     return assemble(
@@ -628,7 +644,8 @@ def build_package(
         MANIFEST,
         {
             "kind": "MaterialStudio-portable",
-            "release_status": "candidate",
+            "release_status": "prepared-release" if release_version else "candidate",
+            "release_version": release_version,
             "models": sorted(MODEL_IDS),
             "python": document["python"],
             "distributions": document["distributions"],
@@ -695,6 +712,7 @@ def main(argv=None):
         if command != "validate-inputs":
             sub.add_argument("--output", type=Path, required=True)
         if command == "build":
+            sub.add_argument("--release-version", help="Versioned release payload, e.g. 0.5.0")
             sub.add_argument("--runtime", type=Path, required=True)
             sub.add_argument("--exe", type=Path, required=True)
             sub.add_argument("--native-notices", type=Path, required=True)
@@ -731,6 +749,7 @@ def main(argv=None):
             args.output,
             native_dlls=args.native_dll,
             exe_sha256=args.exe_sha256,
+            release_version=args.release_version,
         )
     elif args.command == "smoke":
         result = smoke_runtime(args.package)
