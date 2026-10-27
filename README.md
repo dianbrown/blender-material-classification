@@ -1,3 +1,5 @@
+<img src="app/assets/icon-64.png" width="48" height="48" alt="Material Studio cube icon">
+
 # Material Studio
 
 A native desktop demonstration of material classification, built with Rust GPUI
@@ -37,7 +39,10 @@ study primary. This recommendation does not establish statistical superiority.
 Class probabilities are not guarantees; arbitrary photographs have not been
 validated.
 
-![Material Studio running a local prediction](docs/images/material-studio.png)
+![A looping tour of Material Studio](docs/images/material-studio-demo.gif)
+
+Actual app screens and local predictions; pauses shortened for the tour.
+[Watch or download the MP4](docs/images/material-studio-demo.mp4).
 
 ## Project submission
 
