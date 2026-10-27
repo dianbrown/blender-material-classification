@@ -262,6 +262,8 @@ class Bundle:
                 require(all(math.isfinite(float(v)) for v in xs + ys), "Nonfinite plot data")
                 ax.plot(xs, ys, marker="o", markersize=3, label=label)
             ax.set(xlabel=xlabel, ylabel=ylabel)
+            if xlabel.startswith("Fold index"):
+                ax.set_xticks(series[0][1])
             if logx:
                 ax.set_xscale("log")
             ax.legend(fontsize=7)
@@ -276,7 +278,7 @@ class Bundle:
         self.supplement(relative, section, "figure", caption)
 
 
-def search_curves(bundle, path, protocol):
+def search_curves(bundle, path, protocol, *, section="comparison_ablations"):
     _, rows = read_csv(bundle.root / path)
     groups = defaultdict(list)
     for row in rows:
@@ -315,6 +317,7 @@ def search_curves(bundle, path, protocol):
             f"{protocol['inner_folds']} recorded inner folds; selection evidence, not "
             f"an independent test or epoch learning curve. Source: {path}.",
             logx=True,
+            section=section,
         )
 
 
@@ -479,6 +482,7 @@ def _assemble(spec, base, root, spec_path):
     )
     kind = spec.get("evidence_kind", "measured")
     require(kind in ("measured", "synthetic_fixture"), "Invalid evidence_kind")
+    require(type(spec.get("appendix_details", False)) is bool, "appendix_details must be boolean")
     bundle = Bundle(root, base, kind == "synthetic_fixture")
     bundle.copy(str(spec_path), "Assembly specification as supplied (UTF-8/LF staging)")
     refs = {
@@ -642,8 +646,8 @@ def _assemble(spec, base, root, spec_path):
                 "scope": scope,
                 "images": summary["n_images"],
                 "sources": summary["n_source_groups"],
-                "accuracy": summary["metrics"]["accuracy"]["value"],
-                "macro_f1": summary["metrics"]["macro_f1"]["value"],
+                "accuracy": f"{summary['metrics']['accuracy']['value']:.6f}",
+                "macro_f1": f"{summary['metrics']['macro_f1']['value']:.6f}",
                 "evidence": summary_path,
             }
         )
@@ -716,9 +720,15 @@ def _assemble(spec, base, root, spec_path):
                 selected,
                 "comparison_ablations",
                 f"{scope}: image-weighted accuracy and macro F1 as fractions. "
+                "Rounded to six decimals; full precision in summary JSON. "
                 "Declaration order, not ranking. Sources in evidence column.",
             )
-    search_curves(bundle, refs["search_history"], protocol)
+    search_curves(
+        bundle,
+        refs["search_history"],
+        protocol,
+        section="reproduction" if spec.get("appendix_details") else "comparison_ablations",
+    )
     training_curves(bundle, spec.get("training_histories", []))
     json_tables(bundle, spec.get("json_tables", []))
     for entry in spec.get("evidence", []):
@@ -755,7 +765,7 @@ def _assemble(spec, base, root, spec_path):
         "compute",
         ["record", "field", "value", "source"],
         compute,
-        "robustness_compute",
+        "reproduction" if spec.get("appendix_details") else "robustness_compute",
         "Recorded compute and artifact size; bytes/seconds where named. "
         "Run time does not include separate feature extraction unless its record says so.",
     )
@@ -799,6 +809,8 @@ def _assemble(spec, base, root, spec_path):
         "evidence_files": bundle.evidence,
         "supplements": bundle.supplements,
     }
+    if "status_label" in spec:
+        manifest["status_label"] = spec["status_label"]
     write_json(root / "report_manifest.json", manifest)
     report.load_report(root, allow_synthetic=kind == "synthetic_fixture")
     # Reject concurrent producer changes instead of combining files from different instants.

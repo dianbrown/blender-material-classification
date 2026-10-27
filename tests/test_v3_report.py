@@ -317,3 +317,50 @@ def test_cli_requires_explicit_result_directory():
     with pytest.raises(SystemExit) as error:
         report.main([])
     assert error.value.code == 2
+
+
+def test_shared_uncertainty_prose_preserves_distinct_methods(synthetic_results):
+    root, _, _ = synthetic_results
+    manifest, endpoints, hashes = report.load_report(root, True)
+    manifest["_manifest_sha256"] = "a" * 64
+    manifest["sections"]["motivation"] = "First paragraph.\n\nSecond paragraph."
+    metrics = endpoints[0]["data"]["metrics"]
+    metrics["macro_f1"]["ci"] = dict(metrics["accuracy"]["ci"])
+    metrics["weighted_f1"]["ci"] = dict(metrics["accuracy"]["ci"], seed=19)
+    blocks = report.report_blocks(manifest, endpoints, hashes, {"nested_oof": []}, {})
+    uncertainty = [v for k, v in blocks if k == "p" and v.startswith("Uncertainty for")]
+    assert len(uncertainty) == 2
+    assert "accuracy, macro f1" in uncertainty[0] and "seed 17" in uncertainty[0]
+    assert "weighted f1" in uncertainty[1] and "seed 19" in uncertainty[1]
+    assert ("p", "First paragraph.") in blocks
+    assert ("p", "Second paragraph.") in blocks
+
+
+@pytest.mark.parametrize("label", ["", "x" * 66, "preview\nline", "preview\u2011label"])
+def test_invalid_footer_status_rejected(synthetic_results, label):
+    root, manifest, _ = synthetic_results
+    manifest["status_label"] = label
+    save_json(root / "report_manifest.json", manifest)
+    with pytest.raises(report.ReportError, match="status_label"):
+        report.load_report(root, True)
+
+
+@pytest.mark.parametrize("synthetic", [False, True])
+def test_pdf_status_footer_keeps_synthetic_warning(tmp_path, synthetic):
+    from pypdf import PdfReader
+
+    path = tmp_path / "layout_only.pdf"
+    report.write_pdf(
+        [("title", "Layout-only status test; no results")],
+        path,
+        tmp_path,
+        synthetic,
+        "INTERNAL PRELIMINARY PREVIEW | v3",
+    )
+    text = PdfReader(path).pages[0].extract_text()
+    expected = (
+        "SYNTHETIC FIXTURE - NOT EXPERIMENTAL EVIDENCE"
+        if synthetic
+        else "INTERNAL PRELIMINARY PREVIEW | v3"
+    )
+    assert expected in text

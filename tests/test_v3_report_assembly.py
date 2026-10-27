@@ -162,6 +162,32 @@ def test_bundle_is_builder_compatible_with_real_charts(inputs):
             assert content == Path(record["source"]).read_bytes()
 
 
+def test_appendix_routing_and_preview_label_preserve_measurements(inputs):
+    _, spec, raw = inputs
+    spec["appendix_details"] = True
+    spec["status_label"] = "INTERNAL PRELIMINARY PREVIEW | v3"
+    out = run_bundle(inputs)
+    manifest, endpoints, _ = assembly.report.load_report(out, allow_synthetic=True)
+    assert manifest["status_label"] == spec["status_label"]
+    for supplement in manifest["supplements"]:
+        if (
+            supplement["path"].startswith("derived/search_")
+            or supplement["path"] == "derived/compute.csv"
+        ):
+            assert supplement["section"] == "reproduction"
+    assert (
+        endpoints[0]["data"]["metrics"]["accuracy"]["value"]
+        == raw["image_level"]["metrics"]["accuracy"]
+    )
+
+
+def test_appendix_routing_requires_boolean(inputs):
+    _, spec, _ = inputs
+    spec["appendix_details"] = "true"
+    with pytest.raises(assembly.ReportError, match="appendix_details must be boolean"):
+        run_bundle(inputs)
+
+
 def test_requires_synthetic_opt_in(inputs):
     root, _, _ = inputs
     with pytest.raises(assembly.ReportError, match="Synthetic"):

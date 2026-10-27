@@ -237,6 +237,30 @@ The builder does not open image_path entries, which may be archived identifiers.
 
 ## Test and finalization workflow
 
+### Internal preview layout
+
+The assembly spec optionally accepts `appendix_details: true` to place all recorded
+C-search panels and the raw compute inventory in the reproduction appendix. The
+default placement remains the comparison/compute body sections. This changes
+presentation only; no measurements or evidence are omitted. Supply a concise,
+explicit compute table as a supplement when an appendix-heavy report needs a body
+summary. Comparison tables round accuracy/F1 to six decimals; normalized summaries
+retain the original numeric precision.
+
+An optional `status_label` is copied from the assembly spec to the report manifest
+and printed in every PDF footer (maximum 65 printable ASCII characters). For an
+internal report use `INTERNAL PRELIMINARY PREVIEW | v3`, together with an explicit
+preview title and narrative status. Synthetic warnings always override this label.
+This label is editorial status, not validation of experimental completeness.
+
+Narrative text separates paragraphs with blank lines. The PDF honors these
+boundaries and suppresses single-line widows/orphans. Table captions reserve room
+for opening rows, while long tables retain repeated headers and can split. Shared
+uncertainty descriptions are grouped only when method, draw count, seed, level,
+unit and valid-draw count agree; per-metric values and intervals remain separate.
+Portrait diagnostic sheets may use more vertical space than landscape charts,
+with caption height reserved. Verify actual label readability after rendering.
+
 ```powershell
 & C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe `
   -m pytest tests/test_v3_report.py -q

@@ -303,6 +303,12 @@ def load_report(results_dir, allow_synthetic=False):
     )
     for key in ("title", "run_id", "created_utc", "code_commit"):
         nonempty(manifest.get(key), key)
+    if "status_label" in manifest:
+        label = nonempty(manifest["status_label"], "status_label")
+        require(
+            len(label) <= 65 and label.isascii() and all(ord(c) >= 32 for c in label),
+            "status_label must be at most 65 printable ASCII characters",
+        )
     classes = manifest.get("class_order")
     require(
         isinstance(classes, list)
@@ -588,7 +594,13 @@ def report_blocks(manifest, endpoints, hashes, plots, supplements):
     )
 
     def section(key):
-        blocks.extend([("h", SECTIONS[key]), ("p", manifest["sections"][key])])
+        blocks.append(("h", SECTIONS[key]))
+        # Plain-text paragraph boundaries let long sections flow around figures.
+        blocks.extend(
+            ("p", paragraph.strip())
+            for paragraph in manifest["sections"][key].split("\n\n")
+            if paragraph.strip()
+        )
         blocks.extend(supplements.get(key, []))
 
     for key in list(SECTIONS)[:6]:
@@ -608,18 +620,31 @@ def report_blocks(manifest, endpoints, hashes, plots, supplements):
                 ),
             )
         )
+        uncertainty_groups = {}
         for key, metric in data["metrics"].items():
             if "ci" in metric:
                 ci = metric["ci"]
-                blocks.append(
-                    (
-                        "p",
-                        f"{key} uncertainty: {ci['method']}; "
-                        f"{ci['n_resamples']} source-group resamples; seed {ci['seed']}. "
-                        "Intervals describe this sampled source population; they do not "
-                        "establish real-world transfer or fully quantify training variability.",
-                    )
+                signature = (
+                    ci["method"],
+                    ci["n_resamples"],
+                    ci["seed"],
+                    ci["level"],
+                    ci["unit"],
+                    ci.get("n_valid"),
                 )
+                uncertainty_groups.setdefault(signature, []).append(key.replace("_", " "))
+        for (method, resamples, seed, level, unit, valid), names in uncertainty_groups.items():
+            blocks.append(
+                (
+                    "p",
+                    f"Uncertainty for {', '.join(names)}: {method}; "
+                    f"{level:.0%} intervals, {resamples} {unit.replace('_', '-')} resamples; "
+                    f"seed {seed}. "
+                    + (f"Valid draws per metric: {valid}. " if valid is not None else "")
+                    + "Intervals describe this sampled source population; they do not "
+                    "establish real-world transfer or fully quantify training variability.",
+                )
+            )
         blocks.append(
             (
                 "table",
@@ -671,7 +696,7 @@ def write_markdown(blocks, path):
             lines.append(f"# {value}")
         elif kind == "h":
             lines.append(f"## {value}")
-        elif kind in ("p", "evidence"):
+        elif kind in ("p", "evidence", "caption"):
             lines.append(value)
         elif kind == "table":
             header, rows = value
@@ -690,7 +715,7 @@ def write_markdown(blocks, path):
     path.write_text("\n\n".join(lines) + "\n", encoding="utf-8")
 
 
-def write_pdf(blocks, path, figures_dir, synthetic):
+def write_pdf(blocks, path, figures_dir, synthetic, status_label="Material classification | v3"):
     import matplotlib
     from reportlab.lib import colors
     from reportlab.lib.enums import TA_LEFT
@@ -723,11 +748,14 @@ def write_pdf(blocks, path, figures_dir, synthetic):
     styles["Normal"].fontSize, styles["Normal"].leading = 9.5, 14
     styles["Normal"].spaceAfter = 9
     styles["Normal"].splitLongWords = True
+    styles["Normal"].allowWidows = False
+    styles["Normal"].allowOrphans = False
     styles["Title"].fontSize, styles["Title"].leading = 23, 29
     styles["Title"].alignment = TA_LEFT
     styles["Heading1"].fontSize, styles["Heading1"].leading = 14, 19
     styles["Heading1"].keepWithNext = True
     styles.add(ParagraphStyle("CaptionV3", parent=styles["Normal"], fontSize=8, leading=11))
+    styles.add(ParagraphStyle("TableCaptionV3", parent=styles["CaptionV3"]))
     styles.add(
         ParagraphStyle("EvidenceV3", parent=styles["Normal"], fontSize=8, leading=11, spaceAfter=6)
     )
@@ -746,6 +774,12 @@ def write_pdf(blocks, path, figures_dir, synthetic):
             story.append(paragraph(value, {"title": "Title", "h": "Heading1", "p": "Normal"}[kind]))
         elif kind == "evidence":
             story.append(paragraph(value, "EvidenceV3"))
+        elif kind == "caption":
+            caption_block = paragraph(value, "TableCaptionV3")
+            _, caption_height = caption_block.wrap(width, A4[1])
+            # Keep room for the caption and opening rows, without keeping a whole
+            # multi-page table together and leaving a nearly empty preceding page.
+            story.extend([CondPageBreak(caption_height + 130), caption_block])
         elif kind == "page":
             story.append(CondPageBreak(150))
         elif kind == "table":
@@ -782,7 +816,13 @@ def write_pdf(blocks, path, figures_dir, synthetic):
             figure_index += 1
             filename, caption = value
             picture = Image(str(figures_dir / filename))
-            scale = min(width / picture.imageWidth, 350 / picture.imageHeight)
+            # Portrait diagnostic sheets need nearly a page to retain readable labels.
+            # Reserve caption height so the kept figure cannot exceed the page frame.
+            caption_block = paragraph(f"Figure {figure_index}. {caption}", "CaptionV3")
+            _, caption_height = caption_block.wrap(width, A4[1])
+            max_height = 620 if picture.imageHeight > picture.imageWidth * 1.1 else 350
+            max_height = min(max_height, A4[1] - 46 - 58 - 12 - caption_height - 20)
+            scale = min(width / picture.imageWidth, max_height / picture.imageHeight)
             picture.drawWidth, picture.drawHeight = (
                 picture.imageWidth * scale,
                 picture.imageHeight * scale,
@@ -791,7 +831,7 @@ def write_pdf(blocks, path, figures_dir, synthetic):
                 KeepTogether(
                     [
                         picture,
-                        paragraph(f"Figure {figure_index}. {caption}", "CaptionV3"),
+                        caption_block,
                         Spacer(1, 10),
                     ]
                 )
@@ -803,11 +843,7 @@ def write_pdf(blocks, path, figures_dir, synthetic):
         canvas.line(48, 43, A4[0] - 48, 43)
         canvas.setFont("ReportSans", 8)
         canvas.setFillColor(colors.HexColor("#536577"))
-        label = (
-            "SYNTHETIC FIXTURE - NOT EXPERIMENTAL EVIDENCE"
-            if synthetic
-            else "Material classification | v3"
-        )
+        label = "SYNTHETIC FIXTURE - NOT EXPERIMENTAL EVIDENCE" if synthetic else status_label
         canvas.drawString(48, 29, label)
         canvas.drawRightString(A4[0] - 48, 29, f"Page {doc.page}")
         canvas.restoreState()
@@ -853,10 +889,16 @@ def build_report(results_dir, output_dir, *, allow_synthetic=False):
             else:
                 with path.open(encoding="utf-8-sig", newline="") as stream:
                     rows = list(csv.reader(stream))
-                entries.extend([("p", caption), ("table", (rows[0], rows[1:]))])
+                entries.extend([("caption", caption), ("table", (rows[0], rows[1:]))])
         blocks = report_blocks(manifest, endpoints, hashes, plots, supplements)
         write_markdown(blocks, staging / "report.md")
-        write_pdf(blocks, staging / "report.pdf", figures, synthetic)
+        write_pdf(
+            blocks,
+            staging / "report.pdf",
+            figures,
+            synthetic,
+            manifest.get("status_label", "Material classification | v3"),
+        )
         # Preserve exact manifest bytes, including its original formatting, for provenance.
         shutil.copyfile(
             Path(results_dir) / "report_manifest.json", staging / "report_manifest.json"
