@@ -90,9 +90,9 @@ def build(root: Path):
 
     **Locked primary:** frozen DINOv2 multiscale + ConvNeXt features with a saved
     scaler/logistic head. Its fresh accuracy is **80.1587%**, macro-F1 **0.7952**,
-    with a source-group bootstrap accuracy interval of **66.03â€“93.65%**.
+    with a source-group bootstrap accuracy interval of **66.03–93.65%**.
     Fine-tuned DINOv2 reaches **86.8254%**, macro-F1 **0.8631**, with an interval of
-    **76.98â€“95.87%**, as an **exploratory comparison**. It does not replace the primary.
+    **76.98–95.87%**, as an **exploratory comparison**. It does not replace the primary.
 
     This executable notebook reads committed evidence only. It never loads model
     weights, renders images, trains, scores images, or fits calibration. Recomputed
@@ -289,7 +289,7 @@ def build(root: Path):
     The all-development frozen selector score **0.80352 macro-F1** and DINO's
     selected best-development mean **0.77248** are selection scores, not outer-CV
     estimates. DINO was an exploratory follow-up after the initial frozen result:
-    two learning rates Ã— three grouped folds, best-epoch selection on those folds,
+    two learning rates × three grouped folds, best-epoch selection on those folds,
     then a prescribed five-epoch all-development fit. No DINO outer-CV result exists.
     """)
     code(r"""
@@ -325,7 +325,7 @@ def build(root: Path):
                 "estimate": label,
                 "accuracy %": 100 * m["accuracy"],
                 "macro F1": m["macro_f1"],
-                "accuracy CI %": f"{100 * ci['lower']:.2f}â€“{100 * ci['upper']:.2f}",
+                "accuracy CI %": f"{100 * ci['lower']:.2f}–{100 * ci['upper']:.2f}",
             }
         )
     table(dev_rows)
@@ -462,9 +462,9 @@ def build(root: Path):
             {
                 "model": labels[name],
                 "accuracy %": 100 * m["accuracy"],
-                "accuracy 95% CI %": f"{100 * ci['lower']:.2f}â€“{100 * ci['upper']:.2f}",
+                "accuracy 95% CI %": f"{100 * ci['lower']:.2f}–{100 * ci['upper']:.2f}",
                 "macro F1": m["macro_f1"],
-                "F1 95% CI": f"{fi['lower']:.4f}â€“{fi['upper']:.4f}",
+                "F1 95% CI": f"{fi['lower']:.4f}–{fi['upper']:.4f}",
             }
         )
         evaluations[name], predictions[name] = ev, pred
@@ -496,7 +496,7 @@ def build(root: Path):
     md("""
     All displayed paired accuracy and F1 intervals include zero. DINO's observed
     gain over the primary is 6.67 percentage points, with a paired accuracy interval
-    of approximately âˆ’2.06 to +16.19 points. The fresh evidence does **not establish
+    of approximately −2.06 to +16.19 points. The fresh evidence does **not establish
     superiority**. It also does not establish equivalence. No retrospective primary
     relabeling or test-driven hyperparameter choice is made.
     """)
@@ -558,7 +558,7 @@ def build(root: Path):
         )
     md("""
     The primary recalls all fresh wood, metal and fabric views, but only 57.78% of
-    ceramic views; ceramic â†’ stone accounts for 30 errors. With only three sources
+    ceramic views; ceramic → stone accounts for 30 errors. With only three sources
     per class, these class results can be dominated by individual texture families.
     DINO's higher accuracy does not imply better calibration: inspect its ECE
     alongside loss and Brier rather than treating accuracy as probability quality.
