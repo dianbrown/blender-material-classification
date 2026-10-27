@@ -62,10 +62,10 @@ explicit final identity checks. No source files are changed or regenerated.
 Run from the integrated repository in PowerShell:
 
 ```powershell
-$python = 'C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe'
-$source = 'C:/Users/dianb/blender-material-classification/dist/MaterialStudio-v0.6'
+$python = (Resolve-Path '.venv/Scripts/python.exe').Path
+$source = (Resolve-Path 'dist/MaterialStudio-v0.6').Path
 $icon = (Resolve-Path 'app/assets/icon.ico').Path
-$compiler = 'C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-7d26daf1/artifacts/installer-tools/Inno Setup 7/ISCC.exe'
+$compiler = (Resolve-Path 'artifacts/installer-tools/Inno Setup 7/ISCC.exe').Path
 # Identity of the final native release supplied by its builder, not inferred from an old package:
 $exeHash = '2c73a10c9946dfa89564a056c88eb06a1266feefa7844943395172e0d8d1f517'
 # The reviewed icon in the integrated release checkout:
@@ -153,7 +153,7 @@ $env:MATERIAL_STUDIO_TEST_INSTALL = '1'
 & $python -m pytest tests/test_installer.py -q
 ```
 
-For parent QA of the **real** release, use a fresh isolated directory, not a
+To test the release installer, use a fresh isolated directory rather than a
 directory containing another installation or personal files. `/NOICONS` disables
 Start Menu shortcuts; `/TASKS=""` explicitly clears the optional desktop task.
 These [standard Inno command-line options](https://jrsoftware.org/ishelp/topic_setupcmdline.htm)

@@ -1,8 +1,8 @@
 # Material Studio portable Windows folder
 
 The output is a **folder**, with `MaterialStudio.exe` at its top level. Keep the
-whole folder together when moving it to the RTX 4070 machine. Python, the saved
-models, pretrained backbones, and CUDA runtime libraries are bundled. A separate
+whole folder together when moving it to another Windows computer. Python,
+the saved models, pretrained backbones, and CUDA runtime libraries are bundled. A separate
 Python installation, the development repository, and an internet connection are
 not needed for inference. The GPU uses the machine's NVIDIA driver; the worker's
 `--device auto` selects CUDA when available and otherwise uses CPU.
@@ -12,7 +12,7 @@ environment, download weights, publish, or upload anything. Run it using the
 existing validated **Windows x64 Python 3.13.5** environment. Python/model versions
 are checked against the saved model metadata, not an unpinned requirements solve.
 
-## Prepare the runtime before the app is ready
+## Prepare the runtime
 
 From the integrated repository, in PowerShell:
 
@@ -52,7 +52,7 @@ are omitted. The source venv, Jupyter, training data and unrelated caches are no
 copied. Package-internal files are retained so runtime imports do not depend on
 guessing which files a third-party module might need.
 
-## Assemble after integration
+## Assemble the application
 
 Prerequisites are the integrated worker/source, study assets, four model artifacts,
 the prepared runtime, a built native release executable, and the native dependency
@@ -61,14 +61,14 @@ notice bundle generated from its actual `Cargo.lock`.
 ```powershell
 $exe = Join-Path $repo 'artifacts/material-studio/cargo-target/release/material-studio.exe'
 $notices = Join-Path $repo 'app/THIRD_PARTY_NOTICES.txt'
-$output = Join-Path $repo 'dist/MaterialStudio-release'
+$output = Join-Path $repo 'dist/MaterialStudio-v0.6'
 # Use the reviewed, redistributable MSVC runtime selected during PE inspection.
 $vcRuntime = Join-Path $env:SystemRoot 'System32/vcruntime140.dll'
 $exeHash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
 
 & $python scripts/demo/package_app.py build --root $repo --runtime $prepared `
     --exe $exe --exe-sha256 $exeHash --native-notices $notices `
-    --native-dll $vcRuntime --output $output
+    --native-dll $vcRuntime --output $output --release-version 0.6.0
 & $python scripts/demo/package_app.py verify --package $output
 & $python scripts/demo/package_app.py smoke --package $output
 ```
@@ -89,8 +89,8 @@ license/notice files remain in the installed distributions; `runtime/LICENSE.txt
 contains the Python license. `licenses/MODEL_ATTRIBUTION.txt` records the model
 sources, with MIT and Apache-2.0 texts bundled. Sample attributions and original
 source links remain in `app/assets/study.json`; `DATASET.md` preserves the dataset
-scope. These local artifacts do not grant publication approval or choose a new
-license for the study's renders or fitted weights.
+scope. The rendered dataset and fitted weights have separate licensing terms;
+see [DATASET.md](../DATASET.md) and [MODEL_CARD.md](../MODEL_CARD.md).
 
 ## Layout and launch contract
 
@@ -181,24 +181,6 @@ Evidence is staged at `artifacts/material-studio/package-runtime/runtime-smoke.j
 and `artifacts/material-studio/runtime-relocation-smoke.json`. This measured size
 is the prepared runtime, before adding the app, fitted checkpoints, and samples.
 
-The first assembled **candidate** measured **5,151,637,452 bytes (4.798 GiB)**
-including its manifest, in 22,798 files (payload alone 5,147,237,062 bytes).
-Its packaged worker passed health, eight CPU predictions (cold/warm for all four
-models), and clean shutdown in 21.39 seconds, from an external working directory
-with `PYTHONPATH` removed, a system-only child `PATH`, and deliberately conflicting
-host HF cache settings. All probabilities were valid, all devices were `cpu`, all
-warm calls reported cached models, and stderr was empty. Evidence:
-`artifacts/material-studio/package-worker-cpu-smoke.json`.
-
-That candidate contains executable SHA-256
-`ef4500156073a798e32cceb79c927ede2a40f6cf66669b268d6698b8591298cf` and app-local
-`vcruntime140.dll` version 14.50.35719.0, SHA-256
-`184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2`.
-Native UI verification was pending; subsequent app fixes require a fresh build
-with the final executable hash and refreshed inventory. This candidate is not
-the final UI-approved release. Use a new output folder rather than silently
-replacing files covered by the candidate manifest. GPU validation is separate.
-
 The automatic smoke launches the **bundled** interpreter from a fresh external
 temporary working directory, removes `PYTHON*` variables, restricts the child
 `PATH` to Windows system directories, and sets `CUDA_VISIBLE_DEVICES=-1`. It checks
@@ -231,25 +213,15 @@ Small synthetic tests (no model loading, no large copies):
 & $python -m ruff check scripts/demo/package_app.py tests/test_demo_package.py
 ```
 
-## Verified local release
+## Release validation
 
-Use `dist/MaterialStudio-release/MaterialStudio.exe`. The initial assembled
-monochrome package contained 22,798 files and 5,151,660,569 bytes (about 4.8 GiB).
-All payload hashes and source/model identities passed assembly verification.
-The final packaged worker passed all four models cold/warm on CPU and CUDA,
-from an external temporary directory with restricted PATH, no PYTHONPATH and
-conflicting host cache variables. Evidence:
-`artifacts/material-studio/final-package-worker-smoke.json`.
+The v0.6 portable package contains 22,812 files and 5,147,555,677 bytes (4.794 GiB).
+Assembly verified payload hashes, model identities, bundled imports, CPU tensor
+operations, and both offline backbone caches. The packaged native executable
+also completed a CPU prediction of the bundled wood sample.
 
-The packaged native executable also opened outside the checkout without root or
-Python overrides, rendered its bundled example and completed a live prediction.
-The latest UI-only refresh reduces neutral panel opacity to expose more native
-Acrylic blur. Its executable SHA-256 is
-`35fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2`.
-The refresh verifies the entire previous payload, retains its original binary
-and manifest in local QA artifacts, replaces only the executable and updates its
-manifest entry. Models, runtime, licenses and sample pixels are unchanged.
-Final refresh evidence: `artifacts/material-studio/glass-refresh.json`.
-
-Earlier `dist/MaterialStudio` and `dist/MaterialStudio-final` folders are retained
-candidates with the superseded interface. They are not the recommended demo.
+Native executable SHA-256:
+`2c73a10c9946dfa89564a056c88eb06a1266feefa7844943395172e0d8d1f517`.
+The Windows installer assets and their checksums are available in the
+[v0.6 release](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.6).
+See [INSTALLATION.md](INSTALLATION.md) for installer builds and testing.

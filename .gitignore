@@ -79,3 +79,9 @@ Thumbs.db
 /reports/RELEASE_V05_REVIEW.md
 /reports/RELEASE_V05_STATE.md
 /reports/V3_STATE.md
+
+# Superseded experiment plans and local orchestration prompts
+/plan.md
+/reports/OPTUNA_V2_PLAN.md
+/reports/V2_IMPLEMENTATION_PLAN.md
+/reports/V3_PLAN.md

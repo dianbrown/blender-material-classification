@@ -79,7 +79,8 @@ The dataset contains **3,780 renders**: 3,150 development images from 101 known
 source groups and 630 test images from 21 new groups. The full dataset is **not
 published; a Kaggle release is planned**. The installer includes only the sample
 gallery. See [DATASET.md](DATASET.md) for provenance, grouping, rendering details,
-and licensing status.
+and licensing status. The [Kaggle guide](kaggle.md) covers preparing and
+publishing the dataset.
 
 ## Development
 

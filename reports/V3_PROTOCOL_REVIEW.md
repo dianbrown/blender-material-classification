@@ -1,7 +1,7 @@
 # Independent protocol review and resolutions
 
 Review round 1 completed before scored experiments on 2026-10-27.
-Reviewer task: v3-protocol-review-20261027-r1. No model scores were available.
+No model scores were available during the review.
 
 1. **Source independence.** Freeze evidence-backed families before folds.
    Resolve three ambientCG generator overlaps. Conservatively co-group

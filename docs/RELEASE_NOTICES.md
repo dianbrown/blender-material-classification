@@ -1,10 +1,9 @@
 # v0.5 release-notice evidence
 
-Audited 2026-10-27 for the authorized Windows app release, 21 demo images and
-bundled models. This records source evidence and its limits; it is not a
-compliance certification. No project-wide or rendered-dataset license was
-chosen. The full Kaggle ZIP remains outside this release, with its license
-unchanged. No upload, account-visibility change or external message was made.
+Audited 2026-10-27 for the v0.5 Windows app, 21 sample images, and bundled
+models. This record covers dependency notices and source evidence. The full
+rendered dataset has separate licensing terms and is not included in the
+installer.
 
 ## Native MIT notice gaps
 
@@ -48,7 +47,7 @@ Authenticode verified as valid, signed by Microsoft Windows / Microsoft
 Corporation. The previous package's app-adjacent DLL is byte-identical to
 System32's `14.50.35719.0` copy, hash
 `184146852727a9db4eea06178716bec3cdbb1015c911f6b0f915b184ad7775b2`.
-The native icon agent confirmed the sole MSVC toolset `14.44.35207`, linker
+The native build used MSVC toolset `14.44.35207`, linker
 `14.44.35228` and PE linker version `14.44`; the candidate is the matching
 14.44 runtime family. The REDIST directory provides explicit redistributable
 provenance. Its use remains conditional on applicable terms.
@@ -70,9 +69,8 @@ that all these conditions are satisfied.
 [MICROSOFT_CRT.txt](../app/licenses/MICROSOFT_CRT.txt) is the packaged notice;
 [crt-provenance.json](../app/licenses/release-evidence/crt-provenance.json)
 records candidates and previous package copies. Python's separate runtime
-CRT copies are `14.42.34438.0`; they are inventoried separately. The notice
-agent changed no DLL or installer. Final toolset and package evidence are
-owned by the native-build and packaging work.
+CRT copies are `14.42.34438.0`; they are inventoried separately. Final package
+identities and checksums are recorded in each release's build receipt.
 
 ## Python, GPU libraries, models and assets
 
@@ -112,10 +110,10 @@ manifest. Large weights were not rehashed in this bounded notice inspection.
 No new license was assigned to the study-fitted/fine-tuned checkpoints.
 
 All 21 sample files exist and retain attribution/source URLs plus `CC0-1.0`
-source-texture declarations in `app/assets/study.json`. Publication of these
-demo assets is authorized. Those declarations do not establish a broad license
-for the full rendered dataset. Keep `study.json`, `DATASET.md`, model notices,
-Python distribution notices and this supplemental bundle in the installer.
+source-texture declarations in `app/assets/study.json`. These sample records
+do not assign a license to the full rendered dataset. Keep `study.json`,
+`DATASET.md`, model notices, Python distribution notices and this supplemental
+bundle in the installer.
 
 ## Reproduction and validation
 
@@ -124,23 +122,18 @@ hashes and LF-normalized text hashes. HTML article text omits site navigation;
 Microsoft DOCX terms are extracted paragraph text with automatic list markers
 not expanded. Sources are retained offline and no entitlement is inferred.
 
-Do not run Cargo while the native agent is building. The notice collector
-reads the parent's supplied Windows metadata snapshot after confirmation
-that it is ready, together with the final app manifest/lockfile and installed
-Rust 1.99.0 library notices. Use `--validate` to verify graph closure, text
-hashes and mapped clauses; use `--lock` and `--manifest` to match build inputs.
-A passing result retains the two MIT exceptions explicitly.
+The notice collector accepts a saved Windows Cargo metadata snapshot, the
+app manifest and lockfile, and the installed Rust library notices. Use
+`--validate` to check graph closure, notice hashes and mapped clauses; use
+`--lock` and `--manifest` to match the app build inputs. The v0.5 collection used
+`native-metadata-v05.json` and the integrated app manifest and lockfile.
+Both MIT notice exceptions listed above remain recorded in the validation.
 
-The v0.5 collection uses the parent-supplied `native-metadata-v05.json` and
-the native agent's final manifest/lockfile, verified byte-for-byte identical
-to the parent checkout's integrated inputs. No Cargo invocation was made by
-this notice agent. The final native executable SHA-256 reported by the parent
-is `579a53ba797cb874ddafbf7f71aa4891a9be73c320c4981f90381710f8f1dc2e`.
 Final installer and package hashes are separate packaging outputs.
 
 Validation completed: 311 Cargo dependencies, 445 mapped native notice texts,
 12 upstream/supplementary files with matching LF hashes, and two explicitly
-unresolved MIT exceptions. `--validate` also passed against the parent's final
+unresolved MIT exceptions. `--validate` also passed against the integrated
 `app/Cargo.lock` and `app/Cargo.toml`. Official archive source bytes were
 matched to both recovered Git trees; all saved evidence JSON parses. No
 Cargo build/metadata command, UI action or inference test was run here.
