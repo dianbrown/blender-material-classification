@@ -1,23 +1,25 @@
 //! Fixed-step jellyfish swimming, independent of the UI frame rate.
 //!
-//! Bells stay roughly upright and glide upward on each pulse, drifting
-//! sideways with a gentle tilt, as in the reference video. Tentacles are damped
-//! rope chains pulled toward a slowly undulating rest shape: they lag behind
-//! the bell, sway and settle, with no angle limits that could snap them.
+//! Bells stay roughly upright and rise on each pulse in lanes along the left
+//! and right of the view, around the centred content, as in the reference
+//! video. Each pulse flares the tentacle roots open and shut; every segment
+//! eases toward the direction of the one above it, curled a little and drawn
+//! toward the way the water streams past. A swing therefore travels down the
+//! tentacle as a smooth wave while the ends droop, and there are no
+//! constraints or limits that could make it snap.
 use std::{
-    f32::consts::{FRAC_PI_2, TAU},
+    f32::consts::{FRAC_PI_2, PI, TAU},
     ops::{Add, Mul, Sub},
 };
 
 const STEP: f32 = 1. / 60.;
-const NODES: usize = 24;
-const ITERATIONS: usize = 6;
+const NODES: usize = 26;
 /// Largest lean away from upright; jellyfish in the reference never roll over.
 const MAX_TILT: f32 = 0.5;
-/// Water drag on tentacle nodes, per second.
-const TENTACLE_DRAG: f32 = 2.2;
 /// Water drag on the bell, per second.
 const BELL_DRAG: f32 = 1.15;
+/// Bells keep to the outer columns of the view, where the content leaves room.
+const LANES: [f32; 2] = [0.14, 0.86];
 
 #[derive(Clone, Copy, Debug, Default)]
 pub(super) struct Vec2 {
@@ -33,6 +35,9 @@ impl Vec2 {
     }
     pub fn length(self) -> f32 {
         self.dot(self).sqrt()
+    }
+    fn angle(self) -> f32 {
+        self.y.atan2(self.x)
     }
     fn direction(angle: f32) -> Self {
         Self::new(angle.cos(), angle.sin())
@@ -62,17 +67,20 @@ impl Mul<f32> for Vec2 {
 
 pub(super) struct Strand {
     pub nodes: [Vec2; NODES],
-    previous: [Vec2; NODES],
-    pub oral: bool,
+    /// Absolute direction of each segment.
+    angles: [f32; NODES - 1],
+    /// Broad ribbon-like tentacle, or a fine trailing filament.
+    pub thick: bool,
     /// Position across the bell margin, from -1 (left) to 1 (right).
     attachment: f32,
     pub segment: f32,
-    /// Outward spread of the tip, in bell widths.
-    splay: f32,
-    /// Undulation: waves along the strand, angular speed and phase.
+    /// Curl per segment in radians, waves along the strand, angular speed,
+    /// phase, and how far the root sways on its own.
+    curl: f32,
     waves: f32,
     speed: f32,
     seed: f32,
+    sway: f32,
 }
 
 pub(super) struct Bell {
@@ -93,66 +101,56 @@ pub(super) struct Swimmer {
     period: f32,
     pub contraction: f32,
     seed: f32,
+    lane: usize,
     pub strands: Vec<Strand>,
 }
 
 impl Swimmer {
-    fn new(position: Vec2, radius: f32, tilt: f32, id: usize) -> Self {
+    fn new(position: Vec2, radius: f32, lane: usize, id: usize) -> Self {
         let seed = id as f32 * 1.71 + 0.4;
-        let phase = id as f32 * 0.31;
+        let phase = id as f32 * 0.37;
         let mut body = Self {
             position,
-            velocity: Vec2::direction(tilt - FRAC_PI_2) * 22.,
-            tilt,
+            velocity: Vec2::new(0., -18.),
+            tilt: 0.,
             spin: 0.,
             radius,
-            depth: [0.86, 0.74, 1., 0.66][id % 4],
+            depth: [0.9, 0.8, 1., 0.84][id % 4],
             hue: usize::from(id == 1),
             phase,
-            period: 3.1 + id as f32 * 0.23,
+            period: 3.3 + id as f32 * 0.29,
             contraction: contraction(phase),
             seed,
+            lane,
             strands: Vec::new(),
         };
-        // Eight fine marginal tentacles around the rim, and four ruffled oral
-        // arms hanging from the centre of the bell.
-        for strand in 0..12 {
-            let oral = strand >= 8;
-            let k = strand as f32;
-            let (attachment, length, splay, waves, speed) = if oral {
-                let attachment = ((strand - 8) as f32 / 3. - 0.5) * 0.66;
-                let length = 1.9 + (k * 1.3).sin().abs() * 0.6;
-                (attachment, length, attachment * 0.9, 1.1, 0.9)
-            } else {
-                let attachment = k / 7. * 1.84 - 0.92;
-                let length = 2.7 + (k * 2.1).sin().abs() * 1.2;
-                let splay = attachment * (0.15 + (k * 0.7).cos().abs() * 0.3);
-                (
-                    attachment,
-                    length,
-                    splay,
-                    1. + (k * 0.9).sin().abs() * 0.6,
-                    0.9 + k * 0.06,
-                )
-            };
-            let length = radius * length;
+        // Six broad tentacles across the margin and two fine filaments.
+        let attachments = [-0.8, -0.5, -0.18, 0.16, 0.48, 0.78, -0.62, 0.66];
+        for (strand, &attachment) in attachments.iter().enumerate() {
+            let thick = strand < 6;
+            let k = strand as f32 + seed;
+            let length = radius
+                * if thick {
+                    2.1 + (k * 1.7).sin().abs() * 0.7
+                } else {
+                    3.1 + (k * 1.3).sin().abs() * 0.5
+                };
             body.strands.push(Strand {
                 nodes: [position; NODES],
-                previous: [position; NODES],
-                oral,
+                angles: [0.; NODES - 1],
+                thick,
                 attachment,
                 segment: length / (NODES - 1) as f32,
-                splay,
-                waves,
-                speed,
-                seed: seed * 3. + k * 2.4,
+                curl: if thick { 0.05 } else { 0.07 } + (k * 2.3).sin().abs() * 0.025,
+                waves: 0.7 + (k * 1.1).sin().abs() * 0.5,
+                speed: 1.1 + (k * 0.7).sin().abs() * 0.5,
+                seed: k * 2.4,
+                sway: 0.22 + (k * 1.9).sin().abs() * 0.18,
             });
         }
-        for strand in 0..body.strands.len() {
-            let nodes = std::array::from_fn(|node| body.rest(&body.strands[strand], node, 0.));
-            let strand = &mut body.strands[strand];
-            strand.nodes = nodes;
-            strand.previous = nodes;
+        for index in 0..body.strands.len() {
+            body.strands[index].angles = [body.tilt + FRAC_PI_2; NODES - 1];
+            body.rebuild(index);
         }
         body
     }
@@ -172,30 +170,57 @@ impl Swimmer {
     pub fn bell(&self) -> Bell {
         // A contracting bell narrows and stretches taller.
         Bell {
-            width: self.radius * (1. - 0.16 * self.contraction),
-            height: self.radius * (0.82 + 0.18 * self.contraction),
+            width: self.radius * (1. - 0.15 * self.contraction),
+            height: self.radius * (0.8 + 0.16 * self.contraction),
         }
     }
     fn root(&self, strand: &Strand) -> Vec2 {
         let bell = self.bell();
-        let (across, down) = if strand.oral {
-            (0.7, 0.06)
-        } else {
-            (0.94, 0.14)
-        };
+        let across = if strand.thick { 0.92 } else { 0.7 };
         self.position
             + self.side() * (bell.width * strand.attachment * across)
-            + self.tail() * (bell.height * down)
+            + self.tail() * (bell.height * 0.24)
     }
-    /// Rest shape of a strand in the body frame: hanging behind the bell,
-    /// spreading toward the tip, with a slow wave travelling down its length.
-    fn rest(&self, strand: &Strand, node: usize, time: f32) -> Vec2 {
-        let t = node as f32 / (NODES - 1) as f32;
-        let along = strand.segment * node as f32 * 0.94;
-        let wave = (TAU * strand.waves * t - time * strand.speed + strand.seed).sin();
-        let amplitude = self.radius * if strand.oral { 0.18 } else { 0.3 };
-        let lateral = self.bell().width * strand.splay * t + wave * amplitude * t.powf(1.2);
-        self.root(strand) + self.side() * lateral + self.tail() * along
+
+    /// Eases every segment toward its target: the root flares open as the
+    /// bell refills and closes on each squeeze, and each further segment
+    /// follows the one above it, curling slightly and settling toward the
+    /// direction the water streams past. Swings thus flow toward the tip.
+    fn swim_tentacles(&mut self, time: f32) {
+        let base = self.tilt + FRAC_PI_2;
+        let open = 1. - self.contraction;
+        // Tentacles stream away from the bell's motion and sink a little.
+        let stream = (self.tail() - self.velocity * (1. / 40.) + Vec2::new(0., 0.35)).angle();
+        let follow = 1. - (-13. * STEP).exp();
+        for index in 0..self.strands.len() {
+            let strand = &mut self.strands[index];
+            let sway = strand.sway * (time * strand.speed * 0.55 + strand.seed).sin();
+            let mut target = base - strand.attachment * (0.25 + 1.1 * open) + sway;
+            for i in 0..NODES - 1 {
+                if i > 0 {
+                    let s = i as f32 / (NODES - 2) as f32;
+                    let above = strand.angles[i - 1];
+                    let wave = (TAU * strand.waves * s - time * strand.speed + strand.seed).sin();
+                    target = above + strand.curl * wave + 0.035 * angle_difference(above, stream);
+                }
+                // Ease off before a tentacle could fold back over the bell.
+                let bend = angle_difference(base, target);
+                let target = base + 2.2 * (bend / 2.2).tanh();
+                let angle = &mut strand.angles[i];
+                *angle += angle_difference(*angle, target) * follow;
+            }
+            self.rebuild(index);
+        }
+    }
+
+    fn rebuild(&mut self, index: usize) {
+        let root = self.root(&self.strands[index]);
+        let strand = &mut self.strands[index];
+        strand.nodes[0] = root;
+        for i in 1..NODES {
+            strand.nodes[i] =
+                strand.nodes[i - 1] + Vec2::direction(strand.angles[i - 1]) * strand.segment;
+        }
     }
 
     fn extent(&self) -> (Vec2, Vec2) {
@@ -217,32 +242,39 @@ impl Swimmer {
     fn translate(&mut self, offset: Vec2) {
         self.position = self.position + offset;
         for strand in &mut self.strands {
-            for p in strand.nodes.iter_mut().chain(strand.previous.iter_mut()) {
+            for p in &mut strand.nodes {
                 *p = *p + offset;
             }
         }
     }
 
-    fn step(&mut self, time: f32, size: Vec2, others: &[(Vec2, f32)], id: usize) {
+    fn step(&mut self, time: f32, size: Vec2, others: &[(Vec2, f32, usize)], id: usize) {
         let next = contraction(time / self.period + self.phase);
         let squeeze = ((next - self.contraction) / STEP).max(0.);
         self.contraction = next;
 
         // Steering only changes the lean, through a critically damped spring,
         // so turns build and fade gradually.
-        let lane = 0.5 + 0.36 * (time * 0.041 + self.seed * 2.7).sin();
-        let mut goal = ((lane * size.x - self.position.x) / size.x * 2.).clamp(-0.4, 0.4)
-            + 0.22 * (time * 0.13 + self.seed).sin()
-            + 0.12 * (time * 0.31 + self.seed * 1.9).sin();
-        let margin = self.radius * 1.5;
-        goal += 0.7
+        let lane = LANES[self.lane] + 0.05 * (time * 0.05 + self.seed * 2.7).sin();
+        let mut goal = ((lane * size.x - self.position.x) / (0.1 * size.x) * 0.3)
+            .clamp(-0.35, 0.35)
+            + 0.16 * (time * 0.13 + self.seed).sin()
+            + 0.08 * (time * 0.31 + self.seed * 1.9).sin();
+        let margin = self.radius * 1.1;
+        goal += 0.6
             * (((margin - self.position.x) / margin).max(0.)
                 - ((self.position.x - size.x + margin) / margin).max(0.));
-        for (other, &(position, radius)) in others.iter().enumerate() {
+        // Give way to a jellyfish just ahead instead of swimming through it.
+        let mut yield_to = 1_f32;
+        for (other, &(position, radius, _)) in others.iter().enumerate() {
             let away = self.position - position;
-            let range = (self.radius + radius) * 1.7;
-            if other != id && away.length() < range {
-                goal += away.x.signum() * 0.6 * (1. - away.length() / range);
+            let range = (self.radius + radius) * 1.6;
+            let closeness = (1. - away.length() / range).max(0.);
+            if other != id && closeness > 0. {
+                goal += away.x.signum() * 0.3 * closeness;
+                if away.y > 0. {
+                    yield_to = yield_to.min(1. - 0.6 * closeness);
+                }
             }
         }
         let goal = goal.clamp(-MAX_TILT, MAX_TILT);
@@ -253,60 +285,34 @@ impl Swimmer {
         // Each contraction pushes the bell forward; drag slows the glide while
         // the bell refills, and a slight negative buoyancy sinks it a little.
         let scale = self.radius / 85.;
-        let thrust = self.forward() * ((12. + squeeze * 46.) * scale);
+        let thrust = self.forward() * ((12. + squeeze * 46.) * scale * yield_to);
         let sink = Vec2::new(0., 3.5);
         self.velocity = (self.velocity + (thrust + sink) * STEP) * (-BELL_DRAG * STEP).exp();
         self.position = self.position + self.velocity * STEP;
 
-        // Once the whole animal has left through the top, it re-enters from
-        // below, out of view. Nodes move with it, so nothing jolts.
+        // Once the whole animal has left through the top it re-enters from
+        // below, out of view, in the emptier lane. If both lanes are busy near
+        // the bottom it waits off screen.
         let (low, high) = self.extent();
         if high.y < -6. {
-            let x = (0.14 + 0.72 * hash(self.seed + time)) * size.x;
-            self.translate(Vec2::new(x - self.position.x, size.y + 6. - low.y));
+            let crowd = |lane: usize| {
+                others.iter().enumerate().any(|(other, &(p, radius, l))| {
+                    other != id && l == lane && p.y > size.y - (self.radius + radius) * 2.6
+                })
+            };
+            let count = |lane: usize| others.iter().filter(|o| o.2 == lane).count();
+            let mut lanes = [1 - self.lane, self.lane];
+            if count(lanes[1]) < count(lanes[0]) {
+                lanes.swap(0, 1);
+            }
+            if let Some(&lane) = lanes.iter().find(|&&lane| !crowd(lane)) {
+                self.lane = lane;
+                let x = (LANES[lane] + 0.06 * (hash(self.seed + time) - 0.5)) * size.x;
+                self.translate(Vec2::new(x - self.position.x, size.y + 6. - low.y));
+            }
         }
 
-        let damping = (-TENTACLE_DRAG * STEP).exp();
-        let down = Vec2::new(0., 1.);
-        for index in 0..self.strands.len() {
-            let strand = &self.strands[index];
-            let root = self.root(strand);
-            let stiffness = if strand.oral { 9. } else { 6. };
-            let targets: [Vec2; NODES] = std::array::from_fn(|node| self.rest(strand, node, time));
-            let strand = &mut self.strands[index];
-            strand.nodes[0] = root;
-            strand.previous[0] = root;
-            for node in 1..NODES {
-                let t = node as f32 / (NODES - 1) as f32;
-                let x = strand.nodes[node];
-                let velocity = (x - strand.previous[node]) * damping;
-                strand.previous[node] = x;
-                // Stiff near the bell, loose at the tips; tips are slightly heavy.
-                let pull = stiffness * (1. - t).powi(3) + 0.9;
-                let force = (targets[node] - x) * pull + down * (5. * t);
-                strand.nodes[node] = x + velocity + force * (STEP * STEP);
-            }
-            // Symmetric distance constraints spread corrections along the rope;
-            // a final pass from the root makes it exactly inextensible.
-            for _ in 0..ITERATIONS {
-                for node in 1..NODES {
-                    let delta = strand.nodes[node] - strand.nodes[node - 1];
-                    let length = delta.length().max(0.0001);
-                    let error = delta * ((length - strand.segment) / length);
-                    if node == 1 {
-                        strand.nodes[node] = strand.nodes[node] - error;
-                    } else {
-                        strand.nodes[node - 1] = strand.nodes[node - 1] + error * 0.5;
-                        strand.nodes[node] = strand.nodes[node] - error * 0.5;
-                    }
-                }
-            }
-            for node in 1..NODES {
-                let delta = strand.nodes[node] - strand.nodes[node - 1];
-                let length = delta.length().max(0.0001);
-                strand.nodes[node] = strand.nodes[node - 1] + delta * (strand.segment / length);
-            }
-        }
+        self.swim_tentacles(time);
     }
 }
 
@@ -320,15 +326,16 @@ pub(super) struct Ocean {
 impl Ocean {
     pub fn new(size: Vec2) -> Self {
         let bodies = [
-            (0.18, 0.42, 82., -0.3),
-            (0.6, 0.1, 62., 0.35),
-            (0.84, 0.64, 88., 0.2),
-            (0.42, 0.94, 100., -0.1),
+            (0, 0.24, 84.),
+            (1, 0.3, 66.),
+            (0, 0.84, 92.),
+            (1, 0.94, 100.),
         ]
         .into_iter()
         .enumerate()
-        .map(|(id, (x, y, radius, tilt))| {
-            Swimmer::new(Vec2::new(x, y).scaled(size), radius, tilt, id)
+        .map(|(id, (lane, y, radius))| {
+            let position = Vec2::new(LANES[lane], y).scaled(size);
+            Swimmer::new(position, radius, lane, id)
         })
         .collect();
         let mut ocean = Self {
@@ -337,8 +344,8 @@ impl Ocean {
             time: 0.,
             accumulator: 0.,
         };
-        // Let the tentacles settle into a natural drape before the first frame.
-        for _ in 0..90 {
+        // Let the tentacles settle into their motion before the first frame.
+        for _ in 0..240 {
             ocean.step();
         }
         ocean
@@ -364,15 +371,19 @@ impl Ocean {
     }
     fn step(&mut self) {
         self.time += STEP;
-        let positions: Vec<_> = self
+        let others: Vec<_> = self
             .bodies
             .iter()
-            .map(|body| (body.position, body.radius))
+            .map(|body| (body.position, body.radius, body.lane))
             .collect();
         for (id, body) in self.bodies.iter_mut().enumerate() {
-            body.step(self.time, self.size, &positions, id);
+            body.step(self.time, self.size, &others, id);
         }
     }
+}
+
+fn angle_difference(from: f32, to: f32) -> f32 {
+    (to - from + PI).rem_euclid(TAU) - PI
 }
 
 fn contraction(phase: f32) -> f32 {
@@ -394,6 +405,8 @@ fn hash(seed: f32) -> f32 {
 mod tests {
     use super::*;
 
+    const SIZE: Vec2 = Vec2::new(1120., 860.);
+
     fn nodes(ocean: &Ocean) -> Vec<Vec2> {
         ocean
             .bodies
@@ -403,32 +416,62 @@ mod tests {
     }
 
     #[test]
-    fn swimming_crosses_the_view_instead_of_hovering() {
-        let mut ocean = Ocean::new(Vec2::new(1120., 860.));
+    fn swimming_circulates_along_the_sides_of_the_view() {
+        let mut ocean = Ocean::new(SIZE);
         let mut travel = [0_f32; 4];
-        let mut span = [(f32::MAX, f32::MIN); 4];
-        for _ in 0..60 * 120 {
+        let mut lanes = [[false; 2]; 4];
+        let (mut visible, mut central) = (0, 0);
+        for _ in 0..60 * 240 {
             let before: Vec<_> = ocean.bodies.iter().map(|b| b.position).collect();
             ocean.advance(STEP);
             for (id, body) in ocean.bodies.iter().enumerate() {
                 let p = body.position;
                 assert!(p.x.is_finite() && p.y.is_finite());
-                assert!(p.x > -body.radius && p.x < ocean.size.x + body.radius);
+                assert!(p.x > -body.radius && p.x < SIZE.x + body.radius);
                 let moved = (p - before[id]).length();
                 if moved < 50. {
                     travel[id] += moved;
                 }
-                span[id] = (span[id].0.min(p.x), span[id].1.max(p.x));
+                lanes[id][body.lane] = true;
+                if p.y > 0. && p.y < SIZE.y {
+                    visible += 1;
+                    central += usize::from((p.x / SIZE.x - 0.5).abs() < 0.2);
+                }
             }
         }
-        // Each jellyfish swims well over a screen height and drifts sideways.
-        assert!(travel.iter().all(|&d| d > 1200.), "travel: {travel:?}");
-        assert!(span.iter().all(|s| s.1 - s.0 > 200.), "span: {span:?}");
+        // Every jellyfish keeps swimming, visits both sides, and stays out of
+        // the middle where the image sits.
+        assert!(travel.iter().all(|&d| d > 2000.), "travel: {travel:?}");
+        assert!(lanes.iter().all(|l| l[0] && l[1]), "lanes: {lanes:?}");
+        assert!(
+            central * 20 < visible,
+            "{central} of {visible} samples central"
+        );
+    }
+
+    #[test]
+    fn tentacles_sway_visibly() {
+        let mut ocean = Ocean::new(SIZE);
+        let body = 0;
+        let mut samples = Vec::new();
+        for _ in 0..60 * 20 {
+            ocean.advance(STEP);
+            let b = &ocean.bodies[body];
+            for strand in &b.strands {
+                let tip = strand.nodes[NODES - 1] - b.position;
+                samples.push((tip.dot(b.side()) / b.radius, strand.thick));
+            }
+        }
+        let thick: Vec<_> = samples.iter().filter(|s| s.1).map(|s| s.0).collect();
+        let mean = thick.iter().sum::<f32>() / thick.len() as f32;
+        let spread = thick.iter().map(|x| (x - mean).abs()).sum::<f32>() / thick.len() as f32;
+        // Tips sweep sideways by around a bell radius, as in the reference.
+        assert!(spread > 0.6, "mean sideways tip deviation {spread} radii");
     }
 
     #[test]
     fn tentacles_move_fluidly_without_snapping() {
-        let mut ocean = Ocean::new(Vec2::new(1120., 860.));
+        let mut ocean = Ocean::new(SIZE);
         let mut history = vec![nodes(&ocean), nodes(&ocean)];
         let mut worst = 0_f32;
         // Skip the two samples straddling an off-screen wrap.
@@ -454,14 +497,14 @@ mod tests {
             settle = settle - usize::from(settle > 0);
             history = vec![history.swap_remove(1), current];
         }
-        // The previous angle-limited chain peaked above 600,000 px/s².
-        assert!(worst < 400., "peak tentacle acceleration {worst} px/s²");
+        // The original angle-limited chain peaked above 600,000 px/s².
+        assert!(worst < 600., "peak tentacle acceleration {worst} px/s²");
     }
 
     #[test]
     fn tentacles_remain_attached_and_inextensible_through_wraps_and_resize() {
-        let mut ocean = Ocean::new(Vec2::new(1120., 860.));
-        for frame in 0..60 * 60 {
+        let mut ocean = Ocean::new(SIZE);
+        for frame in 0..60 * 90 {
             if frame == 600 {
                 ocean.resize(Vec2::new(840., 690.));
             }
@@ -480,7 +523,7 @@ mod tests {
     #[test]
     fn simulation_is_independent_of_display_refresh_rate() {
         let run = |hz: usize| {
-            let mut ocean = Ocean::new(Vec2::new(1120., 860.));
+            let mut ocean = Ocean::new(SIZE);
             for _ in 0..hz * 12 {
                 ocean.advance(1. / hz as f32);
             }

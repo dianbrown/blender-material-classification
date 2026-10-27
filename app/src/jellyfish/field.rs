@@ -119,20 +119,20 @@ fn strands(field: &mut Field, body: &Swimmer, id: usize, time: f32) {
         let last = strand.nodes.len() - 1;
         for node in 0..last {
             let t = node as f32 / last as f32;
-            let (radius, light) = if strand.oral {
-                // Broad, ruffled curtains that taper toward the tip.
-                let ruffle = 0.78 + 0.22 * (t * 26. - time * 1.4 + strand_id as f32).sin();
+            let (radius, light) = if strand.thick {
+                // Broad, slightly ruffled ribbons that taper toward the tip.
+                let ruffle = 0.85 + 0.15 * (t * 22. - time * 1.3 + strand_id as f32).sin();
                 (
-                    body.radius * 0.075 * (1. - 0.6 * t) * ruffle,
-                    0.5 * (1. - t).powf(0.8) + 0.1,
+                    body.radius * 0.085 * (1. - 0.55 * t) * ruffle,
+                    0.6 * (1. - t).powf(0.45) + 0.1,
                 )
             } else {
                 // Fine filaments, fading toward the tip.
-                (1.2, 0.5 * (1. - t).powf(0.6) + 0.12)
+                (1.2, 0.42 * (1. - t).powf(0.6) + 0.1)
             };
             let ink = Ink {
                 light: light * body.depth,
-                faint: !strand.oral,
+                faint: !strand.thick,
                 key: strand_id * 3 + node + id * 7,
             };
             let a = strand.nodes[node.saturating_sub(1)];
@@ -163,11 +163,12 @@ fn bell(field: &mut Field, body: &Swimmer, id: usize) {
             if u.abs() >= 1. {
                 continue;
             }
-            let margin = 0.14 * (1. - u.powi(4)) + 0.025 * (u * 15.).cos();
+            // A rounded dome over short, nearly straight sides, like a helmet.
+            let margin = 0.3 * (1. - u.powi(6)) + 0.025 * (u * 15.).cos();
             let inside = if v <= 0. {
                 1. - (u * u + v * v).sqrt()
             } else {
-                (margin - v).min(1. - u.abs() - v * 0.6)
+                (margin - v).min(1. - u.abs() - v * 0.15)
             };
             let key =
                 ((u * 20.).floor() as i32 * 73 + (v * 9.).floor() as i32 * 137 + id as i32 * 29)
@@ -175,8 +176,8 @@ fn bell(field: &mut Field, body: &Swimmer, id: usize) {
             if inside <= 0. {
                 // A sparse dotted frill fringes the margin.
                 let below = v - margin;
-                if below > 0. && below < 0.24 && u.abs() < 0.94 && key % 3 != 0 {
-                    let light = 0.24 * (1. - below / 0.24) * body.depth;
+                if below > 0. && below < 0.16 && u.abs() < 0.94 && key % 3 != 0 {
+                    let light = 0.24 * (1. - below / 0.16) * body.depth;
                     field.put(col, row, light, key % FAINT, body.hue);
                 }
                 continue;
@@ -184,7 +185,7 @@ fn bell(field: &mut Field, body: &Swimmer, id: usize) {
             let edge = (inside * 9.).min(1.);
             let rim = (1. - inside * 4.).max(0.);
             let highlight = (1. - ((u + 0.3).powi(2) + (v + 0.55).powi(2)) / 0.3).max(0.);
-            let hollow = (1. - (u * u / 0.45 + (v - 0.08).powi(2) / 0.06)).max(0.);
+            let hollow = (1. - (u * u / 0.4 + (v - 0.2).powi(2) / 0.05)).max(0.);
             let canal = (u.atan2(-v + 0.15) * 4.5).cos().abs().powi(12);
             let light = (0.5 + highlight * 0.3 + rim * 0.22 + canal * 0.1 - hollow * 0.24
                 + body.contraction * 0.06)
