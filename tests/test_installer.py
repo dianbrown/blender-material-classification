@@ -65,14 +65,14 @@ def payload(tmp_path):
         "app/THIRD_PARTY_NOTICES.txt",
     ):
         put(source, name)
-    seal(source, release_version="0.5.0", release_status="release")
+    seal(source, release_version="0.6.0", release_status="release")
     icon = put(tmp_path, "icon.ico", ico_fixture())
     return source, icon
 
 
 def test_accepts_versioned_release_and_original_candidate(payload):
     source, _ = payload
-    assert ins.verify_package(source)["release_version"] == "0.5.0"
+    assert ins.verify_package(source)["release_version"] == "0.6.0"
     seal(source, release_status="candidate")
     assert ins.verify_package(source)["release_status"] == "candidate"
 
@@ -164,9 +164,9 @@ def test_symlink_rejected_before_directory_descent(payload, tmp_path):
 
 def test_native_and_icon_identity(payload, monkeypatch):
     source, icon = payload
-    monkeypatch.setattr(ins, "file_version", lambda _: "0.5.0.0")
+    monkeypatch.setattr(ins, "file_version", lambda _: "0.6.0.0")
     exe_hash, icon_hash = ins.sha256(source / ins.EXE), ins.sha256(icon)
-    assert ins.verify_identity(source, icon, exe_hash, icon_hash) == "0.5.0.0"
+    assert ins.verify_identity(source, icon, exe_hash, icon_hash) == "0.6.0.0"
     with pytest.raises(ValueError, match="SHA-256"):
         ins.verify_identity(source, icon, "0" * 64, icon_hash)
     with pytest.raises(ValueError, match="SHA-256"):
@@ -231,7 +231,7 @@ def fake_build(payload, tmp_path, monkeypatch, *, oversized=False, mutate=False)
     source, icon = payload
     compiler = put(tmp_path, "ISCC.exe")
     monkeypatch.setattr(ins, "compiler_version", lambda _: "7.1.0")
-    monkeypatch.setattr(ins, "file_version", lambda p: "7.1.0.0" if p == compiler else "0.5.0.0")
+    monkeypatch.setattr(ins, "file_version", lambda p: "7.1.0.0" if p == compiler else "0.6.0.0")
     if oversized:
         monkeypatch.setattr(ins, "ASSET_LIMIT", 4000)
 
@@ -318,7 +318,7 @@ def test_real_silent_install_uninstall_preserves_user_file(payload, tmp_path, mo
     code = tmp_path / "Fixture.cs"
     code.write_text(
         "using System.IO; using System.Reflection; "
-        '[assembly: AssemblyFileVersion("0.5.0.0")] '
+        '[assembly: AssemblyFileVersion("0.6.0.0")] '
         "class Fixture { static void Main() { File.WriteAllText("
         'Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "launched.txt"), "bad"); } }'
     )
@@ -334,7 +334,7 @@ def test_real_silent_install_uninstall_preserves_user_file(payload, tmp_path, mo
         check=True,
         capture_output=True,
     )
-    seal(source, release_version="0.5.0")
+    seal(source, release_version="0.6.0")
     prepare = ins.prepare_script
 
     def isolated_script(*args, **kwargs):

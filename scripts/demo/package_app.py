@@ -712,7 +712,7 @@ def main(argv=None):
         if command != "validate-inputs":
             sub.add_argument("--output", type=Path, required=True)
         if command == "build":
-            sub.add_argument("--release-version", help="Versioned release payload, e.g. 0.5.0")
+            sub.add_argument("--release-version", help="Versioned release payload, e.g. 0.6.0")
             sub.add_argument("--runtime", type=Path, required=True)
             sub.add_argument("--exe", type=Path, required=True)
             sub.add_argument("--native-notices", type=Path, required=True)

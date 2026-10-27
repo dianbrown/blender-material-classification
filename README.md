@@ -12,12 +12,12 @@ interface built with Rust GPUI and PyTorch.
 
 ## Install
 
-[Download Material Studio v0.5 for Windows](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.5).
+[Download Material Studio v0.6 for Windows](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.6).
 Save **all three files** in the same folder, keeping their names unchanged:
 
-- `MaterialStudio-0.5.0-windows-x64-Setup.exe`
-- `MaterialStudio-0.5.0-windows-x64-Setup-1.bin`
-- `MaterialStudio-0.5.0-windows-x64-Setup-2.bin`
+- `MaterialStudio-0.6.0-windows-x64-Setup.exe`
+- `MaterialStudio-0.6.0-windows-x64-Setup-1.bin`
+- `MaterialStudio-0.6.0-windows-x64-Setup-2.bin`
 
 Run the EXE, then launch Material Studio from the Start Menu. The installer
 includes **four trained models, 21 sample images, and the Python runtime**.

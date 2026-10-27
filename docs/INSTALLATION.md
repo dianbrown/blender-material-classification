@@ -1,10 +1,10 @@
-# Material Studio v0.5 for Windows
+# Material Studio v0.6 for Windows
 
-Download all three files from the v0.5 release assets into the same folder:
+Download all three files from the v0.6 release assets into the same folder:
 
-- `MaterialStudio-0.5.0-windows-x64-Setup.exe`
-- `MaterialStudio-0.5.0-windows-x64-Setup-1.bin`
-- `MaterialStudio-0.5.0-windows-x64-Setup-2.bin`
+- `MaterialStudio-0.6.0-windows-x64-Setup.exe`
+- `MaterialStudio-0.6.0-windows-x64-Setup-1.bin`
+- `MaterialStudio-0.6.0-windows-x64-Setup-2.bin`
 
 Keep the filenames unchanged and run the EXE. The BIN files are installation
 data, not separate programs. The split keeps each download below GitHub's
@@ -49,12 +49,12 @@ Python is needed on the **build host only**. The builder uses only the Python
 standard library. The portable package is built separately; see
 [DEMO_PACKAGING.md](DEMO_PACKAGING.md). Do not rebuild an installer from the old
 `dist/MaterialStudio-release` candidate. Use the completed final
-`dist/MaterialStudio-v0.5` package and the final icon from `app/assets/icon.ico`.
+`dist/MaterialStudio-v0.6` package and the final icon from `app/assets/icon.ico`.
 
 The builder requires explicit, independently established EXE and icon SHA-256
-values. It checks the native PE architecture and fixed file version `0.5.0.0`,
+values. It checks the native PE architecture and fixed file version `0.6.0.0`,
 the icon structure, every manifest file size/hash, and the exact package file
-inventory before compiling. Versioned manifests with `release_version=0.5.0`
+inventory before compiling. Versioned manifests with `release_version=0.6.0`
 are accepted, including `release_status=prepared-release`; no approval flag is
 required. The original manifest schema is also accepted when paired with the
 explicit final identity checks. No source files are changed or regenerated.
@@ -63,15 +63,15 @@ Run from the integrated repository in PowerShell:
 
 ```powershell
 $python = 'C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe'
-$source = 'C:/Users/dianb/blender-material-classification/dist/MaterialStudio-v0.5'
+$source = 'C:/Users/dianb/blender-material-classification/dist/MaterialStudio-v0.6'
 $icon = (Resolve-Path 'app/assets/icon.ico').Path
 $compiler = 'C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-7d26daf1/artifacts/installer-tools/Inno Setup 7/ISCC.exe'
 # Identity of the final native release supplied by its builder, not inferred from an old package:
-$exeHash = '34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2'
+$exeHash = '2c73a10c9946dfa89564a056c88eb06a1266feefa7844943395172e0d8d1f517'
 # The reviewed icon in the integrated release checkout:
 $iconHash = (Get-FileHash -LiteralPath $icon -Algorithm SHA256).Hash.ToLowerInvariant()
 & $python scripts/demo/build_installer.py `
-  --source $source --output dist/installer-v0.5 `
+  --source $source --output dist/installer-v0.6 `
   --icon $icon --exe-sha256 $exeHash --icon-sha256 $iconHash `
   --compiler $compiler --layout auto
 if ($LASTEXITCODE -ne 0) { throw 'Installer build failed; inspect the compiler log' }
@@ -162,7 +162,7 @@ current user's Windows uninstall registration for Material Studio, so use a
 test Windows account or VM if another Material Studio installation exists.
 
 ```powershell
-$setup = (Resolve-Path 'dist/installer-v0.5/release/MaterialStudio-0.5.0-windows-x64-Setup.exe').Path
+$setup = (Resolve-Path 'dist/installer-v0.6/release/MaterialStudio-0.6.0-windows-x64-Setup.exe').Path
 $qa = Join-Path $env:LOCALAPPDATA ('MaterialStudio-QA-' + [guid]::NewGuid())
 $installLog = Join-Path $env:TEMP ('MaterialStudio-install-' + [guid]::NewGuid() + '.log')
 $p = Start-Process -FilePath $setup -WindowStyle Hidden -Wait -PassThru `

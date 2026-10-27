@@ -22,7 +22,7 @@ from pathlib import Path, PurePosixPath, PureWindowsPath
 REPO = Path(__file__).resolve().parents[2]
 MANIFEST = "package-manifest.json"
 EXE = "MaterialStudio.exe"
-VERSION = "0.5.0"
+VERSION = "0.6.0"
 ASSET_LIMIT = 2 * 1024**3  # GitHub requires strictly less than this.
 MODELS = {"dinov2_finetuned", "frozen_control", "frozen_selected", "resnet_fixed"}
 RESERVED = {"materialstudio.ico", "materialstudio-installation.json"}
