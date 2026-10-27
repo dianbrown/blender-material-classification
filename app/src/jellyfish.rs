@@ -1,29 +1,36 @@
-//! A transparent, paint-only ASCII backdrop for the classification page.
-//!
-//! Adapts the supplied ascii-sharks renderer's silhouette sampling, stable
-//! character texture and quantized shading to jellyfish. Only occupied body
-//! cells are painted: no background grid, cell rectangles, wake or particles.
+//! Native ASCII jellyfish, painted without a background grid or cell tiles.
+//! Silhouette sampling and articulated motion adapt the supplied ascii-sharks
+//! reference; the swimming bell and trailing oral arms follow the video.
+
+mod motion;
 
 use gpui::{prelude::*, *};
-use std::{f32::consts::PI, rc::Rc, time::Instant};
+use motion::{Ocean, Vec2};
+use std::{
+    cell::RefCell,
+    rc::Rc,
+    time::{Duration, Instant},
+};
 
-const GLYPHS: &[u8] = b".,:;+=xXoO08";
-const SHADES: usize = 7;
-const CELL_X: f32 = 5.8;
-const CELL_Y: f32 = 8.0;
+const GLYPHS: &[u8] = b".,:;t%SXo08#@";
+const SHADES: usize = 12;
+const CELL_X: f32 = 6.;
+const CELL_Y: f32 = 8.;
 
 pub struct Jellyfish {
-    time: f32,
     last_frame: Instant,
+    ocean: Rc<RefCell<Ocean>>,
     atlas: Option<Rc<Vec<ShapedLine>>>,
+    next_frame: Option<Task<()>>,
 }
 
 impl Jellyfish {
     pub fn new() -> Self {
         Self {
-            time: 0.,
             last_frame: Instant::now(),
+            ocean: Rc::new(RefCell::new(Ocean::new(Vec2::new(1120., 860.)))),
             atlas: None,
+            next_frame: None,
         }
     }
 }
@@ -31,35 +38,47 @@ impl Jellyfish {
 impl Render for Jellyfish {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let now = Instant::now();
-        if window.is_window_active() && !cx.reduce_motion() {
-            // Clamp after returning from another page or a suspended window so
-            // the creatures resume in place instead of jumping across the page.
-            self.time += now.duration_since(self.last_frame).as_secs_f32().min(0.05);
-            window.request_animation_frame();
-        }
+        let dt = if window.is_window_active() && !cx.reduce_motion() {
+            // Cap background work at 30 Hz, independently of a 144/240 Hz
+            // monitor. The pending task is dropped with this view.
+            if self.next_frame.is_none() {
+                let executor = cx.background_executor().clone();
+                self.next_frame = Some(cx.spawn(async move |this, cx| {
+                    executor.timer(Duration::from_millis(33)).await;
+                    let _ = this.update(cx, |this, cx| {
+                        this.next_frame = None;
+                        cx.notify();
+                    });
+                }));
+            }
+            now.duration_since(self.last_frame).as_secs_f32().min(0.05)
+        } else {
+            0.
+        };
         self.last_frame = now;
-        let time = self.time;
+        let ocean = self.ocean.clone();
         let atlas = self
             .atlas
             .get_or_insert_with(|| {
-                // Shape the small glyph palette once; painting never builds a tree
-                // of individual text elements or re-shapes strings every frame.
+                // Reuse shaped glyphs; no per-character elements or per-frame text shaping.
                 Rc::new(
                     (0..SHADES)
                         .flat_map(|shade| {
                             GLYPHS.iter().map(move |&glyph| {
-                                let mut color = rgb(0xa4ccdc);
-                                color.a = 0.10 + shade as f32 * 0.075;
-                                let text: SharedString = (glyph as char).to_string().into();
+                                let mut color = rgb(0xb2d9e6);
+                                color.a = 0.045 + shade as f32 * 0.073;
                                 let run = TextRun {
                                     len: 1,
-                                    font: font("Consolas"),
+                                    font: Font {
+                                        weight: FontWeight::BOLD,
+                                        ..font("Consolas")
+                                    },
                                     color: color.into(),
                                     background_color: None,
                                     underline: None,
                                     strikethrough: None,
                                 };
-                                (text, run)
+                                ((glyph as char).to_string().into(), run)
                             })
                         })
                         .map(|(text, run)| {
@@ -71,10 +90,43 @@ impl Render for Jellyfish {
             .clone();
 
         canvas(
-            |_, _, _| (),
-            move |bounds, _, window, cx| {
+            move |bounds, _, _| {
+                let mut ocean = ocean.borrow_mut();
+                ocean.resize(Vec2::new(
+                    bounds.size.width.into(),
+                    bounds.size.height.into(),
+                ));
+                ocean.advance(dt);
+                rasterize(&ocean)
+            },
+            move |bounds, field, window, cx| {
                 window.with_content_mask(Some(ContentMask { bounds }), |window| {
-                    paint_jellyfish(bounds, time, &atlas, window, cx);
+                    for (index, cell) in field.cells.iter().enumerate() {
+                        if cell.light < 0.045 {
+                            continue;
+                        }
+                        let shade = (cell.light * (SHADES - 1) as f32)
+                            .clamp(0., (SHADES - 1) as f32)
+                            as usize;
+                        let glyph = if cell.light < 0.16 {
+                            cell.key % 4
+                        } else {
+                            4 + cell.key % (GLYPHS.len() - 4)
+                        };
+                        let position = bounds.origin
+                            + point(
+                                px((index % field.cols) as f32 * CELL_X),
+                                px((index / field.cols) as f32 * CELL_Y),
+                            );
+                        let _ = atlas[shade * GLYPHS.len() + glyph].paint(
+                            position,
+                            px(CELL_Y),
+                            TextAlign::Left,
+                            None,
+                            window,
+                            cx,
+                        );
+                    }
                 });
             },
         )
@@ -82,118 +134,134 @@ impl Render for Jellyfish {
     }
 }
 
-fn paint_jellyfish(
-    bounds: Bounds<Pixels>,
-    time: f32,
-    atlas: &[ShapedLine],
-    window: &mut Window,
-    cx: &mut App,
-) {
-    let width = f32::from(bounds.size.width);
-    let height = f32::from(bounds.size.height);
-    // Positions leave the image in the middle as the visual focus. All three
-    // have independent phases, depths and proportions, but no random respawns.
-    for (index, (anchor_x, anchor_y, radius, depth)) in [
-        (0.12, 0.20, 70., 0.85),
-        (0.88, 0.39, 84., 1.0),
-        (0.18, 0.73, 54., 0.65),
-    ]
-    .into_iter()
-    .enumerate()
-    {
-        let phase = index as f32 * 2.3;
-        let pulse = (time * 1.15 + phase).sin();
-        let radius = radius * (width / 1120.).clamp(0.78, 1.15);
-        let rx = radius * (1. + 0.075 * pulse);
-        let ry = radius * (0.64 - 0.045 * pulse);
-        let x = width * anchor_x + (time * 0.12 + phase).sin() * 23.;
-        let y = height * anchor_y + (time * 0.17 + phase).cos() * 22. - pulse * 3.;
-        let tilt = (time * 0.16 + phase).sin() * 0.18;
-        let (sin, cos) = tilt.sin_cos();
+#[derive(Clone, Copy, Default)]
+struct Cell {
+    light: f32,
+    key: usize,
+}
 
-        // A body-local lattice travels with each animal, as in the shark
-        // reference. Empty cells remain fully transparent.
-        let columns = (rx * 1.65 / CELL_X).ceil() as i32;
-        let rows = (radius * 3.3 / CELL_Y).ceil() as i32;
-        for row in -((ry / CELL_Y).ceil() as i32)..rows {
-            for col in -columns..=columns {
-                let local_x = col as f32 * CELL_X;
-                let local_y = row as f32 * CELL_Y;
-                let strength = sample(local_x, local_y, rx, ry, radius, time, phase);
-                if strength <= 0. {
-                    continue;
-                }
-                let key = (col * 73 + row * 137 + index as i32 * 29).unsigned_abs() as usize;
-                let shimmer = 0.92 + 0.08 * (time * 0.7 + key as f32 * 0.31).sin();
-                let level = (strength * depth * shimmer * SHADES as f32)
-                    .clamp(0., (SHADES - 1) as f32) as usize;
-                let glyph = if strength < 0.2 {
-                    key % 4
-                } else {
-                    4 + key % (GLYPHS.len() - 4)
-                };
-                let position = bounds.origin
-                    + point(
-                        px(x + local_x * cos - local_y * sin),
-                        px(y + local_x * sin + local_y * cos),
-                    );
-                let _ = atlas[level * GLYPHS.len() + glyph].paint(
-                    position,
-                    px(CELL_Y),
-                    TextAlign::Left,
-                    None,
-                    window,
-                    cx,
-                );
+struct Field {
+    cols: usize,
+    rows: usize,
+    cells: Vec<Cell>,
+}
+
+impl Field {
+    fn new(size: Vec2) -> Self {
+        let cols = (size.x / CELL_X).ceil() as usize;
+        let rows = (size.y / CELL_Y).ceil() as usize;
+        Self {
+            cols,
+            rows,
+            cells: vec![Cell::default(); cols * rows],
+        }
+    }
+
+    fn put(&mut self, col: usize, row: usize, light: f32, key: usize) {
+        let cell = &mut self.cells[row * self.cols + col];
+        if light > cell.light {
+            *cell = Cell { light, key };
+        }
+    }
+
+    fn segment(&mut self, a: Vec2, b: Vec2, radius: f32, light: f32, key: usize) {
+        let padding = radius + CELL_X;
+        let left = ((a.x.min(b.x) - padding) / CELL_X).max(0.) as usize;
+        let right = (((a.x.max(b.x) + padding) / CELL_X).ceil() as usize).min(self.cols);
+        let top = ((a.y.min(b.y) - padding) / CELL_Y).max(0.) as usize;
+        let bottom = (((a.y.max(b.y) + padding) / CELL_Y).ceil() as usize).min(self.rows);
+        let delta = b - a;
+        let length_squared = delta.dot(delta).max(0.001);
+        for row in top..bottom {
+            for col in left..right {
+                let p = Vec2::new((col as f32 + 0.5) * CELL_X, (row as f32 + 0.5) * CELL_Y);
+                let t = ((p - a).dot(delta) / length_squared).clamp(0., 1.);
+                let distance = (p - (a + delta * t)).length();
+                let coverage = ((radius + 3. - distance) / 4.).clamp(0., 1.);
+                self.put(col, row, light * coverage, key + col * 13 + row * 7);
             }
         }
     }
 }
 
-/// Sample a domed bell with a scalloped rim, translucent ribs and trailing
-/// oral arms / tentacles. Coordinates follow the animal, not the window.
-fn sample(x: f32, y: f32, rx: f32, ry: f32, radius: f32, time: f32, phase: f32) -> f32 {
-    let u = x / rx;
-    let v = y / ry;
-    let rim = 0.17 + 0.045 * (u * PI * 5. + phase).cos();
-    if v <= rim && v >= -1. && u.abs() < 1. {
-        let dome = u * u + v.min(0.).powi(2);
-        if dome < 1. {
-            let edge = ((dome - 0.72) / 0.28).clamp(0., 1.);
-            let lip = (1. - (v - rim).abs() / 0.17).max(0.);
-            let ribs = (u * PI * 4. + v * 1.4).cos().abs().powi(8);
-            let light = (1. - ((u + 0.28).powi(2) + (v + 0.45).powi(2))).max(0.);
-            return (0.22 + edge * 0.30 + lip * 0.35 + ribs * 0.16 + light * 0.15).min(1.);
+fn rasterize(ocean: &Ocean) -> Field {
+    let mut field = Field::new(ocean.size);
+    for (id, body) in ocean.bodies.iter().enumerate() {
+        let bell = body.bell();
+        // Oral arms are broad, ruffled ribbons; the marginal tentacles are
+        // long filaments. Both use the same simulated, world-space chains.
+        for (strand_id, strand) in body.strands.iter().enumerate() {
+            for node in 0..strand.nodes.len() - 1 {
+                let progress = node as f32 / (strand.nodes.len() - 1) as f32;
+                let ruffle = if strand.oral {
+                    0.75 + 0.25 * (progress * 39. - ocean.time * 1.8 + strand_id as f32).sin()
+                } else {
+                    1.
+                };
+                let radius = if strand.oral {
+                    body.radius * 0.075 * ruffle
+                } else {
+                    1.6
+                };
+                let radius = radius * (1. - progress * 0.82);
+                let light =
+                    body.depth * (1. - progress).powf(0.5) * if strand.oral { 0.88 } else { 0.63 };
+                let a = strand.nodes[node.saturating_sub(1)];
+                let b = strand.nodes[node];
+                let c = strand.nodes[node + 1];
+                let d = strand.nodes[(node + 2).min(strand.nodes.len() - 1)];
+                let mut previous = b;
+                for sub in 1..=3 {
+                    let next = spline(a, b, c, d, sub as f32 / 3.);
+                    field.segment(
+                        previous,
+                        next,
+                        radius,
+                        light,
+                        id * 431 + strand_id * 79 + node * 11,
+                    );
+                    previous = next;
+                }
+            }
         }
-    }
 
-    let length = y - ry * 0.17;
-    if length < 0. {
-        return 0.;
-    }
-    let mut strength: f32 = 0.;
-    for strand in 0..9 {
-        let spread = (strand as f32 - 4.) / 4.;
-        let strand_phase = strand as f32 * 1.73 + phase;
-        let reach = radius * (1.8 + 0.8 * strand_phase.sin().abs());
-        let progress = length / reach;
-        if progress > 1. {
-            continue;
+        let reach = bell.width + bell.height;
+        let left = ((body.position.x - reach) / CELL_X).max(0.) as usize;
+        let right = (((body.position.x + reach) / CELL_X).ceil() as usize).min(field.cols);
+        let top = ((body.position.y - reach) / CELL_Y).max(0.) as usize;
+        let bottom = (((body.position.y + reach) / CELL_Y).ceil() as usize).min(field.rows);
+        for row in top..bottom {
+            for col in left..right {
+                let p = Vec2::new((col as f32 + 0.5) * CELL_X, (row as f32 + 0.5) * CELL_Y);
+                let relative = p - body.position;
+                let x = relative.dot(body.side());
+                let y = relative.dot(body.tail());
+                let u = x / bell.width;
+                let v = y / bell.height;
+                let rim = 0.14 + (u * 16.).cos() * 0.035;
+                let ellipse = u * u + v.min(0.).powi(2);
+                if u.abs() >= 1. || v > rim || ellipse > 1. {
+                    continue;
+                }
+                let edge = ((1. - ellipse) * 12.).clamp(0., 1.);
+                let lip = (1. - (v - rim).abs() / 0.16).max(0.);
+                let rib = (u * 13. + v * 1.6).cos().abs().powi(10);
+                let highlight = (1. - (u + 0.32).powi(2) - (v + 0.48).powi(2)).max(0.);
+                let light = (0.32 + highlight * 0.36 + rib * 0.15 + lip * 0.30) * edge * body.depth;
+                // Texture sticks to the deforming bell, not to the screen.
+                let key = ((u * 28.) as i32 * 73 + (v * 19.) as i32 * 137 + id as i32 * 29)
+                    .unsigned_abs() as usize;
+                field.put(col, row, light, key);
+            }
         }
-        let sway = (progress * 7. - time * 1.05 + strand_phase).sin();
-        let drift = (progress * 3. - time * 0.55 + phase).sin();
-        let center = spread * rx * (0.77 - progress * 0.15)
-            + sway * radius * (0.025 + progress * 0.14)
-            + drift * radius * progress * 0.23;
-        let oral_arm = strand == 3 || strand == 5;
-        let thickness = if oral_arm {
-            radius * 0.105 * (1. - progress * 0.72) * (0.8 + 0.2 * (progress * 24. + time).sin())
-        } else {
-            3.8 * (1. - progress * 0.5)
-        };
-        let coverage = (1. - (x - center).abs() / (thickness + 2.)).max(0.);
-        let fade = (1. - progress).powf(0.65);
-        strength = strength.max(coverage * fade * if oral_arm { 0.75 } else { 0.6 });
     }
-    strength
+    field
+}
+
+fn spline(a: Vec2, b: Vec2, c: Vec2, d: Vec2, t: f32) -> Vec2 {
+    (b * 2.
+        + (c - a) * t
+        + (a * 2. - b * 5. + c * 4. - d) * (t * t)
+        + (b * 3. - a - c * 3. + d) * (t * t * t))
+        * 0.5
 }
