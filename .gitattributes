@@ -7,7 +7,10 @@
 /metadata/v3_holdout/** text eol=lf
 /blender/scripts/v3/** text eol=lf
 /reports/results/v3/** text eol=lf
+/reports/v3/** text eol=lf
 /reports/V3*.md text eol=lf
+/notebooks/05_v3_results.ipynb text eol=lf
+/requirements-notebook.txt text eol=lf
 /requirements-v3-lock.txt text eol=lf
 *.png binary
 *.pdf binary
