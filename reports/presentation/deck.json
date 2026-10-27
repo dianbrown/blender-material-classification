@@ -1318,7 +1318,7 @@
     {
       "title": "Efficiency and model recommendation",
       "seconds": 45,
-      "notes": "On the recorded RTX 4070 Laptop GPU, ResNet has the lowest warm batch-one median latency. The primary is slower because it uses multiple backbone passes. Required storage includes the backbones, not just the small classifier head. Timing starts from predecoded RGB and includes preprocessing and probabilities, but excludes disk reading and decoding. These are CUDA measurements, not classroom CPU measurements. Keep frozen fusion as the preselected study result. Fine-tuned DINOv2 is a promising next deployment candidate because it has higher observed accuracy and lower measured latency than the primary, but it needs an independently planned confirmation. Choose ResNet only if the speed trade-off is acceptable.",
+      "notes": "On the recorded RTX 4070 Laptop GPU, ResNet has the lowest warm batch-one median latency. The primary is slower because it uses multiple backbone passes. Required storage includes the backbones, not just the small classifier head. Timing starts from predecoded RGB and includes preprocessing and probabilities, but excludes disk reading and decoding. These are CUDA measurements, not classroom CPU measurements. Provisionally recommend fine-tuned DINOv2 for classroom use with comparable renders; retain fusion as the predeclared study primary; independently confirm before broader deployment. DINOv2 has higher observed accuracy and lower measured latency than the primary, but the paired uncertainty does not establish superiority. Choose ResNet only if the speed trade-off is acceptable.",
       "sources": [
         "reports/results/v3/benchmarks/frozen_selected/benchmark.json",
         "reports/results/v3/benchmarks/frozen_control/benchmark.json",
@@ -1369,12 +1369,12 @@
         },
         {
           "kind": "text",
-          "text": "Retain frozen fusion as the primary study model.\nConfirm DINOv2 on new sources before a deployment decision.",
+          "text": "Provisionally recommend fine-tuned DINOv2 for classroom use\nwith comparable renders; retain fusion as the predeclared study primary;\nindependently confirm before broader deployment.",
           "x": 48,
-          "y": 357,
+          "y": 345,
           "w": 864,
-          "h": 80,
-          "size": 25,
+          "h": 108,
+          "size": 21,
           "color": "20364A",
           "bold": true
         },

@@ -1,0 +1,20 @@
+{
+  "baseline_commit": "89044add86b8aaa8723ce7ba0934925ec04c02f4",
+  "changed_slide_specifications": [
+    11
+  ],
+  "changed_powerpoint_pngs": [
+    11
+  ],
+  "changed_pdf_pages_pixel_comparison": [
+    11
+  ],
+  "unaffected_pages_pixel_identical": 13,
+  "slide_11_metrics_table_unchanged": true,
+  "all_chart_xml_and_workbook_contents_unchanged": true,
+  "recommendation_consistent_in_slide_pdf_notes_and_guide": true,
+  "powerpoint_com_export_succeeded": true,
+  "slide_11_powerpoint_and_pdf_visually_inspected": true,
+  "member_and_author_fields_blank": true,
+  "material_studio_ui_used": false
+}

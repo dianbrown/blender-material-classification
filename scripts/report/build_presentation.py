@@ -1164,10 +1164,11 @@ def main():
             "not just the small classifier head. Timing starts from predecoded "
             "RGB and includes preprocessing and probabilities, but excludes disk "
             "reading and decoding. These are CUDA measurements, not classroom CPU"
-            " measurements. Keep frozen fusion as the preselected study result. "
-            "Fine-tuned DINOv2 is a promising next deployment candidate because "
-            "it has higher observed accuracy and lower measured latency than the "
-            "primary, but it needs an independently planned confirmation. Choose "
+            " measurements. Provisionally recommend fine-tuned DINOv2 for classroom use "
+            "with comparable renders; retain fusion as the predeclared study primary; "
+            "independently confirm before broader deployment. DINOv2 has higher "
+            "observed accuracy and lower measured latency than the primary, but the "
+            "paired uncertainty does not establish superiority. Choose "
             "ResNet only if the speed trade-off is acceptable."
         ),
         [f"reports/results/v3/benchmarks/{m}/benchmark.json" for m in models],
@@ -1187,14 +1188,15 @@ def main():
     text(
         s,
         (
-            "Retain frozen fusion as the primary study model.\nConfirm DINOv2 on "
-            "new sources before a deployment decision."
+            "Provisionally recommend fine-tuned DINOv2 for classroom use\n"
+            "with comparable renders; retain fusion as the predeclared study primary;\n"
+            "independently confirm before broader deployment."
         ),
         48,
-        357,
+        345,
         864,
-        80,
-        25,
+        108,
+        21,
         bold=True,
     )
     text(

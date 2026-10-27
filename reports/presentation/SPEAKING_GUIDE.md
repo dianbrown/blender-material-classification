@@ -104,7 +104,7 @@ Sources:
 
 ## 11. Efficiency and model recommendation (45 seconds)
 
-On the recorded RTX 4070 Laptop GPU, ResNet has the lowest warm batch-one median latency. The primary is slower because it uses multiple backbone passes. Required storage includes the backbones, not just the small classifier head. Timing starts from predecoded RGB and includes preprocessing and probabilities, but excludes disk reading and decoding. These are CUDA measurements, not classroom CPU measurements. Keep frozen fusion as the preselected study result. Fine-tuned DINOv2 is a promising next deployment candidate because it has higher observed accuracy and lower measured latency than the primary, but it needs an independently planned confirmation. Choose ResNet only if the speed trade-off is acceptable.
+On the recorded RTX 4070 Laptop GPU, ResNet has the lowest warm batch-one median latency. The primary is slower because it uses multiple backbone passes. Required storage includes the backbones, not just the small classifier head. Timing starts from predecoded RGB and includes preprocessing and probabilities, but excludes disk reading and decoding. These are CUDA measurements, not classroom CPU measurements. Provisionally recommend fine-tuned DINOv2 for classroom use with comparable renders; retain fusion as the predeclared study primary; independently confirm before broader deployment. DINOv2 has higher observed accuracy and lower measured latency than the primary, but the paired uncertainty does not establish superiority. Choose ResNet only if the speed trade-off is acceptable.
 
 Sources:
 - reports/results/v3/benchmarks/frozen_selected/benchmark.json

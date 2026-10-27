@@ -15,3 +15,9 @@ The delivered deck has consistent titles and footers, readable tables, labelled 
 The skill's Artifact Tool import step could not run because its runtime and workspace dependency loader are unavailable on this host. Native PowerPoint opening, rendering and edit/save/reopen checks were used, together with the skill's independent package, geometry and chart validators. Google Slides and LibreOffice compatibility were not tested.
 
 Material Studio itself was not tested during this task. The parent must verify the actual app navigation, live inference, loading and stale-result behaviour on the classroom device before rehearsal sign-off. The guide provides a stored-results fallback and prohibits presenting cached predictions as live inference.
+
+## Classroom recommendation correction
+
+Slide 11, its embedded notes and the speaking guide now provisionally recommend fine-tuned DINOv2 for classroom use with comparable renders, retain fusion as the predeclared study primary, and require independent confirmation before broader deployment. PowerPoint COM rebuilt and exported the deck successfully. The updated slide and its PDF page were inspected at full size and have no observed clipping or overlap.
+
+Compared with commit `89044ad`, only slide 11 changes in the content specification, PowerPoint PNGs and PDF page pixels. The other 13 PDF pages are pixel-identical at 1600 x 900, and their PowerPoint PNGs are byte-identical. The slide 11 metrics table, all chart XML and all embedded workbook contents are unchanged. Author fields remain blank. Standard validation and Ruff checks pass. `recommendation_update.json` records these comparisons. No Material Studio UI interaction occurred.
