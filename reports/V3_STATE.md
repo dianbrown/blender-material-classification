@@ -227,3 +227,20 @@ models and rejects incomplete outputs rather than resuming them.
 Latest GPU milestone: ResNet 2/5 outer folds complete, 20/50 fixed epochs;
 fold1 took473.59 seconds and fold2 started. No failures/skipped updates and no
 fresh scores. Do not adjust epochs or select a checkpoint from outer results.
+
+Internal measured report preview complete, and report-only layout fixes merged
+as46450f3. Parent reran report/assembly tests:75 pass. Preview:
+`artifacts/v3/report_preview/report.pdf` (21pages; body through14), with
+`qa/verification.json` recording all-page rendered inspection. Assembly spec:
+`artifacts/v3/report_preview_inputs/assembly.json`. Agent inspected all21pages;
+parent additionally inspected pages1,6,11. It remains preliminary and fresh
+endpoint unavailable; never deliver it as the completed final report.
+
+For final editorial pass: replace preliminary title/footer and pending prose
+only when actual final evidence exists. Prefer human-readable metric labels
+(Macro F1, Accuracy) and endpoint names over raw keys such as nested_oof or
+not_available. Move repeated raw evidence paths out of abstract/main prose into
+captions/appendix references where possible, retaining full hashed inventory.
+Main narrative should interpret measured errors/uncertainty and architecture
+tradeoffs, not read like a tool status log. Include final neural histories,
+three-architecture comparison, fresh endpoint and fixed corruption results.
