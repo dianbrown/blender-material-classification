@@ -88,14 +88,25 @@ impl Studio {
         content
     }
     fn confusion(&self, model: &Model) -> Div {
-        let mut matrix = div().flex().flex_col().gap_1();
-        let mut labels = div().flex().gap_1().child(div().w(px(74.)));
+        let mut matrix = div().flex().flex_col().flex_shrink_0().gap_1();
+        let mut labels = div()
+            .flex()
+            .items_center()
+            .h(px(28.))
+            .min_h(px(28.))
+            .flex_shrink_0()
+            .gap_1()
+            .child(div().w(px(74.)).flex_shrink_0());
         for class in CLASSES {
             labels = labels.child(
                 div()
                     .flex_1()
                     .min_w_0()
-                    .text_center()
+                    .h_full()
+                    .flex()
+                    .items_center()
+                    .justify_center()
+                    .line_height(px(20.))
                     .text_xs()
                     .text_color(rgb(MUTED))
                     .child(title(class)),
@@ -106,6 +117,7 @@ impl Studio {
             let sum = row.iter().sum::<u64>().max(1) as f64;
             let mut cells = div()
                 .flex()
+                .flex_shrink_0()
                 .gap_1()
                 .items_center()
                 .child(div().w(px(74.)).text_sm().child(title(CLASSES[i])));
@@ -186,19 +198,26 @@ impl Studio {
                         div()
                             .id((SharedString::from(format!("gallery-{i}")), j))
                             .w(px(145.))
+                            .flex()
+                            .flex_col()
+                            .flex_shrink_0()
                             .cursor_pointer()
                             .rounded_lg()
                             .overflow_hidden()
                             .border_1()
                             .border_color(rgb(BORDER))
                             .bg(rgb(0x111b25))
+                            .child(thumbnail(path.clone(), 115.))
                             .child(
-                                img(path.clone())
-                                    .w_full()
-                                    .h(px(115.))
-                                    .object_fit(ObjectFit::Cover),
+                                div()
+                                    .px_2()
+                                    .py_2()
+                                    .min_h(px(48.))
+                                    .flex_shrink_0()
+                                    .text_xs()
+                                    .line_height(px(16.))
+                                    .child(label.clone()),
                             )
-                            .child(div().p_2().text_xs().child(label.clone()))
                             .on_click(cx.listener(move |s, _, _, cx| {
                                 s.choose_image(path.clone(), label.clone(), cx);
                                 s.page = Page::Classify;
@@ -389,6 +408,25 @@ fn panel() -> Div {
         .border_1()
         .border_color(rgb(BORDER))
 }
+
+// Keep intrinsic image aspect ratios out of the card's measured height. The
+// image paints inside this fixed viewport; captions retain their own space.
+fn thumbnail(path: PathBuf, height: f32) -> Div {
+    div()
+        .relative()
+        .w_full()
+        .h(px(height))
+        .min_h(px(height))
+        .flex_shrink_0()
+        .overflow_hidden()
+        .child(
+            img(path)
+                .absolute()
+                .inset_0()
+                .size_full()
+                .object_fit(ObjectFit::Cover),
+        )
+}
 fn muted(text: impl Into<SharedString>) -> Div {
     div().text_sm().text_color(rgb(MUTED)).child(text.into())
 }
@@ -437,7 +475,7 @@ fn button(
 fn model_short(id: &str) -> &'static str {
     match id {
         "frozen_selected" => "DINO + ConvNeXt",
-        "frozen_control" => "Frozen DINOv2",
+        "frozen_control" => "Frozen ConvNeXt",
         "resnet_fixed" => "ResNet-50",
         _ => "Fine-tuned DINOv2",
     }
@@ -530,7 +568,9 @@ impl Studio {
                     self.error = Some(message);
                 }
                 Event::Finished { id, result } => {
-                    self.ready = result.is_ok();
+                    self.ready = result
+                        .as_ref()
+                        .map_or_else(|error| !error.requires_restart(), |_| true);
                     self.status = if self.ready {
                         "Local inference ready"
                     } else {
@@ -546,9 +586,7 @@ impl Studio {
                                 self.ready = true;
                             }
                             Err(e) => {
-                                self.error = Some(e);
-                                self.ready = false;
-                                self.status = "Retry local inference".into();
+                                self.error = Some(e.to_string());
                             }
                         }
                     }
@@ -986,19 +1024,28 @@ impl Studio {
                             .id(("sample", i))
                             .flex_1()
                             .min_w_0()
+                            .flex()
+                            .flex_col()
+                            .min_h(px(120.))
                             .rounded_lg()
                             .overflow_hidden()
                             .border_1()
                             .border_color(rgb(if selected { ACCENT } else { BORDER }))
                             .cursor_pointer()
                             .bg(rgb(PANEL))
+                            .child(thumbnail(path.clone(), 80.))
                             .child(
-                                img(path.clone())
-                                    .w_full()
-                                    .h(px(80.))
-                                    .object_fit(ObjectFit::Cover),
+                                div()
+                                    .px_2()
+                                    .h(px(38.))
+                                    .min_h(px(38.))
+                                    .flex_shrink_0()
+                                    .flex()
+                                    .items_center()
+                                    .text_sm()
+                                    .line_height(px(20.))
+                                    .child(title(class)),
                             )
-                            .child(div().px_2().py_2().text_sm().child(title(class)))
                             .on_click(cx.listener(move |s, _, _, cx| {
                                 s.choose_image(path.clone(), label.clone(), cx)
                             })),
@@ -1015,5 +1062,15 @@ impl Studio {
                     .child(muted("Development examples · labels are ground truth")),
             )
             .child(samples)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::model_short;
+
+    #[test]
+    fn frozen_control_label_identifies_convnext() {
+        assert_eq!(model_short("frozen_control"), "Frozen ConvNeXt");
     }
 }

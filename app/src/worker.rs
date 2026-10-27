@@ -62,8 +62,30 @@ pub enum Event {
     Failed(String),
     Finished {
         id: String,
-        result: Result<Prediction, String>,
+        result: Result<Prediction, WorkerError>,
     },
+}
+
+/// A request rejection is a valid reply from a healthy worker. Only a broken
+/// transport or protocol requires discarding the process and its cached models.
+#[derive(Debug)]
+pub enum WorkerError {
+    Rejected { code: String, message: String },
+    Connection(String),
+}
+
+impl WorkerError {
+    pub fn requires_restart(&self) -> bool {
+        matches!(self, Self::Connection(_))
+    }
+}
+
+impl std::fmt::Display for WorkerError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Rejected { message, .. } | Self::Connection(message) => f.write_str(message),
+        }
+    }
 }
 enum Request {
     Predict {
@@ -127,7 +149,10 @@ impl Worker {
                             worker_busy.store(false, Ordering::Release);
                             match request {
                                 Request::Predict { id, .. } => {
-                                    let _ = events_tx.send(Event::Finished { id, result: Err(e) });
+                                    let _ = events_tx.send(Event::Finished {
+                                        id,
+                                        result: Err(WorkerError::Connection(e)),
+                                    });
                                 }
                                 Request::Health => {
                                     let _ = events_tx.send(Event::Failed(e));
@@ -141,9 +166,9 @@ impl Worker {
                 match request {
                     Request::Predict { id, model, path } => {
                         let result = p.exchange(json!({"id": id, "op": "predict", "model": model, "image_path": path}), &worker_stop, Duration::from_secs(180))
-                            .and_then(|v| parse_prediction(v, &id, &model));
+                            .and_then(|v| parse_prediction(v, &id, &model).map_err(WorkerError::Connection));
                         // A protocol failure or process crash must never poison later requests.
-                        if result.is_err() {
+                        if result.as_ref().is_err_and(|error| error.requires_restart()) {
                             process = None;
                         }
                         worker_busy.store(false, Ordering::Release);
@@ -161,8 +186,10 @@ impl Worker {
                                 let _ = events_tx.send(Event::Ready);
                             }
                             Err(e) => {
-                                process = None;
-                                let _ = events_tx.send(Event::Failed(e));
+                                if e.requires_restart() {
+                                    process = None;
+                                }
+                                let _ = events_tx.send(Event::Failed(e.to_string()));
                             }
                         }
                     }
@@ -307,23 +334,43 @@ impl Process {
         request: Value,
         stop: &AtomicBool,
         timeout: Duration,
-    ) -> Result<Value, String> {
+    ) -> Result<Value, WorkerError> {
         writeln!(self.stdin, "{request}")
             .and_then(|_| self.stdin.flush())
-            .map_err(|e| format!("Cannot contact local inference: {e}"))?;
-        let line = self.read(stop, timeout)?;
-        let value: Value =
-            serde_json::from_str(&line).map_err(|_| "Local inference returned malformed data.")?;
-        if value["id"] != request["id"] {
-            return Err("Local inference returned an unexpected request identifier.".into());
-        }
-        if value["ok"] != true {
-            return Err(value["error"]["message"]
-                .as_str()
-                .unwrap_or("Local inference failed.")
-                .to_owned());
-        }
-        Ok(value)
+            .map_err(|e| WorkerError::Connection(format!("Cannot contact local inference: {e}")))?;
+        let line = self.read(stop, timeout).map_err(WorkerError::Connection)?;
+        let value: Value = serde_json::from_str(&line).map_err(|_| {
+            WorkerError::Connection("Local inference returned malformed data.".into())
+        })?;
+        decode_response(value, &request["id"])
+    }
+}
+
+fn decode_response(value: Value, id: &Value) -> Result<Value, WorkerError> {
+    if &value["id"] != id {
+        return Err(WorkerError::Connection(
+            "Local inference returned an unexpected request identifier.".into(),
+        ));
+    }
+    match value["ok"].as_bool() {
+        Some(true) => Ok(value),
+        Some(false) => match (
+            value["error"]["code"].as_str(),
+            value["error"]["message"].as_str(),
+        ) {
+            (Some(code), Some(message)) if !code.is_empty() && !message.is_empty() => {
+                Err(WorkerError::Rejected {
+                    code: code.into(),
+                    message: message.into(),
+                })
+            }
+            _ => Err(WorkerError::Connection(
+                "Local inference returned an invalid error response.".into(),
+            )),
+        },
+        None => Err(WorkerError::Connection(
+            "Local inference returned an invalid response status.".into(),
+        )),
     }
 }
 impl Drop for Process {
@@ -377,6 +424,181 @@ mod tests {
         let mut v = response();
         v["class_names"][0] = json!("metal");
         assert!(parse_prediction(v, "7", "dinov2_finetuned").is_err());
+    }
+
+    #[test]
+    fn structured_rejection_preserves_code_and_does_not_require_restart() {
+        let error = decode_response(json!({"id":"7", "ok":false, "error":{"code":"invalid_image", "message":"Cannot decode image."}}), &json!("7")).unwrap_err();
+        assert!(!error.requires_restart());
+        assert!(matches!(error, WorkerError::Rejected { code, .. } if code == "invalid_image"));
+    }
+
+    #[test]
+    fn malformed_or_mismatched_error_requires_restart() {
+        for response in [
+            json!({"id":"other", "ok":false, "error":{"code":"invalid_image", "message":"Bad image"}}),
+            json!({"id":"7", "ok":false, "error":{"message":"Bad image"}}),
+            json!({"id":"7", "error":{"code":"invalid_image", "message":"Bad image"}}),
+        ] {
+            assert!(
+                decode_response(response, &json!("7"))
+                    .unwrap_err()
+                    .requires_restart()
+            );
+        }
+    }
+
+    #[test]
+    fn rejected_image_preserves_worker_pid_and_cached_model() {
+        let root = std::env::temp_dir().join(format!(
+            "material-studio-rejection-test-{}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("scripts/demo")).unwrap();
+        std::fs::write(root.join("scripts/demo/worker.py"), r#"
+import json, os, pathlib, sys
+root = pathlib.Path(__file__).resolve().parents[2]
+with (root / 'processes.txt').open('a') as log:
+    log.write(str(os.getpid()) + '\n')
+loaded = False
+print(json.dumps({'event':'ready','protocol_version':1}), flush=True)
+for line in sys.stdin:
+    r = json.loads(line)
+    if r['op'] == 'shutdown':
+        break
+    if pathlib.Path(r['image_path']).name == 'invalid.png':
+        print(json.dumps({'id':r['id'],'ok':False,'error':{'code':'invalid_image','message':'Cannot decode image.'}}), flush=True)
+        continue
+    print(json.dumps({'id':r['id'],'ok':True,'model':r['model'],'class_names':['wood','metal','stone','concrete','ceramic','fabric','leather'],'probabilities':[.4,.1,.1,.1,.1,.1,.1],'predicted_class':'wood','inference_ms':12.5,'device':'cpu','model_cached':loaded,'load_ms':0 if loaded else 10}), flush=True)
+    loaded = True
+"#).unwrap();
+        let config = Config {
+            root: root.clone(),
+            python: std::env::var_os("MATERIAL_STUDIO_TEST_PYTHON")
+                .map(PathBuf::from)
+                .unwrap_or_else(|| "python".into()),
+            device: "cpu".into(),
+            opaque: true,
+            view: "classify".into(),
+            image: None,
+            classify: false,
+            smoke_output: None,
+        };
+        let mut worker = Worker::start(config);
+        assert!(matches!(
+            worker.events.recv_timeout(Duration::from_secs(10)).unwrap(),
+            Event::Ready
+        ));
+        for (id, filename) in [
+            ("cold", "valid.png"),
+            ("invalid", "invalid.png"),
+            ("warm", "valid.png"),
+        ] {
+            worker
+                .predict(id.into(), "dinov2_finetuned".into(), root.join(filename))
+                .unwrap();
+            // A restarted process emits Ready here; accepting only Finished catches cache loss.
+            match worker.events.recv_timeout(Duration::from_secs(10)).unwrap() {
+                Event::Finished {
+                    id: reply_id,
+                    result,
+                } => {
+                    assert_eq!(reply_id, id);
+                    if id == "invalid" {
+                        assert!(!result.unwrap_err().requires_restart());
+                    } else {
+                        let prediction = result.unwrap();
+                        assert_eq!(prediction.model_cached, id == "warm");
+                        if id == "warm" {
+                            assert_eq!(prediction.load_ms, 0.0);
+                        }
+                    }
+                }
+                _ => panic!("Worker restarted after a recoverable request rejection"),
+            }
+        }
+        worker.shutdown();
+        assert_eq!(
+            std::fs::read_to_string(root.join("processes.txt"))
+                .unwrap()
+                .lines()
+                .count(),
+            1
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    #[ignore = "Requires MATERIAL_STUDIO_INTEGRATION_ROOT with saved models and a configured Python runtime"]
+    fn real_worker_rejection_preserves_cached_model() {
+        let root = PathBuf::from(
+            std::env::var_os("MATERIAL_STUDIO_INTEGRATION_ROOT")
+                .expect("Set MATERIAL_STUDIO_INTEGRATION_ROOT to the complete study resources"),
+        );
+        let python = PathBuf::from(
+            std::env::var_os("MATERIAL_STUDIO_TEST_PYTHON")
+                .expect("Set MATERIAL_STUDIO_TEST_PYTHON to the study Python runtime"),
+        );
+        let invalid = std::env::temp_dir().join(format!(
+            "material-studio-invalid-{}.png",
+            std::process::id()
+        ));
+        std::fs::write(&invalid, b"This is not a PNG image").unwrap();
+        let valid = root.join("app/assets/samples/wood_01.png");
+        let config = Config {
+            root,
+            python,
+            device: "cpu".into(),
+            opaque: true,
+            view: "classify".into(),
+            image: None,
+            classify: false,
+            smoke_output: None,
+        };
+        let mut worker = Worker::start(config);
+        assert!(matches!(
+            worker.events.recv_timeout(Duration::from_secs(30)).unwrap(),
+            Event::Ready
+        ));
+        for (id, path) in [
+            ("cold", valid.clone()),
+            ("invalid", invalid.clone()),
+            ("warm", valid),
+        ] {
+            worker
+                .predict(id.into(), "dinov2_finetuned".into(), path)
+                .unwrap();
+            match worker
+                .events
+                .recv_timeout(Duration::from_secs(180))
+                .unwrap()
+            {
+                Event::Finished {
+                    id: reply_id,
+                    result,
+                } => {
+                    assert_eq!(reply_id, id);
+                    if id == "invalid" {
+                        assert!(!result.unwrap_err().requires_restart());
+                    } else {
+                        let prediction = result.unwrap();
+                        assert_eq!(prediction.model_cached, id == "warm");
+                        // The real worker times its cache lookup, so a cached
+                        // model can legitimately report a small nonzero load_ms.
+                        println!(
+                            "{id}: device={} cached={} load_ms={:.2} inference_ms={:.2}",
+                            prediction.device,
+                            prediction.model_cached,
+                            prediction.load_ms,
+                            prediction.inference_ms
+                        );
+                    }
+                }
+                _ => panic!("Real worker restarted after an invalid image"),
+            }
+        }
+        worker.shutdown();
+        std::fs::remove_file(invalid).unwrap();
     }
 
     #[test]

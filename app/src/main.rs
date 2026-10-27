@@ -47,7 +47,12 @@ fn smoke(config: Config, output: PathBuf) {
                         result["load_ms"] = serde_json::json!(p.load_ms);
                         result["device"] = serde_json::json!(p.device);
                     }
-                    Err(e) => result["error"] = serde_json::json!(e),
+                    Err(e) => {
+                        if let worker::WorkerError::Rejected { code, .. } = &e {
+                            result["error_code"] = serde_json::json!(code);
+                        }
+                        result["error"] = serde_json::json!(e.to_string());
+                    }
                 }
                 break;
             }
