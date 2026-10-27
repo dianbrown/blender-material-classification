@@ -1,0 +1,356 @@
+{
+  "updated_utc": "2026-10-27T07:59:48.697115+00:00",
+  "gpu_owner": "test sub-agent",
+  "gpu_released": true,
+  "execution_policy": {
+    "sequential_jobs": true,
+    "fresh_holdout_model_predictions_or_evaluations": false,
+    "code_config_registry_modified_by_this_agent": false,
+    "existing_caches_and_runs_preserved": true
+  },
+  "jobs": [
+    {
+      "name": "features-final",
+      "command": [
+        "C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe",
+        "scripts/v3/extract_features.py",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--output",
+        "artifacts/v3/features_final",
+        "--batch-size",
+        "16",
+        "--device",
+        "cuda",
+        "--offline"
+      ],
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "started_utc": "2026-10-27T07:46:19.966435+00:00",
+      "log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features-final.log",
+      "status": "complete",
+      "exit_code": 0,
+      "runtime_seconds": 202.34582719998434,
+      "finished_utc": "2026-10-27T07:49:42.312266+00:00"
+    },
+    {
+      "name": "holdout-qc",
+      "command": [
+        "C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe",
+        "C:/Users/dianb/blender-material-classification/blender/scripts/v3/qc_holdout.py",
+        "--config",
+        "C:/Users/dianb/blender-material-classification/configs/v3/holdout.json",
+        "--registry",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_registry.json",
+        "--receipt",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/download_receipt.json",
+        "--identity-audit",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_identity_audit.json",
+        "--original-manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/material_manifest.csv",
+        "--sources-root",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_sources",
+        "--dataset-root",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_dataset",
+        "--manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/render_manifest.csv",
+        "--report",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_dataset/qc.json"
+      ],
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "started_utc": "2026-10-27T07:56:44.101873+00:00",
+      "log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout-qc.log",
+      "status": "complete",
+      "exit_code": 0,
+      "runtime_seconds": 33.59192370000528,
+      "finished_utc": "2026-10-27T07:57:17.693798+00:00"
+    },
+    {
+      "name": "holdout-render-retry",
+      "command": [
+        "C:/Program Files/Blender Foundation/Blender 5.1/blender.exe",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "C:/Users/dianb/blender-material-classification/blender/scripts/v3/render_holdout.py",
+        "--",
+        "--mode",
+        "holdout",
+        "--config",
+        "C:/Users/dianb/blender-material-classification/configs/v3/holdout.json",
+        "--original-manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/material_manifest.csv",
+        "--registry",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_registry.json",
+        "--receipt",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/download_receipt.json",
+        "--identity-audit",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_identity_audit.json",
+        "--sources-root",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_sources",
+        "--out",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_dataset",
+        "--manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/render_manifest.csv"
+      ],
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "started_utc": "2026-10-27T07:49:58.638291+00:00",
+      "log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout-render-retry.log",
+      "status": "complete",
+      "exit_code": 0,
+      "runtime_seconds": 398.4719631000189,
+      "finished_utc": "2026-10-27T07:56:37.110258+00:00"
+    },
+    {
+      "name": "holdout-render",
+      "command": [
+        "C:/Program Files/Blender Foundation/Blender 5.1/blender.exe",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "C:/Users/dianb/blender-material-classification/blender/scripts/v3/render_holdout.py",
+        "--",
+        "--mode",
+        "holdout",
+        "--config",
+        "C:/Users/dianb/blender-material-classification/configs/v3/holdout.json",
+        "--original-manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/material_manifest.csv",
+        "--registry",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_registry.json",
+        "--receipt",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/download_receipt.json",
+        "--identity-audit",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/source_identity_audit.json",
+        "--sources-root",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_sources",
+        "--out",
+        "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_dataset",
+        "--manifest",
+        "C:/Users/dianb/blender-material-classification/metadata/v3_holdout/render_manifest.csv"
+      ],
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "started_utc": "2026-10-27T07:46:01.599711+00:00",
+      "log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout-render.log",
+      "status": "failed",
+      "exit_code": 1,
+      "runtime_seconds": 1.3436448000138626,
+      "finished_utc": "2026-10-27T07:46:02.943363+00:00"
+    },
+    {
+      "name": "train-final",
+      "command": [
+        "C:/Users/dianb/blender-material-classification/.venv/Scripts/python.exe",
+        "scripts/v3/train.py",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--feature-cache",
+        "artifacts/v3/features_final",
+        "--output",
+        "artifacts/v3/run_final",
+        "--cpu-threads",
+        "4"
+      ],
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "started_utc": "2026-10-27T07:57:26.908604+00:00",
+      "log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\train-final.log",
+      "status": "complete",
+      "exit_code": 0,
+      "runtime_seconds": 34.22315779997734,
+      "finished_utc": "2026-10-27T07:58:01.131764+00:00"
+    }
+  ],
+  "holdout": {
+    "status": "passed",
+    "dataset": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout_dataset",
+    "manifest": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\render_manifest.csv",
+    "qc": {
+      "data_only": true,
+      "passed": true,
+      "images": 630,
+      "groups": 21,
+      "class_counts": {
+        "wood": 90,
+        "metal": 90,
+        "stone": 90,
+        "concrete": 90,
+        "ceramic": 90,
+        "fabric": 90,
+        "leather": 90
+      },
+      "run_sha256": "1957d86b8c4d9358def3d9327250796defb33c8f52db4ce9f76f3dc9a41817df",
+      "failures": [],
+      "action": "No replacements or appearance tuning; quarantine failed runs for investigation."
+    },
+    "qc_report": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout_dataset\\qc.json",
+    "initial_attempt": {
+      "status": "failed_before_any_images",
+      "error": "ValueError: source identity audit changed since protocol freeze",
+      "cause": "Frozen audit digest used CRLF; checkout used LF. Parent fix 3b07616 accepts exactly LF/CRLF representations for explicit text inputs. Frozen configuration, registry and asset choices unchanged; binary source hashes remain strict.",
+      "initial_log": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout-render.log"
+    },
+    "freeze_files_sha256": {
+      "configs\\v3\\holdout.json": "5c0d690e61f28c8357d248f17e236d7aca14e6b946f35bfe31561fb2db0f2d9b",
+      "metadata\\v3_holdout\\source_registry.json": "1ec17a474b03a5ed7e154580c08821c795e2eda860e78b17e3b5ec645dd6e493",
+      "metadata\\v3_holdout\\download_receipt.json": "b65d59552269756049ac33b666f69059614673bddc687bafc74d40c4a6c936f7",
+      "metadata\\v3_holdout\\source_identity_audit.json": "3026cd20f4c64a5a621e585a59788b785b9a21a119b7fc5e43064f56b9768b49"
+    },
+    "run_fingerprint": {
+      "selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64",
+      "source_sha256": "71254095524827beae8dd7db385c5afa5db0908459cd1cd97fa0d34b9df04f5a",
+      "renderer_sha256": "00e20035627f3707c7c21aa4ed1eca5ca22b5045dceb4fe6cdf9aef6316a5650",
+      "config_sha256": "5c0d690e61f28c8357d248f17e236d7aca14e6b946f35bfe31561fb2db0f2d9b",
+      "scene_sha256": "bbe9f0e7ea24ab11bba9b050300bca8b3410a2ec2ccdecb3527d2e7558d4ce52",
+      "runtime": {
+        "blender_version": "5.1.1",
+        "build_hash": "b70da489d7f4",
+        "executable_sha256": "b952b58cafe44050ae016bda94c91de0968b028b1c7082a824d7087985619642",
+        "engine": "BLENDER_EEVEE",
+        "mode": "holdout",
+        "device": "EEVEE_GPU",
+        "gpu": {
+          "query_status": "drawing_context_unavailable_in_background",
+          "reason": "GPU functions for drawing are not available in background mode",
+          "nvidia_device_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, GPU-b5ceaa54-bed9-4389-c644-4618c493a168, 591.44",
+          "note": "Inventory records installed GPUs; it is not a drawing-context query."
+        }
+      },
+      "run_sha256": "1957d86b8c4d9358def3d9327250796defb33c8f52db4ce9f76f3dc9a41817df"
+    },
+    "domain_caveat": "Parent visually reviewed seven old TRAIN pilot images: broad framing/texture orientation match; shadows softer. Exact old engine version match not claimed."
+  },
+  "features": {
+    "output": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features_final",
+    "identity_sha256": "33a7e56080d09232e36983aee287fbd7f4583e4745d2bf62d92b028e40f94ac4",
+    "complete": true
+  },
+  "primary": {
+    "output": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final",
+    "comparison_report": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\guard_revalidation_comparison.json",
+    "comparison": {
+      "purpose": "Guard-fix revalidation; no model selection change",
+      "reference": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run",
+      "revalidated": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final",
+      "float_comparison": {
+        "rtol": 0.0,
+        "atol": 1e-12
+      },
+      "oof": {
+        "selected_oof.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d",
+          "new_sha256": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d"
+        },
+        "control_oof.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+          "new_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51"
+        },
+        "candidate_oof\\convnext_pooled224.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+          "new_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51"
+        },
+        "candidate_oof\\dino_cls224.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17",
+          "new_sha256": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17"
+        },
+        "candidate_oof\\dino_cls_mean224.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741",
+          "new_sha256": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741"
+        },
+        "candidate_oof\\dino_multiscale.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684",
+          "new_sha256": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684"
+        },
+        "candidate_oof\\dino_multiscale_convnext.csv": {
+          "rows": 3150,
+          "unique_image_identity": true,
+          "metadata_equal": true,
+          "finite": true,
+          "probabilities_exact_equal": true,
+          "probabilities_allclose": true,
+          "max_absolute_difference": 0.0,
+          "reference_sha256": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547",
+          "new_sha256": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547"
+        }
+      },
+      "fold_assignments_exact_equal": true,
+      "fold_choices_exact_equal": true,
+      "final_selection_exact_equal": true,
+      "final_selection": {
+        "candidate": "dino_multiscale_convnext",
+        "candidate_index": 4,
+        "C": 1.0,
+        "inner_mean_macro_f1": 0.8035245993060354
+      },
+      "reference_accuracy": 0.793968253968254,
+      "final_accuracy": 0.793968253968254,
+      "feature_array_hash_equality": {
+        "dino_224_cls": true,
+        "dino_224_mean": true,
+        "dino_224_std": true,
+        "dino_336_cls": true,
+        "dino_336_mean": true,
+        "dino_336_std": true,
+        "convnext_224_pooled": true
+      },
+      "exact_reproduction": true
+    }
+  },
+  "neural_training": {
+    "resnet": "held_before_start_pending_parent_review_clearance",
+    "dino_finetune": "not_authorized"
+  },
+  "issues": [
+    "Initial holdout newline digest mismatch resolved by parent 3b07616; production retry and QC passed.",
+    "QC emitted a Pillow Image.getdata deprecation warning; no QC failures."
+  ],
+  "gpu_state": "No execution jobs active; neural stages held by parent instruction pending reviewed-code authorization."
+}
