@@ -112,14 +112,14 @@ fn main() {
             }
         })
         .detach();
-        let bounds = Bounds::centered(None, size(px(1360.), px(940.)), cx);
+        let bounds = Bounds::centered(None, size(px(1280.), px(860.)), cx);
         let options = WindowOptions {
             window_bounds: Some(WindowBounds::Windowed(bounds)),
             titlebar: Some(TitlebarOptions {
                 title: Some("Material Studio".into()),
                 ..Default::default()
             }),
-            window_min_size: Some(size(px(1100.), px(740.))),
+            window_min_size: Some(size(px(1000.), px(720.))),
             window_background: if config.opaque {
                 WindowBackgroundAppearance::Opaque
             } else {
@@ -139,8 +139,8 @@ impl Render for StartupError {
     fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
         div()
             .size_full()
-            .bg(rgb(0x10171f))
-            .text_color(rgb(0xe8eff5))
+            .bg(rgb(0x151515))
+            .text_color(rgb(0xe7e7e7))
             .p_8()
             .font_family("Segoe UI")
             .child(div().text_2xl().child("Material Studio"))

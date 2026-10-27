@@ -9,12 +9,11 @@ use std::{
     time::{Duration, Instant},
 };
 
-const BG: u32 = 0x10171f;
-const PANEL: u32 = 0x19232e;
-const BORDER: u32 = 0x2b3a47;
-const TEXT: u32 = 0xe8eff5;
-const MUTED: u32 = 0x99acbd;
-const ACCENT: u32 = 0x67d9cc;
+const BG: u32 = 0x151515;
+const BORDER: u32 = 0x323232;
+const TEXT: u32 = 0xe7e7e7;
+const MUTED: u32 = 0x939393;
+
 actions!(
     studio,
     [
@@ -34,6 +33,44 @@ enum Page {
     Dataset,
     About,
 }
+#[derive(Clone, Copy, PartialEq, Debug)]
+enum Menu {
+    Models,
+    Samples,
+}
+
+#[derive(Default)]
+struct ViewOptions {
+    menu: Option<Menu>,
+    details: bool,
+    study_details: bool,
+    credits: bool,
+    sample_filter: Option<usize>,
+}
+impl ViewOptions {
+    fn toggle_menu(&mut self, menu: Menu) {
+        self.menu = if self.menu == Some(menu) {
+            None
+        } else {
+            Some(menu)
+        };
+    }
+    fn dismiss(&mut self) -> bool {
+        if self.menu.take().is_some() {
+            return true;
+        }
+        if self.details {
+            self.details = false;
+            return true;
+        }
+        if self.study_details {
+            self.study_details = false;
+            return true;
+        }
+        false
+    }
+}
+
 pub struct Studio {
     config: Config,
     study: Option<Study>,
@@ -53,40 +90,580 @@ pub struct Studio {
     started: Option<Instant>,
     focus: FocusHandle,
     scroll: ScrollHandle,
+    options: ViewOptions,
     _poll: Task<()>,
 }
 
+fn muted(text: impl Into<SharedString>) -> Div {
+    div().text_color(rgb(MUTED)).child(text.into())
+}
+fn section_title(text: impl Into<SharedString>) -> Div {
+    div()
+        .font_weight(FontWeight::MEDIUM)
+        .text_size(px(14.))
+        .child(text.into())
+}
+fn control(id: impl Into<ElementId>, text: impl Into<SharedString>) -> Stateful<Div> {
+    div()
+        .id(id)
+        .h(px(34.))
+        .px_3()
+        .flex()
+        .items_center()
+        .justify_center()
+        .rounded_md()
+        .cursor_pointer()
+        .text_size(px(13.))
+        .text_color(rgb(0xc7c7c7))
+        .hover(|s| s.bg(rgba(0xffffff0a)).text_color(rgb(TEXT)))
+        .child(text.into())
+}
+fn thumbnail(path: PathBuf, height: f32) -> Div {
+    div()
+        .relative()
+        .w_full()
+        .h(px(height))
+        .min_h(px(height))
+        .flex_shrink_0()
+        .overflow_hidden()
+        .rounded_md()
+        .child(
+            img(path)
+                .absolute()
+                .inset_0()
+                .size_full()
+                .object_fit(ObjectFit::Cover),
+        )
+}
+fn model_short(id: &str) -> &'static str {
+    match id {
+        "frozen_selected" => "DINO + ConvNeXt",
+        "frozen_control" => "Frozen ConvNeXt",
+        "resnet_fixed" => "ResNet-50",
+        _ => "Fine-tuned DINOv2",
+    }
+}
+fn model_role(id: &str) -> &'static str {
+    match id {
+        "frozen_selected" => "Primary study",
+        "frozen_control" => "Frozen control",
+        "resnet_fixed" => "CNN comparison",
+        _ => "DINO comparison",
+    }
+}
+
 impl Studio {
-    fn results_page(&self, cx: &mut Context<Self>) -> Div {
-        let mut content = div()
+    fn navigate(&mut self, page: Page, cx: &mut Context<Self>) {
+        self.page = page;
+        self.options.menu = None;
+        self.scroll.set_offset(point(px(0.), px(0.)));
+        cx.notify();
+    }
+
+    fn sidebar(&self, cx: &mut Context<Self>) -> Div {
+        let mut sidebar = div()
+            .w(px(160.))
+            .h_full()
+            .flex_shrink_0()
             .flex()
             .flex_col()
-            .gap_5()
-            .child(self.header(
-                "The study, in perspective.",
-                "Measured results on independent held-out material sources.",
-                "STORED STUDY RESULTS",
-            ))
-            .child(self.model_picker(cx, true));
+            .px_3()
+            .py_5()
+            .bg(rgba(0x1c1c1cb8))
+            .border_r_1()
+            .border_color(rgba(0xffffff0b))
+            .child(
+                div()
+                    .px_2()
+                    .mb_6()
+                    .text_size(px(13.))
+                    .font_weight(FontWeight::MEDIUM)
+                    .child("Material Studio"),
+            );
+        for (i, (page, label)) in [
+            (Page::Classify, "Classify"),
+            (Page::Results, "Study"),
+            (Page::Dataset, "Samples"),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            sidebar = sidebar.child(
+                control(("nav", i), label)
+                    .w_full()
+                    .justify_start()
+                    .mb_1()
+                    .bg(if self.page == page {
+                        rgba(0xffffff0c)
+                    } else {
+                        rgba(0)
+                    })
+                    .text_color(rgb(if self.page == page { TEXT } else { MUTED }))
+                    .on_click(cx.listener(move |s, _, _, cx| s.navigate(page, cx))),
+            );
+        }
+        sidebar.child(div().flex_1()).child(
+            control("about", "About")
+                .justify_start()
+                .text_color(rgb(MUTED))
+                .on_click(cx.listener(|s, _, _, cx| s.navigate(Page::About, cx))),
+        )
+    }
+
+    fn classify_page(&self, cx: &mut Context<Self>) -> Div {
+        let mut image = div()
+            .relative()
+            .w_full()
+            .h_full()
+            .max_w(px(520.))
+            .max_h(px(520.))
+            .rounded_md()
+            .overflow_hidden();
+        if let Some(path) = &self.image {
+            image = image.child(
+                img(path.clone())
+                    .absolute()
+                    .inset_0()
+                    .size_full()
+                    .object_fit(ObjectFit::Contain),
+            );
+        } else {
+            image = image
+                .flex()
+                .items_center()
+                .justify_center()
+                .child(muted("Open an image to begin."));
+        }
+        let mut bottom = div()
+            .w_full()
+            .max_w(px(820.))
+            .flex()
+            .flex_col()
+            .gap_3()
+            .flex_shrink_0();
+        if let Some(prediction) = &self.prediction {
+            let confidence = prediction
+                .probabilities
+                .iter()
+                .copied()
+                .fold(0.0_f64, f64::max);
+            bottom = bottom.child(
+                div()
+                    .flex()
+                    .items_center()
+                    .justify_between()
+                    .px_1()
+                    .child(
+                        div()
+                            .flex()
+                            .items_center()
+                            .gap_3()
+                            .child(section_title(title(&prediction.predicted_class)))
+                            .child(muted(format!("{:.1}%", confidence * 100.)))
+                            .child(muted("· Live result").text_size(px(11.))),
+                    )
+                    .child(
+                        control(
+                            "prediction-details",
+                            if self.options.details {
+                                "Hide details"
+                            } else {
+                                "Details"
+                            },
+                        )
+                        .on_click(cx.listener(|s, _, _, cx| {
+                            s.options.details = !s.options.details;
+                            s.options.menu = None;
+                            cx.notify();
+                        })),
+                    ),
+            );
+            if self.options.details {
+                bottom = bottom.child(self.prediction_details(prediction));
+            }
+        }
+        if let Some(error) = &self.error {
+            bottom = bottom.child(
+                div()
+                    .flex()
+                    .items_center()
+                    .gap_3()
+                    .px_3()
+                    .py_2()
+                    .border_1()
+                    .border_color(rgb(BORDER))
+                    .rounded_md()
+                    .child(div().flex_1().min_w_0().child(error.clone()))
+                    .when(!self.ready, |row| {
+                        row.child(
+                            control("retry", "Retry").on_click(cx.listener(|s, _, _, cx| {
+                                if let Err(e) = s.worker.retry() {
+                                    s.error = Some(e);
+                                } else {
+                                    s.error = None;
+                                    s.status = "Starting local inference…".into();
+                                }
+                                cx.notify();
+                            })),
+                        )
+                    }),
+            );
+        }
+        bottom = bottom.child(self.toolbar(cx));
+        div()
+            .size_full()
+            .flex()
+            .flex_col()
+            .px_8()
+            .pb_7()
+            .child(
+                div()
+                    .h(px(48.))
+                    .flex_shrink_0()
+                    .flex()
+                    .items_center()
+                    .child(muted(self.image_label.clone()).text_size(px(12.))),
+            )
+            .child(
+                div()
+                    .flex_1()
+                    .min_h_0()
+                    .w_full()
+                    .flex()
+                    .items_center()
+                    .justify_center()
+                    .py_8()
+                    .on_mouse_down(
+                        MouseButton::Left,
+                        cx.listener(|s, _, _, cx| {
+                            s.options.menu = None;
+                            cx.notify();
+                        }),
+                    )
+                    .child(image),
+            )
+            .child(div().w_full().flex().justify_center().child(bottom))
+    }
+
+    fn toolbar(&self, cx: &mut Context<Self>) -> Div {
+        let busy = self.worker.busy();
+        let name = self
+            .study
+            .as_ref()
+            .and_then(|s| s.models.get(self.selected_model))
+            .map(|m| model_short(&m.id))
+            .unwrap_or("Choose model");
+        let mut toolbar = div().relative().w_full().flex().flex_col().gap_2();
+        let mut row = div()
+            .flex()
+            .items_center()
+            .gap_1()
+            .p_2()
+            .rounded_lg()
+            .border_1()
+            .border_color(rgb(BORDER))
+            .bg(rgba(0x202020ed))
+            .child(
+                control("open-image", "Open image")
+                    .on_click(cx.listener(|s, _, window, cx| s.open(&OpenImage, window, cx))),
+            )
+            .child(
+                control("sample-menu", "Samples  ⌄")
+                    .bg(if self.options.menu == Some(Menu::Samples) {
+                        rgba(0xffffff0c)
+                    } else {
+                        rgba(0)
+                    })
+                    .on_click(cx.listener(|s, _, _, cx| {
+                        s.options.toggle_menu(Menu::Samples);
+                        cx.notify();
+                    })),
+            )
+            .child(div().flex_1());
+        if busy {
+            let elapsed = self.started.map(|t| t.elapsed().as_secs()).unwrap_or(0);
+            row = row.child(
+                muted(if self.active_id.is_some() {
+                    format!("Working… {elapsed}s")
+                } else {
+                    "Finishing previous image…".into()
+                })
+                .text_size(px(11.))
+                .px_2(),
+            );
+        } else if !self.ready && self.error.is_none() {
+            row = row.child(muted("Starting…").text_size(px(11.)).px_2());
+        }
+        row = row.child(
+            control("model-menu", format!("{name}  ⌄"))
+                .bg(if self.options.menu == Some(Menu::Models) {
+                    rgba(0xffffff0c)
+                } else {
+                    rgba(0)
+                })
+                .on_click(cx.listener(|s, _, _, cx| {
+                    s.options.toggle_menu(Menu::Models);
+                    cx.notify();
+                })),
+        );
+        let enabled = !busy && self.image.is_some();
+        let mut classify = control("classify", "Classify")
+            .px_5()
+            .ml_2()
+            .bg(rgb(if enabled { 0xd6d6d6 } else { 0x333333 }))
+            .text_color(rgb(if enabled { 0x191919 } else { MUTED }))
+            .font_weight(FontWeight::MEDIUM)
+            .hover(move |s| {
+                s.bg(rgb(if enabled { 0xeeeeee } else { 0x333333 }))
+                    .text_color(rgb(if enabled { 0x191919 } else { MUTED }))
+            });
+        if enabled {
+            classify = classify.on_click(cx.listener(|s, _, _, cx| s.run(cx)));
+        }
+        toolbar = toolbar.child(row.child(classify));
+        if let Some(menu) = self.options.menu {
+            let mut popup = div()
+                .id("toolbar-popup")
+                .absolute()
+                .bottom(px(62.))
+                .w(px(272.))
+                .p_1()
+                .rounded_lg()
+                .border_1()
+                .border_color(rgb(0x3a3a3a))
+                .bg(rgb(0x232323))
+                .occlude()
+                .flex()
+                .flex_col();
+            match menu {
+                Menu::Models => {
+                    popup = popup.right(px(104.));
+                    if let Some(study) = &self.study {
+                        for (i, model) in study.models.iter().enumerate() {
+                            popup = popup.child(
+                                div()
+                                    .id(("model-choice", i))
+                                    .flex()
+                                    .items_center()
+                                    .gap_3()
+                                    .px_3()
+                                    .py_2()
+                                    .rounded_md()
+                                    .cursor_pointer()
+                                    .hover(|s| s.bg(rgb(0x303030)))
+                                    .child(
+                                        div().w(px(12.)).text_color(rgb(MUTED)).child(
+                                            if self.selected_model == i { "✓" } else { "" },
+                                        ),
+                                    )
+                                    .child(
+                                        div()
+                                            .flex()
+                                            .flex_col()
+                                            .gap_1()
+                                            .child(model_short(&model.id))
+                                            .child(muted(model_role(&model.id)).text_size(px(11.))),
+                                    )
+                                    .on_click(cx.listener(move |s, _, _, cx| {
+                                        s.selected_model = i;
+                                        s.invalidate();
+                                        cx.notify();
+                                    })),
+                            );
+                        }
+                    }
+                }
+                Menu::Samples => {
+                    popup = popup.left(px(76.));
+                    if let Some(study) = &self.study {
+                        for (i, class) in CLASSES.iter().enumerate() {
+                            if let Some(sample) =
+                                study.samples.iter().find(|s| s.class_name == *class)
+                            {
+                                let path = self.config.root.join("app/assets").join(&sample.path);
+                                let label = sample.label.clone();
+                                popup = popup.child(
+                                    div()
+                                        .id(("quick-sample", i))
+                                        .flex()
+                                        .items_center()
+                                        .gap_3()
+                                        .p_2()
+                                        .rounded_md()
+                                        .cursor_pointer()
+                                        .hover(|s| s.bg(rgb(0x303030)))
+                                        .child(div().w(px(36.)).child(thumbnail(path.clone(), 36.)))
+                                        .child(title(class))
+                                        .on_click(cx.listener(move |s, _, _, cx| {
+                                            s.choose_image(path.clone(), label.clone(), cx)
+                                        })),
+                                );
+                            }
+                        }
+                    }
+                    popup = popup.child(
+                        control("browse-samples", "Browse all samples →")
+                            .justify_start()
+                            .mt_1()
+                            .on_click(cx.listener(|s, _, _, cx| s.navigate(Page::Dataset, cx))),
+                    );
+                }
+            }
+            toolbar = toolbar.child(popup);
+        }
+        toolbar
+    }
+
+    fn prediction_details(&self, prediction: &Prediction) -> Div {
+        let mut details = div()
+            .flex()
+            .flex_col()
+            .gap_2()
+            .px_1()
+            .py_3()
+            .border_t_1()
+            .border_color(rgb(BORDER));
+        for (i, class) in CLASSES.iter().enumerate() {
+            let probability = prediction.probabilities[i];
+            details = details.child(
+                div()
+                    .flex()
+                    .items_center()
+                    .gap_4()
+                    .h(px(20.))
+                    .flex_shrink_0()
+                    .child(div().w(px(78.)).child(title(class)))
+                    .child(
+                        div()
+                            .flex_1()
+                            .h(px(3.))
+                            .bg(rgb(0x303030))
+                            .rounded_full()
+                            .child(div().h_full().w(relative(probability as f32)).bg(rgb(
+                                if prediction.predicted_class == *class {
+                                    0xc4c4c4
+                                } else {
+                                    0x666666
+                                },
+                            ))),
+                    )
+                    .child(
+                        muted(format!("{:.1}%", probability * 100.))
+                            .w(px(48.))
+                            .text_right(),
+                    ),
+            );
+        }
+        details.child(muted(format!("{:.1} ms · {} · {}", prediction.inference_ms, prediction.device,
+            if prediction.model_cached { "model cached".into() } else { format!("first load {:.1}s", prediction.load_ms / 1000.) })).text_size(px(11.)).mt_2())
+            .child(muted("Live scores, not calibrated certainty. Timing includes image decoding; model loading is separate.").text_size(px(11.)))
+    }
+
+    fn study_page(&self, cx: &mut Context<Self>) -> Div {
+        let mut content = div()
+            .w_full()
+            .max_w(px(880.))
+            .flex()
+            .flex_col()
+            .gap_6()
+            .child(section_title("Study"));
         if let Some(study) = &self.study {
+            content = content.child(muted(format!(
+                "Stored results · {} held-out images · {} independent source groups",
+                study.dataset.holdout.images, study.dataset.holdout.source_groups
+            )));
+            let mut table = div().flex().flex_col().w_full();
+            table = table.child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(32.))
+                    .border_b_1()
+                    .border_color(rgb(BORDER))
+                    .text_size(px(11.))
+                    .text_color(rgb(MUTED))
+                    .child(div().flex_1().px_3().child("Model"))
+                    .child(table_cell("Accuracy".into()))
+                    .child(table_cell("Macro F1".into()))
+                    .child(table_cell("Median ms".into())),
+            );
+            for (i, model) in study.models.iter().enumerate() {
+                table = table.child(
+                    div()
+                        .id(("study-model", i))
+                        .flex()
+                        .items_center()
+                        .min_h(px(58.))
+                        .py_2()
+                        .border_b_1()
+                        .border_color(rgba(0xffffff0b))
+                        .cursor_pointer()
+                        .bg(if self.results_model == i {
+                            rgba(0xffffff08)
+                        } else {
+                            rgba(0)
+                        })
+                        .hover(|s| s.bg(rgba(0xffffff0d)))
+                        .child(
+                            div()
+                                .flex_1()
+                                .px_3()
+                                .flex()
+                                .flex_col()
+                                .gap_1()
+                                .child(model_short(&model.id))
+                                .child(muted(model_role(&model.id)).text_size(px(11.))),
+                        )
+                        .child(table_cell(format!("{:.1}%", model.accuracy * 100.)))
+                        .child(table_cell(format!("{:.3}", model.macro_f1)))
+                        .child(table_cell(format!("{:.1}", model.latency.median_ms)))
+                        .on_click(cx.listener(move |s, _, _, cx| {
+                            s.results_model = i;
+                            cx.notify();
+                        })),
+                );
+            }
+            content = content.child(table);
             if let Some(model) = study.models.get(self.results_model) {
-                content = content.child(div().flex().gap_5().items_start().child(self.confusion(model).flex_1())
-                .child(panel().w(px(330.)).flex_shrink_0().child(eyebrow("UNCERTAINTY & COST")).child(heading(model.display_name.clone()))
-                    .child(metric("Accuracy", format!("{:.2}%", model.accuracy * 100.), format!("{:.0}% CI  {:.1}–{:.1}%", model.accuracy_ci.level*100., model.accuracy_ci.low*100., model.accuracy_ci.high*100.)))
-                    .child(metric("Macro F1", format!("{:.3}", model.macro_f1), format!("{:.0}% CI  {:.3}–{:.3}", model.macro_f1_ci.level*100., model.macro_f1_ci.low, model.macro_f1_ci.high)))
-                    .child(metric("Warm study latency", format!("{:.1} ms", model.latency.median_ms), format!("Median · p95 {:.1} ms · batch {}", model.latency.p95_ms, model.latency.batch_size)))
-                    .child(metric("Deployment size", format!("{:.1} MiB", model.size.total_deployment_bytes as f64 / 1048576.), format!("Saved artifact {:.1} MiB", model.size.artifact_bytes as f64 / 1048576.)))
-                    .child(muted(format!("{} repetitions · {}", model.latency.repetitions, model.latency.device)))))
-                .child(panel().child(eyebrow("HOW TO READ THESE RESULTS"))
-                    .child(muted(format!("{} holdout images · {} materials · {} independent source groups. Confidence intervals use source-group resampling, so visually related renders stay together.", study.dataset.holdout.images, study.dataset.holdout.materials, study.dataset.holdout.source_groups)))
-                    .child(muted("The preselected frozen DINOv2 + ConvNeXt fusion is the primary study. Fine-tuned DINOv2 and ResNet-50 are comparisons; the demo default does not change the study's primary model."))
-                    .child(muted("Robustness is limited to the study's synthetic sources and tested corruptions. Strong holdout accuracy does not establish recognition of arbitrary photographs, unseen domains or physical composition.")))
-                .child(panel().child(eyebrow("PERFORMANCE MEASUREMENT")).child(muted("Warm models, predecoded RGB images, exact family preprocessing and device transfer. Includes network inference, the saved classifier and class probabilities. Excludes disk access, image decoding and model loading."))
-                    .child(muted("Live demo timing also includes local image decoding and may differ from these stored benchmark measurements. Model loading is reported separately.")));
+                content = content.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .gap_3()
+                        .child(
+                            div()
+                                .flex()
+                                .justify_between()
+                                .child(section_title("Confusion matrix"))
+                                .child(muted(model_short(&model.id))),
+                        )
+                        .child(muted("Rows: actual · Columns: predicted").text_size(px(11.)))
+                        .child(self.confusion(model)),
+                );
+                content = content.child(
+                    control(
+                        "study-details",
+                        if self.options.study_details {
+                            "Hide study details  ⌃"
+                        } else {
+                            "Uncertainty & study details  ⌄"
+                        },
+                    )
+                    .justify_start()
+                    .px_0()
+                    .on_click(cx.listener(|s, _, _, cx| {
+                        s.options.study_details = !s.options.study_details;
+                        cx.notify();
+                    })),
+                );
+                if self.options.study_details {
+                    content = content.child(self.study_details(study, model));
+                }
             }
         }
         content
     }
+
     fn confusion(&self, model: &Model) -> Div {
         let mut matrix = div().flex().flex_col().flex_shrink_0().gap_1();
         let mut labels = div()
@@ -96,7 +673,7 @@ impl Studio {
             .min_h(px(28.))
             .flex_shrink_0()
             .gap_1()
-            .child(div().w(px(74.)).flex_shrink_0());
+            .child(div().w(px(76.)).flex_shrink_0());
         for class in CLASSES {
             labels = labels.child(
                 div()
@@ -107,7 +684,7 @@ impl Studio {
                     .items_center()
                     .justify_center()
                     .line_height(px(20.))
-                    .text_xs()
+                    .text_size(px(11.))
                     .text_color(rgb(MUTED))
                     .child(title(class)),
             );
@@ -120,374 +697,295 @@ impl Studio {
                 .flex_shrink_0()
                 .gap_1()
                 .items_center()
-                .child(div().w(px(74.)).text_sm().child(title(CLASSES[i])));
-            for (j, value) in row.iter().enumerate() {
-                let fraction = *value as f64 / sum;
-                let color = if i == j {
-                    rgba(0x47b6a900 | ((45. + 170. * fraction) as u32))
-                } else {
-                    rgba(0x6897cf00 | ((25. + 170. * fraction) as u32))
-                };
+                .child(div().w(px(76.)).flex_shrink_0().child(title(CLASSES[i])));
+            for value in row {
+                let shade = 28 + (55. * *value as f64 / sum) as u32;
                 cells = cells.child(
                     div()
                         .flex_1()
                         .min_w_0()
-                        .h(px(42.))
+                        .h(px(36.))
                         .flex()
                         .justify_center()
                         .items_center()
-                        .rounded_md()
-                        .bg(color)
-                        .text_sm()
+                        .rounded_sm()
+                        .bg(rgb((shade << 16) | (shade << 8) | shade))
                         .child(value.to_string()),
                 );
             }
             matrix = matrix.child(cells);
         }
-        panel().min_w_0().child(eyebrow("CONFUSION MATRIX")).child(heading("Where predictions agree"))
-            .child(muted("Rows: true material    ·    Columns: predicted material")).child(matrix).child(muted("Counts on the held-out set. Brighter diagonal cells indicate more correct predictions."))
+        matrix
     }
-    fn dataset_page(&self, cx: &mut Context<Self>) -> Div {
-        let mut content = div().flex().flex_col().gap_5().child(self.header(
-            "A material library.",
-            "Seven appearance classes, rendered under controlled conditions.",
-            "SYNTHETIC DATASET",
-        ));
-        if let Some(study) = &self.study {
-            content = content.child(
-                div()
-                    .flex()
-                    .gap_5()
-                    .child(
-                        panel()
-                            .flex_1()
-                            .child(eyebrow("DEVELOPMENT"))
-                            .child(heading(format!(
-                                "{} images",
-                                study.dataset.development.images
-                            )))
-                            .child(muted(format!(
-                                "{} materials · {} source groups",
-                                study.dataset.development.materials,
-                                study.dataset.development.source_groups
-                            ))),
-                    )
-                    .child(
-                        panel()
-                            .flex_1()
-                            .child(eyebrow("HELD-OUT EVALUATION"))
-                            .child(heading(format!("{} images", study.dataset.holdout.images)))
-                            .child(muted(format!(
-                                "{} materials · {} source groups",
-                                study.dataset.holdout.materials,
-                                study.dataset.holdout.source_groups
-                            ))),
-                    ),
+
+    fn study_details(&self, study: &Study, model: &Model) -> Div {
+        div().flex().flex_col().gap_4().pt_4().border_t_1().border_color(rgb(BORDER))
+            .child(section_title(model.display_name.clone()))
+            .child(detail_row("Accuracy interval", format!("{:.0}% CI · {:.1}–{:.1}%", model.accuracy_ci.level*100., model.accuracy_ci.low*100., model.accuracy_ci.high*100.)))
+            .child(detail_row("Macro F1 interval", format!("{:.0}% CI · {:.3}–{:.3}", model.macro_f1_ci.level*100., model.macro_f1_ci.low, model.macro_f1_ci.high)))
+            .child(detail_row("Warm latency", format!("Median {:.1} ms · p95 {:.1} ms · batch {} · {} repetitions", model.latency.median_ms, model.latency.p95_ms, model.latency.batch_size, model.latency.repetitions)))
+            .child(detail_row("Measured device", model.latency.device.clone()))
+            .child(detail_row("Deployment size", format!("{:.1} MiB · saved artifact {:.1} MiB", model.size.total_deployment_bytes as f64 / 1048576., model.size.artifact_bytes as f64 / 1048576.)))
+            .child(muted("Intervals resample source groups, keeping related renders together. The frozen DINOv2 + ConvNeXt fusion is the preselected primary study; the other models are comparisons."))
+            .child(muted("Stored timing uses warm models and predecoded images. It includes preprocessing, device transfer, inference and probabilities; excludes disk access, decoding and loading. Live demo timing includes decoding."))
+            .child(muted(study.dataset.scope.clone()))
+            .child(muted("Robustness evidence is limited to synthetic sources and tested corruptions. It does not establish recognition of arbitrary photographs or physical composition."))
+    }
+
+    fn samples_page(&self, cx: &mut Context<Self>) -> Div {
+        let mut content = div()
+            .w_full()
+            .max_w(px(1020.))
+            .flex()
+            .flex_col()
+            .gap_5()
+            .child(section_title("Samples"));
+        let mut filters = div().flex().flex_wrap().gap_1().child(
+            control("filter-all", "All")
+                .bg(if self.options.sample_filter.is_none() {
+                    rgba(0xffffff0c)
+                } else {
+                    rgba(0)
+                })
+                .on_click(cx.listener(|s, _, _, cx| {
+                    s.options.sample_filter = None;
+                    cx.notify();
+                })),
+        );
+        for (i, class) in CLASSES.iter().enumerate() {
+            filters = filters.child(
+                control(("filter", i), title(class))
+                    .bg(if self.options.sample_filter == Some(i) {
+                        rgba(0xffffff0c)
+                    } else {
+                        rgba(0)
+                    })
+                    .on_click(cx.listener(move |s, _, _, cx| {
+                        s.options.sample_filter = Some(i);
+                        cx.notify();
+                    })),
             );
-            for (i, class) in study.dataset.classes.iter().enumerate() {
-                let mut images = div().flex().gap_3();
-                for (j, sample) in study
-                    .samples
-                    .iter()
-                    .filter(|s| s.class_name == class.name)
-                    .enumerate()
-                {
-                    let path = self.config.root.join("app/assets").join(&sample.path);
-                    let label = sample.label.clone();
-                    images = images.child(
-                        div()
-                            .id((SharedString::from(format!("gallery-{i}")), j))
-                            .w(px(145.))
-                            .flex()
-                            .flex_col()
-                            .flex_shrink_0()
-                            .cursor_pointer()
-                            .rounded_lg()
-                            .overflow_hidden()
-                            .border_1()
-                            .border_color(rgb(BORDER))
-                            .bg(rgb(0x111b25))
-                            .child(thumbnail(path.clone(), 115.))
-                            .child(
-                                div()
-                                    .px_2()
-                                    .py_2()
-                                    .min_h(px(48.))
-                                    .flex_shrink_0()
-                                    .text_xs()
-                                    .line_height(px(16.))
-                                    .child(label.clone()),
-                            )
-                            .on_click(cx.listener(move |s, _, _, cx| {
-                                s.choose_image(path.clone(), label.clone(), cx);
-                                s.page = Page::Classify;
-                                s.scroll.set_offset(point(px(0.), px(0.)));
-                            })),
-                    );
-                }
+        }
+        content = content.child(filters);
+        if let Some(study) = &self.study {
+            if let Some(class) = self
+                .options
+                .sample_filter
+                .and_then(|i| study.dataset.classes.iter().find(|c| c.name == CLASSES[i]))
+            {
                 content = content.child(
-                    panel()
-                        .flex_row()
-                        .items_center()
-                        .gap_6()
+                    div()
+                        .flex()
+                        .flex_col()
+                        .gap_1()
+                        .child(muted(class.definition.clone()))
                         .child(
-                            div()
-                                .flex_1()
-                                .min_w_0()
-                                .flex()
-                                .flex_col()
-                                .gap_3()
-                                .child(heading(title(&class.name)))
-                                .child(muted(class.definition.clone()))
-                                .child(muted(format!(
-                                    "{} development · {} held-out images",
-                                    class.development_images, class.holdout_images
-                                ))),
-                        )
-                        .child(images),
+                            muted(format!(
+                                "{} development · {} held-out images",
+                                class.development_images, class.holdout_images
+                            ))
+                            .text_size(px(11.)),
+                        ),
+                );
+            } else {
+                content = content.child(
+                    muted("Development examples · choose an image to classify.").text_size(px(12.)),
                 );
             }
-            content = content.child(panel().child(eyebrow("DATASET SCOPE")).child(muted(study.dataset.scope.clone())).child(muted("Gallery images are development examples from distinct source groups, selected without model scores. Click any example to run a fresh local prediction.")));
-            let mut credits = panel().child(eyebrow("SAMPLE CREDITS"));
-            for sample in &study.samples {
-                credits = credits.child(muted(format!(
-                    "{} · {} · {}",
-                    sample.label, sample.attribution, sample.license
-                )));
+            let mut grid = div().flex().flex_wrap().gap_5();
+            for (i, sample) in study.samples.iter().enumerate().filter(|(_, s)| {
+                self.options
+                    .sample_filter
+                    .is_none_or(|class| s.class_name == CLASSES[class])
+            }) {
+                let path = self.config.root.join("app/assets").join(&sample.path);
+                let label = sample.label.clone();
+                grid = grid.child(
+                    div()
+                        .id(("gallery", i))
+                        .w(px(170.))
+                        .flex()
+                        .flex_col()
+                        .gap_2()
+                        .cursor_pointer()
+                        .rounded_md()
+                        .p_1()
+                        .hover(|s| s.bg(rgba(0xffffff08)))
+                        .child(thumbnail(path.clone(), 162.))
+                        .child(
+                            div()
+                                .min_h(px(34.))
+                                .line_height(px(17.))
+                                .text_size(px(12.))
+                                .text_color(rgb(0xb0b0b0))
+                                .child(label.clone()),
+                        )
+                        .on_click(cx.listener(move |s, _, _, cx| {
+                            s.choose_image(path.clone(), label.clone(), cx);
+                            s.navigate(Page::Classify, cx);
+                        })),
+                );
             }
-            content = content.child(credits);
+            content = content.child(grid);
         }
         content
     }
-    fn about_page(&self) -> Div {
-        div().flex().flex_col().gap_5().child(self.header("Material Studio", "A native workspace for exploring material recognition.", "LOCAL & NATIVE"))
-            .child(panel().child(eyebrow("A CLASSROOM DEMONSTRATION")).child(heading("From appearance to prediction")).child(muted("Open a local image, choose one of four studied models, and inspect the full seven-class probability distribution. Compare the prediction with measured study results and explore the source material gallery.")))
-            .child(panel().child(eyebrow("THE EXPERIMENT")).child(heading("Three model families, one shared task"))
-                .child(muted("Frozen visual representations with a learned classifier; a fine-tuned ResNet-50; and partially fine-tuned DINOv2. The frozen DINOv2 + ConvNeXt fusion remains the preselected primary study. Other models provide complementary comparisons."))
-                .child(muted("Source groups are kept independent across development and holdout. Rendered views of related materials must not be treated as independent evidence.")))
-            .child(panel().child(eyebrow("INTERPRET WITH CARE")).child(heading("Appearance is not physical composition"))
-                .child(muted("The dataset is synthetic and follows explicit archival class conventions. Lighting, geometry, texture scale and source selection affect predictions. Probability scores are model outputs, not a guarantee of correctness. This demo has not been validated for arbitrary real-world images or safety-critical use.")))
-            .child(panel().child(eyebrow("BUILT FOR EXPLORATION")).child(muted("Native Rust interface rendered by GPUI. A persistent local Python process loads the saved models on demand. Images are processed on this computer; there is no remote inference service."))
-                .child(muted("Ctrl + O opens an image · Ctrl + Enter classifies · Escape dismisses the current result · Ctrl + 1–4 switches views."))
-                .child(muted("Native framework and dependency credits are included in THIRD_PARTY_NOTICES.txt with the application.")))
+
+    fn about_page(&self, cx: &mut Context<Self>) -> Div {
+        let mut content = div().w_full().max_w(px(680.)).flex().flex_col().gap_6().child(section_title("About Material Studio"))
+            .child(muted("A local classroom demonstration of material recognition. Images stay on this computer."))
+            .child(div().flex().flex_col().gap_3().child(section_title("The study")).child(muted("Seven appearance classes, three model families and four saved models. The preselected frozen DINOv2 + ConvNeXt fusion remains the primary study. Fine-tuned DINOv2 is the default for the demonstration, and a comparison in the study."))
+                .child(muted("Source groups stay independent between development and holdout. Related rendered views are not independent evidence.")))
+            .child(div().flex().flex_col().gap_3().child(section_title("Limits")).child(muted("Appearance is not physical composition. These models were studied on synthetic images with archival class conventions. Lighting, geometry and texture scale affect predictions. Live scores are not calibrated certainty, and arbitrary real-world images have not been validated.")))
+            .child(div().flex().flex_col().gap_3().child(section_title("Keyboard")).child(detail_row("Open image", "Ctrl + O".into())).child(detail_row("Classify", "Ctrl + Enter".into())).child(detail_row("Close menu or dismiss result", "Escape".into())).child(detail_row("Switch views", "Ctrl + 1–4".into())));
+        if let Some(study) = &self.study {
+            content = content.child(div().flex().flex_col().gap_3().child(section_title("Dataset"))
+                .child(muted(format!("Development: {} images, {} materials, {} source groups. Holdout: {} images, {} materials, {} source groups.", study.dataset.development.images, study.dataset.development.materials, study.dataset.development.source_groups, study.dataset.holdout.images, study.dataset.holdout.materials, study.dataset.holdout.source_groups)))
+                .child(muted("Gallery examples come from distinct development source groups, selected without model scores. Their labels are archived ground truth; Classify always runs fresh local inference.")));
+            content = content.child(
+                control(
+                    "credits",
+                    if self.options.credits {
+                        "Hide sample credits  ⌃"
+                    } else {
+                        "Sample credits  ⌄"
+                    },
+                )
+                .justify_start()
+                .px_0()
+                .on_click(cx.listener(|s, _, _, cx| {
+                    s.options.credits = !s.options.credits;
+                    cx.notify();
+                })),
+            );
+            if self.options.credits {
+                for sample in &study.samples {
+                    content = content.child(
+                        muted(format!(
+                            "{} · {} · {}",
+                            sample.label, sample.attribution, sample.license
+                        ))
+                        .text_size(px(12.)),
+                    );
+                }
+            }
+        }
+        content.child(muted("Native Rust / GPUI. Local Python inference. Dependency credits are included in THIRD_PARTY_NOTICES.txt.").text_size(px(11.)))
     }
 }
-fn metric(label: &str, value: String, note: String) -> Div {
+
+fn table_cell(value: String) -> Div {
+    div()
+        .w(px(104.))
+        .flex_shrink_0()
+        .px_3()
+        .text_right()
+        .child(value)
+}
+fn detail_row(label: &str, value: String) -> Div {
     div()
         .flex()
-        .flex_col()
-        .gap_1()
-        .pb_3()
-        .border_b_1()
-        .border_color(rgb(BORDER))
-        .child(muted(label.to_owned()))
-        .child(div().text_2xl().child(value))
-        .child(muted(note))
+        .gap_4()
+        .child(muted(label.to_owned()).w(px(170.)).flex_shrink_0())
+        .child(div().flex_1().child(value))
 }
+
 impl Render for Studio {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
-        let content = if let Some(error) = &self.resource_error {
-            panel()
-                .child(heading("Study resources are unavailable"))
+        let body = if let Some(error) = &self.resource_error {
+            div()
+                .p_8()
+                .flex()
+                .flex_col()
+                .gap_4()
+                .child(section_title("Study resources unavailable"))
                 .child(muted(error.clone()))
                 .child(muted(
                     "Launch with --resources pointing to the supplied Material Studio folder.",
                 ))
+                .into_any_element()
+        } else if self.page == Page::Classify {
+            self.classify_page(cx).into_any_element()
         } else {
-            match self.page {
-                Page::Classify => self.classify_page(cx),
-                Page::Results => self.results_page(cx),
-                Page::Dataset => self.dataset_page(cx),
-                Page::About => self.about_page(),
-            }
+            let content = match self.page {
+                Page::Results => self.study_page(cx),
+                Page::Dataset => self.samples_page(cx),
+                Page::About => self.about_page(cx),
+                Page::Classify => unreachable!(),
+            };
+            div()
+                .id("secondary-scroll")
+                .size_full()
+                .overflow_y_scroll()
+                .track_scroll(&self.scroll)
+                .p_8()
+                .child(div().flex().justify_center().child(content))
+                .into_any_element()
         };
         div()
             .size_full()
             .flex()
             .font_family("Segoe UI")
-            .text_size(px(14.))
+            .text_size(px(13.))
+            .line_height(px(20.))
             .text_color(rgb(TEXT))
             .bg(if self.config.opaque {
                 rgb(BG)
             } else {
-                rgba(0x10171fee)
+                rgba(0x151515e8)
             })
             .track_focus(&self.focus)
             .on_action(cx.listener(Self::open))
             .on_action(cx.listener(Self::cancel))
             .on_action(cx.listener(|s, _: &Classify, _, cx| s.run(cx)))
-            .on_action(cx.listener(|s, _: &ShowClassify, _, cx| {
-                s.page = Page::Classify;
-                s.scroll.set_offset(point(px(0.), px(0.)));
-                cx.notify();
-            }))
-            .on_action(cx.listener(|s, _: &ShowResults, _, cx| {
-                s.page = Page::Results;
-                s.scroll.set_offset(point(px(0.), px(0.)));
-                cx.notify();
-            }))
-            .on_action(cx.listener(|s, _: &ShowDataset, _, cx| {
-                s.page = Page::Dataset;
-                s.scroll.set_offset(point(px(0.), px(0.)));
-                cx.notify();
-            }))
-            .on_action(cx.listener(|s, _: &ShowAbout, _, cx| {
-                s.page = Page::About;
-                s.scroll.set_offset(point(px(0.), px(0.)));
-                cx.notify();
-            }))
+            .on_action(cx.listener(|s, _: &ShowClassify, _, cx| s.navigate(Page::Classify, cx)))
+            .on_action(cx.listener(|s, _: &ShowResults, _, cx| s.navigate(Page::Results, cx)))
+            .on_action(cx.listener(|s, _: &ShowDataset, _, cx| s.navigate(Page::Dataset, cx)))
+            .on_action(cx.listener(|s, _: &ShowAbout, _, cx| s.navigate(Page::About, cx)))
             .child(self.sidebar(cx))
-            .child(
-                div()
-                    .flex_1()
-                    .min_w_0()
-                    .h_full()
-                    .flex()
-                    .flex_col()
-                    .child(
-                        div()
-                            .id("main-scroll")
-                            .track_scroll(&self.scroll)
-                            .flex_1()
-                            .min_h_0()
-                            .overflow_y_scroll()
-                            .p_8()
-                            .child(content),
-                    )
-                    .child(
-                        div()
-                            .flex()
-                            .items_center()
-                            .justify_between()
-                            .px_8()
-                            .py_3()
-                            .border_t_1()
-                            .border_color(rgb(BORDER))
-                            .bg(rgba(0x111c26e0))
-                            .child(
-                                div()
-                                    .flex()
-                                    .items_center()
-                                    .gap_2()
-                                    .child(div().size_2().rounded_full().bg(rgb(if self.ready {
-                                        ACCENT
-                                    } else {
-                                        0xe9b87b
-                                    })))
-                                    .child(muted(self.status.clone())),
-                            )
-                            .child(if !self.ready {
-                                button("retry-worker", "Retry worker", false)
-                                    .py_1()
-                                    .on_click(cx.listener(|s, _, _, cx| {
-                                        if let Err(e) = s.worker.retry() {
-                                            s.error = Some(e);
-                                        } else {
-                                            s.status = "Restarting local inference…".into();
-                                            s.error = None;
-                                        }
-                                        cx.notify();
-                                    }))
-                                    .into_any_element()
-                            } else {
-                                muted("7 classes  ·  4 models  ·  Local inference")
-                                    .into_any_element()
-                            }),
-                    ),
-            )
+            .child(div().h_full().flex_1().min_w_0().child(body))
     }
-}
-fn panel() -> Div {
-    div()
-        .flex()
-        .flex_col()
-        .gap_4()
-        .p_6()
-        .rounded_xl()
-        .bg(rgba(0x19232eef))
-        .border_1()
-        .border_color(rgb(BORDER))
 }
 
-// Keep intrinsic image aspect ratios out of the card's measured height. The
-// image paints inside this fixed viewport; captions retain their own space.
-fn thumbnail(path: PathBuf, height: f32) -> Div {
-    div()
-        .relative()
-        .w_full()
-        .h(px(height))
-        .min_h(px(height))
-        .flex_shrink_0()
-        .overflow_hidden()
-        .child(
-            img(path)
-                .absolute()
-                .inset_0()
-                .size_full()
-                .object_fit(ObjectFit::Cover),
-        )
-}
-fn muted(text: impl Into<SharedString>) -> Div {
-    div().text_sm().text_color(rgb(MUTED)).child(text.into())
-}
-fn eyebrow(text: impl Into<SharedString>) -> Div {
-    div()
-        .text_xs()
-        .text_color(rgb(ACCENT))
-        .font_weight(FontWeight::SEMIBOLD)
-        .child(text.into())
-}
-fn heading(text: impl Into<SharedString>) -> Div {
-    div()
-        .text_xl()
-        .font_weight(FontWeight::SEMIBOLD)
-        .child(text.into())
-}
-fn badge(text: impl Into<SharedString>) -> Div {
-    div()
-        .px_3()
-        .py_1()
-        .rounded_full()
-        .bg(rgb(0x213b40))
-        .text_xs()
-        .text_color(rgb(ACCENT))
-        .child(text.into())
-}
-fn button(
-    id: impl Into<ElementId>,
-    label: impl Into<SharedString>,
-    primary: bool,
-) -> Stateful<Div> {
-    div()
-        .id(id)
-        .cursor_pointer()
-        .px_4()
-        .py_3()
-        .rounded_lg()
-        .border_1()
-        .border_color(rgb(if primary { ACCENT } else { BORDER }))
-        .bg(rgb(if primary { ACCENT } else { 0x24313e }))
-        .text_color(rgb(if primary { 0x102728 } else { TEXT }))
-        .font_weight(FontWeight::SEMIBOLD)
-        .hover(move |style| style.bg(rgb(if primary { 0x8be7dc } else { 0x314453 })))
-        .child(label.into())
-}
-fn model_short(id: &str) -> &'static str {
-    match id {
-        "frozen_selected" => "DINO + ConvNeXt",
-        "frozen_control" => "Frozen ConvNeXt",
-        "resnet_fixed" => "ResNet-50",
-        _ => "Fine-tuned DINOv2",
+#[cfg(test)]
+mod tests {
+    use super::{Menu, ViewOptions, model_short};
+    #[test]
+    fn frozen_control_label_identifies_convnext() {
+        assert_eq!(model_short("frozen_control"), "Frozen ConvNeXt");
+    }
+    #[test]
+    fn secondary_controls_are_hidden_by_default() {
+        let view = ViewOptions::default();
+        assert_eq!(view.menu, None);
+        assert!(!view.details && !view.study_details && !view.credits);
+    }
+    #[test]
+    fn menu_toggle_keeps_only_one_picker_open() {
+        let mut view = ViewOptions::default();
+        view.toggle_menu(Menu::Models);
+        assert_eq!(view.menu, Some(Menu::Models));
+        view.toggle_menu(Menu::Samples);
+        assert_eq!(view.menu, Some(Menu::Samples));
+        view.toggle_menu(Menu::Samples);
+        assert_eq!(view.menu, None);
+    }
+    #[test]
+    fn escape_dismisses_menu_before_prediction_details() {
+        let mut view = ViewOptions {
+            menu: Some(Menu::Models),
+            details: true,
+            ..Default::default()
+        };
+        assert!(view.dismiss());
+        assert_eq!(view.menu, None);
+        assert!(view.details);
+        assert!(view.dismiss());
+        assert!(!view.details);
+        assert!(!view.dismiss());
     }
 }
-fn model_role(id: &str) -> &'static str {
-    match id {
-        "frozen_selected" => "PRIMARY STUDY",
-        "frozen_control" => "FROZEN CONTROL",
-        "resnet_fixed" => "CNN COMPARISON",
-        _ => "DINO COMPARISON",
-    }
-}
+
 impl Studio {
     pub fn new(config: Config, window: &mut Window, cx: &mut Context<Self>) -> Self {
         let loaded = Study::load(&config.root);
@@ -546,6 +1044,7 @@ impl Studio {
             started: None,
             focus,
             scroll: ScrollHandle::new(),
+            options: ViewOptions::default(),
             _poll: poll,
         }
     }
@@ -598,6 +1097,8 @@ impl Studio {
         }
     }
     fn invalidate(&mut self) {
+        self.options.menu = None;
+        self.options.details = false;
         self.active_id = None;
         self.prediction = None;
         self.error = None;
@@ -620,6 +1121,7 @@ impl Studio {
         cx.notify();
     }
     fn open(&mut self, _: &OpenImage, _: &mut Window, cx: &mut Context<Self>) {
+        self.options.menu = None;
         let picker = cx.prompt_for_paths(PathPromptOptions {
             files: true,
             directories: false,
@@ -648,6 +1150,7 @@ impl Studio {
         .detach();
     }
     fn run(&mut self, cx: &mut Context<Self>) {
+        self.options.menu = None;
         if self.worker.busy() {
             return;
         }
@@ -678,399 +1181,14 @@ impl Studio {
         cx.notify();
     }
     fn cancel(&mut self, _: &Cancel, _: &mut Window, cx: &mut Context<Self>) {
+        if self.options.dismiss() {
+            cx.notify();
+            return;
+        }
         self.invalidate();
         if self.worker.busy() {
             self.status = "Finishing previous request; result dismissed".into();
         }
         cx.notify();
-    }
-    fn header(&self, title_text: &str, subtitle: &str, tag: &str) -> Div {
-        div()
-            .flex()
-            .justify_between()
-            .items_center()
-            .gap_4()
-            .mb_6()
-            .child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .gap_2()
-                    .child(
-                        div()
-                            .text_3xl()
-                            .font_weight(FontWeight::SEMIBOLD)
-                            .child(title_text.to_owned()),
-                    )
-                    .child(muted(subtitle.to_owned())),
-            )
-            .child(badge(tag.to_owned()))
-    }
-    fn sidebar(&self, cx: &mut Context<Self>) -> Div {
-        let mut nav = div().flex().flex_col().gap_2().mt_8();
-        for (index, (page, label, icon)) in [
-            (Page::Classify, "Classify", "◈"),
-            (Page::Results, "Results", "▤"),
-            (Page::Dataset, "Dataset", "▦"),
-            (Page::About, "About", "○"),
-        ]
-        .into_iter()
-        .enumerate()
-        {
-            let selected = self.page == page;
-            nav = nav.child(
-                div()
-                    .id(("nav", index))
-                    .flex()
-                    .items_center()
-                    .gap_3()
-                    .px_4()
-                    .py_3()
-                    .rounded_lg()
-                    .cursor_pointer()
-                    .bg(if selected { rgb(0x243b43) } else { rgba(0) })
-                    .text_color(rgb(if selected { ACCENT } else { MUTED }))
-                    .hover(|s| s.bg(rgb(0x23333f)))
-                    .child(div().text_xl().child(icon))
-                    .child(label)
-                    .on_click(cx.listener(move |s, _, _, cx| {
-                        s.page = page;
-                        s.scroll.set_offset(point(px(0.), px(0.)));
-                        cx.notify();
-                    })),
-            );
-        }
-        div()
-            .w(px(205.))
-            .h_full()
-            .flex_shrink_0()
-            .flex()
-            .flex_col()
-            .p_5()
-            .border_r_1()
-            .border_color(rgb(BORDER))
-            .bg(rgba(0x101a24c9))
-            .child(
-                div()
-                    .flex()
-                    .items_center()
-                    .gap_3()
-                    .mt_3()
-                    .child(
-                        div()
-                            .size_9()
-                            .flex()
-                            .items_center()
-                            .justify_center()
-                            .rounded_lg()
-                            .bg(rgb(0x29434c))
-                            .text_color(rgb(ACCENT))
-                            .text_2xl()
-                            .child("◈"),
-                    )
-                    .child(
-                        div()
-                            .flex()
-                            .flex_col()
-                            .child(
-                                div()
-                                    .font_weight(FontWeight::SEMIBOLD)
-                                    .child("Material Studio"),
-                            )
-                            .child(muted("VISION LAB")),
-                    ),
-            )
-            .child(nav)
-            .child(div().flex_1())
-            .child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .gap_3()
-                    .child(eyebrow("ON THIS COMPUTER"))
-                    .child(muted("Images stay local.\nNo upload required."))
-                    .child(div().h(px(1.)).bg(rgb(BORDER)).my_2())
-                    .child(muted("Ctrl + O  Open image"))
-                    .child(muted("Ctrl + Enter  Classify"))
-                    .child(muted("Esc  Dismiss result")),
-            )
-    }
-    fn model_picker(&self, cx: &mut Context<Self>, results: bool) -> Div {
-        let mut row = div().flex().gap_3().w_full();
-        if let Some(study) = &self.study {
-            for (i, model) in study.models.iter().enumerate() {
-                let selected = if results {
-                    self.results_model == i
-                } else {
-                    self.selected_model == i
-                };
-                let mut card = div()
-                    .id((if results { "result-model" } else { "model" }, i))
-                    .flex_1()
-                    .min_w_0()
-                    .p_4()
-                    .rounded_lg()
-                    .border_1()
-                    .border_color(rgb(if selected { ACCENT } else { BORDER }))
-                    .bg(rgb(if selected { 0x213b42 } else { PANEL }))
-                    .cursor_pointer()
-                    .hover(|s| s.bg(rgb(0x293d49)))
-                    .child(eyebrow(model_role(&model.id)))
-                    .child(
-                        div()
-                            .mt_2()
-                            .font_weight(FontWeight::SEMIBOLD)
-                            .child(model_short(&model.id)),
-                    );
-                if results {
-                    card = card
-                        .child(
-                            div()
-                                .mt_3()
-                                .text_3xl()
-                                .child(format!("{:.1}%", model.accuracy * 100.)),
-                        )
-                        .child(muted(format!("Macro F1  {:.3}", model.macro_f1)));
-                }
-                row = row.child(card.on_click(cx.listener(move |s, _, _, cx| {
-                    if results {
-                        s.results_model = i;
-                    } else {
-                        s.selected_model = i;
-                        s.invalidate();
-                    }
-                    cx.notify();
-                })));
-            }
-        }
-        row
-    }
-    fn classify_page(&self, cx: &mut Context<Self>) -> Div {
-        let busy = self.worker.busy();
-        let mut preview = panel().flex_1().min_w_0().gap_3().child(
-            div()
-                .flex()
-                .justify_between()
-                .items_center()
-                .child(eyebrow("01 / IMAGE INPUT"))
-                .child(muted("Local image")),
-        );
-        let mut image_box = div()
-            .w_full()
-            .h(px(290.))
-            .rounded_lg()
-            .overflow_hidden()
-            .bg(rgb(0x0d141b))
-            .flex()
-            .items_center()
-            .justify_center();
-        if let Some(path) = &self.image {
-            image_box = image_box.child(
-                img(path.clone())
-                    .w_full()
-                    .h_full()
-                    .object_fit(ObjectFit::Contain),
-            );
-        } else {
-            image_box = image_box.child(muted("Open an image or choose a study sample below."));
-        }
-        preview = preview.child(image_box).child(
-            div()
-                .flex()
-                .items_center()
-                .justify_between()
-                .gap_3()
-                .child(
-                    div()
-                        .min_w_0()
-                        .flex_1()
-                        .text_sm()
-                        .truncate()
-                        .child(self.image_label.clone()),
-                )
-                .child(
-                    button("open-image", "Open image", false)
-                        .on_click(cx.listener(|s, _, window, cx| s.open(&OpenImage, window, cx))),
-                ),
-        );
-        let mut output = panel()
-            .w(px(355.))
-            .flex_shrink_0()
-            .gap_3()
-            .child(eyebrow("02 / LIVE LOCAL INFERENCE"));
-        if let Some(prediction) = &self.prediction {
-            let max = prediction
-                .probabilities
-                .iter()
-                .copied()
-                .fold(0.0_f64, f64::max);
-            output = output.child(
-                div()
-                    .flex()
-                    .justify_between()
-                    .items_end()
-                    .child(
-                        div()
-                            .text_3xl()
-                            .font_weight(FontWeight::SEMIBOLD)
-                            .child(title(&prediction.predicted_class)),
-                    )
-                    .child(
-                        div()
-                            .text_xl()
-                            .text_color(rgb(ACCENT))
-                            .child(format!("{:.1}%", max * 100.)),
-                    ),
-            );
-        } else {
-            output = output
-                .child(heading(if busy {
-                    "Analyzing material…"
-                } else {
-                    "Ready to explore"
-                }))
-                .child(muted(if busy {
-                    "First use loads the model. Navigation stays available."
-                } else {
-                    "Choose a model, then classify the image."
-                }));
-        }
-        for (i, class) in CLASSES.iter().enumerate() {
-            let probability = self.prediction.as_ref().map(|p| p.probabilities[i]);
-            let top = self
-                .prediction
-                .as_ref()
-                .is_some_and(|p| p.predicted_class == *class);
-            output = output.child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .gap_1()
-                    .child(
-                        div()
-                            .flex()
-                            .justify_between()
-                            .text_sm()
-                            .child(title(class))
-                            .child(muted(
-                                probability
-                                    .map(|p| format!("{:.1}%", p * 100.))
-                                    .unwrap_or_else(|| "—".into()),
-                            )),
-                    )
-                    .child(
-                        div()
-                            .w_full()
-                            .h(px(5.))
-                            .rounded_full()
-                            .overflow_hidden()
-                            .bg(rgb(0x30404d))
-                            .child(
-                                div()
-                                    .h_full()
-                                    .w(relative(probability.unwrap_or(0.) as f32))
-                                    .bg(rgb(if top { ACCENT } else { 0x568fb5 })),
-                            ),
-                    ),
-            );
-        }
-        if let Some(p) = &self.prediction {
-            output = output
-                .child(muted(format!("{:.1} ms  ·  {}", p.inference_ms, p.device)))
-                .child(muted(if p.model_cached {
-                    "Model resident · decode + preprocessing included".into()
-                } else {
-                    format!(
-                        "First load {:.1} s · excluded from inference",
-                        p.load_ms / 1000.
-                    )
-                }));
-        }
-        let elapsed = self.started.map(|t| t.elapsed().as_secs()).unwrap_or(0);
-        let label = if busy {
-            format!("Analyzing…  {elapsed}s")
-        } else {
-            "Classify image  →".into()
-        };
-        let mut action = button("classify", label, !busy && self.image.is_some())
-            .w_full()
-            .flex()
-            .justify_center();
-        if !busy {
-            action = action.on_click(cx.listener(|s, _, _, cx| s.run(cx)));
-        }
-        let mut content = div().flex().flex_col().gap_5().child(self.header("Look closer.", "Explore seven material classes with local computer vision.", "CLASSROOM DEMO"))
-            .child(self.model_picker(cx, false)).child(div().flex().gap_5().items_start().child(preview).child(output))
-            .child(div().flex().gap_5().child(div().flex_1().child(muted("Model scores describe this image, not certainty about its physical material.\nSynthetic-study models have not been validated for arbitrary real-world images."))).child(div().w(px(355.)).child(action)));
-        if let Some(error) = &self.error {
-            content = content.child(
-                div()
-                    .p_4()
-                    .rounded_lg()
-                    .bg(rgb(0x3b2c2d))
-                    .text_color(rgb(0xffc4b4))
-                    .child(error.clone()),
-            );
-        }
-        let mut samples = div().flex().gap_3();
-        if let Some(study) = &self.study {
-            for (i, class) in CLASSES.iter().enumerate() {
-                if let Some(sample) = study.samples.iter().find(|s| s.class_name == *class) {
-                    let path = self.config.root.join("app/assets").join(&sample.path);
-                    let label = sample.label.clone();
-                    let selected = self.image.as_ref() == Some(&path);
-                    samples = samples.child(
-                        div()
-                            .id(("sample", i))
-                            .flex_1()
-                            .min_w_0()
-                            .flex()
-                            .flex_col()
-                            .min_h(px(120.))
-                            .rounded_lg()
-                            .overflow_hidden()
-                            .border_1()
-                            .border_color(rgb(if selected { ACCENT } else { BORDER }))
-                            .cursor_pointer()
-                            .bg(rgb(PANEL))
-                            .child(thumbnail(path.clone(), 80.))
-                            .child(
-                                div()
-                                    .px_2()
-                                    .h(px(38.))
-                                    .min_h(px(38.))
-                                    .flex_shrink_0()
-                                    .flex()
-                                    .items_center()
-                                    .text_sm()
-                                    .line_height(px(20.))
-                                    .child(title(class)),
-                            )
-                            .on_click(cx.listener(move |s, _, _, cx| {
-                                s.choose_image(path.clone(), label.clone(), cx)
-                            })),
-                    );
-                }
-            }
-        }
-        content
-            .child(
-                div()
-                    .flex()
-                    .justify_between()
-                    .child(eyebrow("TRY A STUDY SAMPLE"))
-                    .child(muted("Development examples · labels are ground truth")),
-            )
-            .child(samples)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::model_short;
-
-    #[test]
-    fn frozen_control_label_identifies_convnext() {
-        assert_eq!(model_short("frozen_control"), "Frozen ConvNeXt");
     }
 }
