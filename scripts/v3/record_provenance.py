@@ -63,9 +63,11 @@ def record_provenance(report_path: Path, audit_dir: Path, material_manifest: Pat
         raise ValueError("source verification is incomplete")
     # Historical CSV checkout line endings may differ; retain the report's byte pin.
     raw_manifest = material_manifest.read_bytes()
+    lf_manifest = raw_manifest.replace(b"\r\n", b"\n")
     manifest_hashes = {
         hashlib.sha256(raw_manifest).hexdigest(),
-        hashlib.sha256(raw_manifest.replace(b"\r\n", b"\n")).hexdigest(),
+        hashlib.sha256(lf_manifest).hexdigest(),
+        hashlib.sha256(lf_manifest.replace(b"\n", b"\r\n")).hexdigest(),
     }
     if report["manifest"]["sha256"] not in manifest_hashes:
         raise ValueError("original material manifest changed")

@@ -511,7 +511,8 @@ def test_publication_approval_requires_literal_true(corpus, tmp_path, approval):
         package_dataset(root, out, tmp_path / "release.zip")
 
 
-def test_completed_report_ingestion_preserves_fingerprints_and_release_defaults(tmp_path):
+@pytest.mark.parametrize("newline", [b"\n", b"\r\n"])
+def test_completed_report_ingestion_preserves_fingerprints_and_release_defaults(tmp_path, newline):
     # Repository metadata only. Real-corpus byte validation is a separate staging run.
     from scripts.v3.record_provenance import record_provenance
 
@@ -521,9 +522,12 @@ def test_completed_report_ingestion_preserves_fingerprints_and_release_defaults(
     for name in ("license_registry.json", "source_maps.csv"):
         (audit / name).write_bytes((repo / "metadata/v3" / name).read_bytes())
     before = json.loads((audit / "license_registry.json").read_text())
+    manifest = tmp_path / "material_manifest.csv"
+    original = (repo / "metadata/material_manifest.csv").read_bytes()
+    manifest.write_bytes(original.replace(b"\r\n", b"\n").replace(b"\n", newline))
     result = record_provenance(
         repo / "reports/results/v3/provenance_verification.json", audit,
-        repo / "metadata/material_manifest.csv",
+        manifest,
     )
     after = json.loads((audit / "license_registry.json").read_text())
     assert result == dict(verified_sources=105, verified_maps=316,
@@ -535,6 +539,11 @@ def test_completed_report_ingestion_preserves_fingerprints_and_release_defaults(
     for entry in after["sources"]:
         assert entry["verified_by"] == "agent" and not entry["human_review_claimed"]
         assert sha256_file(audit / entry["evidence_path"]) == entry["evidence_sha256"]
+
+    # Line-ending compatibility must not accept changes to the manifest content.
+    manifest.write_bytes(manifest.read_bytes().replace(b"wood", b"WOOD", 1))
+    with pytest.raises(ValueError, match="original material manifest changed"):
+        record_provenance(repo / "reports/results/v3/provenance_verification.json", audit, manifest)
 
 
 def test_ingestion_rejects_changed_official_comparison_without_writing(tmp_path):
