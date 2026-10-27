@@ -5,7 +5,7 @@ Example (from repository root)::
     python scripts/v3/evaluate.py --predictions artifacts/v3/oof.csv \
         --metadata artifacts/v3/metadata.json --output-dir reports/results/v3/model
 
-Metadata must contain an ordered ``classes`` (or ``class_names``) JSON array.
+Metadata must contain an ordered ``classes``, ``class_names`` or ``class_order`` JSON array.
 Alternatively use ``--classes wood metal stone concrete ceramic fabric leather``.
 Labels may be names or zero-based indices; --label-format resolves ambiguity.
 Default estimate type is nested_oof. Use --estimate-type fresh_holdout for
@@ -32,7 +32,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--predictions", type=Path, required=True, help="Explicit OOF CSV path")
     parser.add_argument("--classes", nargs="+", help="Class names in probability-column order")
-    parser.add_argument("--metadata", type=Path, help="JSON with ordered classes or class_names")
+    parser.add_argument("--metadata", type=Path, help="JSON with ordered class names")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--label-format", choices=("auto", "names", "indices"), default="auto")
     parser.add_argument(
@@ -59,9 +59,11 @@ def main(argv: list[str] | None = None) -> int:
             metadata = json.loads(args.metadata.read_text(encoding="utf-8-sig"))
             if not isinstance(metadata, dict):
                 raise ValueError("Metadata must be a JSON object")
-            metadata_classes = metadata.get("classes", metadata.get("class_names"))
+            metadata_classes = metadata.get(
+                "classes", metadata.get("class_names", metadata.get("class_order"))
+            )
             if not isinstance(metadata_classes, list):
-                raise ValueError("Metadata must contain an ordered classes or class_names array")
+                raise ValueError("Metadata must contain classes, class_names or class_order")
             if classes is not None and classes != metadata_classes:
                 raise ValueError("--classes and metadata class order disagree")
             classes = metadata_classes
