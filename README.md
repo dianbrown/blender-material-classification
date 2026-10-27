@@ -76,11 +76,12 @@ The trained models are available in the bundled Windows installer. Checkpoint
 identities and development paths are documented in [MODEL_CARD.md](MODEL_CARD.md).
 
 The dataset contains **3,780 renders**: 3,150 development images from 101 known
-source groups and 630 test images from 21 new groups. The full dataset is **not
-published; a Kaggle release is planned**. The installer includes only the sample
-gallery. See [DATASET.md](DATASET.md) for provenance, grouping, rendering details,
-and licensing status. The [Kaggle guide](kaggle.md) covers preparing and
-publishing the dataset.
+source groups and 630 test images from 21 new groups. The full dataset is
+[available on Kaggle](https://www.kaggle.com/datasets/dianbrown/synthetic-pbr-materials)
+under CC0 1.0, with a
+[starter notebook](https://www.kaggle.com/code/dianbrown/synthetic-pbr-materials-starter-notebook).
+The installer includes only the sample gallery. See [DATASET.md](DATASET.md)
+for provenance, grouping, rendering details, and license scope.
 
 ## Development
 
