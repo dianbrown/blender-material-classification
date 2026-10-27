@@ -1,0 +1,8 @@
+estimate_type,class,support,auroc,average_precision,defined
+Fresh independent holdout estimates; independence requires external provenance,wood,90,1.0,0.9999999999999998,True
+Fresh independent holdout estimates; independence requires external provenance,metal,90,0.9967078189300411,0.9789772142869444,True
+Fresh independent holdout estimates; independence requires external provenance,stone,90,0.9403497942386831,0.8104430325883025,True
+Fresh independent holdout estimates; independence requires external provenance,concrete,90,0.8710699588477366,0.6582604074171313,True
+Fresh independent holdout estimates; independence requires external provenance,ceramic,90,0.9765020576131687,0.893521115055152,True
+Fresh independent holdout estimates; independence requires external provenance,fabric,90,0.9980246913580247,0.9914976692039429,True
+Fresh independent holdout estimates; independence requires external provenance,leather,90,0.9423662551440328,0.823481550755117,True

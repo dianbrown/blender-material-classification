@@ -1,0 +1,8 @@
+estimate_type,true_class,wood,metal,stone,concrete,ceramic,fabric,leather
+Fresh independent holdout estimates; independence requires external provenance,wood,90,0,0,0,0,0,0
+Fresh independent holdout estimates; independence requires external provenance,metal,0,90,0,0,0,0,0
+Fresh independent holdout estimates; independence requires external provenance,stone,1,0,84,0,0,0,5
+Fresh independent holdout estimates; independence requires external provenance,concrete,5,8,16,49,0,12,0
+Fresh independent holdout estimates; independence requires external provenance,ceramic,0,0,30,0,60,0,0
+Fresh independent holdout estimates; independence requires external provenance,fabric,0,0,0,0,0,90,0
+Fresh independent holdout estimates; independence requires external provenance,leather,0,0,0,0,0,6,84

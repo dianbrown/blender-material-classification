@@ -1,0 +1,16 @@
+estimate_type,bin,lower,upper,count,mean_confidence,accuracy
+Fresh independent holdout estimates; independence requires external provenance,0,0.0,0.06666666666666667,0,,
+Fresh independent holdout estimates; independence requires external provenance,1,0.06666666666666667,0.13333333333333333,0,,
+Fresh independent holdout estimates; independence requires external provenance,2,0.13333333333333333,0.2,0,,
+Fresh independent holdout estimates; independence requires external provenance,3,0.2,0.26666666666666666,0,,
+Fresh independent holdout estimates; independence requires external provenance,4,0.26666666666666666,0.3333333333333333,0,,
+Fresh independent holdout estimates; independence requires external provenance,5,0.3333333333333333,0.4,1,0.37728379743017526,0.0
+Fresh independent holdout estimates; independence requires external provenance,6,0.4,0.4666666666666667,2,0.4241880678224239,0.0
+Fresh independent holdout estimates; independence requires external provenance,7,0.4666666666666667,0.5333333333333333,2,0.5056152768604425,1.0
+Fresh independent holdout estimates; independence requires external provenance,8,0.5333333333333333,0.6,1,0.5899725371641443,1.0
+Fresh independent holdout estimates; independence requires external provenance,9,0.6,0.6666666666666666,0,,
+Fresh independent holdout estimates; independence requires external provenance,10,0.6666666666666666,0.7333333333333333,1,0.6742267083195385,0.0
+Fresh independent holdout estimates; independence requires external provenance,11,0.7333333333333333,0.8,2,0.7563516841847797,1.0
+Fresh independent holdout estimates; independence requires external provenance,12,0.8,0.8666666666666667,1,0.8552181332297165,0.0
+Fresh independent holdout estimates; independence requires external provenance,13,0.8666666666666667,0.9333333333333333,0,,
+Fresh independent holdout estimates; independence requires external provenance,14,0.9333333333333333,1.0,11,0.9834145051223969,1.0

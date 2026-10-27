@@ -1,0 +1,8 @@
+estimate_type,precision,recall,f1,support,predicted_support,recall_defined,precision_defined,class
+Fresh independent holdout estimates; independence requires external provenance,0.75,1.0,0.8571428571428571,90,120,True,True,wood
+Fresh independent holdout estimates; independence requires external provenance,0.8653846153846154,1.0,0.9278350515463918,90,104,True,True,metal
+Fresh independent holdout estimates; independence requires external provenance,0.6521739130434783,0.6666666666666666,0.6593406593406593,90,92,True,True,stone
+Fresh independent holdout estimates; independence requires external provenance,0.7349397590361446,0.6777777777777778,0.7052023121387284,90,83,True,True,concrete
+Fresh independent holdout estimates; independence requires external provenance,1.0,0.5777777777777777,0.732394366197183,90,52,True,True,ceramic
+Fresh independent holdout estimates; independence requires external provenance,0.9375,1.0,0.967741935483871,90,96,True,True,fabric
+Fresh independent holdout estimates; independence requires external provenance,0.7469879518072289,0.6888888888888889,0.7167630057803468,90,83,True,True,leather

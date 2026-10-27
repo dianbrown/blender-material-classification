@@ -1,0 +1,16 @@
+estimate_type,metric,estimate,lower,upper,n_valid,n_undefined
+Fresh independent holdout estimates; independence requires external provenance,accuracy,0.7619047619047619,0.6190476190476191,0.9047619047619048,10000,0
+Fresh independent holdout estimates; independence requires external provenance,balanced_accuracy,0.7619047619047619,0.619047619047619,0.9047619047619048,10000,0
+Fresh independent holdout estimates; independence requires external provenance,macro_precision,0.8119047619047619,0.5416666666666666,0.9289285714285662,10000,0
+Fresh independent holdout estimates; independence requires external provenance,macro_recall,0.7619047619047619,0.619047619047619,0.9047619047619048,10000,0
+Fresh independent holdout estimates; independence requires external provenance,macro_f1,0.748639455782313,0.546232993197279,0.9020408163265305,10000,0
+Fresh independent holdout estimates; independence requires external provenance,weighted_precision,0.8119047619047618,0.5416666666666666,0.9289285714285662,10000,0
+Fresh independent holdout estimates; independence requires external provenance,weighted_recall,0.7619047619047619,0.6190476190476191,0.9047619047619048,10000,0
+Fresh independent holdout estimates; independence requires external provenance,weighted_f1,0.748639455782313,0.5462329931972789,0.9020408163265308,10000,0
+Fresh independent holdout estimates; independence requires external provenance,log_loss,0.6750136537193823,0.3811728722523234,0.9895576671332583,10000,0
+Fresh independent holdout estimates; independence requires external provenance,brier_score,0.28761635193693236,0.1503091161002737,0.43287041619250777,10000,0
+Fresh independent holdout estimates; independence requires external provenance,ece,0.1935917857785793,0.15121209140494551,0.2772611526734443,10000,0
+Fresh independent holdout estimates; independence requires external provenance,mcc,0.7319692517498576,0.5708629816003475,0.8960286733763294,10000,0
+Fresh independent holdout estimates; independence requires external provenance,cohen_kappa,0.7222222222222222,0.5555555555555556,0.8888888888888887,10000,0
+Fresh independent holdout estimates; independence requires external provenance,source_balanced_accuracy,0.7619047619047619,0.6190476190476191,0.9047619047619048,10000,0
+Fresh independent holdout estimates; independence requires external provenance,class_balanced_source_accuracy,0.7619047619047619,0.619047619047619,0.9047619047619048,10000,0
