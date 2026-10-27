@@ -267,3 +267,12 @@ files; use measured file sizes/counts, not this approximate note. The same DINO
 weight file at two resolutions counts once as stored weights, while runtime
 instances may occupy separate memory. Neural loaders may also require cached
 pretrained files; report measured dependency requirements honestly.
+
+ResNet final all-development fit completed successfully in576.59seconds,
+tenepochs on3150images. Export: artifacts/v3/resnet-final/final/model.pt and
+model.json; run identity
+cf91792f1b0d36d85cf7ba0b160e3a7ee61aed800c2f80d6e3d2dd6bd42c3990.
+Training source/config hashes unchanged. Sole GPU owner has now started DINO
+development selection: exactly2learning rates x3folds, physical batch8,
+accumulation4, four CPU threads. No fresh holdout access. Wait for complete
+selection/final-fit results; do not choose from intermediate validation peaks.
