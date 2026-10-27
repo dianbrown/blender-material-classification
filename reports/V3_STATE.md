@@ -138,3 +138,57 @@ once for fixed candidates, run frozen corruptions, evaluate all endpoints and
 paired comparisons, build and visually verify final report, finalize docs,
 final independent review/tests, update PR and Linear. Never mark complete merely
 because a point estimate or the first implementation exists.
+
+## Latest neural execution handoff
+
+Core code is now at 28cb026 (report assembly) with reviewed neural fixes
+44aaaaf. The ResNet/DINO fixes cover AMP overflow recovery and update accounting,
+fresh CSV fold markers, decoded-pixel overlap for DINO and material-ID overlap
+for ResNet. Seventy-seven integrated neural/report-assembly tests passed.
+
+Previous GPU execution task completed: holdout rendering 630/21 and QC passed;
+`features_final` and `run_final` completed. All seven feature arrays and seven
+OOF prediction CSVs exactly reproduce the initial run (max probability
+difference 0). See `reports/results/v3/gpu_execution_summary.json` and
+`artifacts/v3/guard_revalidation_comparison.json`.
+
+**New sole GPU owner:** `v3-neural-gpu-execution-20261027-r2` (same full task-ID
+prefix). It has started sequential ResNet OOF/final, then DINO select/final.
+Do not launch another GPU job. It must finish before fresh scoring. Reviewed
+code/configs must not change under these runs. GPU agent reports progress and
+completion automatically.
+
+The clean renderer manifest lacks `source_group` by design; use the derived
+`metadata/v3_holdout/classification_manifest.csv` for every model/classifier
+command. Its 630 rows are verified against the sealed registry, passed QC and
+image hashes; sidecar records canonical source hashes. Use data-root
+`artifacts/v3/holdout_dataset`. Both renderer and classifier manifests are
+preserved separately. Three handoff integrity tests passed.
+
+All five corruption datasets are staged, not scored, at
+`artifacts/v3/robustness/fresh_holdout`. Staging identity:
+`e1574a95f957683689f8002c0c6cf287bb2a897bee055f91be0dd287ef8698b3`.
+Frozen-model corruption evaluator is implemented. If DINO fine-tune becomes
+the final selected model, add an adapter to score the same staged corruptions
+with its fixed checkpoint; do not introduce new conditions.
+
+Report assembler integrated (`scripts/v3/assemble_report.py`) plus draft cards.
+Read README input-spec example when preparing final evidence. It normalizes
+published text to UTF-8/LF before evidence hashing, preserving original and
+staged hashes. `scripts/v3/build_report.py` creates PDF/Markdown from assembled
+evidence, but final actual report has not yet been generated. Old report files
+remain unchanged. Dataset release package is ready locally, pending only the
+user's eventual license/publication choices.
+
+The full suite previously reported 292 pass / one Windows skip / one assertion
+wording failure (aliased vs aliases); that wording was corrected and all27
+robustness tests then passed. A full suite rerun is active after final neural
+and assembler integration. Do not report a full-suite total until it completes.
+
+Once neural execution completes: freeze primary candidate on the prescribed
+development comparison; record timestamp and exact artifact hashes BEFORE
+holdout predictions; score locked frozen selected/control, fixed ResNet and
+fine-tuned DINO once on the fresh classifier manifest; retain all results.
+Primary cannot be swapped based on the fresh ranking. Evaluate CIs/paired
+differences, run fixed corruptions, finalize report/cards and visual QA,
+independent final claim review, full checks and PR/Linear completion.
