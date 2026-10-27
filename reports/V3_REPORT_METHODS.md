@@ -1,7 +1,9 @@
 # V3 report methods and normalized input contract
 
 This is a reusable narrative outline and generator contract, not a results report.
-No v3 scores existed when this first-round outline was written (27 October 2026).
+The initial frozen nested experiment is now complete (27 October 2026); final
+validation-rerun, matched ResNet, exploratory fine-tuning and fresh evidence are
+still being integrated. This document remains a method/contract reference.
 The generator never searches old result folders or fills missing measurements.
 Final interpretation and visual verification must use the actual experiment
 artifacts in a later round. Do not copy the test fixture into a publication.
@@ -11,12 +13,12 @@ artifacts in a later round. Do not copy the test fixture into a publication.
 The current parent `reports/V3_AUDIT.md`, `V3_PLAN.md`, and `V3_STATE.md` are the
 local evidence record. The supplied archives contain 3,150 rendered PNGs, 105
 local material IDs, and 30 views per ID. Three confirmed ambientCG leather
-generator-family merges reduce the independence ceiling to **at most 102**
-source groups; further `wood_table` relationships still need auditing. Thirty
+generator-family merges and the frozen conservative wood merge give **101**
+source-family groups (14 wood, 12 leather, 15 in each other class). Thirty
 views are correlated observations, not thirty independent materials. The old
 77/14/14 material-ID train/validation/test partition does not by itself prevent
-source-family leakage. Record revised counts from the completed audit rather
-than treating 102 as a final group count.
+source-family leakage. Use the completed audit and frozen family registry for
+these counts; 101 groups do not prove 101 unrelated physical sources.
 
 The seven retained labels are wood, metal, stone, concrete, ceramic, fabric and
 leather. Discuss mosaic/terrazzo labels under ceramic, plaster/painted-wall
@@ -31,10 +33,14 @@ recommendation consulted test metrics. Those endpoints cannot become untouched
 v3 tests. The generator will not automatically reproduce these numbers.
 
 The project authors its Blender renders and experimental code, **not** the
-third-party texture maps. The audit matches 96 identifiers to Poly Haven and
-nine to ambientCG; matching names alone does not establish local file identity.
-Pair provider/source URLs with local asset hashes and license evidence. Both
-providers publish CC0 terms [6, 7]. Unresolved provenance remains visible.
+third-party texture maps. Completed verification covers 96 Poly Haven sources
+and nine ambientCG sources: all 315 referenced maps plus one additional local map
+are verified (316 total). Poly Haven uses official MD5/size comparisons and
+ambientCG uses official archive-member SHA-256/size comparisons; local SHA-256
+pins every file. Both providers publish CC0 terms [6, 7]. Original-source
+permissions and local release proof are prepared; only the owner dataset-license
+and later publication choices remain. See V3_PROVENANCE.md and
+V3_KAGGLE_RELEASE.md; earlier unverified-license audit text is historical.
 
 ## Narrative outline and evidence checklist
 
@@ -91,9 +97,12 @@ Treat these as separate endpoints:
 1. **Historical test:** previously consulted V1 evidence; contextual only.
 2. **Nested existing-corpus OOF:** estimate of the frozen selection procedure;
    correlated views remain clustered by source family.
-3. **Fresh holdout:** independently prepared 3-5 new sources per class is a
-   collection target, not an achieved count. Audit source-family independence,
-   freeze selection, then evaluate once. Synthetic renders remain synthetic.
+3. **Fresh holdout:** the registry now specifies 21 new CC0 sources, three per
+   class, and 630 images. Rendering/integrity completion and scoring are pending.
+   Audit source-family independence, freeze selection, then evaluate once.
+   Restricted ceramic/concrete definitions and Blender 5.1.1 are domain caveats;
+   a seven-image old-TRAIN EEVEE pilot matched framing/texture placement but had
+   softer ground shadows. The pilot was development evidence before bulk rendering.
 4. **All-data deployment fit:** an inference artifact after selection; no
    independent score can be attributed to the act of fitting all data. Record
    exactly which data it includes and whether a holdout remains untouched.
@@ -108,10 +117,12 @@ variability or domain shift. Report uncertainty even if the point target fails.
 
 `ITRI626_Project_New.md` recommends roughly 10-15 pages excluding references and
 appendices; substance determines actual length. It requests three distinct model
-families on the same split. The present v3 plan has DINOv2 and ConvNeXt, **two**
-families. Pooling/resolution variants do not satisfy the third-family requirement.
-Historical ResNet scores on a different endpoint are not a fair third v3 model.
-The parent must resolve this gap or explicitly document the assessment limitation.
+families on the same split. The completed frozen comparison has DINOv2 and
+ConvNeXt. A fixed ten-epoch ResNet-50 baseline on the same outer folds was declared before v3 scores and is
+pending execution; it resolves the third-family requirement only once evaluated.
+Pooling/resolution variants and historical ResNet scores do not count as a matched
+third architecture. The later two-LR/three-development-fold DINOv2 partial
+fine-tune is exploratory after the initial result, not a new unbiased nested CV.
 
 The assignment also requests training/validation loss and validation score
 curves. Frozen feature extraction and a converged logistic solver are not an
