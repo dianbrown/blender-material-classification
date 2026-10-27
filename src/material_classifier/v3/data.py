@@ -111,6 +111,11 @@ def json_bytes(value: object) -> bytes:
     return (json.dumps(value, indent=2, sort_keys=True, ensure_ascii=True) + "\n").encode()
 
 
+def csv_sha256(path: Path, columns: list[str]) -> str:
+    """Hash canonical UTF-8/LF CSV bytes, independent of Git autocrlf checkout."""
+    return hashlib.sha256(csv_bytes(read_csv(path), columns)).hexdigest()
+
+
 def _inspect_image(path: Path) -> dict:
     try:
         with Image.open(path) as image:
@@ -503,8 +508,8 @@ def audit_data(
     (output_dir / "source_groups.json").write_bytes(
         json_bytes(dict(groups=components, edges=edges))
     )
-    summary["manifest_sha256"] = sha256_file(output_dir / "manifest.csv")
-    summary["source_maps_sha256"] = sha256_file(output_dir / "source_maps.csv")
+    summary["manifest_sha256"] = csv_sha256(output_dir / "manifest.csv", MANIFEST_COLUMNS)
+    summary["source_maps_sha256"] = csv_sha256(output_dir / "source_maps.csv", MAP_COLUMNS)
     (output_dir / "data_audit.json").write_bytes(json_bytes(summary))
     registry = dict(
         schema_version=1,
@@ -618,8 +623,10 @@ def package_dataset(
         summary.get("integrity_errors")
         or not manifest
         or len(manifest) != summary.get("image_count")
-        or sha256_file(audit_dir / "manifest.csv") != summary.get("manifest_sha256")
-        or sha256_file(audit_dir / "source_maps.csv") != summary.get("source_maps_sha256")
+        or csv_sha256(audit_dir / "manifest.csv", MANIFEST_COLUMNS)
+        != summary.get("manifest_sha256")
+        or csv_sha256(audit_dir / "source_maps.csv", MAP_COLUMNS)
+        != summary.get("source_maps_sha256")
     ):
         raise ValueError("audit integrity errors, empty manifest or changed audit files")
     seen = set()

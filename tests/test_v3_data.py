@@ -364,3 +364,16 @@ def test_audit_does_not_overwrite_existing_license_evidence(corpus):
     before = (out / "license_registry.json").read_bytes()
     run()
     assert (out / "license_registry.json").read_bytes() == before
+
+
+def test_git_crlf_checkout_does_not_invalidate_staging(corpus, tmp_path):
+    root, out, _, _, run = corpus
+    run()
+    original = tmp_path / "lf.zip"
+    package_dataset(root, out, original, audit_only=True)
+    for name in ("manifest.csv", "source_maps.csv"):
+        path = out / name
+        path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+    checked_out = tmp_path / "crlf.zip"
+    package_dataset(root, out, checked_out, audit_only=True)
+    assert original.read_bytes() == checked_out.read_bytes()
