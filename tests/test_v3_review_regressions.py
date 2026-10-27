@@ -1,5 +1,6 @@
 """Synthetic reproductions of independent review findings; no measured artifacts."""
 
+import os
 from types import SimpleNamespace
 
 import pandas as pd
@@ -8,7 +9,7 @@ from blender.scripts.v3.render_holdout import gpu_identity
 from scripts.v3.build_report import ReportError, validate_predictions
 
 from material_classifier.v3 import CLASS_NAMES
-from material_classifier.v3.features import read_manifest
+from material_classifier.v3.features import read_manifest, source_identity
 
 
 def manifest_rows():
@@ -24,7 +25,9 @@ def manifest_rows():
     ]
 
 
-@pytest.mark.parametrize("alias", ["./wood_0.png", "WOOD_0.PNG", ".\\wood_0.png"])
+@pytest.mark.parametrize(
+    "alias", ["./wood_0.png", "WOOD_0.PNG", ".\\wood_0.png", "wood_0.png.", "wood_0.png "]
+)
 def test_manifest_rejects_aliases_across_source_groups(tmp_path, alias):
     rows = manifest_rows()
     rows[1]["image_path"] = alias
@@ -32,6 +35,16 @@ def test_manifest_rejects_aliases_across_source_groups(tmp_path, alias):
     pd.DataFrame(rows).to_csv(path, index=False)
     with pytest.raises(ValueError, match="aliases"):
         read_manifest(path)
+
+
+def test_manifest_rejects_hardlink_identity_before_extraction(tmp_path):
+    original = tmp_path / "wood_0.png"
+    original.write_bytes(b"same file through distinct names")
+    os.link(original, tmp_path / "wood_1.png")
+    path = tmp_path / "manifest.csv"
+    pd.DataFrame(manifest_rows()).to_csv(path, index=False)
+    with pytest.raises(ValueError, match="resolved file identities"):
+        source_identity(path, read_manifest(path), tmp_path)
 
 
 def test_manifest_rejects_material_in_multiple_families(tmp_path):

@@ -123,6 +123,8 @@ def read_manifest(path):
     paths = paths.map(posixpath.normpath)
     if paths.eq(".").any():
         raise ValueError("Manifest image paths must name files")
+    if any(part.rstrip(" .") != part for path in paths for part in path.split("/")):
+        raise ValueError("Manifest contains Windows trailing-dot or space path aliases")
     if paths.str.casefold().duplicated().any():
         raise ValueError("Manifest contains duplicate image path aliases")
     frame["image_path"] = paths
@@ -147,10 +149,18 @@ def image_file(data_root, image_path):
 
 
 def source_identity(manifest, frame, data_root):
-    records = [
-        {"image_path": path, "sha256": file_hash(image_file(data_root, path))}
-        for path in frame["image_path"]
-    ]
+    records, resolved_paths, file_ids = [], set(), set()
+    for relative in frame["image_path"]:
+        path = image_file(data_root, relative)
+        resolved = str(path).casefold()
+        stat = path.stat()
+        file_id = (stat.st_dev, stat.st_ino)
+        if resolved in resolved_paths or (stat.st_ino and file_id in file_ids):
+            raise ValueError("Manifest contains duplicate resolved file identities")
+        resolved_paths.add(resolved)
+        if stat.st_ino:
+            file_ids.add(file_id)
+        records.append({"image_path": relative, "sha256": file_hash(path)})
     return {
         "manifest_sha256": file_hash(manifest),
         "rows": len(frame),
