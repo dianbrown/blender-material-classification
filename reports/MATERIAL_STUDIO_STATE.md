@@ -90,3 +90,17 @@ Workerownerannouncedshortsequential4modelcold/warmCUDAthenCPUsmokeonone
 developmentgalleryimage; nootherGPUjobsuntilrelease. ParentdoesnoGPUwork.
 DraftPR#2 https://github.com/dianbrown/blender-material-classification/pull/2
 createdandT3linked, feat/material-studio->main. NoPRwatchstarted. PER377linked.
+
+Worker live smoke16/16requests passed:fourmodels,cold+warmCUDAthenCPU onone
+developmentwoodsample, validorderedprobabilities,exactrepeatperdevice,cleanJSONL
+andshutdown. Ready84.7msCUDA/88.5msCPU. WarmCUDAms:DINO20.1,ResNet15.8,
+selected34.9,control14.7; CPU107.5/39.6/193.5/44.9. Demonstrationtimingsonly,
+notreplacementsforstudybenchmarks. GPUreleasedafterfootprintprobe:allfourcached
+503676928bytesallocated,559939584reserved; processworking set1519013888bytes.
+ControlsharesConvNeXtcache. WorkerfinishingexactreviewedloaderCPUcomparison.
+
+Additionalchild studio-native-notices-20261027-r1 ownsapp/THIRD_PARTY_NOTICES.txt
+andapp/licenses/** (cededbyUIagent), optionalcollector script. Itreadsactual
+appCargo.lock/cache; noCargobuild. AppagentaskedtoproduceWindowsfilteredoffline
+metadataJSON atidleboundarytoartifacts/material-studio/native-metadata.json.
+Packagerwillrequirethatnoticebundlebeforefullassembly. No other GPU jobs active.
