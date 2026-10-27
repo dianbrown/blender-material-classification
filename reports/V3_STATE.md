@@ -214,3 +214,16 @@ matches each clean prediction run to the named model and holdout manifest.
 GPU milestone: ResNet outer fold0 completed ten epochs plus final-only
 assessment in438.37 seconds; fold1 running. Latest fold peak allocated/reserved
 GPU memory443371008/526385152 bytes, no skipped updates. Keep the fixed recipe.
+
+Neural robustness adapter integrated at 2b2c9c8; all 71 adapter CPU tests pass
+in the parent checkout. CLI: `scripts/v3/neural_robustness.py`; use family
+`resnet` or `dinov2`, named model in the pre-score endpoint lock, actual clean
+prediction CSV/run, existing staging directory and a NEW output directory.
+Relative artifact paths in the lock resolve against the lock file's directory.
+The lock's holdout object must contain exactly manifest_sha256, n_images and
+source_group_count. Keep the prescribed 630/21 values. This adapter never fits
+models and rejects incomplete outputs rather than resuming them.
+
+Latest GPU milestone: ResNet 2/5 outer folds complete, 20/50 fixed epochs;
+fold1 took473.59 seconds and fold2 started. No failures/skipped updates and no
+fresh scores. Do not adjust epochs or select a checkpoint from outer results.
