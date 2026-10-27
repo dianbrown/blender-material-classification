@@ -1,22 +1,27 @@
-# Dataset card: Material Studio synthetic PBR renders
+# Dataset card: Material Studio
 
-The complete study contains **3,780 images, 126 material IDs and 122 known
-source families**: 3,150 development images / 105 IDs / 101 families plus
-630 fresh test images / 21 IDs / 21 groups. There are 540 images per class
-across the complete study. The holdout has been scored once per locked model;
-it is now an evaluated benchmark, not an untouched future test.
+Material Studio uses **3,780 synthetic PBR renders**, covering seven material
+labels, 126 material IDs, and 122 known source families. Each material ID has
+30 views. The dataset supports evaluation of visual material recognition under
+controlled rendering conditions.
 
-[Project report](reports/project/report.pdf) | [Results notebook](notebooks/05_v3_results.ipynb) |
-[Combined release audit](reports/V3_STUDY_DATASET_RELEASE.md)
+**The full dataset is not published. A Kaggle release is planned; no dataset
+upload has been made.** The Windows installer includes 21 sample images, not the
+full dataset. The rendered dataset's license has not yet been assigned.
 
-## Original development corpus
+## Composition
 
-The existing corpus contains **3,150 RGB PNG images at 512 x 512**, from **105
-local material IDs**, 30 views each. Seven labels have 15 local materials and
-450 images each. The frozen v3 family registry yields **101 source groups**,
-not 105 independent physical materials.
+| Partition | Images | Material IDs | Known source groups |
+| --- | ---: | ---: | ---: |
+| Development | 3,150 | 105 | 101 |
+| Held-out test | 630 | 21 | 21 |
+| Total | 3,780 | 126 | 122 |
 
-| Label | Images | Local material IDs | Frozen source groups |
+There are 540 images per label across both partitions. Development images are
+RGB PNGs at 512 × 512 pixels. The test collection contributes 90 images from
+three new sources per label.
+
+| Label | Development images | Development IDs | Development source groups |
 | --- | ---: | ---: | ---: |
 | wood | 450 | 15 | 14 |
 | metal | 450 | 15 | 15 |
@@ -25,156 +30,118 @@ not 105 independent physical materials.
 | ceramic | 450 | 15 | 15 |
 | fabric | 450 | 15 | 15 |
 | leather | 450 | 15 | 12 |
-| Total | 3,150 | 105 | 101 |
 
-The 101 groups merge three confirmed ambientCG leather generator families and
-a conservative wood relationship. They encode known dependence, not proof that
-all remaining families are unrelated. Multiple views share texture content;
-uncertainty and splitting must respect source families.
+The 101 development groups merge three confirmed ambientCG leather generator
+families and a conservative wood relationship. Groups encode known dependence;
+they do not prove that every remaining source is physically unrelated.
 
-## Generation, taxonomy and layout
+## Rendering and labels
 
 Blender EEVEE and the retained RenderSynth pipeline render a material-covered
-sphere, ground, camera and light using deterministic variation (generation seed
-62642). Original scripts, configuration, manifests and retained scene are pinned
-in [render provenance](metadata/v3/license_evidence/render_provenance.json).
-The project authors the renders and experimental code, not the provider maps.
-Local raw assets are gitignored:
+sphere with a ground plane, camera, and light. View variation is deterministic
+with generation seed 62642. The
+[render provenance](metadata/v3/license_evidence/render_provenance.json) records
+the original scripts, configuration, manifests, and retained scene.
 
-```text
-dataset/{train,val,test}/{class}/*.png
-materials/{class}/{material_id}/
-metadata/v3/manifest.csv
-metadata/v3/source_groups.json
-metadata/v3/source_family_overrides.json
-metadata/v3/source_maps.csv
-```
+Labels describe visual appearance. The development archive's ceramic category
+includes mosaic and terrazzo-like sources; concrete includes plaster and
+painted-wall-like sources. The historical metallic shader convention is part of
+the rendering domain. Preserve the archived labels and define exclusions before
+examining predictions.
 
-Labels are appearance-based archival categories. Ceramic includes mosaic and
-terrazzo-like sources; concrete includes plaster and painted-wall-like sources.
-The historic metallic shader convention is part of the rendering domain.
-Retain archival labels and document exclusions before looking at predictions;
-difficult images must not be relabelled or removed to improve a score.
+The fresh test collection uses narrower ceramic and concrete definitions.
+Blender 5.1.1 also differs from the historical rendering environment. A seven-image
+pilot using old training sources matched framing and texture placement visually,
+with softer ground shadows. New source identities therefore do not eliminate
+renderer or taxonomy shift.
 
-## Splits and leakage control
+## Partitions and leakage control
 
-The historical directory layout is train 2,310 images / 77 materials,
-validation 420 / 14, and test 420 / 14. These are lineage records, **not an
-untouched current test split**. The old test was consulted and some related
-families cross old material-ID splits. All 3,150 existing images are now the
-v3 development corpus.
+The historical directory layout has 2,310 training, 420 validation, and 420 test
+images. These directories record lineage: the old test was consulted, and some
+related source families cross the old material-ID splits. All 3,150 images now
+form the development corpus, not an untouched test set.
 
-V3 uses five outer and three inner class-stratified source-group folds, expanded
-from group identities to image rows. Scalers, regularization selection and
-heads stay inside the relevant training partitions. Preserve the frozen
-`metadata/v3/manifest.csv`, family registry and recorded fold assignments.
-Report image-weighted metrics with source-group bootstrap uncertainty; the
-interval does not transform 30 correlated views into independent sources.
+Frozen-feature selection uses five outer and three inner source-group folds,
+stratified by label. Scalers, regularization selection, and fitted heads remain
+inside their respective training partitions. Preserve the
+[development manifest](metadata/v3/manifest.csv),
+[source groups](metadata/v3/source_groups.json), and
+[family overrides](metadata/v3/source_family_overrides.json).
 
-## Integrity and original-source provenance
+The separate [test registry](metadata/v3_holdout/source_registry.json) contains
+21 new sources. All 630 renders passed model-free integrity checks; the
+[classification manifest](metadata/v3_holdout/classification_manifest.csv) is
+separate from the renderer manifest. The primary model choice and all four
+checkpoints were locked before test prediction. No model changed after the
+clean test results.
 
-The completed audit found 3,150 readable renders, 105 materials and 101 groups.
-Release preparation rehashed all 3,150 images against the frozen manifest and
-compared them with original `dataset.zip` members: all matched. Scene inspection
-matched all 105 material graphs to the expected three maps and found no
-additional external scene inputs needing resolution. Exact scope and
-limitations are retained in [V3_KAGGLE_RELEASE.md](reports/V3_KAGGLE_RELEASE.md).
+The test set has now been evaluated. Further tuning on it must be disclosed;
+new confirmatory claims require a newly frozen independent holdout. Metrics are
+image-weighted, with uncertainty resampled over source groups. Thirty correlated
+views do not constitute 30 independent materials. See [MODEL_CARD.md](MODEL_CARD.md)
+for confidence intervals and evaluation limits.
 
-**All 316 local source maps are verified.** There are 315 manifest-referenced
-maps (288 from 96 Poly Haven sources, 27 from nine ambientCG sources), plus one
-verified unreferenced metal displacement map. No original source remains at
-identifier-only or unknown-license status. The extra displacement map is not
-referenced by the retained scene and is not included as a texture in the
-rendered-image release.
+## Source provenance
+
+The source maps come from Poly Haven and ambientCG. Recorded official provider
+evidence verifies CC0 provenance for **316 development maps and 63 test maps**.
+The project creates the rendered images and code and attributes the third-party
+maps separately.
+
+Of the development maps, 315 are referenced by the manifest: 288 from 96 Poly
+Haven sources and 27 from nine ambientCG sources. One additional metal
+displacement map is verified but unused by the retained scene. Scene inspection
+matched all 105 material graphs to their expected three maps and found no
+additional external scene inputs requiring resolution.
 
 Poly Haven verification compares official metadata MD5 and size with local
-files; local SHA-256 pins the audited bytes. It is not a remote SHA-256 match.
-ambientCG verification compares SHA-256 and size against members of official
-downloaded archives. Provider terms, source URLs, attribution, timestamps and
-verification evidence are recorded per asset in
-[license_registry.json](metadata/v3/license_registry.json), compact evidence
-under `metadata/v3/license_evidence/`, and
-[the source audit](reports/V3_PROVENANCE.md). Unknown individual ambientCG map
-authors do not mean unknown source permission. Earlier frozen audit warnings
-about unresolved source licensing are historical, superseded by this evidence;
-the frozen audit bytes themselves are preserved.
+files; local SHA-256 pins the audited bytes. ambientCG verification compares
+SHA-256 and size with members of official downloaded archives. Source URLs,
+attribution, timestamps, and verification evidence are retained in the
+[license registry](metadata/v3/license_registry.json) and
+[per-asset evidence](metadata/v3/license_evidence). The test collection retains
+its own [source identity audit](metadata/v3_holdout/source_identity_audit.json).
 
-## Fresh collection and rendering-domain caveat
-
-The separate `metadata/v3_holdout` registry specifies **21 new CC0 sources,
-three per class, and 630 images**. It is excluded from the original-only release package and included in the
-complete study audit ZIP described below. All 630 renders passed model-free integrity checks. The classifier
-view is `metadata/v3_holdout/classification_manifest.csv`; the original renderer
-manifest remains separate. Fresh evaluation is complete. The primary choice and all model artifacts were
-locked before any fresh prediction. No model changed after the clean results.
-A line-ending-only freeze-hash repair did not change the frozen
-configuration, registry or model-selection policy.
-
-Fresh ceramic/concrete definitions are restricted relative to the broad
-archive labels. Blender 5.1.1 differs from the retained historical environment.
-A seven-image old-TRAIN EEVEE pilot before bulk rendering visually matched
-framing and texture placement, with softer ground shadows. Treat this as a
-rendering-domain caveat, not a fresh evaluation result. Source novelty does not
-remove renderer or taxonomy shift, and synthetic renders remain synthetic.
-
-## Complete study package and release status
-
-**The complete local audit ZIP is verified. Nothing is uploaded.** Original
-source permissions are resolved; the owner's rendered-dataset license and
-publication decisions remain pending. `dataset_license` is unset and
-`release_approved=false`. Third-party CC0 maps are attributed; project authorship
-concerns rendered images and code, not those maps. Provider terms do not
-license model weights, websites or unrelated project assets.
-
-- Local archive: `artifacts/v3/release-staging/material-classification-v3-study-audit.zip`
-- Size: **1,005,048,843 bytes**; 3,927 entries.
-- SHA-256: `4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da`
-- Companion: `material-classification-v3-study-audit.validation.json` in the same directory.
-- Split: 3,150 development images and 630 fresh test images, with 30 views per ID.
-
-The validation checks every entry's CRC/hash, the manifest, source/pixel hashes
-and private paths. Archive paths are `images/development/{class}/{filename}` and
-`images/test/{class}/{filename}`. `metadata/manifest.csv` records V3 split,
-historical `original_split`, source group, lineage path, source/package byte
-hashes and decoded-pixel hashes. Old test membership remains lineage only.
-
-All 316 original and **63 fresh source maps** were verified against official
-CC0 provider evidence. The package contains rendered images and compact source,
-rendering and audit records, not raw textures, scene binaries or model weights.
 Known ancestry checks cover aliases, normalized names, procedural families,
-recipe/map identities and raw map reuse; they do not prove every physical source
-unrelated. The original-only audit ZIP remains preserved separately.
+recipe/map identities, and raw map reuse. They do not establish complete physical
+ancestry. Public texture overlap with backbone pretraining has not been audited.
 
-Private Windows paths in embedded PNG metadata were stripped from **copies**.
-All packaged images have identical decoded pixels to their canonical sources;
-original files were not modified. `sha256` in the combined manifest hashes the
-packaged PNG; `source_sha256` hashes the original PNG. Do not compare them as
-if metadata sanitization preserved byte identity. Both hashes and pixel identity
-are retained, with published text normalized to UTF-8/LF.
+## Release preparation
 
-See [V3_STUDY_DATASET_RELEASE.md](reports/V3_STUDY_DATASET_RELEASE.md) for complete
-verification and the original [release audit](reports/V3_KAGGLE_RELEASE.md).
-There is no public download URL. Publishing or choosing CC0/CC-BY-4.0 for the
-rendered dataset remains the owner's decision, as does Kaggle publication.
-Once scored, and especially after publication, further tuning on this test set
-must be disclosed; confirmatory claims need a newly frozen independent holdout.
+A local archive has been prepared and verified for the planned Kaggle release.
+It contains all 3,780 renders and compact provenance records, excluding raw
+textures, scene binaries, and model weights. Source-map permissions are distinct
+from the pending license for the rendered dataset and from model-weight terms.
 
-## Reuse and reproduction
+The archive layout is `images/development/{class}/{filename}` and
+`images/test/{class}/{filename}`. Its `metadata/manifest.csv` records the current
+partition, historical `original_split`, source group, lineage path, byte hashes,
+and decoded-pixel hashes. Historical test membership remains lineage only.
 
-Use the frozen v3 manifests and the reproduction commands in [README.md](README.md).
-Keep the old split directories for traceability while grouping experiments by
-`source_group`. Audit changed image/map bytes and preserve a separate output
-directory for each extraction, training, evaluation and report assembly run.
-The canonical validated cache/run are `artifacts/v3/features_final`
-and `artifacts/v3/run_final`; initial outputs remain available for comparison.
+Private Windows paths in embedded PNG metadata were stripped from archive copies.
+All packaged images retain identical decoded pixels to their canonical sources;
+the original files were not modified. In the combined manifest, `sha256` hashes
+the packaged PNG and `source_sha256` hashes the original PNG. Metadata cleanup
+can change byte hashes without changing pixels.
 
-Raw Windows-generated training files may use CRLF and their run records hash
-those original bytes. Published report evidence is normalized to UTF-8/LF before
-manifest hashing, while its inventory preserves both original and staged
-hashes. Never compare the raw training-output hash to a Git-normalized copy as
-if the bytes were unchanged.
+The development audit found 3,150 readable renders, rehashed them against the
+frozen manifest, and matched them to the original `dataset.zip` members. Archive
+validation checks entry CRCs/hashes, manifests, source/pixel hashes, and private
+paths. Local preparation does not constitute publication or assign a license.
 
-This dataset supports controlled synthetic appearance research. It does not
-establish physical composition, real-world coverage or synthetic-to-real
-performance. Source-provider concentration, finite families, ambiguous labels,
-pretraining overlap and shared scene cues remain limitations.
+## Reuse and limitations
+
+Full image and texture collections are separate from Git. Retain the historical
+directories for traceability while grouping experiments by `source_group`.
+Audit changed image or map bytes and keep separate outputs for each extraction,
+training, and evaluation run. The canonical local cache and fitted run are
+`artifacts/v3/features_final` and `artifacts/v3/run_final`.
+
+This dataset measures synthetic appearance recognition. It does not establish
+physical composition or performance on arbitrary real-world photographs.
+Source-provider concentration, few independent families, ambiguous labels,
+shared scene cues, rendering differences, and possible pretraining overlap limit
+transfer. The [results notebook](notebooks/05_v3_results.ipynb) and
+[raw test outputs](reports/results/v3/fresh) document the evaluated benchmark;
+[README.md](README.md) covers application use and development setup.

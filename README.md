@@ -2,179 +2,111 @@
 
 # Material Studio
 
-A native desktop demonstration of material classification, built with Rust GPUI
-and local PyTorch inference. Explore seven material classes, classify an image,
-and compare the models using the project's measured results.
+A native Windows app for exploring material recognition. Classify images locally,
+compare four trained models, and inspect measured results in a focused desktop
+interface built with Rust GPUI and PyTorch.
 
 **Wood · Metal · Stone · Concrete · Ceramic · Fabric · Leather**
 
-## Classroom demo
-
-[Download the v0.5 Windows installer](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.5).
-Download **Setup.exe and both Setup-1.bin / Setup-2.bin files** into the same
-folder, then run Setup.exe. Keep all three filenames unchanged.
-It installs Material Studio for your Windows account and creates a Start Menu
-shortcut. All **four trained models**, **21 sample images** and the Python
-runtime are included; no separate Python setup, model download or server is
-needed. Installed files use approximately **4.8 GiB**.
-
-The installer targets **64-bit Windows 10 (1903 or later) and Windows 11**.
-Compatible NVIDIA GPUs use CUDA; otherwise inference uses the CPU. The first
-prediction loads the selected model, then later predictions reuse it.
-See [installation and removal instructions](docs/INSTALLATION.md), including
-release-file checksums and the unsigned-installer notice.
-
-For a locally built portable copy, open `MaterialStudio.exe` inside the complete
-package folder and keep that folder together. Packaged CPU and CUDA inference
-have been verified; the application also runs outside the development checkout.
-
-The neutral Acrylic background is gently translucent, with crisp foreground
-content. The minimal interface has four views: **Classify / Study / Samples /
-About**. Classify shows one image with a compact bottom toolbar: **Open image**,
-**Samples**, the **model menu**, then **Classify**.
-
-1. Pick a sample or open a PNG, JPEG, WebP, BMP or TIFF image.
-2. Select a model and click **Classify**. The first prediction loads that model;
-   subsequent predictions reuse it.
-3. Read the predicted class and confidence. Open the optional **Details** panel
-   for the full probability distribution. Classification runs the selected model
-   on the image; the Study view displays stored experimental results.
-4. Open **Study** for the held-out model comparison and confusion matrices,
-   **Samples** to browse examples, or **About** for project information.
-
-The interface defaults to fine-tuned DINOv2, provisionally recommended for
-classroom demonstrations with comparable renders because of its observed
-accuracy and lower batch-one latency than fusion. Fusion remains the preselected
-study primary. This recommendation does not establish statistical superiority.
-Class probabilities are not guarantees; arbitrary photographs have not been
-validated.
-
 ![A looping tour of Material Studio](docs/images/material-studio-loop.gif)
 
-A recording of live classification, study results and samples; pauses shortened.
-[Download the MP4](https://github.com/dianbrown/blender-material-classification/releases/download/v0.5/material-studio-loop.mp4).
+## Install
 
-## Project submission
+[Download Material Studio v0.5 for Windows](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.5).
+Save **all three files** in the same folder, keeping their names unchanged:
 
-- [Project report (PDF, 19 pages; 14 main pages)](reports/project/report.pdf)
-- [Editable report](reports/project/report.md)
-- [Presentation (14 slides)](reports/presentation/material_classification.pptx)
-  and [slide PDF](reports/presentation/material_classification.pdf)
-- [Classroom demonstration guide](docs/CLASSROOM_DEMO.md)
-- [Executed results notebook](notebooks/05_v3_results.ipynb)
-- [Dataset description](DATASET.md) and [model details](MODEL_CARD.md)
+- `MaterialStudio-0.5.0-windows-x64-Setup.exe`
+- `MaterialStudio-0.5.0-windows-x64-Setup-1.bin`
+- `MaterialStudio-0.5.0-windows-x64-Setup-2.bin`
 
-The report follows the ITRI626 project structure. Group-member and student-number
-fields are intentionally blank at the user's request. The report and slides
-and the verified classroom application are ready for rehearsal.
+Run the EXE, then launch Material Studio from the Start Menu. The installer
+includes **four trained models, 21 sample images, and the Python runtime**.
+Installation and inference work offline once the files are downloaded; no
+separate Python installation, model download, or server is needed.
 
-## Measured results
+Requires **Windows 10 version 1903 or later, or Windows 11, on x64 Intel/AMD**,
+a DirectX 11 capable graphics adapter, and space for approximately **4.8 GiB** of
+installed files plus downloads and temporary files. Inference uses a compatible
+NVIDIA GPU when available and otherwise runs on the CPU. See the
+[installation guide](docs/INSTALLATION.md) for checksums, the unsigned-installer
+notice, and removal instructions.
 
-All four pipelines were evaluated on the same **630 held-out renders from 21 new
-source groups**. Each of the seven classes contributes 90 images.
+## Use
+
+1. Choose a bundled sample or open a PNG, JPEG, WebP, BMP, or TIFF image.
+2. Select a model and click **Classify**. The first prediction loads the model;
+   later predictions reuse it.
+3. Read the predicted material and confidence. Open **Details** for the full
+   probability distribution.
+4. Explore **Study** for saved evaluation results and confusion matrices,
+   **Samples** for examples, and **About** for project information.
+
+The app defaults to fine-tuned DINOv2. The frozen DINOv2 + ConvNeXt fusion remains
+the preselected primary model for evaluation. Live classification uses your
+chosen model; the Study view displays stored results. Confidence values are
+model probabilities, not guarantees of correctness.
+
+## Measured performance
+
+All four models were evaluated on the same **630 held-out Blender renders from
+21 new source groups**, with 90 images and three source groups per material label.
 
 | Model | Accuracy | Macro F1 |
 | --- | ---: | ---: |
-| Frozen DINOv2 + ConvNeXt fusion | 80.16% | 0.7952 |
-| Frozen ConvNeXt control | 75.56% | 0.7566 |
-| ResNet-50 | 77.62% | 0.7665 |
-| Fine-tuned DINOv2 | 86.83% | 0.8631 |
+| Frozen DINOv2 + ConvNeXt fusion (primary) | 80.16% | 0.7952 |
+| Frozen ConvNeXt (control) | 75.56% | 0.7566 |
+| ResNet-50 (comparison) | 77.62% | 0.7665 |
+| Fine-tuned DINOv2 (exploratory comparison) | 86.83% | 0.8631 |
 
-The fusion pipeline was selected before the test and met the 80% point-accuracy
-target. Fine-tuned DINOv2 is an exploratory comparison. Their accuracy 95%
-source-group bootstrap intervals are **66.03–93.65%** and **76.98–95.87%**;
-the paired difference interval includes zero. The study therefore does not
-establish that one model is superior across the wider material population.
+The primary met the 80% point-accuracy target, but its 95% source-group bootstrap
+interval is **66.03–93.65%**. Fine-tuned DINOv2 has the highest observed accuracy,
+with an interval of **76.98–95.87%**; the paired difference interval includes zero,
+so these results do not establish superiority. Thirty views of a source are
+correlated, and only three test sources per label limit generalization.
 
-Compression is a meaningful limitation: JPEG quality 30 reduces fusion accuracy
-to **59.05%** and fine-tuned DINOv2 accuracy to **75.40%**. The report includes
-per-class results, confidence intervals, confusion matrices, recorded learning
-curves, error examples and measured deployment costs. Calibration analysis is
-available in the results notebook and model card.
+These results describe synthetic material appearances, not physical composition
+or validated performance on arbitrary photographs. Compression is a substantial
+limitation: JPEG quality 30 lowers accuracy to **59.05%** for fusion and **75.40%**
+for fine-tuned DINOv2. The [model card](MODEL_CARD.md) documents selection,
+uncertainty, calibration, robustness, and measured inference costs.
 
-## Dataset and method
+## Models and data
 
-The project contains **3,780 Blender renders**, with 30 views per material:
+The trained models are available in the bundled Windows installer. Checkpoint
+identities and development paths are documented in [MODEL_CARD.md](MODEL_CARD.md).
 
-| Partition | Images | Material IDs | Known source groups |
-| --- | ---: | ---: | ---: |
-| Development | 3,150 | 105 | 101 |
-| Held-out test | 630 | 21 | 21 |
+The dataset contains **3,780 renders**: 3,150 development images from 101 known
+source groups and 630 test images from 21 new groups. The full dataset is **not
+published; a Kaggle release is planned**. The installer includes only the sample
+gallery. See [DATASET.md](DATASET.md) for provenance, grouping, rendering details,
+and licensing status.
 
-PBR materials are attributed to [Poly Haven](https://polyhaven.com/textures) and
-[ambientCG](https://ambientcg.com/), which distribute the source assets under
-CC0. The project creates the rendered image dataset; it does not claim authorship
-of those third-party texture maps. Provenance, class definitions and licensing
-details are documented in [DATASET.md](DATASET.md).
+## Development
 
-Related source materials remain in the same group. Five outer and three inner
-development folds evaluate frozen-feature model selection; ResNet uses a fixed
-training schedule, and DINOv2 uses a bounded partial fine-tuning experiment.
-Final models are fixed before test prediction. Thirty views of one source are
-correlated, so uncertainty is resampled over sources rather than individual images.
+The recorded ML environment uses Windows, Python 3.13.5, and PyTorch 2.11 with
+CUDA 12.8. Install `uv` before running the setup script; it requires an available
+CUDA device. Use [requirements-v3-lock.txt](requirements-v3-lock.txt) for this
+environment rather than the legacy pins in `pyproject.toml`.
 
-The test collection has only three source groups per class, restricted definitions
-for some classes and a documented rendering-domain difference. No arbitrary
-real-world image performance is claimed. The test set has now been evaluated;
-future tuning on it requires disclosure and a new independent assessment.
-
-## Development setup
-
-The recorded environment uses Windows, Python 3.13.5, PyTorch 2.11 with CUDA 12.8,
-and an RTX 4070 Laptop GPU. Rust GPUI uses its pinned toolchain and dependency
-revision. Building the native executable also requires the Microsoft C++ build
-tools and Windows SDK. Use [requirements-v3-lock.txt](requirements-v3-lock.txt)
-for the recorded ML environment; the legacy dependency pins in `pyproject.toml`
-do not describe this environment. The setup script requires `uv` and checks CUDA.
+The native app requires the Rust toolchain pinned in
+[app/rust-toolchain.toml](app/rust-toolchain.toml), Microsoft C++ Build Tools,
+and the Windows SDK.
 
 ```powershell
-# Prepare the recorded ML environment (requires uv).
 ./scripts/setup_v3.ps1
 ./.venv/Scripts/Activate.ps1
-
-# Optional notebook tooling, without changing the ML dependency versions.
-python -m pip install -c requirements-v3-lock.txt -r requirements-notebook.txt
-
-# Build the native application with the project-pinned Rust toolchain.
 ./scripts/demo/build_app.ps1
 ```
 
-Model weights, full datasets and pretrained caches are local resources rather
-than Git files. Their paths and expected identities are in
-[MODEL_CARD.md](MODEL_CARD.md). There is no public weight or dataset download
-URL yet. Dataset submission to Kaggle remains with the project owner.
+A Git checkout contains source and evaluation records; model checkpoints, full
+datasets, and pretrained caches are separate resources. Building the executable
+alone does not assemble its inference runtime. See the
+[packaging guide](docs/DEMO_PACKAGING.md) for required inputs and runtime layout.
 
-For portable assembly and runtime requirements, see
-[packaging instructions](docs/DEMO_PACKAGING.md), using
-`dist/MaterialStudio-release` as the final output directory. The packaged GPU
-runtime is larger than the native UI executable; it includes the actual
-inference libraries and required weights.
-
-## Reproduce and inspect
-
-The visible-output notebook reads saved evidence and checks its consistency
-without retraining models or rescoring the test set:
-
-```powershell
-python scripts/v3/build_results_notebook.py --root . --output notebooks/results_rebuilt.ipynb --execute
-python -m pytest -q
-```
-
-Training, grouped fold assignments, evaluation scripts and the measured results
-are retained under `scripts/v3`, `src/material_classifier/v3`, `metadata/v3` and
-`reports/results/v3`. The [model choice](reports/results/v3/model_choice.json),
-[checkpoint lock](reports/results/v3/final_model_lock.json) and
-[saved test outputs](reports/results/v3/fresh) preserve the evaluation evidence.
-
-The native frontend is under `app`; the persistent local inference service is
-under `src/material_classifier/demo`. UI rendering stays separate from model
-loading and inference. Live-image inference preserves the reviewed preprocessing
-and saved model weights.
-
-## Attribution
-
-The interface uses [GPUI](https://www.gpui.rs/) from the Zed project. Model work
-builds on DINOv2, ConvNeXt and ResNet, with references in the project report and
-model card. The portable package includes dependency notices. The rendered
-dataset has no assigned licence or public download; Kaggle publication remains
-the owner's decision, and nothing has been uploaded.
+The [results notebook](notebooks/05_v3_results.ipynb) presents saved evaluation
+evidence. Raw [test outputs](reports/results/v3/fresh), the
+[model choice](reports/results/v3/model_choice.json), and the
+[checkpoint lock](reports/results/v3/final_model_lock.json) preserve the recorded
+selection and evaluation. Training and evaluation code lives in `scripts/v3`
+and `src/material_classifier/v3`; the native UI is in `app` and local inference
+in `src/material_classifier/demo`.
