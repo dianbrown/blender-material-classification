@@ -1,0 +1,498 @@
+[
+  {
+    "id": "dinov2_finetuned-0",
+    "ok": true,
+    "model": "dinov2_finetuned",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9522962113439526,
+      0.011972478947990885,
+      0.0044751947461883265,
+      0.005820785835599088,
+      0.010061244929065821,
+      0.008371882670417467,
+      0.007002201526785848
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 567.345599993132,
+    "device": "cuda",
+    "load_ms": 6580.353099969216,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "dinov2_finetuned-1",
+    "ok": true,
+    "model": "dinov2_finetuned",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9522962113439526,
+      0.011972478947990885,
+      0.0044751947461883265,
+      0.005820785835599088,
+      0.010061244929065821,
+      0.008371882670417467,
+      0.007002201526785848
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 20.10680001694709,
+    "device": "cuda",
+    "load_ms": 0.0515999854542315,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "resnet_fixed-0",
+    "ok": true,
+    "model": "resnet_fixed",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9555615600956247,
+      0.008573911652160808,
+      0.0045224351217111325,
+      0.007913020470259045,
+      0.007903419675546657,
+      0.004953523153527889,
+      0.010572129831169765
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 133.69829999282956,
+    "device": "cuda",
+    "load_ms": 405.7533000013791,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "resnet_fixed-1",
+    "ok": true,
+    "model": "resnet_fixed",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9555615600956247,
+      0.008573911652160808,
+      0.0045224351217111325,
+      0.007913020470259045,
+      0.007903419675546657,
+      0.004953523153527889,
+      0.010572129831169765
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 15.832700009923428,
+    "device": "cuda",
+    "load_ms": 0.03619998460635543,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "frozen_selected-0",
+    "ok": true,
+    "model": "frozen_selected",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9999997349719592,
+      9.301378086709674e-09,
+      3.2581836361221817e-10,
+      1.0937179343152524e-10,
+      2.2767916012862323e-07,
+      2.7329719981505963e-08,
+      2.825925529436196e-10
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 1210.1108000497334,
+    "device": "cuda",
+    "load_ms": 847.4188999971375,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "frozen_selected-1",
+    "ok": true,
+    "model": "frozen_selected",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9999997349719592,
+      9.301378086709674e-09,
+      3.2581836361221817e-10,
+      1.0937179343152524e-10,
+      2.2767916012862323e-07,
+      2.7329719981505963e-08,
+      2.825925529436196e-10
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 34.87369994400069,
+    "device": "cuda",
+    "load_ms": 0.05600001895800233,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "frozen_control-0",
+    "ok": true,
+    "model": "frozen_control",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9996488901422993,
+      0.0001543880768670882,
+      3.5898675548012056e-05,
+      2.4768136607887776e-05,
+      9.051233067562918e-05,
+      2.4041246555670604e-05,
+      2.1501391446437557e-05
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 15.93910000519827,
+    "device": "cuda",
+    "load_ms": 33.24160003103316,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "frozen_control-1",
+    "ok": true,
+    "model": "frozen_control",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9996488901422993,
+      0.0001543880768670882,
+      3.5898675548012056e-05,
+      2.4768136607887776e-05,
+      9.051233067562918e-05,
+      2.4041246555670604e-05,
+      2.1501391446437557e-05
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 14.720199978910387,
+    "device": "cuda",
+    "load_ms": 0.03489997470751405,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cuda",
+    "ready_ms": 84.69390001846477
+  },
+  {
+    "id": "dinov2_finetuned-0",
+    "ok": true,
+    "model": "dinov2_finetuned",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9522959480923341,
+      0.011972532652489518,
+      0.004475242126936327,
+      0.005820804310260394,
+      0.01006132941704645,
+      0.008371920636326363,
+      0.007002222764606858
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 191.78239995380864,
+    "device": "cpu",
+    "load_ms": 5431.792599963956,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "dinov2_finetuned-1",
+    "ok": true,
+    "model": "dinov2_finetuned",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9522959480923341,
+      0.011972532652489518,
+      0.004475242126936327,
+      0.005820804310260394,
+      0.01006132941704645,
+      0.008371920636326363,
+      0.007002222764606858
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 107.54019994055852,
+    "device": "cpu",
+    "load_ms": 0.009500014130026102,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "resnet_fixed-0",
+    "ok": true,
+    "model": "resnet_fixed",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9555614466163408,
+      0.00857394947345203,
+      0.004522443210509564,
+      0.007913030850208627,
+      0.007903431927227126,
+      0.0049535390994570605,
+      0.010572158822804854
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 46.11220001243055,
+    "device": "cpu",
+    "load_ms": 301.28670000704005,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "resnet_fixed-1",
+    "ok": true,
+    "model": "resnet_fixed",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9555614466163408,
+      0.00857394947345203,
+      0.004522443210509564,
+      0.007913030850208627,
+      0.007903431927227126,
+      0.0049535390994570605,
+      0.010572158822804854
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 39.57400005310774,
+    "device": "cpu",
+    "load_ms": 0.010999967344105244,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "frozen_selected-0",
+    "ok": true,
+    "model": "frozen_selected",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.999999734973332,
+      9.301378086722444e-09,
+      3.2582580210673256e-10,
+      1.093717934316754e-10,
+      2.2767762535666741e-07,
+      2.7329872748227606e-08,
+      2.8259416276735045e-10
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 243.95760003244504,
+    "device": "cpu",
+    "load_ms": 709.595900028944,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "frozen_selected-1",
+    "ok": true,
+    "model": "frozen_selected",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.999999734973332,
+      9.301378086722444e-09,
+      3.2582580210673256e-10,
+      1.093717934316754e-10,
+      2.2767762535666741e-07,
+      2.7329872748227606e-08,
+      2.8259416276735045e-10
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 193.48439999157563,
+    "device": "cpu",
+    "load_ms": 0.008400005754083395,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "frozen_control-0",
+    "ok": true,
+    "model": "frozen_control",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9996488881202931,
+      0.00015438893511787095,
+      3.5898850098395704e-05,
+      2.4768207498381183e-05,
+      9.051318905561446e-05,
+      2.404124650704198e-05,
+      2.1501451429601382e-05
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 49.20000000856817,
+    "device": "cpu",
+    "load_ms": 35.988999996334314,
+    "model_cached": false,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  },
+  {
+    "id": "frozen_control-1",
+    "ok": true,
+    "model": "frozen_control",
+    "class_names": [
+      "wood",
+      "metal",
+      "stone",
+      "concrete",
+      "ceramic",
+      "fabric",
+      "leather"
+    ],
+    "probabilities": [
+      0.9996488881202931,
+      0.00015438893511787095,
+      3.5898850098395704e-05,
+      2.4768207498381183e-05,
+      9.051318905561446e-05,
+      2.404124650704198e-05,
+      2.1501451429601382e-05
+    ],
+    "predicted_class": "wood",
+    "inference_ms": 44.88549998495728,
+    "device": "cpu",
+    "load_ms": 0.014899997040629387,
+    "model_cached": true,
+    "latency_scope": "Live single-image decode, exact preprocessing, device transfer, resident model forward, saved head and host probabilities, including CUDA synchronization. Excludes runtime/model loading, integrity checks, request queueing and JSON serialization. Not a study benchmark.",
+    "requested_device": "cpu",
+    "ready_ms": 88.4686000063084
+  }
+]
