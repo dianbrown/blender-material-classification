@@ -57,3 +57,15 @@ and a static HTML site, no GPUI crate on main. Asked whether another reference w
 intended; native Rust GPUI work can proceed. Do not copy private reference content
 into this future-public repository. Use official GPUI APIs and preserve licenses.
 No new training or changes to sealed benchmark artifacts are required.
+
+## Superseding visual direction
+
+The user rejected the teal, panel-heavy interface and supplied MonoCode
+(https://github.com/hardbeat920/monocode) plus a screenshot. Match its restrained
+dark monochrome character: subtle translucency, no gradients or colored accents,
+quiet borders, compact navigation and far less visible explanatory text.
+Default classification should be one image workspace with compact controls and
+an inline result. Model choice is a dropdown; detailed probabilities and study
+information appear only when requested. Preserve the native GPUI implementation,
+all reviewed inference behavior and access to study results/sample browsing.
+The previously built packages remain candidates until this design is verified.

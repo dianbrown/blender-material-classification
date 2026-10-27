@@ -12,6 +12,13 @@
 /notebooks/05_v3_results.ipynb text eol=lf
 /requirements-notebook.txt text eol=lf
 /requirements-v3-lock.txt text eol=lf
+/app/** text eol=lf
+/src/material_classifier/demo/** text eol=lf
+/scripts/demo/** text eol=lf
+/scripts/report/** text eol=lf
+/reports/project/** text eol=lf
+/reports/presentation/** text eol=lf
 *.png binary
 *.pdf binary
 *.docx binary
+*.pptx binary
