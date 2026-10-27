@@ -1,12 +1,12 @@
 # Assignment coverage and remaining items
 
-The current student-facing deliverables are the [academic PDF](project/report.pdf) and [editable Markdown](project/report.md). The report has 14 main pages, one reference page and four appendix pages. Prior reports remain unchanged as internal records; they are not the recommended final submission.
+The current student-facing deliverables are the [academic PDF](project/report.pdf), [editable Markdown](project/report.md), [14-slide presentation](presentation/material_classification.pptx) and [slide PDF](presentation/material_classification.pdf). The report has 19 pages: 14 main pages, one reference page and four appendix pages. Prior reports remain unchanged as internal records; they are not the recommended final submission. Author and student-number fields remain intentionally blank at the user's request.
 
 This assessment is against all seven pages of the supplied ITRI626 practical-project brief. It is an evidence map, not a claim that every rubric item is fully satisfied or a predicted mark.
 
 | Requirement | Evidence in the final report | Status / limitation |
 | --- | --- | --- |
-| Title, members, student numbers, abstract | Page 1 | Title and abstract complete. Three short name/number fields intentionally blank; students must fill them. |
+| Title, members, student numbers, abstract | Page 1 | Title and abstract complete. Three short name/number fields intentionally blank at the user's request; submission details remain the owner's responsibility. |
 | Problem, value, target classes | Section 1 | Covered; visual appearance classification is distinguished from physical composition. |
 | Dataset source, links, licence and ethics | Sections 2-2.1 | Public source catalogues and CC0 terms cited. Rendered-dataset licence and public release remain unset/unapproved; no public dataset download is claimed. |
 | Per-class counts before/after cleaning | Table 1 | 450/450 development and 90/90 test images per class. No invented removals or relabelling. Source exclusions are distinguished from deleting rendered images. |
@@ -25,10 +25,10 @@ This assessment is against all seven pages of the supplied ITRI626 practical-pro
 | References and concise structure | 14 main pages; References | Academic structure follows the brief; provider/model/software references included. |
 | Executed notebook with visible outputs | [Existing results notebook](../notebooks/05_v3_results.ipynb) | Preserved, not rewritten by this task. Notebook exists with outputs; final submission consistency should be checked by the submission owner. |
 | Source scripts and split files | Existing source tree; persisted split plans; new report builder | Preserved. Report assembly does no training or inference. |
-| README with setup, data access and reproduction steps | Existing README, outside this task's edit scope | Owner must update final-report links to project/report.pdf and confirm all setup/data-access instructions. The report body intentionally excludes shell commands. |
-| Slides and oral presentation | Not supplied by this task | Pending. All three members must participate and answer questions. No claim that the 10-mark presentation component is complete. |
+| README with setup, data access and reproduction steps | [Material Studio README](../README.md) | Updated with current report/slide links, classroom workflow, local package path, setup and evidence-reproduction commands. Local weights/data are not public downloads. The report body excludes shell commands. |
+| Slides and oral presentation | [14-slide deck](presentation/material_classification.pptx), [PDF](presentation/material_classification.pdf), [speaking guide](presentation/SPEAKING_GUIDE.md) | Slide artifacts exist. Rehearsal and oral delivery remain pending; all three members must participate and answer questions. Artifact completion does not establish completion of the 10-mark presentation component. |
 | Topic approval, group details, deadline and submission destination | Not established by the saved experiments | Students/submission owner must verify with the lecturer/eFundi. |
-| Dataset/weights access where large files are omitted | Provider links and existing reproduction documentation | Source assets are accessible. Final access instructions for rendered data/weights and dataset licence/release decisions remain owner responsibilities. |
-| Native classroom application | Parallel work, not report evidence | No application verification claimed; report results do not depend on it. |
+| Dataset/weights access where large files are omitted | Provider links, [dataset card](../DATASET.md), [model card](../MODEL_CARD.md), [packaging guide](../docs/DEMO_PACKAGING.md) | Local artifact paths and packaging procedure are documented. No public dataset/weight download is available. Dataset licence, access arrangements and Kaggle publication remain the owner's responsibility; no upload has occurred. |
+| Native classroom application | [README](../README.md), [demo guide](../docs/CLASSROOM_DEMO.md) | Minimal monochrome Classify / Study / Samples / About workflow documented, with compact Open image / Samples / model / Classify toolbar and optional result Details. Final native visual QA and portable packaging are still in progress; no final pass is claimed. Report results do not depend on the app. |
 
-The material assessment gaps are the missing ResNet validation curves, the inapplicable/unrecorded epoch histories for frozen heads, unequal tuning procedures, pending presentation, blank student details and outstanding submission/release administration. Completing the prose does not remove these gaps.
+The material assessment gaps are the missing ResNet validation curves, the inapplicable/unrecorded epoch histories for frozen heads, unequal tuning procedures, pending oral rehearsal/delivery, blank student details and outstanding submission/release administration. Final app QA and portable packaging are also pending. Completing the documentation and slide artifacts does not remove these gaps.

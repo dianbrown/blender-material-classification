@@ -1,4 +1,4 @@
-# Model card: V3 material classification
+# Model card: Material Studio
 
 ## Model identity and use
 
@@ -7,6 +7,12 @@ ConvNeXt-Tiny features and a scaled balanced logistic classifier. Use for
 research, teaching and inspection of comparable synthetic renders. It is not
 validated for arbitrary photographs, physical composition or safety-critical
 material decisions.
+
+Material Studio defaults to the exploratory fine-tuned DINOv2 model. Its
+observed accuracy and lower batch-one latency than fusion support a provisional
+classroom recommendation for comparable renders. This does not change the
+preselected primary or establish superiority. Final native app QA and portable
+packaging remain in progress; the study results are separate from app validation.
 
 Input is RGB with recorded model-specific resize, crop and normalization.
 Output is a probability vector over `wood`, `metal`, `stone`, `concrete`,
@@ -59,7 +65,7 @@ The **80% point target is met by the primary**, but not by its lower CI bound.
 Intervals use 10,000 class-stratified source-group bootstrap draws, seed 62642,
 retaining all views per sampled group. They condition on fixed predictions,
 excluding refitting/selection uncertainty. Sources:
-[fresh outputs](reports/results/v3/fresh), [report](reports/v3/report.pdf),
+[fresh outputs](reports/results/v3/fresh), [project report](reports/project/report.pdf),
 [evidence manifest](reports/results/v3/report_evidence_final/report_manifest.json).
 Primary ceramic recall is 57.78%. Perfect sampled recall for wood, metal and
 fabric does not imply perfect performance on new families.
@@ -110,9 +116,13 @@ on the holdout; operating thresholds need separate development validation.
 and CUDA on an RTX 4070 Laptop GPU. Scope: predecoded RGB through preprocessing,
 model computation and probabilities; disk I/O/decode excluded. Reload is
 process-warm, not OS-cold. Memory is process allocator peak, not total board use.
+These model deployment sizes exclude the application's bundled Python and CUDA
+runtime. The planned complete portable folder is approximately 4.8 GiB; keep it
+intact as described in [README](README.md).
 The approximately 311 KB primary head is **not** total model size: pretrained
 files and sidecars are required. DINOv2 exports contain standalone weights with
-no pretrained-cache loading dependency. See [README](README.md) for commands.
+no pretrained-cache loading dependency. See [README](README.md) for setup and
+evidence-reproduction commands.
 
 ## Limitations and release
 
@@ -126,6 +136,7 @@ different endpoint, not direct improvement evidence.
 All 316 original and 63 fresh maps have official CC0 provenance. The project
 authors renders/code and attributes third-party maps. The complete local audit
 ZIP is verified; dataset license and publication approval remain pending, with
-no upload. Pretrained-weight terms, map permissions and dataset licensing are
+no upload. Kaggle publication remains with the project owner.
+Pretrained-weight terms, map permissions and dataset licensing are
 distinct. See [DATASET.md](DATASET.md). Legacy `scripts/update_docs.py` emits V1
 content and must not overwrite this completed card.

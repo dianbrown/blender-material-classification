@@ -1,4 +1,4 @@
-# Dataset card: synthetic PBR material renders (V3 completed study)
+# Dataset card: Material Studio synthetic PBR renders
 
 The complete study contains **3,780 images, 126 material IDs and 122 known
 source families**: 3,150 development images / 105 IDs / 101 families plus
@@ -6,7 +6,7 @@ source families**: 3,150 development images / 105 IDs / 101 families plus
 across the complete study. The holdout has been scored once per locked model;
 it is now an evaluated benchmark, not an untouched future test.
 
-[Final report](reports/v3/report.pdf) ? [Results notebook](notebooks/05_v3_results.ipynb) ?
+[Project report](reports/project/report.pdf) | [Results notebook](notebooks/05_v3_results.ipynb) |
 [Combined release audit](reports/V3_STUDY_DATASET_RELEASE.md)
 
 ## Original development corpus
@@ -155,9 +155,9 @@ are retained, with published text normalized to UTF-8/LF.
 See [V3_STUDY_DATASET_RELEASE.md](reports/V3_STUDY_DATASET_RELEASE.md) for complete
 verification and the original [release audit](reports/V3_KAGGLE_RELEASE.md).
 There is no public download URL. Publishing or choosing CC0/CC-BY-4.0 for the
-rendered dataset remains the owner's decision. Once scored, and especially after
-publication, further tuning on this test set must be disclosed; confirmatory
-claims need a newly frozen independent holdout.
+rendered dataset remains the owner's decision, as does Kaggle publication.
+Once scored, and especially after publication, further tuning on this test set
+must be disclosed; confirmatory claims need a newly frozen independent holdout.
 
 ## Reuse and reproduction
 

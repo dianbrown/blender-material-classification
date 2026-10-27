@@ -1,147 +1,166 @@
-# Blender Material Classification
+# Material Studio
 
-Seven-class classification of synthetic Blender PBR renders with source-family
-separation, locked model selection and traceable measured evidence. **V3 is
-complete: the preselected primary achieved 80.16% clean holdout accuracy.**
+A native desktop demonstration of material classification, built with Rust GPUI
+and local PyTorch inference. Explore seven material classes, classify an image,
+and compare the models using the project's measured results.
 
-[Final PDF](reports/v3/report.pdf) | [Report Markdown](reports/v3/report.md) |
-[Executed results notebook](notebooks/05_v3_results.ipynb) |
-[Model card](MODEL_CARD.md) | [Dataset card](DATASET.md)
+**Wood · Metal · Stone · Concrete · Ceramic · Fabric · Leather**
 
-## Completed results
+## Classroom demo
 
-All four final models were locked before prediction on the same **630 fresh
-images, 21 source groups, 90 images per class**. The primary was selected by
-its development Macro F1, not its holdout ranking.
+The final portable folder is being assembled locally at
+`dist/MaterialStudio-release/` (approximately **4.8 GiB**). After final QA and
+packaging, open `dist/MaterialStudio-release/MaterialStudio.exe`. **Keep the
+entire folder together**: it contains the Python runtime, model weights and
+examples. This is a locally generated package, not a GitHub download. It is
+designed for local inference without a server or internet connection; final
+native visual QA and packaged-runtime verification are still in progress.
 
-| Locked pipeline | Fresh accuracy | Macro F1 | Role |
-| --- | ---: | ---: | --- |
-| Frozen DINOv2 + ConvNeXt fusion | **80.16%** | **0.7952** | Preselected primary |
-| Frozen ConvNeXt control | 75.56% | 0.7566 | Predeclared control |
-| Fixed ResNet-50 | 77.62% | 0.7665 | Fixed assessment baseline |
-| Fine-tuned DINOv2 | **86.83%** | **0.8631** | Exploratory comparison; highest observed score |
+The minimal monochrome interface has four views: **Classify / Study / Samples /
+About**. Classify shows one image with a compact bottom toolbar: **Open image**,
+**Samples**, the **model menu**, then **Classify**.
 
-Primary 95% source-group bootstrap accuracy CI: **66.03-93.65%**. DINOv2 CI:
-**76.98-95.87%**. DINOv2 minus primary is +6.67 percentage points (95% paired CI
-**-2.06 to 16.19**). All three saved fresh paired accuracy intervals include
-zero, so superiority is not established. The **80% target is point accuracy**,
-not a lower confidence bound or a guarantee across conditions. Primary JPEG
-quality-30 accuracy falls to **59.05%**.
+1. Pick a sample or open a PNG, JPEG, WebP, BMP or TIFF image.
+2. Select a model and click **Classify**. The first prediction loads that model;
+   subsequent predictions reuse it.
+3. Read the predicted class and confidence. Open the optional **Details** panel
+   for the full probability distribution. Classification runs the selected model
+   on the image; the Study view displays stored experimental results.
+4. Open **Study** for the held-out model comparison and confusion matrices,
+   **Samples** to browse examples, or **About** for project information.
 
-Sources: [fresh outputs](reports/results/v3/fresh),
-[model choice](reports/results/v3/model_choice.json),
-[checkpoint lock](reports/results/v3/final_model_lock.json), and
-[final execution record](reports/results/v3/final_execution_summary.json).
-The lock at 09:51:05 UTC preceded first fresh prediction at 09:54:06 UTC on
-27 October 2026. No test-winner substitution occurred.
+The interface defaults to fine-tuned DINOv2, provisionally recommended for
+classroom demonstrations with comparable renders because of its observed
+accuracy and lower batch-one latency than fusion. Fusion remains the preselected
+study primary. This recommendation does not establish statistical superiority.
+Class probabilities are not guarantees; arbitrary photographs have not been
+validated.
 
-## Quickstart: saved checkpoints
+[Application screenshot](docs/images/material-studio.png) — planned after final
+visual QA.
 
-Use Python 3.13 and [requirements-v3-lock.txt](requirements-v3-lock.txt), which
-pins the executed V3 dependencies, including frozen-feature and PDF tooling.
-The older `pyproject.toml` pins describe V1; installing its dependencies over V3
-would change the validated environment. On the Windows CUDA machine, run:
+## Project submission
+
+- [Project report (PDF, 19 pages; 14 main pages)](reports/project/report.pdf)
+- [Editable report](reports/project/report.md)
+- [Presentation (14 slides)](reports/presentation/material_classification.pptx)
+  and [slide PDF](reports/presentation/material_classification.pdf)
+- [Classroom demonstration guide](docs/CLASSROOM_DEMO.md)
+- [Executed results notebook](notebooks/05_v3_results.ipynb)
+- [Dataset description](DATASET.md) and [model details](MODEL_CARD.md)
+
+The report follows the ITRI626 project structure. Group-member and student-number
+fields are intentionally blank at the user's request. The report and slides
+are available; final native app QA and portable packaging remain in progress.
+
+## Measured results
+
+All four pipelines were evaluated on the same **630 held-out renders from 21 new
+source groups**. Each of the seven classes contributes 90 images.
+
+| Model | Accuracy | Macro F1 |
+| --- | ---: | ---: |
+| Frozen DINOv2 + ConvNeXt fusion | 80.16% | 0.7952 |
+| Frozen ConvNeXt control | 75.56% | 0.7566 |
+| ResNet-50 | 77.62% | 0.7665 |
+| Fine-tuned DINOv2 | 86.83% | 0.8631 |
+
+The fusion pipeline was selected before the test and met the 80% point-accuracy
+target. Fine-tuned DINOv2 is an exploratory comparison. Their accuracy 95%
+source-group bootstrap intervals are **66.03–93.65%** and **76.98–95.87%**;
+the paired difference interval includes zero. The study therefore does not
+establish that one model is superior across the wider material population.
+
+Compression is a meaningful limitation: JPEG quality 30 reduces fusion accuracy
+to **59.05%** and fine-tuned DINOv2 accuracy to **75.40%**. The report includes
+per-class results, confidence intervals, confusion matrices, recorded learning
+curves, error examples and measured deployment costs. Calibration analysis is
+available in the results notebook and model card.
+
+## Dataset and method
+
+The project contains **3,780 Blender renders**, with 30 views per material:
+
+| Partition | Images | Material IDs | Known source groups |
+| --- | ---: | ---: | ---: |
+| Development | 3,150 | 105 | 101 |
+| Held-out test | 630 | 21 | 21 |
+
+PBR materials are attributed to [Poly Haven](https://polyhaven.com/textures) and
+[ambientCG](https://ambientcg.com/), which distribute the source assets under
+CC0. The project creates the rendered image dataset; it does not claim authorship
+of those third-party texture maps. Provenance, class definitions and licensing
+details are documented in [DATASET.md](DATASET.md).
+
+Related source materials remain in the same group. Five outer and three inner
+development folds evaluate frozen-feature model selection; ResNet uses a fixed
+training schedule, and DINOv2 uses a bounded partial fine-tuning experiment.
+Final models are fixed before test prediction. Thirty views of one source are
+correlated, so uncertainty is resampled over sources rather than individual images.
+
+The test collection has only three source groups per class, restricted definitions
+for some classes and a documented rendering-domain difference. No arbitrary
+real-world image performance is claimed. The test set has now been evaluated;
+future tuning on it requires disclosure and a new independent assessment.
+
+## Development setup
+
+The recorded environment uses Windows, Python 3.13.5, PyTorch 2.11 with CUDA 12.8,
+and an RTX 4070 Laptop GPU. Rust GPUI uses its pinned toolchain and dependency
+revision. Building the native executable also requires the Microsoft C++ build
+tools and Windows SDK. Use [requirements-v3-lock.txt](requirements-v3-lock.txt)
+for the recorded ML environment; the legacy dependency pins in `pyproject.toml`
+do not describe this environment. The setup script requires `uv` and checks CUDA.
 
 ```powershell
+# Prepare the recorded ML environment (requires uv).
 ./scripts/setup_v3.ps1
 ./.venv/Scripts/Activate.ps1
+
+# Optional notebook tooling, without changing the ML dependency versions.
 python -m pip install -c requirements-v3-lock.txt -r requirements-notebook.txt
+
+# Build the native application with the project-pinned Rust toolchain.
+./scripts/demo/build_app.ps1
 ```
 
-The setup script uses `uv` and verifies CUDA availability. The final command
-adds optional notebook tooling. Exact execution details are in
-[environment.json](reports/results/v3/environment.json) and cache/checkpoint
-metadata. CPU inference works in a compatible environment; the supplied setup
-script specifically prepares the recorded Windows CUDA environment.
+Model weights, full datasets and pretrained caches are local resources rather
+than Git files. Their paths and expected identities are in
+[MODEL_CARD.md](MODEL_CARD.md). There is no public weight or dataset download
+URL yet. Dataset submission to Kaggle remains with the project owner.
 
-Checkpoints and pretrained caches are local artifacts, **not included in Git**.
-Obtain trusted files and verify hashes in `final_model_lock.json`. Frozen
-inference needs adjacent metadata and pinned pretrained caches. Neural `.pt`
-exports have standalone weights and adjacent `model.json`. Do not load untrusted
-joblib files. There is no public checkpoint download URL yet.
+For portable assembly and runtime requirements, see
+[packaging instructions](docs/DEMO_PACKAGING.md), using
+`dist/MaterialStudio-release` as the final output directory. The packaged GPU
+runtime is larger than the native UI executable; it includes the actual
+inference libraries and required weights.
 
-From the repository root, replace the example image path and use a new output:
+## Reproduce and inspect
+
+The visible-output notebook reads saved evidence and checks its consistency
+without retraining models or rescoring the test set:
 
 ```powershell
-python scripts/v3/predict.py --artifact artifacts/v3/run_final/model.joblib --data-root C:/path/to/images --image sample.png --output artifacts/v3/demo_primary --device cpu --offline
-python scripts/v3/predict_finetuned.py --artifact artifacts/v3/finetune/candidates/finetuned/model.pt --data-root C:/path/to/images --image sample.png --output artifacts/v3/demo_dino --device cpu
+python scripts/v3/build_results_notebook.py --root . --output notebooks/results_rebuilt.ipynb --execute
+python -m pytest -q
 ```
 
-The second command uses the exploratory comparison; it does not replace the
-primary. `--offline` requires populated pinned caches. Ordered outputs are wood,
-metal, stone, concrete, ceramic, fabric and leather. Probabilities are not
-calibrated guarantees. For existing results, read saved prediction CSVs rather
-than rerunning the now-scored holdout.
+Training, grouped fold assignments, evaluation scripts and the measured results
+are retained under `scripts/v3`, `src/material_classifier/v3`, `metadata/v3` and
+`reports/results/v3`. The [model choice](reports/results/v3/model_choice.json),
+[checkpoint lock](reports/results/v3/final_model_lock.json) and
+[saved test outputs](reports/results/v3/fresh) preserve the evaluation evidence.
 
-| Model | Local artifact | Predictor |
-| --- | --- | --- |
-| Primary | `artifacts/v3/run_final/model.joblib` | `scripts/v3/predict.py` |
-| Control | `artifacts/v3/run_final/control_model.joblib` | `scripts/v3/predict.py` |
-| ResNet | `artifacts/v3/resnet-final/final/model.pt` | `scripts/v3/predict_resnet.py` (manifest input) |
-| DINOv2 comparison | `artifacts/v3/finetune/candidates/finetuned/model.pt` | `scripts/v3/predict_finetuned.py` |
+The native frontend is under `app`; the persistent local inference service is
+under `src/material_classifier/demo`. UI rendering stays separate from model
+loading and inference. Live-image inference preserves the reviewed preprocessing
+and saved model weights. The earlier ML work in PR #1 is merged; the Material
+Studio feature in PR #2 is not yet merged.
 
-## Data and protocol
+## Attribution
 
-The study contains **3,780 images / 126 material IDs / 122 known source families**:
-3,150 development images / 101 families and 630 fresh test images / 21 groups.
-Thirty views per material are dependent. Old train/val/test directories remain
-lineage; all 3,150 original images are development data in V3.
-
-Five outer and three inner source-group folds assess frozen representation/C
-selection. Initial nested accuracy is 79.3968%, Macro F1 0.795485, 95% accuracy
-CI 72.65-85.57%. Matched control and fixed ResNet OOF accuracies are 68.8571%
-and 71.5556%. These are separate from the fresh endpoint. Canonical
-`artifacts/v3/features_final` and `artifacts/v3/run_final` exactly reproduce
-earlier frozen feature arrays and OOF predictions.
-
-The selected recipe combines DINOv2 small register CLS/patch mean/std at 224
-and 336 pixels with ConvNeXt-Tiny pooled features at 224, C=1. Registers are
-excluded from patch pooling. Scalers and logistic heads fit inside each training
-partition. Development Macro F1 0.8035245993 exceeded the bounded exploratory
-DINOv2 follow-up's 0.7724822183. DINOv2 searched two learning rates in six fits
-and used five final epochs. These are selection scores, not independent tests.
-
-Primary corruption tests were predeclared. DINOv2 tests on the same five
-corruptions were **post hoc**, after clean and primary-corruption scores; see
-[amendment](reports/results/v3/exploratory_robustness_amendment.json). No model
-changed. Pretraining, resolutions and adaptation/search budgets differ, so
-pipeline comparisons do not isolate architecture effects.
-
-## Rebuild the report without training
-
-The builder checks explicit evidence, predictions and hashes. Copied text is
-UTF-8/LF before hashing; weights are referenced, not copied. Use **new output
-directories**. Original root `report.pdf` and `report.docx` remain preserved.
-
-```powershell
-python scripts/v3/assemble_report.py --spec reports/results/v3/report_inputs/assembly.json --output-dir reports/results/v3/report_evidence_rebuild
-python scripts/v3/build_report.py --results-dir reports/results/v3/report_evidence_rebuild --output-dir reports/v3_rebuild
-python -m pytest tests/test_v3_report.py tests/test_v3_report_assembly.py -q
-```
-
-The spec records explicit local paths; relocate them for another checkout.
-[Report methods](reports/V3_REPORT_METHODS.md) documents the contract.
-The [manifest](reports/results/v3/report_evidence_final/report_manifest.json)
-and `derived/source_inventory.json` preserve original and normalized hashes.
-Actual neural histories, images, confusions, calibration, corruptions and
-benchmarks are included. No logistic epoch curves are invented. Historical V1
-results remain context only, not direct improvement estimates.
-
-## Limitations and release
-
-Only three fresh families per class, restricted ceramic/concrete semantics,
-and Blender 5.1.1's softer shadows limit generalization. Physical ancestry is
-incomplete; public texture overlap with backbone pretraining has not been
-audited. No arbitrary real-world validation is claimed. JPEG compression is a
-major limitation.
-
-All 316 original and 63 fresh source maps have verified official CC0 provenance.
-The project authors renders/code and attributes third-party maps. The complete
-local audit ZIP is verified; copied PNG metadata was sanitized with identical
-decoded pixels. **Dataset license unset; `release_approved=false`; no upload.**
-See [study release details](reports/V3_STUDY_DATASET_RELEASE.md) and
-[DATASET.md](DATASET.md). There is no public dataset URL yet.
-
-The legacy `scripts/update_docs.py` emits V1 content and must not overwrite
-these V3 cards. Future tuning on this now-scored holdout requires disclosure
-and a new independent assessment for confirmatory claims.
+The interface uses [GPUI](https://www.gpui.rs/) from the Zed project. Model work
+builds on DINOv2, ConvNeXt and ResNet, with references in the project report and
+model card. The portable package includes dependency notices. The rendered
+dataset has no assigned licence or public download; Kaggle publication remains
+the owner's decision, and nothing has been uploaded.
