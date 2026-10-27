@@ -1,0 +1,16 @@
+estimate_type,bin,lower,upper,count,mean_confidence,accuracy
+Nested/grouped OOF development estimates; not an untouched test evaluation,0,0.0,0.06666666666666667,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,1,0.06666666666666667,0.13333333333333333,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,2,0.13333333333333333,0.2,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,3,0.2,0.26666666666666666,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,4,0.26666666666666666,0.3333333333333333,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,5,0.3333333333333333,0.4,2,0.3628707043194209,1.0
+Nested/grouped OOF development estimates; not an untouched test evaluation,6,0.4,0.4666666666666667,3,0.4511446843133562,0.6666666666666666
+Nested/grouped OOF development estimates; not an untouched test evaluation,7,0.4666666666666667,0.5333333333333333,6,0.5024961721049285,0.5
+Nested/grouped OOF development estimates; not an untouched test evaluation,8,0.5333333333333333,0.6,7,0.5642800586000147,0.5714285714285714
+Nested/grouped OOF development estimates; not an untouched test evaluation,9,0.6,0.6666666666666666,3,0.6291555272866924,0.3333333333333333
+Nested/grouped OOF development estimates; not an untouched test evaluation,10,0.6666666666666666,0.7333333333333333,5,0.6934533004243478,0.6
+Nested/grouped OOF development estimates; not an untouched test evaluation,11,0.7333333333333333,0.8,11,0.7629201060527797,0.9090909090909091
+Nested/grouped OOF development estimates; not an untouched test evaluation,12,0.8,0.8666666666666667,6,0.8268871929980682,0.6666666666666666
+Nested/grouped OOF development estimates; not an untouched test evaluation,13,0.8666666666666667,0.9333333333333333,8,0.9122275087342888,0.875
+Nested/grouped OOF development estimates; not an untouched test evaluation,14,0.9333333333333333,1.0,50,0.9859643881292414,0.92

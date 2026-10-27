@@ -1,0 +1,17 @@
+{
+  "review_head": "91eac7d",
+  "initial_findings": [
+    "path aliases and material to family uniqueness",
+    "fresh prediction outer_fold missing",
+    "mixed class source groups accepted by report"
+  ],
+  "resolutions": [
+    "normalized aliases, Windows trailing dots/spaces rejected; resolved file identity checked before extraction",
+    "fixed holdout marker plus inference-to-evaluator regression",
+    "class-pure report guard"
+  ],
+  "validation": "102 focused tests after first fixes; 20 after Windows/hardlink guard",
+  "committed_manifest_affected": false,
+  "gpu_pilot": "7 old TRAIN images rendered and visually inspected",
+  "pilot_caveat": "Framing and texture orientation match closely; ground shadows are softer than archived renders. Blender version differs; holdout is a restricted synthetic endpoint."
+}
