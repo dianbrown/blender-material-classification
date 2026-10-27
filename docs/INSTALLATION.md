@@ -62,7 +62,7 @@ $source = 'C:/Users/dianb/blender-material-classification/dist/MaterialStudio-v0
 $icon = (Resolve-Path 'app/assets/icon.ico').Path
 $compiler = 'C:/Users/dianb/.t3/worktrees/blender-material-classification/t3-7d26daf1/artifacts/installer-tools/Inno Setup 7/ISCC.exe'
 # Identity of the final native release supplied by its builder, not inferred from an old package:
-$exeHash = '579a53ba797cb874ddafbf7f71aa4891a9be73c320c4981f90381710f8f1dc2e'
+$exeHash = '34c5257c74fcc77ef37b3b6f3bfd0ea0e14ba4897bc6e178dd090deeb44805d2'
 # The reviewed icon in the integrated release checkout:
 $iconHash = (Get-FileHash -LiteralPath $icon -Algorithm SHA256).Hash.ToLowerInvariant()
 & $python scripts/demo/build_installer.py `
