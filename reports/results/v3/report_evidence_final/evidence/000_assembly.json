@@ -1,0 +1,951 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "measured",
+  "title": "Recognising materials in Blender renders",
+  "run_id": "v3-completed-study-20261027",
+  "code_commit": "6e8b31125f2c2b6a39358a4ccc70270095e5b9d8",
+  "appendix_details": true,
+  "status_label": "Material classification | V3 final study | 27 October 2026",
+  "protocol": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\protocol.json",
+  "environment": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\environment.json",
+  "audit": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\data_audit.json",
+  "feature_record": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features_final\\cache.json",
+  "run": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\run.json",
+  "model_sidecar": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\model_metadata.json",
+  "weights": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\model.joblib",
+  "search_history": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\search_history.csv",
+  "evaluations": [
+    {
+      "id": "selected",
+      "label": "Frozen selection",
+      "scope": "nested_oof",
+      "endpoint": "nested_oof",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_selected\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\selected_oof.csv",
+      "label_format": "indices",
+      "description": "Predeclared 5 outer x 3 inner source-family selection; canonical rerun exactly reproduces initial predictions."
+    },
+    {
+      "id": "control",
+      "label": "ConvNeXt control",
+      "scope": "nested_oof",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_control\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\control_oof.csv",
+      "label_format": "indices",
+      "description": "Fixed ConvNeXt descriptor; C selected independently on identical outer folds. No neural adaptation in this frozen control."
+    },
+    {
+      "id": "resnet",
+      "label": "Fixed ResNet-50",
+      "scope": "nested_oof",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\nested_resnet\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\resnet_oof.csv",
+      "label_format": "indices",
+      "description": "Fixed ten epochs; same five outer folds; no outer checkpoint selection."
+    },
+    {
+      "id": "frozen_selected",
+      "label": "Primary frozen fusion",
+      "scope": "fresh_holdout",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_selected\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_selected\\predictions.csv",
+      "label_format": "indices",
+      "description": "Locked clean holdout evaluation; primary role fixed before predictions.",
+      "endpoint": "fresh_holdout",
+      "selection_record": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\selection_lock_adapter.json",
+      "prediction_started_at": "2026-10-27T09:54:06.678958+00:00",
+      "independence_audit": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\source_identity_audit.json"
+    },
+    {
+      "id": "frozen_control",
+      "label": "ConvNeXt control",
+      "scope": "fresh_holdout",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_control\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\frozen_control\\predictions.csv",
+      "label_format": "indices",
+      "description": "Locked clean holdout evaluation; primary role fixed before predictions."
+    },
+    {
+      "id": "resnet_fixed",
+      "label": "Fixed ResNet-50",
+      "scope": "fresh_holdout",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\resnet_fixed\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\resnet_fixed\\predictions.csv",
+      "label_format": "indices",
+      "description": "Locked clean holdout evaluation; primary role fixed before predictions."
+    },
+    {
+      "id": "dinov2_finetuned",
+      "label": "Fine-tuned DINOv2",
+      "scope": "fresh_holdout",
+      "evaluation": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\dinov2_finetuned\\evaluation.json",
+      "predictions": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\dinov2_finetuned\\predictions.csv",
+      "label_format": "indices",
+      "description": "Locked clean holdout evaluation; primary role fixed before predictions."
+    }
+  ],
+  "unavailable_endpoints": {
+    "historical_test": "Historical V1 endpoint is contextual only; different partitions and prior consultation prevent direct comparison."
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\guard_revalidation_comparison.json",
+      "role": "Exact initial-to-canonical reproduction check"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\provenance_verification.json",
+      "role": "Scoped original-source verification: 316 maps"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\frozen_initial\\paired_selected_vs_control.json",
+      "role": "Measured paired selection-minus-control bootstrap"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\holdout_dataset\\qc.json",
+      "role": "DATA ONLY fresh corpus QC; no predictions or scores"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_BASELINE_AMENDMENT.md",
+      "role": "Pre-score matched third-architecture declaration"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_FINETUNE_AMENDMENT.md",
+      "role": "Post-result bounded exploratory adaptation declaration"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_KAGGLE_RELEASE.md",
+      "role": "Internal release preparation; owner decisions deferred"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\integrated_validation.json",
+      "role": "Parent integration checks at preview handoff"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\features-final.execution.json",
+      "role": "Measured canonical extraction process wall time"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\train-final.execution.json",
+      "role": "Measured canonical CPU fitting process wall time"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\fold_assignments.csv",
+      "role": "Canonical frozen run: fold_assignments.csv"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\folds.json",
+      "role": "Canonical frozen run: folds.json"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\final_folds.json",
+      "role": "Canonical frozen run: final_folds.json"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\fold_choices.json",
+      "role": "Canonical frozen run: fold_choices.json"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\metrics.json",
+      "role": "Canonical frozen run: metrics.json"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\diagnostics.json",
+      "role": "Existing-corpus diagnostic identity and deterministic selection: diagnostics.json"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\chosen_images.csv",
+      "role": "Existing-corpus diagnostic identity and deterministic selection: chosen_images.csv"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\figures\\v3\\nested_diagnostics\\source_predictions.csv",
+      "role": "Existing-corpus diagnostic identity and deterministic selection: source_predictions.csv"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_cls224.csv",
+      "role": "Descriptive candidate OOF, inner-selected C: dino_cls224"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_cls_mean224.csv",
+      "role": "Descriptive candidate OOF, inner-selected C: dino_cls_mean224"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_multiscale.csv",
+      "role": "Descriptive candidate OOF, inner-selected C: dino_multiscale"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\convnext_pooled224.csv",
+      "role": "Descriptive candidate OOF, inner-selected C: convnext_pooled224"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final\\candidate_oof\\dino_multiscale_convnext.csv",
+      "role": "Descriptive candidate OOF, inner-selected C: dino_multiscale_convnext"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_preview_inputs\\preview_gallery_selection.csv",
+      "role": "Exact compact gallery selection from existing diagnostics; no new inference"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\model_choice.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\final_model_lock.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\final_execution_summary.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\neural_execution_summary.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\exploratory_robustness_amendment.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\paired_selected_vs_resnet.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_STUDY_DATASET_RELEASE.md",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\V3_FINAL_REVIEW.md",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\source_registry.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\leather_lineage_audit.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\metadata\\v3_holdout\\preparation_validation.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\release-staging\\material-classification-v3-study-audit.validation.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\model_comparison.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_dinov2_finetuned_vs_frozen_selected.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_frozen_selected_vs_frozen_control.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\fresh\\paired_frozen_selected_vs_resnet_fixed.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\dinov2_finetuned\\benchmark.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\frozen_control\\benchmark.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\frozen_selected\\benchmark.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\benchmarks\\resnet_fixed\\benchmark.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\all_development\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_0\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_1\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_1e-05_fold_2\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_0\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_1\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\lr_3e-06_fold_2\\progress.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_0\\history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_1\\history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_2\\history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_3\\history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\fold_4\\history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\resnet_baseline\\final_history.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\dinov2_exploratory\\comparison.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\dinov2_exploratory\\per_class_recall.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\primary\\comparison.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\robustness\\primary\\per_class_recall.csv",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\finetune_development\\selection.json",
+      "role": "Measured source for final publication"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\gallery_selection.json",
+      "role": "Deterministic gallery selection and original image SHA-256"
+    },
+    {
+      "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\prepare_publication.py",
+      "role": "CPU-only publication preparation script; consumes completed evidence"
+    }
+  ],
+  "supplements": [],
+  "sections": {
+    "motivation": "Can a model identify wood, metal, stone, concrete, ceramic, fabric and leather on renders of previously unseen source families? The practical target is at least 80% image-level accuracy. The scientific question is narrower than physical material identification: the labels describe the visible appearance of archived PBR assets in a controlled scene.\n\nRendering permits repeatable camera and lighting variation while holding scene geometry constant. Thirty views of one texture, however, remain correlated. A convincing evaluation must separate source families rather than randomly splitting images. This study therefore records both image counts and the smaller number of known family groups.\n\nDINOv2 learns transferable visual representations through self-supervised pretraining [1]. Register tokens support internal transformer computation [2]; this implementation excludes them from image-patch pooling. ConvNeXt provides a modern convolutional architecture [3], while ResNet supplies a residual-network baseline [4]. These references motivate the pipeline choices but do not establish performance on this corpus.\n\nThe frozen approach combines global CLS tokens with patch mean and population standard deviation at two resolutions. This captures both overall appearance and variation in local features. Combining transformer and convolutional representations is tested as a pipeline choice, not claimed as a new backbone architecture.\n\nSelecting hyperparameters and estimating performance on the same samples can create selection bias [5]. Five outer source-group folds assess the frozen selection procedure; three inner folds choose its representation and regularization. A later, independently collected holdout assesses the explicitly locked final models.\n\nThe contribution is an auditable small-data workflow: source provenance, grouped selection, a fixed comparison baseline, a disclosed exploratory adaptation, one locked clean holdout assessment, corruption diagnostics and measured deployment costs. Historical results and unsuccessful conditions remain visible. Pretraining, resolution and adaptation budgets differ across pipelines, so this is not a controlled causal test of architecture alone.",
+    "taxonomy_provenance": "The complete study contains 3,780 RGB renders, 540 per class. Every material contributes 30 views. The original images are 512 x 512 pixels; the evaluated holdout uses the same image dimensions. Models apply their own recorded resize, crop and normalization.\n\nCeramic in the historical corpus includes mosaic and terrazzo-like assets; concrete includes plaster and painted-wall appearances. The fresh collection uses restricted ceramic/concrete definitions. These labels are appearance categories, not laboratory measurements of composition. Coatings, rust and suede-like appearances can blur category boundaries.",
+    "data_audit": "All 316 original local source maps were verified against official provider records: 315 manifest-referenced maps plus one additional displacement map. The fresh collection adds 63 verified maps. Poly Haven verification compares official metadata MD5 and file size with local files, with local SHA-256 pinning; ambientCG verification compares SHA-256 and size against official archive members. These are different verification mechanisms and are not represented as remote SHA-256 matches in every case.\n\nProvider assets are CC0 [6,7]. The project authors the rendered images and experimental code; it does not claim authorship of third-party texture maps. Individual attribution and provider URLs remain in the source registries. License verification establishes source permissions within that evidence scope; it does not prove independent physical ancestry.\n\nThe original registry merges known leather-generator families and a conservative wood relationship, yielding 101 groups from 105 IDs. Fresh selection checks original IDs, aliases, normalized-name families, procedural ancestry, official recipe/map identities and exact raw map reuse. No known overlap remains between development and holdout. Undisclosed captures, crops or recolours may still share physical ancestry.\n\nBlender EEVEE renders a textured sphere with controlled camera, light and ground. A seven-image old-training pilot checked the fresh Blender 5.1.1 setup before bulk rendering. Framing and placement matched visually, but ground shadows were softer. The historical engine version was not fully recorded, so engine equivalence is not claimed. Restricted class semantics and rendering changes jointly limit direct transport of development estimates.\n\nThe validated audit ZIP contains all 3,780 images and compact provenance records. Private Windows paths embedded in PNG metadata were removed from package copies while decoded pixels were verified identical. Package byte hashes therefore differ from canonical source byte hashes; both are retained. Raw textures, scene binaries and model weights are excluded. The rendered-dataset license remains unset, release approval is false and nothing has been uploaded. Appendix A identifies the archive.",
+    "protocol": "All 3,150 original images are development data in V3. Historical train, validation and test directories remain lineage records; the old test had already been consulted. Known relatives crossing those old partitions are grouped together for V3. None of the original images is relabelled as a new untouched test.\n\nThe frozen experiment uses five class-stratified outer source-group folds and three grouped inner folds, seed 20261027. Every image follows its source group. Inner selection maximizes mean Macro F1 across five declared representations and C in {0.01, 0.1, 1, 10}. Ties use declaration order, then ascending C. Scaling and fitting occur inside each training partition; outer labels never choose the representation or regularization.\n\nThe matched ConvNeXt control selects C independently on the same partitions. ResNet-50 was declared before V3 scores and uses a fixed ten-epoch schedule on those identical outer folds, without outer-validation checkpoint selection. The initial frozen result was 79.40%, below the point target.\n\nAfter that initial result, a bounded exploratory DINOv2 follow-up compared two learning rates across the same three all-development selection folds. Its development score is explicitly adaptive and is not a replacement nested estimate. The original experiment is preserved.\n\nThe final primary choice used development Macro F1: 0.8035245993 for frozen fusion versus 0.7724822183 for fine-tuned DINOv2. All final checkpoints were locked at 09:51:05 UTC on 27 October 2026, before first fresh prediction at 09:54:06 UTC. The four fixed models each received one clean evaluation. No fresh ranking changed model choice.\n\nPrimary corruption tests were predeclared. The identical five corruptions were later applied to fine-tuned DINOv2 after clean scores and primary corruption outcomes had been observed. A recorded amendment labels this additional robustness comparison post hoc and exploratory. No model or clean prediction changed.\n\nAccuracy and Macro F1 are image-weighted. Confidence intervals use 10,000 class-stratified source-group cluster bootstrap draws, seed 62642, with percentile 95% limits. Each sampled group brings all its images with multiplicity. Paired differences use matching images and source draws. Intervals condition on saved predictions; they do not include refitting, selection uncertainty or dependent cross-validation training sets. Only three new groups per class constrain uncertainty resolution.",
+    "representations_heads": "The primary vector concatenates CLS, patch mean and patch population standard deviation for DINOv2 at 224 and 336 pixels, then adds pooled ConvNeXt features. Registers are not patches. StandardScaler and a class-balanced L2 logistic regression head use lbfgs, tolerance 0.0001 and up to 3,000 iterations. A convergence warning fails the run rather than silently changing the solver.\n\nFrozen feature extraction is deterministic and learns no dataset-specific representation. Cached features can be shared across grouped folds, while the scaler and classifier must be refitted within each training fold. The canonical caches and final frozen run exactly reproduce the earlier feature arrays and OOF prediction files.\n\nResNet uses AdamW, head learning rate 0.0003 and layer4 learning rate 0.00001, weight decay 0.01, label smoothing 0.05 and a fixed cosine schedule. Batch-normalization running statistics stay frozen. Its ten-epoch final fit uses all development images and does not consult fresh labels.\n\nDINOv2 adaptation searches backbone learning rates 3e-6 and 1e-5 with a maximum of ten epochs and development patience three. Best epochs at 1e-5 are 6, 5 and 3; their rounded median yields five epochs for the all-development fit. This stage follows the initial result and must retain its exploratory label.\n\nThe pipelines differ in pretraining corpora and objectives, input resolution, feature dimension, number of backbone passes, search budget and amount of adaptation. Their measured differences compare complete workflows. They cannot isolate a transformer-versus-CNN effect, the benefit of self-supervision alone or equal-compute efficiency. No audit establishes the absence of public texture overlap in backbone pretraining data.",
+    "reproducibility": "All six ResNet fits complete the prescribed ten epochs. The rapid increase in training accuracy does not establish generalization: the matched existing-corpus OOF accuracy is 71.56%, and the fresh result is 77.62%. Final-epoch evaluation respects the predeclared baseline even when intermediate training performance appears strong.\n\nThe frozen logistic model has no neural epoch history. Its appropriate selection diagnostic is Macro F1 versus inverse regularization C, calculated from the actual grouped inner-fold search. Appendix B preserves this curve and the candidate table; fabricating a logistic epoch curve would misrepresent the method.\n\nMeasured neural execution records contain 6,072.20 seconds across successful stages, with stage boundaries and environment recorded. This is not a controlled total cost comparison with frozen feature extraction: cache preparation, different selection searches and distinct model budgets have different scopes. No GPU work was launched during report production.\n\nImplementation and configuration hashes, fold assignments and final checkpoint identities accompany the histories. The final full-data fit is a deployment operation, not another performance estimate.",
+    "comparison_ablations": "The primary gets 505 of 630 images correct. Fine-tuned DINOv2 gets 547 correct and has the highest observed comparison accuracy. The control and fixed baseline remain below the target. The primary point estimate meets 80%, while its 66.03% lower bound and the corruption results prevent a broad guarantee.\n\nWith only 21 source groups, seemingly large point differences can remain uncertain. Inspecting the paired intervals is more appropriate than deciding superiority from ranked point estimates or overlap of marginal confidence intervals alone.",
+    "errors": "The gallery shows high-confidence mistakes from distinct failing source groups. Selection sorts wrong predictions by confidence, breaks ties by image path and keeps at most one view per group. It intentionally exposes difficult cases; it is not a random sample or an estimate of failure prevalence.\n\nTexture and reflectance can resemble another archival category even when the source label is unchanged. Several views of a misclassified source can share the same appearance cue, so counting each as an independent failure would overstate the evidence. Conversely, correct views from one family do not establish transfer to all materials in that class.\n\nThese examples motivate collecting more independently sourced borderline categories and testing different scenes. They do not establish the causal image feature used by the classifier. No attention map or saliency explanation is claimed, and no difficult source was removed or relabelled after seeing predictions.",
+    "robustness_compute": "JPEG quality 30 is the largest observed degradation: primary accuracy loses 21.11 percentage points, reaching 59.05%, and Macro F1 falls to 0.5749. Blur and reduced resolution also lower accuracy. Increased brightness improves the observed primary score to 83.02%; this is a property of this fixed collection, not evidence that brighter inputs generally help.\n\nPost hoc DINOv2 robustness remains explicitly exploratory. It reaches 75.40% on JPEG quality 30, still below its clean 86.83% and below the point target. Its higher corruption point scores do not change primary choice or establish statistically confirmed robustness superiority. No new model fitting occurred.\n\nThese transforms test sensitivity to encoded-image changes. They do not cover new physical materials, new scene geometry, sensor noise, arbitrary cameras or real photographs. The complete per-class recall changes, including improvements and degradations, remain in the evidence bundle.",
+    "limitations_ethics": "The preselected primary achieved the requested 80% point target on a clean, independently collected source holdout. This is a completed measured result: 80.16% accuracy and Macro F1 0.7952. The highest observed comparison is fine-tuned DINOv2 at 86.83%, but paired uncertainty does not establish its superiority and its exploratory status remains unchanged.\n\nOnly three new families per class constrain inference. Thirty views per material are dependent, known-family grouping is conservative and physical ancestry is incomplete. Public texture overlap with backbone pretraining data has not been audited. Restricted class semantics and Blender-version differences complicate transfer from the original corpus. No real-world validation exists.\n\nCompression is a major practical limitation. The primary misses the target on low brightness, blur, JPEG compression and reduced resolution. Per-class performance is uneven, with ceramic, concrete, stone and leather exposing boundary problems. Perfect sampled recall for some classes is not a population guarantee. Calibration and abstention diagnostics are descriptive and do not validate an operating threshold.\n\nModel comparisons confound architecture, pretraining, resolution, adaptation and compute budgets. The bounded DINOv2 follow-up was motivated by the initial outcome; later robustness was post hoc. The historical test was previously consulted. All these decisions are disclosed rather than presented as one fully preregistered experiment.\n\nFreeze a new evaluation plan before gathering or scoring additional sources. Priorities are more independently verified families in ambiguous categories, held-out scenes and genuine photographs, stronger compression coverage and development-only threshold calibration. Budget-matched ablations would better separate representation effects from extra passes or adaptation. Any subsequent tuning on this now-scored holdout requires a new independent assessment.\n\nThe final artifacts support research, teaching and inspection of comparable synthetic renders. They do not identify physical composition or justify safety-critical material decisions. Dataset publication remains a separate owner decision; the complete audit package is prepared locally with no upload.",
+    "conclusion": "The preselected primary achieved the requested 80% point target on a clean, independently collected source holdout. This is a completed measured result: 80.16% accuracy and Macro F1 0.7952. The highest observed comparison is fine-tuned DINOv2 at 86.83%, but paired uncertainty does not establish its superiority and its exploratory status remains unchanged.\n\nOnly three new families per class constrain inference. Thirty views per material are dependent, known-family grouping is conservative and physical ancestry is incomplete. Public texture overlap with backbone pretraining data has not been audited. Restricted class semantics and Blender-version differences complicate transfer from the original corpus. No real-world validation exists.\n\nCompression is a major practical limitation. The primary misses the target on low brightness, blur, JPEG compression and reduced resolution. Per-class performance is uneven, with ceramic, concrete, stone and leather exposing boundary problems. Perfect sampled recall for some classes is not a population guarantee. Calibration and abstention diagnostics are descriptive and do not validate an operating threshold.\n\nModel comparisons confound architecture, pretraining, resolution, adaptation and compute budgets. The bounded DINOv2 follow-up was motivated by the initial outcome; later robustness was post hoc. The historical test was previously consulted. All these decisions are disclosed rather than presented as one fully preregistered experiment.\n\nFreeze a new evaluation plan before gathering or scoring additional sources. Priorities are more independently verified families in ambiguous categories, held-out scenes and genuine photographs, stronger compression coverage and development-only threshold calibration. Budget-matched ablations would better separate representation effects from extra passes or adaptation. Any subsequent tuning on this now-scored holdout requires a new independent assessment.\n\nThe final artifacts support research, teaching and inspection of comparable synthetic renders. They do not identify physical composition or justify safety-critical material decisions. Dataset publication remains a separate owner decision; the complete audit package is prepared locally with no upload.",
+    "reproduction": "Canonical primary checkpoint: artifacts/v3/run_final/model.joblib with model_metadata.json. Control: artifacts/v3/run_final/control_model.joblib. ResNet: artifacts/v3/resnet-final/final/model.pt. Exploratory DINOv2: artifacts/v3/finetune/candidates/finetuned/model.pt. Exact hashes are pinned by reports/results/v3/final_model_lock.json; weight files are referenced, not copied into the report bundle.\n\nThe assembly specification is reports/results/v3/report_inputs/assembly.json. The validated bundle is reports/results/v3/report_evidence_final; report_manifest.json hashes its evidence files. derived/source_inventory.json maps every copied source to its original SHA-256, normalized-copy SHA-256 and role. Text copies use UTF-8 without BOM and LF before hashing. Original files remain unchanged.\n\nCore result sources: reports/results/v3/fresh/<model>/evaluation.json and predictions.csv; nested_selected, nested_control and nested_resnet/evaluation.json; fresh/paired_*.json; robustness/{primary,dinov2_exploratory}/*.csv; benchmarks/<model>/benchmark.json. Neural histories reside in finetune_development and resnet_baseline. The code commit pinned by the final model lock is 6e8b31125f2c2b6a39358a4ccc70270095e5b9d8. Report editorial code is independently versioned.\n\nThe executed companion notebook is notebooks/05_v3_results.ipynb. It contains 30 cells, 16 code cells and 11 plots, with 61 evidence/hash/identity/metric assertions reported passing by the notebook build. It reads saved results and performs no training or inference.\n\nRebuild into new directories from the project environment:\npython scripts/v3/assemble_report.py --spec reports/results/v3/report_inputs/assembly.json --output-dir reports/results/v3/report_evidence_rebuild\npython scripts/v3/build_report.py --results-dir reports/results/v3/report_evidence_rebuild --output-dir reports/v3_rebuild\npython -m pytest tests/test_v3_report.py tests/test_v3_report_assembly.py -q\n\nLocal audit ZIP: artifacts/v3/release-staging/material-classification-v3-study-audit.zip\nSize: 1,005,048,843 bytes\nSHA-256: 4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da\nThe companion validation sidecar verifies all entries, manifests and decoded pixels. Dataset license unset; release_approved=false; no upload.\n\nThe historical root report.pdf and report.docx are preserved. Model weights and raw datasets remain outside Git. Internal page-render QA is stored separately from publication artifacts."
+  },
+  "copy_weights": false,
+  "publication_pages": [
+    {
+      "title": "Abstract",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "A completed study of seven visual material categories | 27 October 2026"
+        },
+        {
+          "kind": "p",
+          "text": "This project evaluates material classification on synthetic Blender renders while separating source families, model selection and final assessment. The development corpus contains 3,150 images from 105 material IDs and 101 known source families. A newly collected holdout contains 630 images from 21 additional source groups, with 90 images and three groups per class."
+        },
+        {
+          "kind": "p",
+          "text": "The primary model, a frozen multiscale DINOv2 and ConvNeXt representation with a logistic classifier, was selected using development data and locked before holdout prediction. It achieved 80.16% accuracy (95% source-group bootstrap CI 66.03-93.65%) and Macro F1 0.7952. The 80% point-accuracy target was met; the lower confidence bound did not meet 80%."
+        },
+        {
+          "kind": "p",
+          "text": "Fine-tuned DINOv2 achieved the highest observed comparison accuracy, 86.83% (95% CI 76.98-95.87%), with Macro F1 0.8631. It remains an exploratory comparison, not a retrospectively substituted primary. Its paired accuracy advantage was 6.67 percentage points (95% CI -2.06 to 16.19), which does not establish superiority."
+        },
+        {
+          "kind": "p",
+          "text": "Five image corruptions expose a major compression limitation: primary accuracy falls to 59.05% at JPEG quality 30. Warm batch-one inference took a median 42.876 ms on the measured CUDA system. These results support controlled synthetic-render classification, with uncertainty from few source families and no validation on arbitrary real-world photographs."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_results.csv",
+          "caption": "Clean holdout: the same 630 images for all four locked pipelines. Detailed results and sources appear in Sections 9-12 and Appendix A."
+        },
+        {
+          "kind": "p",
+          "text": "The report, raw prediction evidence, actual training histories, dataset source audit and complete local study package are available for reproduction. No model fitting or inference was performed to produce this report."
+        }
+      ]
+    },
+    {
+      "title": "1. Research question and related work",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Can a model identify wood, metal, stone, concrete, ceramic, fabric and leather on renders of previously unseen source families? The practical target is at least 80% image-level accuracy. The scientific question is narrower than physical material identification: the labels describe the visible appearance of archived PBR assets in a controlled scene."
+        },
+        {
+          "kind": "p",
+          "text": "Rendering permits repeatable camera and lighting variation while holding scene geometry constant. Thirty views of one texture, however, remain correlated. A convincing evaluation must separate source families rather than randomly splitting images. This study therefore records both image counts and the smaller number of known family groups."
+        },
+        {
+          "kind": "h",
+          "text": "Representations and evaluation design"
+        },
+        {
+          "kind": "p",
+          "text": "DINOv2 learns transferable visual representations through self-supervised pretraining [1]. Register tokens support internal transformer computation [2]; this implementation excludes them from image-patch pooling. ConvNeXt provides a modern convolutional architecture [3], while ResNet supplies a residual-network baseline [4]. These references motivate the pipeline choices but do not establish performance on this corpus."
+        },
+        {
+          "kind": "p",
+          "text": "The frozen approach combines global CLS tokens with patch mean and population standard deviation at two resolutions. This captures both overall appearance and variation in local features. Combining transformer and convolutional representations is tested as a pipeline choice, not claimed as a new backbone architecture."
+        },
+        {
+          "kind": "p",
+          "text": "Selecting hyperparameters and estimating performance on the same samples can create selection bias [5]. Five outer source-group folds assess the frozen selection procedure; three inner folds choose its representation and regularization. A later, independently collected holdout assesses the explicitly locked final models."
+        },
+        {
+          "kind": "h",
+          "text": "Contribution and scope"
+        },
+        {
+          "kind": "p",
+          "text": "The contribution is an auditable small-data workflow: source provenance, grouped selection, a fixed comparison baseline, a disclosed exploratory adaptation, one locked clean holdout assessment, corruption diagnostics and measured deployment costs. Historical results and unsuccessful conditions remain visible. Pretraining, resolution and adaptation budgets differ across pipelines, so this is not a controlled causal test of architecture alone."
+        }
+      ]
+    },
+    {
+      "title": "2. Dataset and visual taxonomy",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The complete study contains 3,780 RGB renders, 540 per class. Every material contributes 30 views. The original images are 512 x 512 pixels; the evaluated holdout uses the same image dimensions. Models apply their own recorded resize, crop and normalization."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\study_counts.csv",
+          "caption": "Counts from frozen manifests and the validated combined-study package."
+        },
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dataset_gallery.png",
+          "caption": "One actual holdout image per class, chosen by sorted path before considering prediction correctness. This descriptive gallery is not a random sample; exact IDs and image hashes are in gallery_selection.json."
+        },
+        {
+          "kind": "p",
+          "text": "Ceramic in the historical corpus includes mosaic and terrazzo-like assets; concrete includes plaster and painted-wall appearances. The fresh collection uses restricted ceramic/concrete definitions. These labels are appearance categories, not laboratory measurements of composition. Coatings, rust and suede-like appearances can blur category boundaries."
+        }
+      ]
+    },
+    {
+      "title": "3. Source audit and independence",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "All 316 original local source maps were verified against official provider records: 315 manifest-referenced maps plus one additional displacement map. The fresh collection adds 63 verified maps. Poly Haven verification compares official metadata MD5 and file size with local files, with local SHA-256 pinning; ambientCG verification compares SHA-256 and size against official archive members. These are different verification mechanisms and are not represented as remote SHA-256 matches in every case."
+        },
+        {
+          "kind": "p",
+          "text": "Provider assets are CC0 [6,7]. The project authors the rendered images and experimental code; it does not claim authorship of third-party texture maps. Individual attribution and provider URLs remain in the source registries. License verification establishes source permissions within that evidence scope; it does not prove independent physical ancestry."
+        },
+        {
+          "kind": "p",
+          "text": "The original registry merges known leather-generator families and a conservative wood relationship, yielding 101 groups from 105 IDs. Fresh selection checks original IDs, aliases, normalized-name families, procedural ancestry, official recipe/map identities and exact raw map reuse. No known overlap remains between development and holdout. Undisclosed captures, crops or recolours may still share physical ancestry."
+        },
+        {
+          "kind": "h",
+          "text": "Rendering and domain differences"
+        },
+        {
+          "kind": "p",
+          "text": "Blender EEVEE renders a textured sphere with controlled camera, light and ground. A seven-image old-training pilot checked the fresh Blender 5.1.1 setup before bulk rendering. Framing and placement matched visually, but ground shadows were softer. The historical engine version was not fully recorded, so engine equivalence is not claimed. Restricted class semantics and rendering changes jointly limit direct transport of development estimates."
+        },
+        {
+          "kind": "h",
+          "text": "Local study package"
+        },
+        {
+          "kind": "p",
+          "text": "The validated audit ZIP contains all 3,780 images and compact provenance records. Private Windows paths embedded in PNG metadata were removed from package copies while decoded pixels were verified identical. Package byte hashes therefore differ from canonical source byte hashes; both are retained. Raw textures, scene binaries and model weights are excluded. The rendered-dataset license remains unset, release approval is false and nothing has been uploaded. Appendix A identifies the archive."
+        }
+      ]
+    },
+    {
+      "title": "4. Fixed protocol and amendments",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "All 3,150 original images are development data in V3. Historical train, validation and test directories remain lineage records; the old test had already been consulted. Known relatives crossing those old partitions are grouped together for V3. None of the original images is relabelled as a new untouched test."
+        },
+        {
+          "kind": "p",
+          "text": "The frozen experiment uses five class-stratified outer source-group folds and three grouped inner folds, seed 20261027. Every image follows its source group. Inner selection maximizes mean Macro F1 across five declared representations and C in {0.01, 0.1, 1, 10}. Ties use declaration order, then ascending C. Scaling and fitting occur inside each training partition; outer labels never choose the representation or regularization."
+        },
+        {
+          "kind": "p",
+          "text": "The matched ConvNeXt control selects C independently on the same partitions. ResNet-50 was declared before V3 scores and uses a fixed ten-epoch schedule on those identical outer folds, without outer-validation checkpoint selection. The initial frozen result was 79.40%, below the point target."
+        },
+        {
+          "kind": "p",
+          "text": "After that initial result, a bounded exploratory DINOv2 follow-up compared two learning rates across the same three all-development selection folds. Its development score is explicitly adaptive and is not a replacement nested estimate. The original experiment is preserved."
+        },
+        {
+          "kind": "p",
+          "text": "The final primary choice used development Macro F1: 0.8035245993 for frozen fusion versus 0.7724822183 for fine-tuned DINOv2. All final checkpoints were locked at 09:51:05 UTC on 27 October 2026, before first fresh prediction at 09:54:06 UTC. The four fixed models each received one clean evaluation. No fresh ranking changed model choice."
+        },
+        {
+          "kind": "p",
+          "text": "Primary corruption tests were predeclared. The identical five corruptions were later applied to fine-tuned DINOv2 after clean scores and primary corruption outcomes had been observed. A recorded amendment labels this additional robustness comparison post hoc and exploratory. No model or clean prediction changed."
+        },
+        {
+          "kind": "h",
+          "text": "Uncertainty"
+        },
+        {
+          "kind": "p",
+          "text": "Accuracy and Macro F1 are image-weighted. Confidence intervals use 10,000 class-stratified source-group cluster bootstrap draws, seed 62642, with percentile 95% limits. Each sampled group brings all its images with multiplicity. Paired differences use matching images and source draws. Intervals condition on saved predictions; they do not include refitting, selection uncertainty or dependent cross-validation training sets. Only three new groups per class constrain uncertainty resolution."
+        }
+      ]
+    },
+    {
+      "title": "5. Pipelines and compute-budget confounds",
+      "blocks": [
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\pipelines.csv",
+          "caption": "Model definitions from frozen configurations and checkpoint metadata. Exact weight identities are in the evidence bundle."
+        },
+        {
+          "kind": "p",
+          "text": "The primary vector concatenates CLS, patch mean and patch population standard deviation for DINOv2 at 224 and 336 pixels, then adds pooled ConvNeXt features. Registers are not patches. StandardScaler and a class-balanced L2 logistic regression head use lbfgs, tolerance 0.0001 and up to 3,000 iterations. A convergence warning fails the run rather than silently changing the solver."
+        },
+        {
+          "kind": "p",
+          "text": "Frozen feature extraction is deterministic and learns no dataset-specific representation. Cached features can be shared across grouped folds, while the scaler and classifier must be refitted within each training fold. The canonical caches and final frozen run exactly reproduce the earlier feature arrays and OOF prediction files."
+        },
+        {
+          "kind": "p",
+          "text": "ResNet uses AdamW, head learning rate 0.0003 and layer4 learning rate 0.00001, weight decay 0.01, label smoothing 0.05 and a fixed cosine schedule. Batch-normalization running statistics stay frozen. Its ten-epoch final fit uses all development images and does not consult fresh labels."
+        },
+        {
+          "kind": "p",
+          "text": "DINOv2 adaptation searches backbone learning rates 3e-6 and 1e-5 with a maximum of ten epochs and development patience three. Best epochs at 1e-5 are 6, 5 and 3; their rounded median yields five epochs for the all-development fit. This stage follows the initial result and must retain its exploratory label."
+        },
+        {
+          "kind": "p",
+          "text": "The pipelines differ in pretraining corpora and objectives, input resolution, feature dimension, number of backbone passes, search budget and amount of adaptation. Their measured differences compare complete workflows. They cannot isolate a transformer-versus-CNN effect, the benefit of self-supervision alone or equal-compute efficiency. No audit establishes the absence of public texture overlap in backbone pretraining data."
+        }
+      ]
+    },
+    {
+      "title": "6. Actual development learning curves",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The six completed DINOv2 fits below show actual recorded epochs. Solid lines are training measurements; dashed lines are development validation. Training Macro F1 approaches one while validation varies substantially by source fold. This gap supports cautious interpretation of adaptation on a small family-diverse corpus."
+        },
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dino_actual_curves.png",
+          "caption": "All six development histories; no smoothing, interpolation or invented epochs. Validation is used for epoch and learning-rate selection and is not an independent test. Source: finetune_development/lr_*/progress.json."
+        },
+        {
+          "kind": "p",
+          "text": "The selected learning rate, 1e-5, has mean best-fold development Macro F1 0.77248; 3e-6 yields 0.76250. Both are below the frozen selector reference 0.80352. Early stopping shortens some histories. No fresh-set learning curve exists because the holdout was evaluated only after fitting."
+        }
+      ]
+    },
+    {
+      "title": "7. Fixed baseline training and frozen selection",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\resnet_actual_curves.png",
+          "caption": "Actual ResNet-50 training histories for all five outer fits and the final all-development fit. No epoch-wise validation was used or logged for this fixed schedule; the curves must not be interpreted as validation performance."
+        },
+        {
+          "kind": "p",
+          "text": "All six ResNet fits complete the prescribed ten epochs. The rapid increase in training accuracy does not establish generalization: the matched existing-corpus OOF accuracy is 71.56%, and the fresh result is 77.62%. Final-epoch evaluation respects the predeclared baseline even when intermediate training performance appears strong."
+        },
+        {
+          "kind": "p",
+          "text": "The frozen logistic model has no neural epoch history. Its appropriate selection diagnostic is Macro F1 versus inverse regularization C, calculated from the actual grouped inner-fold search. Appendix B preserves this curve and the candidate table; fabricating a logistic epoch curve would misrepresent the method."
+        },
+        {
+          "kind": "p",
+          "text": "Measured neural execution records contain 6,072.20 seconds across successful stages, with stage boundaries and environment recorded. This is not a controlled total cost comparison with frozen feature extraction: cache preparation, different selection searches and distinct model budgets have different scopes. No GPU work was launched during report production."
+        },
+        {
+          "kind": "p",
+          "text": "Implementation and configuration hashes, fold assignments and final checkpoint identities accompany the histories. The final full-data fit is a deployment operation, not another performance estimate."
+        }
+      ]
+    },
+    {
+      "title": "8. Initial results and historical context",
+      "blocks": [
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\initial_results.csv",
+          "caption": "Matched five-fold existing-corpus OOF results: 3,150 images, 101 source families. Frozen selection uses nested tuning; ResNet is a fixed baseline."
+        },
+        {
+          "kind": "p",
+          "text": "The initial primary selection procedure achieved 79.40% accuracy (95% CI 72.65-85.57%) and Macro F1 0.7955. It did not meet the 80% point target. Paired accuracy differences were +10.54 percentage points versus the control (95% CI 4.83-16.45) and +7.84 versus fixed ResNet (1.46-14.14). These conditional fixed-prediction intervals exclude zero on this development population; they do not establish the corresponding fresh-population effects."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\historical_v1.csv",
+          "caption": "Historical V1 test results, retained verbatim in model_comparison.csv and displayed with rounding. A separate, previously consulted endpoint."
+        },
+        {
+          "kind": "p",
+          "text": "V1 used different partitions, models and selection histories. Known family relationships crossed historical splits, and the old test was consulted. This table documents project history only. Differences between V1, nested V3 and fresh V3 are not direct improvement estimates, and none of these endpoints is pooled."
+        },
+        {
+          "kind": "p",
+          "text": "The fresh primary result of 80.16% belongs to a different, restricted source population. Its small numerical increase over 79.40% is not evidence of a statistically established generalization improvement."
+        }
+      ]
+    },
+    {
+      "title": "9. Clean fresh-source assessment",
+      "blocks": [
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_results.csv",
+          "caption": "All four model artifacts were fixed before these 630 predictions. Each class contributes 90 images from three groups."
+        },
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\fresh_accuracy.png",
+          "caption": "Accuracy uncertainty is resampled over source groups, not independent images. The primary remains frozen fusion; the final row is an exploratory comparison."
+        },
+        {
+          "kind": "p",
+          "text": "The primary gets 505 of 630 images correct. Fine-tuned DINOv2 gets 547 correct and has the highest observed comparison accuracy. The control and fixed baseline remain below the target. The primary point estimate meets 80%, while its 66.03% lower bound and the corruption results prevent a broad guarantee."
+        },
+        {
+          "kind": "p",
+          "text": "With only 21 source groups, seemingly large point differences can remain uncertain. Inspecting the paired intervals is more appropriate than deciding superiority from ranked point estimates or overlap of marginal confidence intervals alone."
+        }
+      ]
+    },
+    {
+      "title": "10. Primary class-level errors",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_confusion.png",
+          "caption": "Primary clean confusion matrix. Cells show image counts; colour is row-normalized. Every true class has 90 images."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_perclass.csv",
+          "caption": "Per-class point metrics from the saved primary evaluator output. Views within each source are correlated."
+        },
+        {
+          "kind": "p",
+          "text": "Wood, metal and fabric each have perfect recall on these three sampled sources per class. This is not evidence of perfect population recall. Ceramic has the lowest recall (57.78%); stone, concrete and leather are also difficult. A high ceramic precision of 1.000 coexists with missed ceramic examples, demonstrating why precision and recall must be reported together."
+        }
+      ]
+    },
+    {
+      "title": "11. Comparison errors and paired uncertainty",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\dino_confusion.png",
+          "caption": "Exploratory fine-tuned DINOv2 clean confusion matrix on the identical holdout. Counts and row-normalized colour use the same scale as the primary."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\paired_fresh.csv",
+          "caption": "Saved paired source-group bootstrap results. All three accuracy intervals include zero; pp means percentage points."
+        },
+        {
+          "kind": "p",
+          "text": "DINOv2 improves observed stone recall to 93.33% and leather recall to 93.33%, but concrete recall falls to 54.44% from the primary 67.78%. A better aggregate point score therefore does not improve every class. Its higher clean score does not justify changing the primary after the test."
+        }
+      ]
+    },
+    {
+      "title": "12. Calibration and selective prediction",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\calibration_risk.png",
+          "caption": "Saved reliability bins and confidence-ranked risk/coverage curves. The dashed diagonal represents perfect calibration. Curves describe this holdout and are not deployment-threshold validation."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\calibration.csv",
+          "caption": "Lower is better for these probability metrics. Brier score sums squared class-probability errors; ECE uses 15 equal-width confidence bins."
+        },
+        {
+          "kind": "p",
+          "text": "DINOv2 has better observed log loss and Brier score, but higher ECE (0.1411 versus 0.0948 for the primary). Accuracy ranking and calibration ranking therefore differ. Sparse bins and a few correlated families limit the stability of calibration estimates."
+        },
+        {
+          "kind": "p",
+          "text": "Abstention can retain high-confidence predictions and reduce observed error at the cost of coverage. The risk curve shows this tradeoff after observing the holdout; it does not authorize a chosen threshold for unseen inputs. No temperature scaling, calibration fit or threshold selection was performed on the fresh set. Deployment thresholds would require separate development validation and a new assessment."
+        },
+        {
+          "kind": "p",
+          "text": "Macro F1 gives equal weight to the seven fixed class F1 values. Balanced accuracy averages observed-class recall. MCC and Cohen kappa complement the main metrics; complete scalar intervals are retained in Appendix C and evaluator JSONs. Undefined metrics remain explicit rather than being replaced with favourable defaults."
+        }
+      ]
+    },
+    {
+      "title": "13. Inspecting failure families",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "The gallery shows high-confidence mistakes from distinct failing source groups. Selection sorts wrong predictions by confidence, breaks ties by image path and keeps at most one view per group. It intentionally exposes difficult cases; it is not a random sample or an estimate of failure prevalence."
+        },
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_errors.png",
+          "caption": "Actual primary holdout errors. Labels read true class > predicted class; p is the largest saved class probability. Exact image IDs, group IDs and source image hashes are preserved in gallery_selection.json. No inference was rerun."
+        },
+        {
+          "kind": "p",
+          "text": "Texture and reflectance can resemble another archival category even when the source label is unchanged. Several views of a misclassified source can share the same appearance cue, so counting each as an independent failure would overstate the evidence. Conversely, correct views from one family do not establish transfer to all materials in that class."
+        },
+        {
+          "kind": "p",
+          "text": "These examples motivate collecting more independently sourced borderline categories and testing different scenes. They do not establish the causal image feature used by the classifier. No attention map or saliency explanation is claimed, and no difficult source was removed or relabelled after seeing predictions."
+        }
+      ]
+    },
+    {
+      "title": "14. Robustness and compression failure",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\robustness.png",
+          "caption": "The same 630 source images under each fixed corruption. Primary tests were predeclared; DINOv2 tests were added after clean and primary-corruption scores."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\robustness.csv",
+          "caption": "Measured corruption accuracies. These are five deterministic transformations, not five independent new datasets."
+        },
+        {
+          "kind": "p",
+          "text": "JPEG quality 30 is the largest observed degradation: primary accuracy loses 21.11 percentage points, reaching 59.05%, and Macro F1 falls to 0.5749. Blur and reduced resolution also lower accuracy. Increased brightness improves the observed primary score to 83.02%; this is a property of this fixed collection, not evidence that brighter inputs generally help."
+        },
+        {
+          "kind": "p",
+          "text": "Post hoc DINOv2 robustness remains explicitly exploratory. It reaches 75.40% on JPEG quality 30, still below its clean 86.83% and below the point target. Its higher corruption point scores do not change primary choice or establish statistically confirmed robustness superiority. No new model fitting occurred."
+        },
+        {
+          "kind": "p",
+          "text": "These transforms test sensitivity to encoded-image changes. They do not cover new physical materials, new scene geometry, sensor noise, arbitrary cameras or real photographs. The complete per-class recall changes, including improvements and degradations, remain in the evidence bundle."
+        }
+      ]
+    },
+    {
+      "title": "15. Measured deployment cost",
+      "blocks": [
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\benchmarks.csv",
+          "caption": "Same CUDA system and benchmark inputs, four CPU threads. Decimal bytes; MB in the chart equals 1,000,000 bytes."
+        },
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\compute.png",
+          "caption": "Warm latency and complete required deployment storage. The 311 KB primary classifier file alone is not the model deployment size."
+        },
+        {
+          "kind": "p",
+          "text": "Warm timing starts from predecoded RGB and includes preprocessing, model computation and probabilities. Disk image I/O and decoding are excluded. Batch-one median and batch-16 throughput answer different questions. Measurements were made on an NVIDIA GeForce RTX 4070 Laptop GPU with approximately 8 GB VRAM, Windows 11, Python 3.13.5 and CUDA runtime 12.8."
+        },
+        {
+          "kind": "p",
+          "text": "The primary requires multiple backbone passes and has the largest complete storage footprint. ResNet is fastest in this benchmark. The fine-tuned DINOv2 checkpoint contains standalone weights and does not require a pretrained cache dependency for loading. The frozen pipelines require their pinned pretrained files as well as the head and sidecar."
+        },
+        {
+          "kind": "p",
+          "text": "Reload measurements in the underlying benchmark are process-warm model reloads, not fresh-process or OS-cold startup. CUDA memory values are process allocator peaks, not total board usage. Results are specific to the recorded hardware, software, batch size and timing scope; no FLOPs or cross-device speed claim is made."
+        }
+      ]
+    },
+    {
+      "title": "16. Limitations, conclusion and next steps",
+      "blocks": [
+        {
+          "kind": "h",
+          "text": "What the evidence supports"
+        },
+        {
+          "kind": "p",
+          "text": "The preselected primary achieved the requested 80% point target on a clean, independently collected source holdout. This is a completed measured result: 80.16% accuracy and Macro F1 0.7952. The highest observed comparison is fine-tuned DINOv2 at 86.83%, but paired uncertainty does not establish its superiority and its exploratory status remains unchanged."
+        },
+        {
+          "kind": "h",
+          "text": "What remains unresolved"
+        },
+        {
+          "kind": "p",
+          "text": "Only three new families per class constrain inference. Thirty views per material are dependent, known-family grouping is conservative and physical ancestry is incomplete. Public texture overlap with backbone pretraining data has not been audited. Restricted class semantics and Blender-version differences complicate transfer from the original corpus. No real-world validation exists."
+        },
+        {
+          "kind": "p",
+          "text": "Compression is a major practical limitation. The primary misses the target on low brightness, blur, JPEG compression and reduced resolution. Per-class performance is uneven, with ceramic, concrete, stone and leather exposing boundary problems. Perfect sampled recall for some classes is not a population guarantee. Calibration and abstention diagnostics are descriptive and do not validate an operating threshold."
+        },
+        {
+          "kind": "p",
+          "text": "Model comparisons confound architecture, pretraining, resolution, adaptation and compute budgets. The bounded DINOv2 follow-up was motivated by the initial outcome; later robustness was post hoc. The historical test was previously consulted. All these decisions are disclosed rather than presented as one fully preregistered experiment."
+        },
+        {
+          "kind": "h",
+          "text": "Recommended next experiment"
+        },
+        {
+          "kind": "p",
+          "text": "Freeze a new evaluation plan before gathering or scoring additional sources. Priorities are more independently verified families in ambiguous categories, held-out scenes and genuine photographs, stronger compression coverage and development-only threshold calibration. Budget-matched ablations would better separate representation effects from extra passes or adaptation. Any subsequent tuning on this now-scored holdout requires a new independent assessment."
+        },
+        {
+          "kind": "p",
+          "text": "The final artifacts support research, teaching and inspection of comparable synthetic renders. They do not identify physical composition or justify safety-critical material decisions. Dataset publication remains a separate owner decision; the complete audit package is prepared locally with no upload."
+        }
+      ]
+    },
+    {
+      "title": "References",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "[1] Oquab et al. (2024). DINOv2: Learning Robust Visual Features without Supervision. https://arxiv.org/abs/2304.07193"
+        },
+        {
+          "kind": "p",
+          "text": "[2] Darcet et al. (2024). Vision Transformers Need Registers. https://arxiv.org/abs/2309.16588"
+        },
+        {
+          "kind": "p",
+          "text": "[3] Liu et al. (2022). A ConvNet for the 2020s. https://arxiv.org/abs/2201.03545"
+        },
+        {
+          "kind": "p",
+          "text": "[4] He et al. (2016). Deep Residual Learning for Image Recognition. https://arxiv.org/abs/1512.03385"
+        },
+        {
+          "kind": "p",
+          "text": "[5] Cawley and Talbot (2010). On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation. JMLR 11:2079-2107. https://jmlr.org/papers/v11/cawley10a.html"
+        },
+        {
+          "kind": "p",
+          "text": "[6] Poly Haven. Asset License (CC0). https://polyhaven.com/license"
+        },
+        {
+          "kind": "p",
+          "text": "[7] ambientCG. License (CC0). https://docs.ambientcg.com/license/"
+        },
+        {
+          "kind": "p",
+          "text": "Research and provider references were checked on 27 October 2026. Experiment-specific claims derive from the saved local evidence identified in the appendices, not from these external publications."
+        }
+      ]
+    },
+    {
+      "title": "Appendix A. Reproduction and evidence map",
+      "blocks": [
+        {
+          "kind": "p",
+          "text": "Canonical primary checkpoint: artifacts/v3/run_final/model.joblib with model_metadata.json. Control: artifacts/v3/run_final/control_model.joblib. ResNet: artifacts/v3/resnet-final/final/model.pt. Exploratory DINOv2: artifacts/v3/finetune/candidates/finetuned/model.pt. Exact hashes are pinned by reports/results/v3/final_model_lock.json; weight files are referenced, not copied into the report bundle."
+        },
+        {
+          "kind": "p",
+          "text": "The assembly specification is reports/results/v3/report_inputs/assembly.json. The validated bundle is reports/results/v3/report_evidence_final; report_manifest.json hashes its evidence files. derived/source_inventory.json maps every copied source to its original SHA-256, normalized-copy SHA-256 and role. Text copies use UTF-8 without BOM and LF before hashing. Original files remain unchanged."
+        },
+        {
+          "kind": "p",
+          "text": "Core result sources: reports/results/v3/fresh/<model>/evaluation.json and predictions.csv; nested_selected, nested_control and nested_resnet/evaluation.json; fresh/paired_*.json; robustness/{primary,dinov2_exploratory}/*.csv; benchmarks/<model>/benchmark.json. Neural histories reside in finetune_development and resnet_baseline. The code commit pinned by the final model lock is 6e8b31125f2c2b6a39358a4ccc70270095e5b9d8. Report editorial code is independently versioned."
+        },
+        {
+          "kind": "p",
+          "text": "The executed companion notebook is notebooks/05_v3_results.ipynb. It contains 30 cells, 16 code cells and 11 plots, with 61 evidence/hash/identity/metric assertions reported passing by the notebook build. It reads saved results and performs no training or inference."
+        },
+        {
+          "kind": "p",
+          "text": "Rebuild into new directories from the project environment:\npython scripts/v3/assemble_report.py --spec reports/results/v3/report_inputs/assembly.json --output-dir reports/results/v3/report_evidence_rebuild\npython scripts/v3/build_report.py --results-dir reports/results/v3/report_evidence_rebuild --output-dir reports/v3_rebuild\npython -m pytest tests/test_v3_report.py tests/test_v3_report_assembly.py -q"
+        },
+        {
+          "kind": "p",
+          "text": "Local audit ZIP: artifacts/v3/release-staging/material-classification-v3-study-audit.zip\nSize: 1,005,048,843 bytes\nSHA-256: 4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da\nThe companion validation sidecar verifies all entries, manifests and decoded pixels. Dataset license unset; release_approved=false; no upload."
+        },
+        {
+          "kind": "p",
+          "text": "The historical root report.pdf and report.docx are preserved. Model weights and raw datasets remain outside Git. Internal page-render QA is stored separately from publication artifacts."
+        }
+      ]
+    },
+    {
+      "title": "Appendix B. Frozen selection diagnostics",
+      "blocks": [
+        {
+          "kind": "figure",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\frozen_search.png",
+          "caption": "Actual all-development three-fold inner selection scores, not fresh test or epoch learning curves. Source: canonical search_history.csv."
+        },
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_preview_inputs\\ablation_summary.csv",
+          "caption": "Predeclared candidate existing-corpus OOF summaries; C is inner-selected. Descriptive candidates do not replace the selection-procedure estimate."
+        },
+        {
+          "kind": "p",
+          "text": "The all-development selection chose dino_multiscale_convnext at C=1. Outer folds can choose different recipes, so the nested score estimates the full procedure rather than one universally fixed recipe. The preserved fold choices, per-fold summaries, search histories and candidate predictions permit exact inspection."
+        }
+      ]
+    },
+    {
+      "title": "Appendix C. Scalar metrics and interpretation",
+      "blocks": [
+        {
+          "kind": "table",
+          "path": "C:\\Users\\dianb\\blender-material-classification\\reports\\results\\v3\\report_inputs\\primary_intervals.csv",
+          "caption": "Primary clean holdout. Scores are fractions except dimensionless loss metrics; all intervals use the recorded fixed-prediction source-group bootstrap."
+        },
+        {
+          "kind": "p",
+          "text": "Accuracy is correct predictions divided by images. Macro precision, recall and F1 average over the seven fixed classes. Weighted F1 uses class support; on this balanced holdout it equals Macro F1. Brier score is the mean summed squared class-probability error; log loss clips probabilities according to evaluator conventions. ECE aggregates absolute confidence/accuracy gaps across 15 equal-width bins."
+        },
+        {
+          "kind": "p",
+          "text": "Each source contributes exactly 30 images on the fresh endpoint, so image-weighted and source-balanced accuracy coincide numerically. Source-balanced accuracy is an average of within-source accuracies, not multiview voting. Group-level mean-probability predictions are separate secondary diagnostics and must not replace the primary image endpoint."
+        },
+        {
+          "kind": "p",
+          "text": "These pooled scalar intervals are not per-class confidence intervals. Per-class support and point metrics are shown in Section 10 and the saved evaluator outputs. Only three source groups per class limit class-level precision; no additional interval has been estimated during report production."
+        },
+        {
+          "kind": "p",
+          "text": "The bound at 80% is an engineering point target, not a hypothesis-test threshold or a guaranteed lower confidence limit. Retaining all outcomes, explicit population definitions and source hashes is essential to interpreting the result."
+        }
+      ]
+    }
+  ]
+}

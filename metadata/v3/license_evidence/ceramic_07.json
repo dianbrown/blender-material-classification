@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "a0e63e2816decc1ea1f77379a255cad0",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "a0e63e2816decc1ea1f77379a255cad0",
+        "official_size_bytes": 1947858,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/roof_07/roof_07_diff_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_07/roof_07_diff_2k.jpg",
+      "sha256": "0ac9bfc913d47c3e1167da8134fe68c536933b723fa64755919819a55eb25df7",
+      "size_bytes": 1947858,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "c8c46bc2a1c7f04efc8627ae66a40350",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "c8c46bc2a1c7f04efc8627ae66a40350",
+        "official_size_bytes": 3194059,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/roof_07/roof_07_nor_gl_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_07/roof_07_nor_gl_2k.exr",
+      "sha256": "5eb2d9e6368c0e89f19448049711415ca68272876ad23f77cd5c855525eb21be",
+      "size_bytes": 3194059,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "64f0ad0559634119d1725566f414b805",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/roof_07_rough_2k.jpg"
+        ],
+        "official_md5": "64f0ad0559634119d1725566f414b805",
+        "official_size_bytes": 1765047,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/roof_07/roof_07_rough_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_07/roof_07_rough_2k.jpg",
+      "sha256": "383f06d2f799b32a98cabbc41d13b4667fd967b11f7b695ad7366e47a4274cb3",
+      "size_bytes": 1765047,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "ceramic_07",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6d66-UWAaZBbmwpyPeWBk1KiaEo0knzw\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/roof_07",
+    "response_bytes": 28006,
+    "response_sha256": "733108e52a5c7b5b0e74ea7da038ba3140678bd6596c2553a2e9078e025e507e",
+    "retrieved_at_utc": "2026-10-27T07:13:22.446505+00:00",
+    "url": "https://api.polyhaven.com/files/roof_07"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "roof_07",
+  "schema_version": 1,
+  "source_fingerprint": "851d52bde69d10fb05024b8e29661afcf6bf44866e9861b837cad540282867ad",
+  "source_url": "https://polyhaven.com/a/roof_07",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

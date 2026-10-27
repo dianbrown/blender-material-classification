@@ -1,0 +1,14 @@
+{
+  "passed": 499,
+  "skipped": 2,
+  "warnings": 1,
+  "seconds": 112.4,
+  "command": "python -m pytest -q",
+  "log_sha256": "2170d0c80061fd315e77640a66f6d9846d840212461de008d8ec8816fe517c9f",
+  "skip_reason": "Windows symlink creation permission in two tests",
+  "warning": "Historical V1 mocked OOM scheduler-order test",
+  "ruff": "pass",
+  "report_loader": "pass",
+  "notebook_code_cells_executed": 16,
+  "notebook_error_outputs": 0
+}

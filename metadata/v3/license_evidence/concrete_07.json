@@ -1,0 +1,121 @@
+{
+  "attribution": "Dimitrios Savva (All). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "c0281b61e4f2b55a44b32853040ccb18",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/blue_plaster_wall_diff_2k.jpg"
+        ],
+        "official_md5": "c0281b61e4f2b55a44b32853040ccb18",
+        "official_size_bytes": 2483333,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/blue_plaster_wall/blue_plaster_wall_diff_2k.jpg"
+      },
+      "path": "materials/concrete/concrete_07/blue_plaster_wall_diff_2k.jpg",
+      "sha256": "2e98d7707ab334d8fdb91f39d4cd90763c15df792ff941eb9d48d8e337eb83da",
+      "size_bytes": 2483333,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "ebd94a104d61285d22a3a630bcb6c474",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/blue_plaster_wall_nor_gl_2k.exr"
+        ],
+        "official_md5": "ebd94a104d61285d22a3a630bcb6c474",
+        "official_size_bytes": 7549534,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/blue_plaster_wall/blue_plaster_wall_nor_gl_2k.exr"
+      },
+      "path": "materials/concrete/concrete_07/blue_plaster_wall_nor_gl_2k.exr",
+      "sha256": "156115ea16df51950a61c0a31c212b118e92dc7c16a4db8609567dcbae4f7b25",
+      "size_bytes": 7549534,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "eb228eb7143bd425df029d147fd46a1b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/blue_plaster_wall_rough_2k.exr"
+        ],
+        "official_md5": "eb228eb7143bd425df029d147fd46a1b",
+        "official_size_bytes": 1007812,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/blue_plaster_wall/blue_plaster_wall_rough_2k.exr"
+      },
+      "path": "materials/concrete/concrete_07/blue_plaster_wall_rough_2k.exr",
+      "sha256": "eaa5cc6566897cc8fbbc7e5e7160aa6ee27307a2fe9a0156d72352cef9b66101",
+      "size_bytes": 1007812,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "concrete_07",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6b97-fyQgOEOK+mwl3hjjui95VDjtcUw\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/blue_plaster_wall",
+    "response_bytes": 27543,
+    "response_sha256": "1ac5deaa3c7b240c26eaacfa66c9a0c5d3423a01a81d79cc34066e8fce3d2884",
+    "retrieved_at_utc": "2026-10-27T07:13:16.403897+00:00",
+    "url": "https://api.polyhaven.com/files/blue_plaster_wall"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "blue_plaster_wall",
+  "schema_version": 1,
+  "source_fingerprint": "de3321f2b77d313da33b587e6ac0e6d7c267154b22bc27531d094a40fa93ab97",
+  "source_url": "https://polyhaven.com/a/blue_plaster_wall",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

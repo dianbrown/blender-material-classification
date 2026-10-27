@@ -1,0 +1,679 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-27T09:49:10.421227+00:00",
+  "status": "complete",
+  "gpu_released": true,
+  "fresh_holdout": {
+    "expected_images": 630,
+    "accessed_by_this_execution": false,
+    "scored": false
+  },
+  "stages": [
+    {
+      "label": "resnet-oof",
+      "command_argv": [
+        "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe",
+        "scripts/v3/train_resnet.py",
+        "--stage",
+        "oof",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--fold-assignments",
+        "artifacts/v3/run_final/fold_assignments.csv",
+        "--output",
+        "artifacts/v3/resnet-oof",
+        "--device",
+        "cuda"
+      ],
+      "command_windows": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe scripts/v3/train_resnet.py --stage oof --manifest metadata/v3/manifest.csv --data-root C:/Users/dianb/blender-material-classification --fold-assignments artifacts/v3/run_final/fold_assignments.csv --output artifacts/v3/resnet-oof --device cuda",
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "start_utc": "2026-10-27T08:06:38.577683+00:00",
+      "end_utc": "2026-10-27T08:44:21.459442+00:00",
+      "duration_seconds": 2262.881805000012,
+      "exit_code": 0,
+      "status": "complete",
+      "head": "28cb02672f294a7d1e6625f368aa418ff30de28b",
+      "log_path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\neural-logs\\resnet-oof-20261027T080638Z.log",
+      "source_unchanged": false,
+      "metadata_path": "artifacts\\v3\\neural-logs\\resnet-oof-20261027T080638Z.json",
+      "changed_monitored_files": [
+        "scripts/v3/assemble_report.py",
+        "scripts/v3/build_report.py"
+      ],
+      "training_source_and_config_unchanged": true,
+      "sampled_device_memory_peak_mib": 2064.0
+    },
+    {
+      "label": "resnet-final",
+      "command_argv": [
+        "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe",
+        "scripts/v3/train_resnet.py",
+        "--stage",
+        "final",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--output",
+        "artifacts/v3/resnet-final",
+        "--device",
+        "cuda"
+      ],
+      "command_windows": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe scripts/v3/train_resnet.py --stage final --manifest metadata/v3/manifest.csv --data-root C:/Users/dianb/blender-material-classification --output artifacts/v3/resnet-final --device cuda",
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "start_utc": "2026-10-27T08:45:00.926689+00:00",
+      "end_utc": "2026-10-27T08:54:37.517720+00:00",
+      "duration_seconds": 576.5911237000255,
+      "exit_code": 0,
+      "status": "complete",
+      "head": "c0de8cb116b6b5da1ffb9fa18f34b150824fb6e6",
+      "log_path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\neural-logs\\resnet-final-20261027T084500Z.log",
+      "source_unchanged": true,
+      "metadata_path": "artifacts\\v3\\neural-logs\\resnet-final-20261027T084500Z.json",
+      "changed_monitored_files": [],
+      "training_source_and_config_unchanged": true,
+      "sampled_device_memory_peak_mib": 1912.0
+    },
+    {
+      "label": "dino-select",
+      "command_argv": [
+        "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe",
+        "scripts/v3/finetune.py",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--frozen-run",
+        "artifacts/v3/run_final",
+        "--output",
+        "artifacts/v3/finetune",
+        "--stage",
+        "select",
+        "--device",
+        "cuda",
+        "--cpu-threads",
+        "4"
+      ],
+      "command_windows": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe scripts/v3/finetune.py --manifest metadata/v3/manifest.csv --data-root C:/Users/dianb/blender-material-classification --frozen-run artifacts/v3/run_final --output artifacts/v3/finetune --stage select --device cuda --cpu-threads 4",
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "start_utc": "2026-10-27T08:54:49.729122+00:00",
+      "end_utc": "2026-10-27T09:44:05.019693+00:00",
+      "duration_seconds": 2955.4875025000074,
+      "exit_code": 0,
+      "status": "complete",
+      "head": "1fce731cb18381847d0b414d3c20a9749465a415",
+      "log_path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\neural-logs\\dino-select-20261027T085449Z.log",
+      "source_unchanged": true,
+      "metadata_path": "artifacts\\v3\\neural-logs\\dino-select-20261027T085449Z.json",
+      "changed_monitored_files": [],
+      "training_source_and_config_unchanged": true,
+      "sampled_device_memory_peak_mib": 1845.0
+    },
+    {
+      "label": "dino-final",
+      "command_argv": [
+        "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe",
+        "scripts/v3/finetune.py",
+        "--manifest",
+        "metadata/v3/manifest.csv",
+        "--data-root",
+        "C:/Users/dianb/blender-material-classification",
+        "--frozen-run",
+        "artifacts/v3/run_final",
+        "--output",
+        "artifacts/v3/finetune",
+        "--stage",
+        "final",
+        "--device",
+        "cuda",
+        "--cpu-threads",
+        "4",
+        "--resume",
+        "--selection-sha256",
+        "093eee4484ac23a2e871eb63ba892b7228cb0785b9fd6ecfeb74cbe026652a8c"
+      ],
+      "command_windows": "C:\\Users\\dianb\\blender-material-classification\\.venv\\Scripts\\python.exe scripts/v3/finetune.py --manifest metadata/v3/manifest.csv --data-root C:/Users/dianb/blender-material-classification --frozen-run artifacts/v3/run_final --output artifacts/v3/finetune --stage final --device cuda --cpu-threads 4 --resume --selection-sha256 093eee4484ac23a2e871eb63ba892b7228cb0785b9fd6ecfeb74cbe026652a8c",
+      "cwd": "C:\\Users\\dianb\\blender-material-classification",
+      "start_utc": "2026-10-27T09:44:21.272317+00:00",
+      "end_utc": "2026-10-27T09:48:58.495898+00:00",
+      "duration_seconds": 277.2370646999916,
+      "exit_code": 0,
+      "status": "complete",
+      "head": "182961da21045ebe5f25df989edd3178399eab66",
+      "log_path": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\neural-logs\\dino-final-20261027T094421Z.log",
+      "source_unchanged": true,
+      "metadata_path": "artifacts\\v3\\neural-logs\\dino-final-20261027T094421Z.json",
+      "changed_monitored_files": [],
+      "training_source_and_config_unchanged": true,
+      "sampled_device_memory_peak_mib": 1845.0
+    }
+  ],
+  "total_successful_stage_seconds": 6072.197495900036,
+  "resnet": {
+    "oof": {
+      "status": "complete",
+      "run_identity_sha256": "d2106ff577f473c0a1fbee8185c5f063d8913ee04e1210582558be5071664d8b",
+      "config_sha256": "c16bdd6fd707b58952436a03dd6e4f46b2a3890565f0dd9a8da4eac5055fa12f",
+      "seed": 20261027,
+      "initial_weights": {
+        "enum": "ResNet50_Weights.IMAGENET1K_V2",
+        "url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+        "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca"
+      },
+      "fits": [
+        {
+          "fit": "fold_0",
+          "rows": 2460,
+          "epochs": 10,
+          "seconds": 438.3678426000406,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-oof\\fold_0\\history.csv"
+        },
+        {
+          "fit": "fold_1",
+          "rows": 2520,
+          "epochs": 10,
+          "seconds": 473.591865000024,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-oof\\fold_1\\history.csv"
+        },
+        {
+          "fit": "fold_2",
+          "rows": 2550,
+          "epochs": 10,
+          "seconds": 480.26009180000983,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-oof\\fold_2\\history.csv"
+        },
+        {
+          "fit": "fold_3",
+          "rows": 2520,
+          "epochs": 10,
+          "seconds": 412.0435722999973,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-oof\\fold_3\\history.csv"
+        },
+        {
+          "fit": "fold_4",
+          "rows": 2550,
+          "epochs": 10,
+          "seconds": 430.82362250000006,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-oof\\fold_4\\history.csv"
+        }
+      ],
+      "all_recorded_output_hashes_verified": true,
+      "metrics": {
+        "accuracy": 0.7155555555555555,
+        "macro_f1": 0.7135009154776019,
+        "log_loss": 0.8805579968102745,
+        "confusion_matrix": [
+          [
+            368,
+            45,
+            3,
+            3,
+            31,
+            0,
+            0
+          ],
+          [
+            93,
+            251,
+            15,
+            10,
+            28,
+            5,
+            48
+          ],
+          [
+            0,
+            2,
+            346,
+            0,
+            72,
+            0,
+            30
+          ],
+          [
+            0,
+            8,
+            11,
+            345,
+            1,
+            74,
+            11
+          ],
+          [
+            26,
+            20,
+            33,
+            2,
+            315,
+            24,
+            30
+          ],
+          [
+            0,
+            0,
+            41,
+            89,
+            1,
+            298,
+            21
+          ],
+          [
+            0,
+            17,
+            36,
+            38,
+            28,
+            0,
+            331
+          ]
+        ],
+        "class_order": [
+          "wood",
+          "metal",
+          "stone",
+          "concrete",
+          "ceramic",
+          "fabric",
+          "leather"
+        ]
+      },
+      "coverage_checks": {
+        "rows": 3150,
+        "expected_rows": 3150,
+        "unique_paths": 3150,
+        "manifest_paths_exact": true,
+        "fold_assignments_exact": true,
+        "prediction_fold_map_exact": true,
+        "finite_probabilities": true,
+        "normalized_probabilities": true,
+        "group_fold_disjoint": true,
+        "fold_counts": {
+          "0": 690,
+          "1": 630,
+          "2": 600,
+          "3": 630,
+          "4": 600
+        },
+        "all_fits_ten_epochs": true
+      }
+    },
+    "final": {
+      "status": "complete",
+      "run_identity_sha256": "cf91792f1b0d36d85cf7ba0b160e3a7ee61aed800c2f80d6e3d2dd6bd42c3990",
+      "config_sha256": "c16bdd6fd707b58952436a03dd6e4f46b2a3890565f0dd9a8da4eac5055fa12f",
+      "seed": 20261027,
+      "initial_weights": {
+        "enum": "ResNet50_Weights.IMAGENET1K_V2",
+        "url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+        "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca"
+      },
+      "fits": [
+        {
+          "fit": "final",
+          "rows": 3150,
+          "epochs": 10,
+          "seconds": 539.5915387000423,
+          "peak_allocated_bytes": 443371008,
+          "peak_reserved_bytes": 526385152,
+          "history_path": "artifacts\\v3\\resnet-final\\final\\history.csv"
+        }
+      ],
+      "all_recorded_output_hashes_verified": true
+    }
+  },
+  "dino": {
+    "selection": {
+      "scores": [
+        {
+          "lr": 3e-06,
+          "mean_best_validation_macro_f1": 0.7624975658365382,
+          "best_epochs": [
+            3,
+            3,
+            4
+          ]
+        },
+        {
+          "lr": 1e-05,
+          "mean_best_validation_macro_f1": 0.7724822182541141,
+          "best_epochs": [
+            6,
+            5,
+            3
+          ]
+        }
+      ],
+      "backbone_lr": 1e-05,
+      "final_epochs": 5,
+      "mean_best_validation_macro_f1": 0.7724822182541141,
+      "frozen_selector_mean_macro_f1": 0.8035245993,
+      "difference_from_frozen_selector": -0.03104238104588586,
+      "candidate_choice": "pending explicit parent decision; scores are development only",
+      "fits": [
+        {
+          "lr": 3e-06,
+          "fold": 0,
+          "status": "complete",
+          "best_score": 0.8356045851091051,
+          "best_epoch": 3,
+          "checkpoint_sha256": "8ece48e3d35c7107c3b48de4320313591cd8a36dd0a3ff03ccaffc54e35d6d40"
+        },
+        {
+          "lr": 3e-06,
+          "fold": 1,
+          "status": "complete",
+          "best_score": 0.7857858110715893,
+          "best_epoch": 3,
+          "checkpoint_sha256": "39cb0d64ebcd0815b81d1872d0ee56edfc7e4e5e32ff01798d307086028b5ecd"
+        },
+        {
+          "lr": 3e-06,
+          "fold": 2,
+          "status": "complete",
+          "best_score": 0.6661023013289201,
+          "best_epoch": 4,
+          "checkpoint_sha256": "c7c10c1f27669ae43cecc2091bc77c6c7eb76bca9d17dceaf68f27fd8ac6dc91"
+        },
+        {
+          "lr": 1e-05,
+          "fold": 0,
+          "status": "complete",
+          "best_score": 0.8401072901378714,
+          "best_epoch": 6,
+          "checkpoint_sha256": "288e7c382dff40c113a22e6babc1c160e5ab33df676f6ac0982b5106ed2c4d37"
+        },
+        {
+          "lr": 1e-05,
+          "fold": 1,
+          "status": "complete",
+          "best_score": 0.8029839348091382,
+          "best_epoch": 5,
+          "checkpoint_sha256": "254bda6df93a6811acd0d8b3b4e44810ea5e451b74649ba9f63e50556720c404"
+        },
+        {
+          "lr": 1e-05,
+          "fold": 2,
+          "status": "complete",
+          "best_score": 0.6743554298153329,
+          "best_epoch": 3,
+          "checkpoint_sha256": "717d96e146f70b90db771407faa0eadbc2f259fd9548ada785163c9ba54dd509"
+        }
+      ],
+      "run_identity_sha256": "77f5ca92216595c7eacc95b7ed8b2223f2035ce0a0c5efa5ab76c3a549cbbf19",
+      "interpretation": {
+        "status": "EXPLORATORY development follow-up triggered by the initial frozen result; not preregistered untouched CV.",
+        "validation": "Best-epoch selection and LR selection use the same three all-development frozen-selector folds. These optimistic development scores are not unbiased CV or independent evidence.",
+        "primary": "Preserve frozen primary nested accuracy 0.793968 and macro-F1 0.79548 and ConvNeXt accuracy 0.68857. Fine-tuning does not overwrite or rebrand these results.",
+        "candidate_choice": "Compare selected fine-tune mean best validation macro-F1 with frozen selector 0.8035245993 only to inform final fresh-holdout candidate choice. Parent explicitly freezes the choice; both artifacts are retained.",
+        "fresh_holdout": "No access or scoring during development. Parent applies the frozen candidates to the same fresh holdout once after all configuration and candidate choices are frozen. Only that endpoint provides independent evidence; 80% is a target, not a promised outcome.",
+        "failures": "Six selection fits maximum, ten epochs maximum each; failed/interrupted/nonfinite/OOM attempts retained, no silent batch changes or added configurations. Resume replays only uncommitted epochs."
+      }
+    },
+    "selection_sha256": "093eee4484ac23a2e871eb63ba892b7228cb0785b9fd6ecfeb74cbe026652a8c",
+    "fold_map_matches_frozen_selector": true,
+    "all_3150_development_rows_covered_once_in_validation": true,
+    "train_validation_groups_disjoint": true,
+    "training_rows": 3150,
+    "run_identity_sha256": "77f5ca92216595c7eacc95b7ed8b2223f2035ce0a0c5efa5ab76c3a549cbbf19",
+    "config_sha256": "a83770ccf7ad963cc51a3a2d9421b27877a29f01062f157a6e5449f5203f4f9e",
+    "fits": [
+      {
+        "fit": "all_development",
+        "status": "complete",
+        "epochs": 5,
+        "best_epoch": null,
+        "best_development_macro_f1": null,
+        "epoch_seconds": [
+          41.71570250001969,
+          43.2535143000423,
+          43.435188099974766,
+          46.24296250002226,
+          59.17053240002133
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793094283.590751,
+            "ended_unix": 1793094519.3319323
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\all_development\\epoch_05.pt",
+        "checkpoint_sha256": "e0e4343a5079d921723789f09dd573f3beeecf74a851686abe3d0f5954d20b9d"
+      },
+      {
+        "fit": "lr_1e-05_fold_0",
+        "status": "complete",
+        "epochs": 9,
+        "best_epoch": 6,
+        "best_development_macro_f1": 0.8401072901378714,
+        "epoch_seconds": [
+          67.44545769999968,
+          55.60231510002632,
+          75.06757289997768,
+          71.32307000004221,
+          73.72692929999903,
+          72.74987439997494,
+          73.32354470004793,
+          73.59149860002799,
+          73.09150950005278
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793092718.605407,
+            "ended_unix": 1793093359.055396
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_1e-05_fold_0\\epoch_09.pt",
+        "checkpoint_sha256": "288e7c382dff40c113a22e6babc1c160e5ab33df676f6ac0982b5106ed2c4d37"
+      },
+      {
+        "fit": "lr_1e-05_fold_1",
+        "status": "complete",
+        "epochs": 8,
+        "best_epoch": 5,
+        "best_development_macro_f1": 0.8029839348091382,
+        "epoch_seconds": [
+          67.98789330001455,
+          40.72473360004369,
+          58.58690450002905,
+          71.59170979994815,
+          70.27077189995907,
+          71.47325630002888,
+          70.57016310002655,
+          69.49601320002694
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793093359.2720094,
+            "ended_unix": 1793093883.5904677
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_1e-05_fold_1\\epoch_08.pt",
+        "checkpoint_sha256": "254bda6df93a6811acd0d8b3b4e44810ea5e451b74649ba9f63e50556720c404"
+      },
+      {
+        "fit": "lr_1e-05_fold_2",
+        "status": "complete",
+        "epochs": 6,
+        "best_epoch": 3,
+        "best_development_macro_f1": 0.6743554298153329,
+        "epoch_seconds": [
+          70.645292399975,
+          69.31311699998332,
+          71.55176840000786,
+          47.39461139997002,
+          41.189700399991125,
+          41.48777769994922
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793093883.8119347,
+            "ended_unix": 1793094227.9559698
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_1e-05_fold_2\\epoch_06.pt",
+        "checkpoint_sha256": "717d96e146f70b90db771407faa0eadbc2f259fd9548ada785163c9ba54dd509"
+      },
+      {
+        "fit": "lr_3e-06_fold_0",
+        "status": "complete",
+        "epochs": 6,
+        "best_epoch": 3,
+        "best_development_macro_f1": 0.8356045851091051,
+        "epoch_seconds": [
+          69.30102299997816,
+          71.2179151000455,
+          72.22758260002593,
+          73.11280170001555,
+          72.51342109998222,
+          75.02685379999457
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793091333.013958,
+            "ended_unix": 1793091771.7461
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_3e-06_fold_0\\epoch_06.pt",
+        "checkpoint_sha256": "8ece48e3d35c7107c3b48de4320313591cd8a36dd0a3ff03ccaffc54e35d6d40"
+      },
+      {
+        "fit": "lr_3e-06_fold_1",
+        "status": "complete",
+        "epochs": 6,
+        "best_epoch": 3,
+        "best_development_macro_f1": 0.7857858110715893,
+        "epoch_seconds": [
+          71.99904039996909,
+          71.73651289998088,
+          69.99649789999239,
+          71.69619519996922,
+          73.27450950001366,
+          72.8272562000202
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793091772.0317185,
+            "ended_unix": 1793092206.5549686
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_3e-06_fold_1\\epoch_06.pt",
+        "checkpoint_sha256": "39cb0d64ebcd0815b81d1872d0ee56edfc7e4e5e32ff01798d307086028b5ecd"
+      },
+      {
+        "fit": "lr_3e-06_fold_2",
+        "status": "complete",
+        "epochs": 7,
+        "best_epoch": 4,
+        "best_development_macro_f1": 0.6661023013289201,
+        "epoch_seconds": [
+          70.61901560000842,
+          70.12521379999816,
+          73.34823469998082,
+          72.8319975999766,
+          71.92163100000471,
+          73.40888469998026,
+          75.72135259996867
+        ],
+        "peak_allocated_bytes": 401275904,
+        "peak_reserved_bytes": 448790528,
+        "amp_skipped_steps": 0,
+        "attempts": [
+          {
+            "status": "complete",
+            "started_unix": 1793092206.7783911,
+            "ended_unix": 1793092718.377301
+          }
+        ],
+        "checkpoint_path": "artifacts\\v3\\finetune\\resume\\lr_3e-06_fold_2\\epoch_07.pt",
+        "checkpoint_sha256": "c7c10c1f27669ae43cecc2091bc77c6c7eb76bca9d17dceaf68f27fd8ac6dc91"
+      }
+    ],
+    "exports": {
+      "finetuned": {
+        "path": "candidates/finetuned/model.pt",
+        "sha256": "0c9280783e1575f3b1822d5a877e35b36aefbf82ec9115e0840dcad6576a8509",
+        "metadata_sha256": "0a10579f49896f4f514e61114c7f146e2b3870fcc677aa0e419d4af0c0934eee"
+      },
+      "frozen": {
+        "path": "candidates/frozen/model.joblib",
+        "sha256": "8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e"
+      }
+    },
+    "export_root": "artifacts\\v3\\finetune",
+    "export_hashes_verified": true,
+    "frozen_candidate_exact_copy": true,
+    "interpretation": "Exploratory development selection scores; not independent test estimates.",
+    "finetuned_metadata_hash_verified": true
+  },
+  "parent_choice": {
+    "path": "reports/results/v3/model_choice.json",
+    "sha256": "7e302569a1a649d0b94e7bcfb0c3f21f94769f28c9a52a747a4ce581f41b2541",
+    "primary_model": "frozen_selected",
+    "frozen_development_macro_f1": 0.8035245993060354,
+    "fine_tuned_development_macro_f1": 0.7724822182541141
+  },
+  "failures": [
+    {
+      "kind": "launcher_only",
+      "training_started": false,
+      "exit_code": 1,
+      "metadata_path": "artifacts/v3/neural-logs/resnet-oof-20261027T080620Z.json",
+      "error": "Initial wrapper CreateProcess failed for relative Windows executable path. Resolved executable path in artifact-only wrapper; no training inputs changed.",
+      "duration_seconds": 0.4966981,
+      "duration_scope": "Observed outer execution command wall time before training launch"
+    }
+  ],
+  "training_failures": [],
+  "notes": [
+    "Initial broad source audit detected concurrent edits to two report scripts only; training implementation and configs remained unchanged.",
+    "No code/config/hyperparameter changes by execution agent; no extra agents, commits, or PRs.",
+    "Checkpoint retention follows the reviewed epoch-transaction implementation; every fit history and attempt record retained."
+  ],
+  "gpu_release_observation": {
+    "utilization_percent": 0,
+    "device_memory_used_mib": 1246,
+    "total_device_memory_mib": 8188,
+    "training_pids_exited": [
+      54760,
+      80572,
+      2672,
+      57492
+    ]
+  }
+}

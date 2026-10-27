@@ -1,0 +1,118 @@
+{
+  "attribution": "Jenelle van Heerden (Processing); Sergej Majboroda (Photography). Publisher: Poly Haven.",
+  "author": {
+    "Jenelle van Heerden": "Processing",
+    "Sergej Majboroda": "Photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "db8d7a22c17c38b62e536839f52ba037",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "db8d7a22c17c38b62e536839f52ba037",
+        "official_size_bytes": 3482793,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/herringbone_parquet/herringbone_parquet_diff_2k.jpg"
+      },
+      "path": "materials/wood/wood_14/herringbone_parquet_diff_2k.jpg",
+      "sha256": "8305c12adf1da61f4d267611948bfdc9293c9b9915da64e41cc1ab68c0167ff1",
+      "size_bytes": 3482793,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "9c73a7c2c4c876ac9d7965e51bdca686",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "9c73a7c2c4c876ac9d7965e51bdca686",
+        "official_size_bytes": 4268865,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/herringbone_parquet/herringbone_parquet_nor_gl_2k.exr"
+      },
+      "path": "materials/wood/wood_14/herringbone_parquet_nor_gl_2k.exr",
+      "sha256": "415a5945486593e66039ab7de0099c96991715c670309abaa97ea513c631b5f4",
+      "size_bytes": 4268865,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "2422fb87e48f78031c58545bf65dd883",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/herringbone_parquet_rough_2k.exr"
+        ],
+        "official_md5": "2422fb87e48f78031c58545bf65dd883",
+        "official_size_bytes": 3318814,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/herringbone_parquet/herringbone_parquet_rough_2k.exr"
+      },
+      "path": "materials/wood/wood_14/herringbone_parquet_rough_2k.exr",
+      "sha256": "71363e2bbefad50acae9e15e7f78fea9c4103b8d8209d05c371e0660927dad2b",
+      "size_bytes": 3318814,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "wood_14",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"8a3c-j8NKD0C90cdNfT31gM0zh62bNgQ\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/herringbone_parquet",
+    "response_bytes": 35388,
+    "response_sha256": "4906d327b67d586ca040c84b593245959a5edfab25893ca6a41f0d90d4cb6a08",
+    "retrieved_at_utc": "2026-10-27T07:13:01.568543+00:00",
+    "url": "https://api.polyhaven.com/files/herringbone_parquet"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "herringbone_parquet",
+  "schema_version": 1,
+  "source_fingerprint": "efd2175130caafbdc7f328cb48b7bf668542b7818d652738ff27821a3b70ba04",
+  "source_url": "https://polyhaven.com/a/herringbone_parquet",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

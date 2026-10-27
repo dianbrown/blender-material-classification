@@ -1,0 +1,122 @@
+{
+  "attribution": "colormass (Photography); Rico Cilliers (Processing). Publisher: Poly Haven.",
+  "author": {
+    "Rico Cilliers": "Processing",
+    "colormass": "Photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "e73dcb7ae06f7267f74fc5869c63233c",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/hessian_230_diff_2k.jpg"
+        ],
+        "official_md5": "e73dcb7ae06f7267f74fc5869c63233c",
+        "official_size_bytes": 3828573,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/hessian_230/hessian_230_diff_2k.jpg"
+      },
+      "path": "materials/fabric/fabric_05/hessian_230_diff_2k.jpg",
+      "sha256": "1c1d66e3764dded1cfafa5147ea56a28ef7648e3c5cae6892b8dada92d408685",
+      "size_bytes": 3828573,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "d93ea366bf597a32b5599451888fcb1a",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/hessian_230_nor_gl_2k.exr"
+        ],
+        "official_md5": "d93ea366bf597a32b5599451888fcb1a",
+        "official_size_bytes": 7876305,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/hessian_230/hessian_230_nor_gl_2k.exr"
+      },
+      "path": "materials/fabric/fabric_05/hessian_230_nor_gl_2k.exr",
+      "sha256": "44bf046dc4d1ce45793481fa1de6ee609829e75e508c7ed1b81e8678fa7b3888",
+      "size_bytes": 7876305,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "70d0db9e187588f33582a91f73460a80",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/hessian_230_rough_2k.exr"
+        ],
+        "official_md5": "70d0db9e187588f33582a91f73460a80",
+        "official_size_bytes": 5299178,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/hessian_230/hessian_230_rough_2k.exr"
+      },
+      "path": "materials/fabric/fabric_05/hessian_230_rough_2k.exr",
+      "sha256": "50b99d264116a20731c7bae051df8a4a73b3ce7bee76f0d1060c29d8505f7aa5",
+      "size_bytes": 5299178,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "fabric_05",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"b078-J70jVe+9glTF4hg91yK3uA/CDqI\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/hessian_230",
+    "response_bytes": 45176,
+    "response_sha256": "e3ae175e1ea48b897b8804e9c73d29f5acb8ee79cbc303a756500c6b1dd605a5",
+    "retrieved_at_utc": "2026-10-27T07:13:27.480417+00:00",
+    "url": "https://api.polyhaven.com/files/hessian_230"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "hessian_230",
+  "schema_version": 1,
+  "source_fingerprint": "18b04bd1943bd9f939c9ec16e5f343b890d108a2f4f928b0b5a0ff7a800be346",
+  "source_url": "https://polyhaven.com/a/hessian_230",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

@@ -1,101 +1,147 @@
 # Blender Material Classification
 
-Leakage-safe classification of seven synthetic PBR material classes rendered in Blender EEVEE. The study compares a small CNN baseline with ImageNet-pretrained ResNet-50, ConvNeXt-Tiny, and ViT-B/16 models.
+Seven-class classification of synthetic Blender PBR renders with source-family
+separation, locked model selection and traceable measured evidence. **V3 is
+complete: the preselected primary achieved 80.16% clean holdout accuracy.**
 
-## Overview and motivation
+[Final PDF](reports/v3/report.pdf) | [Report Markdown](reports/v3/report.md) |
+[Executed results notebook](notebooks/05_v3_results.ipynb) |
+[Model card](MODEL_CARD.md) | [Dataset card](DATASET.md)
 
-This design-engineering study tests whether texture, reflectance, and shading cues learned from procedural Blender materials transfer to unseen base materials. The engineering motivation is to measure accuracy, robustness, and inference efficiency before a material recognizer is considered for downstream inspection tooling. Grouping by base-material identity makes the comparison meaningful: near-duplicate renders cannot leak between development and held-out splits.
+## Completed results
 
-![Representative synthetic renders](reports/figures/dataset/representative_images_all_classes.png)
+All four final models were locked before prediction on the same **630 fresh
+images, 21 source groups, 90 images per class**. The primary was selected by
+its development Macro F1, not its holdout ranking.
 
-## Dataset
+| Locked pipeline | Fresh accuracy | Macro F1 | Role |
+| --- | ---: | ---: | --- |
+| Frozen DINOv2 + ConvNeXt fusion | **80.16%** | **0.7952** | Preselected primary |
+| Frozen ConvNeXt control | 75.56% | 0.7566 | Predeclared control |
+| Fixed ResNet-50 | 77.62% | 0.7665 | Fixed assessment baseline |
+| Fine-tuned DINOv2 | **86.83%** | **0.8631** | Exploratory comparison; highest observed score |
 
-The dataset contains **3150** RGB PNG renders at 512 x 512, generated with Blender and RenderSynth from **105** independent base materials (30 renders per material). Classes are wood, metal, stone, concrete, ceramic, fabric, and leather. The canonical split is grouped by `material_id`: train 2310 images / 77 materials, validation 420 / 14, and test 420 / 14.
+Primary 95% source-group bootstrap accuracy CI: **66.03-93.65%**. DINOv2 CI:
+**76.98-95.87%**. DINOv2 minus primary is +6.67 percentage points (95% paired CI
+**-2.06 to 16.19**). All three saved fresh paired accuracy intervals include
+zero, so superiority is not established. The **80% target is point accuracy**,
+not a lower confidence bound or a guarantee across conditions. Primary JPEG
+quality-30 accuracy falls to **59.05%**.
 
-Raw renders and PBR assets remain local. See [DATASET.md](DATASET.md) for regeneration, provenance, licensing notes, and placement instructions. For an existing checkout, place files exactly as `dataset/train/{class}/*.png`, `dataset/val/{class}/*.png`, and `dataset/test/{class}/*.png`; place source PBR material folders at `materials/{class}/{material_id}/`. Run `python scripts/verify_dataset.py` before training.
+Sources: [fresh outputs](reports/results/v3/fresh),
+[model choice](reports/results/v3/model_choice.json),
+[checkpoint lock](reports/results/v3/final_model_lock.json), and
+[final execution record](reports/results/v3/final_execution_summary.json).
+The lock at 09:51:05 UTC preceded first fresh prediction at 09:54:06 UTC on
+27 October 2026. No test-winner substitution occurred.
 
-Classes: `wood`, `metal`, `stone`, `concrete`, `ceramic`, `fabric`, `leather`.
+## Quickstart: saved checkpoints
 
-### Procedural generation pipeline
-
-Blender builds the scene and EEVEE render settings; RenderSynth assigns each PBR texture set to a base material; deterministic camera/light variations produce 30 renders per material; manifest validation records class, `material_id`, and split. The generation seed is 62642. Place local data at `dataset/{train,val,test}/{class}/*.png` and source textures at `materials/{class}/{material_id}/`; raw data is intentionally gitignored.
-
-## Method
-
-All models use 224 x 224 inputs, ImageNet normalization, conservative training augmentation, AdamW, label smoothing, warmup/cosine scheduling, AMP, and best-validation-macro-F1 checkpointing. Grouped five-fold `StratifiedGroupKFold` uses development data only; the locked test split is evaluated once after methodology lock.
-
-Compared architectures are intentionally distinct: a from-scratch CustomCNN baseline (capacity floor), ImageNet-pretrained ResNet-50 (residual CNN), ConvNeXt-Tiny (modern convolutional design), and ViT-B/16 (patch-token transformer). Transfer models train a frozen head stage followed by whole-model fine-tuning; all runs use the fixed 40-epoch ceiling and early stopping (patience 8). The baseline is not assigned a fabricated CV score: its table entry is `N/A (not run)`.
-
-Training histories, TensorBoard logs, best/last checkpoints, effective batch sizes, runtime, peak VRAM, environment metadata, and configuration hashes are retained under `artifacts/checkpoints/` and `reports/results/`. Five-fold grouped CV is reported as mean +/- sample SD for the three transfer models; it is computed only on the development materials.
-
-## Results
-
-Completed locked TEST evaluation.
-
-| Model | Family | Pretrained | Best epoch | Test accuracy | Test macro F1 | Test weighted F1 | CV macro F1 (mean +/- SD) |
-|---|---|---:|---:|---:|---:|---:|---:|
-| CustomCNN | Baseline CNN | no | 3 | 0.498 | 0.490 | 0.490 | N/A (not run) |
-| ResNet-50 | Residual CNN | yes | 7 | 0.698 | 0.683 | 0.683 | 0.717 +/- 0.109 |
-| ConvNeXt-Tiny | Modern CNN | yes | 15 | 0.612 | 0.569 | 0.569 | 0.787 +/- 0.113 |
-| ViT-B/16 | Vision transformer | yes | 19 | 0.600 | 0.562 | 0.562 | 0.745 +/- 0.103 |
-
-The canonical recommendation is **ResNet-50**: TEST Macro F1 0.683, accuracy 0.698, and grouped-CV Macro F1 0.717 +/- 0.109.
-
-The machine-readable source is [reports/results/model_comparison.csv](reports/results/model_comparison.csv), generated from cached artifacts. The recommendation is read from [reports/results/recommended_model.json](reports/results/recommended_model.json) and is not inferred in this document. Supporting tables and figures are under `reports/results/` and `reports/figures/`; see the [report asset index](reports/REPORT_ASSETS.md) for figure links and recommended report usage.
-
-![Recommended ResNet-50 normalized confusion matrix](reports/figures/confusion_matrices/resnet50_normalized.png)
-
-![Model comparison dashboard](reports/figures/comparison/model_comparison_dashboard.png)
-
-![Training curves](reports/figures/training/combined_val_f1.png)
-
-## Project deliverables
-
-- [Illustrated report PDF](report.pdf) and [editable report DOCX](report.docx) — fill in the DOCX cover placeholders for group members, student numbers and submission date, refresh the contents if needed, then re-export the final PDF before submitting.
-- [Report asset index](reports/REPORT_ASSETS.md) — publication-ready figures and recommended usage.
-- [Model card](MODEL_CARD.md) — intended use, limitations and artifact-backed performance.
-- [Kaggle release guide](kaggle.md) — proposed procedure only; Kaggle publication remains conditional on completing the per-asset licensing and attribution audit.
-- [Version-2 Optuna plan](reports/OPTUNA_V2_PLAN.md) — development-only improvement proposal that preserves the sealed TEST protocol.
-- [Version-2 implementation plan](reports/V2_IMPLEMENTATION_PLAN.md) — implementation-ready Poly Haven provenance, new-holdout, Optuna, validation, and report-integration specification.
-
-## Repository structure
-
-```text
-src/material_classifier/   reusable data, models, training, metrics, and plotting code
-configs/                   fixed data and model configurations
-scripts/                   verification, training, CV, evaluation, reporting, and docs
-metadata/                  manifests and split definitions
-reports/results/           cached metrics, predictions, embeddings, and tables
-reports/figures/           publication-ready figures and galleries
-notebooks/                 executed EDA, results, comparison, and error-analysis views
-```
-
-## Setup and reproducibility
-
-Use Python 3.13 with the pinned environment. From the repository root run `uv sync --extra dev --extra explainability --extra embeddings --extra reports` (or install the pinned base, development, explainability, embeddings, and reports requirement sets), then verify CUDA/GPU details with `python scripts/collect_environment.py`. The project seed is 42; configs, environment metadata, hashes, histories, and timestamps are recorded under `reports/results/` and `artifacts/checkpoints/`.
-
-## Reproduce
+Use Python 3.13 and [requirements-v3-lock.txt](requirements-v3-lock.txt), which
+pins the executed V3 dependencies, including frozen-feature and PDF tooling.
+The older `pyproject.toml` pins describe V1; installing its dependencies over V3
+would change the validated environment. On the Windows CUDA machine, run:
 
 ```powershell
-uv sync --extra dev --extra explainability --extra embeddings --extra reports
-python scripts/verify_dataset.py
-python scripts/train_all.py
-python scripts/run_group_cv.py --folds 5
-python scripts/lock_methodology.py
-python scripts/evaluate_all.py --split test
-python scripts/generate_report.py
-python scripts/generate_visuals.py --explainability
-python scripts/update_docs.py
+./scripts/setup_v3.ps1
+./.venv/Scripts/Activate.ps1
+python -m pip install -c requirements-v3-lock.txt -r requirements-notebook.txt
 ```
 
-Run notebooks from the repository root after artifacts are available: `jupyter lab notebooks/`. Notebooks 02-04 read histories, metrics, predictions, embeddings, and figures; they never train or evaluate models. The `--split test` command is allowed only after the methodology lock; its hashed completion markers make subsequent calls reuse the sealed TEST artifacts. Do not tune after TEST evaluation.
+The setup script uses `uv` and verifies CUDA availability. The final command
+adds optional notebook tooling. Exact execution details are in
+[environment.json](reports/results/v3/environment.json) and cache/checkpoint
+metadata. CPU inference works in a compatible environment; the supplied setup
+script specifically prepares the recorded Windows CUDA environment.
 
-## Limitations
+Checkpoints and pretrained caches are local artifacts, **not included in Git**.
+Obtain trusted files and verify hashes in `final_model_lock.json`. Frozen
+inference needs adjacent metadata and pinned pretrained caches. Neural `.pt`
+exports have standalone weights and adjacent `model.json`. Do not load untrusted
+joblib files. There is no public checkpoint download URL yet.
 
-This is a synthetic Blender-render study. Synthetic-to-real generalisation has not been established, and the model should not be treated as a validated arbitrary real-world material recogniser.
+From the repository root, replace the example image path and use a new output:
 
-## Future work
+```powershell
+python scripts/v3/predict.py --artifact artifacts/v3/run_final/model.joblib --data-root C:/path/to/images --image sample.png --output artifacts/v3/demo_primary --device cpu --offline
+python scripts/v3/predict_finetuned.py --artifact artifacts/v3/finetune/candidates/finetuned/model.pt --data-root C:/path/to/images --image sample.png --output artifacts/v3/demo_dino --device cpu
+```
 
-Synthetic-to-real evaluation, Hugging Face deployment, an interactive web demo, and a potential Kaggle dataset release remain future work. See [kaggle.md](kaggle.md) for the conditional release procedure; publication is not implied and remains blocked until the per-asset licensing and attribution audit is complete.
+The second command uses the exploratory comparison; it does not replace the
+primary. `--offline` requires populated pinned caches. Ordered outputs are wood,
+metal, stone, concrete, ceramic, fabric and leather. Probabilities are not
+calibrated guarantees. For existing results, read saved prediction CSVs rather
+than rerunning the now-scored holdout.
 
-See [MODEL_CARD.md](MODEL_CARD.md) for intended and inappropriate uses.
+| Model | Local artifact | Predictor |
+| --- | --- | --- |
+| Primary | `artifacts/v3/run_final/model.joblib` | `scripts/v3/predict.py` |
+| Control | `artifacts/v3/run_final/control_model.joblib` | `scripts/v3/predict.py` |
+| ResNet | `artifacts/v3/resnet-final/final/model.pt` | `scripts/v3/predict_resnet.py` (manifest input) |
+| DINOv2 comparison | `artifacts/v3/finetune/candidates/finetuned/model.pt` | `scripts/v3/predict_finetuned.py` |
+
+## Data and protocol
+
+The study contains **3,780 images / 126 material IDs / 122 known source families**:
+3,150 development images / 101 families and 630 fresh test images / 21 groups.
+Thirty views per material are dependent. Old train/val/test directories remain
+lineage; all 3,150 original images are development data in V3.
+
+Five outer and three inner source-group folds assess frozen representation/C
+selection. Initial nested accuracy is 79.3968%, Macro F1 0.795485, 95% accuracy
+CI 72.65-85.57%. Matched control and fixed ResNet OOF accuracies are 68.8571%
+and 71.5556%. These are separate from the fresh endpoint. Canonical
+`artifacts/v3/features_final` and `artifacts/v3/run_final` exactly reproduce
+earlier frozen feature arrays and OOF predictions.
+
+The selected recipe combines DINOv2 small register CLS/patch mean/std at 224
+and 336 pixels with ConvNeXt-Tiny pooled features at 224, C=1. Registers are
+excluded from patch pooling. Scalers and logistic heads fit inside each training
+partition. Development Macro F1 0.8035245993 exceeded the bounded exploratory
+DINOv2 follow-up's 0.7724822183. DINOv2 searched two learning rates in six fits
+and used five final epochs. These are selection scores, not independent tests.
+
+Primary corruption tests were predeclared. DINOv2 tests on the same five
+corruptions were **post hoc**, after clean and primary-corruption scores; see
+[amendment](reports/results/v3/exploratory_robustness_amendment.json). No model
+changed. Pretraining, resolutions and adaptation/search budgets differ, so
+pipeline comparisons do not isolate architecture effects.
+
+## Rebuild the report without training
+
+The builder checks explicit evidence, predictions and hashes. Copied text is
+UTF-8/LF before hashing; weights are referenced, not copied. Use **new output
+directories**. Original root `report.pdf` and `report.docx` remain preserved.
+
+```powershell
+python scripts/v3/assemble_report.py --spec reports/results/v3/report_inputs/assembly.json --output-dir reports/results/v3/report_evidence_rebuild
+python scripts/v3/build_report.py --results-dir reports/results/v3/report_evidence_rebuild --output-dir reports/v3_rebuild
+python -m pytest tests/test_v3_report.py tests/test_v3_report_assembly.py -q
+```
+
+The spec records explicit local paths; relocate them for another checkout.
+[Report methods](reports/V3_REPORT_METHODS.md) documents the contract.
+The [manifest](reports/results/v3/report_evidence_final/report_manifest.json)
+and `derived/source_inventory.json` preserve original and normalized hashes.
+Actual neural histories, images, confusions, calibration, corruptions and
+benchmarks are included. No logistic epoch curves are invented. Historical V1
+results remain context only, not direct improvement estimates.
+
+## Limitations and release
+
+Only three fresh families per class, restricted ceramic/concrete semantics,
+and Blender 5.1.1's softer shadows limit generalization. Physical ancestry is
+incomplete; public texture overlap with backbone pretraining has not been
+audited. No arbitrary real-world validation is claimed. JPEG compression is a
+major limitation.
+
+All 316 original and 63 fresh source maps have verified official CC0 provenance.
+The project authors renders/code and attributes third-party maps. The complete
+local audit ZIP is verified; copied PNG metadata was sanitized with identical
+decoded pixels. **Dataset license unset; `release_approved=false`; no upload.**
+See [study release details](reports/V3_STUDY_DATASET_RELEASE.md) and
+[DATASET.md](DATASET.md). There is no public dataset URL yet.
+
+The legacy `scripts/update_docs.py` emits V1 content and must not overwrite
+these V3 cards. Future tuning on this now-scored holdout requires disclosure
+and a new independent assessment for confirmatory claims.

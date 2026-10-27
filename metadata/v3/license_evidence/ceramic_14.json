@@ -1,0 +1,118 @@
+{
+  "attribution": "Rob Tuytel (Processing); Dimitrios Savva (Photography). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "Photography",
+    "Rob Tuytel": "Processing"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "7c32b37278dd38a08661b4426104feb4",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "7c32b37278dd38a08661b4426104feb4",
+        "official_size_bytes": 2020168,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_14/tiled_floor_001_diffuse_2k.jpg",
+      "sha256": "7894d75e30480ec6770dfc00e2710c4c6acbb594922799f31712a4020698dee0",
+      "size_bytes": 2020168,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "f7dfa2b9899a77594ea288d0634eb312",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "f7dfa2b9899a77594ea288d0634eb312",
+        "official_size_bytes": 5280170,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/tiled_floor_001/tiled_floor_001_nor_gl_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_14/tiled_floor_001_nor_gl_2k.exr",
+      "sha256": "01448b3194cf42b15e05e07058d9f18082d1c6ea1662e99c2727de2ae29442c2",
+      "size_bytes": 5280170,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "fad4715f116fad89c8ec2aebb2c8844a",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/tiled_floor_001_rough_2k.jpg"
+        ],
+        "official_md5": "fad4715f116fad89c8ec2aebb2c8844a",
+        "official_size_bytes": 1615225,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/tiled_floor_001/tiled_floor_001_rough_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_14/tiled_floor_001_rough_2k.jpg",
+      "sha256": "a0d28f099721c4b51be6765fc9921813781e21f9b9dc3e1c8669889394fd9f9f",
+      "size_bytes": 1615225,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "ceramic_14",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6a36-JiMBeagU8FMwCP4rKlI3Tzd8Lb4\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/tiled_floor_001",
+    "response_bytes": 27190,
+    "response_sha256": "3616121787d8d6eb4b7fbf11bd51c1ab6df58874dd4c282e22516c5725a84e61",
+    "retrieved_at_utc": "2026-10-27T07:13:25.219494+00:00",
+    "url": "https://api.polyhaven.com/files/tiled_floor_001"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "tiled_floor_001",
+  "schema_version": 1,
+  "source_fingerprint": "52f1cdf1171cf7c1873d6b08dbdf57533165193224e33b1bff03ff58ce287976",
+  "source_url": "https://polyhaven.com/a/tiled_floor_001",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

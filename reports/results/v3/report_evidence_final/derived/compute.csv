@@ -1,0 +1,23 @@
+record,field,value,source
+environment,gpu,NVIDIA GeForce RTX 4070 Laptop GPU,evidence/002_environment.json
+environment,vram_bytes,8585216000,evidence/002_environment.json
+environment,python,"3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",evidence/002_environment.json
+environment,platform,Windows-11-10.0.26200-SP0,evidence/002_environment.json
+environment,cuda,12.8,evidence/002_environment.json
+run,seconds,28.060412499995437,evidence/004_run.json
+deployment,weights_size_bytes,311393,derived/weights_reference.json
+extraction/dino_224,session_seconds,56.850204499962274,evidence/007_cache.json
+extraction/dino_224,session_rows,3150,evidence/007_cache.json
+extraction/dino_224,session_images_per_second,55.40877166065586,evidence/007_cache.json
+extraction/dino_224,peak_allocated_bytes,207728640,evidence/007_cache.json
+extraction/dino_224,peak_reserved_bytes,268435456,evidence/007_cache.json
+extraction/dino_336,session_seconds,67.02294739999343,evidence/007_cache.json
+extraction/dino_336,session_rows,3150,evidence/007_cache.json
+extraction/dino_336,session_images_per_second,46.99882834457843,evidence/007_cache.json
+extraction/dino_336,peak_allocated_bytes,316239872,evidence/007_cache.json
+extraction/dino_336,peak_reserved_bytes,373293056,evidence/007_cache.json
+extraction/convnext_224,session_seconds,62.40850269998191,evidence/007_cache.json
+extraction/convnext_224,session_rows,3150,evidence/007_cache.json
+extraction/convnext_224,session_images_per_second,50.47389159684027,evidence/007_cache.json
+extraction/convnext_224,peak_allocated_bytes,373695488,evidence/007_cache.json
+extraction/convnext_224,peak_reserved_bytes,614465536,evidence/007_cache.json

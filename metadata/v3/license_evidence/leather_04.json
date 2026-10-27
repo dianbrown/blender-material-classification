@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "1bd381c43817743a2affdd1ce2d193c7",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "1bd381c43817743a2affdd1ce2d193c7",
+        "official_size_bytes": 2137518,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_leather/brown_leather_albedo_2k.jpg"
+      },
+      "path": "materials/leather/leather_04/brown_leather_albedo_2k.jpg",
+      "sha256": "b0de2403a31efa31e501b0028c0bd8e504d5bd6318f4a5ce90c550c3067f96d8",
+      "size_bytes": 2137518,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "48bbdf0d9aa846b882107752cc198b5b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "48bbdf0d9aa846b882107752cc198b5b",
+        "official_size_bytes": 7561726,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/brown_leather/brown_leather_nor_gl_2k.exr"
+      },
+      "path": "materials/leather/leather_04/brown_leather_nor_gl_2k.exr",
+      "sha256": "affa3f98582e953395865e898fdde3e9de8d1fe42c26807c0b8171e91207132e",
+      "size_bytes": 7561726,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "95b48a5c95b02d87dadee46c26f1cfb5",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "gltf",
+          "2k",
+          "gltf",
+          "include",
+          "textures/brown_leather_rough_2k.jpg"
+        ],
+        "official_md5": "95b48a5c95b02d87dadee46c26f1cfb5",
+        "official_size_bytes": 2801956,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_leather/brown_leather_rough_2k.jpg"
+      },
+      "path": "materials/leather/leather_04/brown_leather_rough_2k.jpg",
+      "sha256": "8a47afca2630310849034fe40ca9497db0956c67c0d933e6efd49d3cd2befe83",
+      "size_bytes": 2801956,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "leather_04",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"66ab-09DTnVHXMIPTNJOKVX0MMxa5BhU\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/brown_leather",
+    "response_bytes": 26283,
+    "response_sha256": "c988de9b099cc47ac170a2fdb55622684be5df102323a447bdc511a5525a6baa",
+    "retrieved_at_utc": "2026-10-27T07:13:33.071158+00:00",
+    "url": "https://api.polyhaven.com/files/brown_leather"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "brown_leather",
+  "schema_version": 1,
+  "source_fingerprint": "6746d5bf6fa1e6aa81ca1dbe4910dac0f30b44a4d982fff536c1f0bea7b7807c",
+  "source_url": "https://polyhaven.com/a/brown_leather",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

@@ -1,0 +1,16 @@
+estimate_type,bin,lower,upper,count,mean_confidence,accuracy
+Fresh independent holdout estimates; independence requires external provenance,0,0.0,0.06666666666666667,0,,
+Fresh independent holdout estimates; independence requires external provenance,1,0.06666666666666667,0.13333333333333333,0,,
+Fresh independent holdout estimates; independence requires external provenance,2,0.13333333333333333,0.2,0,,
+Fresh independent holdout estimates; independence requires external provenance,3,0.2,0.26666666666666666,0,,
+Fresh independent holdout estimates; independence requires external provenance,4,0.26666666666666666,0.3333333333333333,2,0.3005807629341035,0.0
+Fresh independent holdout estimates; independence requires external provenance,5,0.3333333333333333,0.4,7,0.36276045357492126,0.14285714285714285
+Fresh independent holdout estimates; independence requires external provenance,6,0.4,0.4666666666666667,14,0.4413468506908544,0.35714285714285715
+Fresh independent holdout estimates; independence requires external provenance,7,0.4666666666666667,0.5333333333333333,22,0.49913663528424473,0.5
+Fresh independent holdout estimates; independence requires external provenance,8,0.5333333333333333,0.6,16,0.560425744943587,0.5
+Fresh independent holdout estimates; independence requires external provenance,9,0.6,0.6666666666666666,18,0.6332444267557964,0.5555555555555556
+Fresh independent holdout estimates; independence requires external provenance,10,0.6666666666666666,0.7333333333333333,30,0.7012807518184435,0.4
+Fresh independent holdout estimates; independence requires external provenance,11,0.7333333333333333,0.8,27,0.7665200154282797,0.6666666666666666
+Fresh independent holdout estimates; independence requires external provenance,12,0.8,0.8666666666666667,21,0.8346502307708143,0.42857142857142855
+Fresh independent holdout estimates; independence requires external provenance,13,0.8666666666666667,0.9333333333333333,53,0.9055104796770331,0.5471698113207547
+Fresh independent holdout estimates; independence requires external provenance,14,0.9333333333333333,1.0,420,0.9923724986607696,0.9571428571428572

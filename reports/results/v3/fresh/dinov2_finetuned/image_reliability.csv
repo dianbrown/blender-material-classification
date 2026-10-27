@@ -1,0 +1,16 @@
+estimate_type,bin,lower,upper,count,mean_confidence,accuracy
+Fresh independent holdout estimates; independence requires external provenance,0,0.0,0.06666666666666667,0,,
+Fresh independent holdout estimates; independence requires external provenance,1,0.06666666666666667,0.13333333333333333,0,,
+Fresh independent holdout estimates; independence requires external provenance,2,0.13333333333333333,0.2,0,,
+Fresh independent holdout estimates; independence requires external provenance,3,0.2,0.26666666666666666,17,0.24248467831155546,0.23529411764705882
+Fresh independent holdout estimates; independence requires external provenance,4,0.26666666666666666,0.3333333333333333,22,0.29614126563406695,0.18181818181818182
+Fresh independent holdout estimates; independence requires external provenance,5,0.3333333333333333,0.4,20,0.3656180539838415,0.6
+Fresh independent holdout estimates; independence requires external provenance,6,0.4,0.4666666666666667,38,0.4346438837920108,0.7894736842105263
+Fresh independent holdout estimates; independence requires external provenance,7,0.4666666666666667,0.5333333333333333,37,0.4982283071449103,0.8378378378378378
+Fresh independent holdout estimates; independence requires external provenance,8,0.5333333333333333,0.6,41,0.5667819285111525,0.9512195121951219
+Fresh independent holdout estimates; independence requires external provenance,9,0.6,0.6666666666666666,35,0.638336224227226,0.7428571428571429
+Fresh independent holdout estimates; independence requires external provenance,10,0.6666666666666666,0.7333333333333333,49,0.6984171799455926,0.7346938775510204
+Fresh independent holdout estimates; independence requires external provenance,11,0.7333333333333333,0.8,65,0.7701213823479324,0.9076923076923077
+Fresh independent holdout estimates; independence requires external provenance,12,0.8,0.8666666666666667,68,0.8325939540162712,1.0
+Fresh independent holdout estimates; independence requires external provenance,13,0.8666666666666667,0.9333333333333333,89,0.9025126258350362,1.0
+Fresh independent holdout estimates; independence requires external provenance,14,0.9333333333333333,1.0,149,0.9642258599396455,1.0

@@ -1,0 +1,28 @@
+{
+  "identity_sha256": "983bd3b5c6d7b38be5a1beb8b76962e8980760db6c7fc93ed5ec3a4b010a3203",
+  "complete": true,
+  "n_images": 3150,
+  "jobs": {
+    "dino_224": {
+      "session_seconds": 58.623209599987604,
+      "session_rows": 3150,
+      "session_images_per_second": 53.73298428205927,
+      "peak_allocated_bytes": 207728640,
+      "peak_reserved_bytes": 268435456
+    },
+    "dino_336": {
+      "session_seconds": 67.6228799999808,
+      "session_rows": 3150,
+      "session_images_per_second": 46.58186696575027,
+      "peak_allocated_bytes": 316239872,
+      "peak_reserved_bytes": 373293056
+    },
+    "convnext_224": {
+      "session_seconds": 61.91191650001565,
+      "session_rows": 3150,
+      "session_images_per_second": 50.87873511392922,
+      "peak_allocated_bytes": 373695488,
+      "peak_reserved_bytes": 614465536
+    }
+  }
+}

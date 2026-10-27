@@ -1,0 +1,2 @@
+label,scope,interpretation
+Primary frozen fusion,fresh_holdout,Locked clean holdout evaluation; primary role fixed before predictions.

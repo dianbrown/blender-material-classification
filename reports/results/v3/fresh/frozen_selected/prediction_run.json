@@ -1,0 +1,43 @@
+{
+  "status": "complete",
+  "model_sha256": "8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e",
+  "protocol_sha256": "9069a92661a348052dd65da67dadd612d8e0b00e5918fa161bc7ce831985cb41",
+  "manifest_sha256": "15edb1e32ceaaf190470a45c923270ba93fa83b4eb1a34c29fa7ed06abdda4f9",
+  "recipe": {
+    "name": "dino_multiscale_convnext",
+    "parts": [
+      "dino_224_cls",
+      "dino_224_mean",
+      "dino_224_std",
+      "dino_336_cls",
+      "dino_336_mean",
+      "dino_336_std",
+      "convnext_224_pooled"
+    ]
+  },
+  "evaluation_requested": true,
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "timm": "1.0.30",
+      "numpy": "2.5.2",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "Pillow": "12.3.0",
+      "safetensors": "0.8.0",
+      "huggingface-hub": "2.3.0",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    },
+    "cuda_runtime": "12.8"
+  },
+  "fitting": "none; frozen saved scaler and classifier only",
+  "rows": 630,
+  "feature_cache": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\fresh_features",
+  "feature_cache_identity_sha256": "c3373f85f9afd237921ce35115bfba4bc7d6890418ca6fe1ebcc82327ab2c7ac",
+  "predictions_sha256": "3f7a5777e70017eaaeef68be6910b478999618d4febe13bd9f36fe59904ca895"
+}

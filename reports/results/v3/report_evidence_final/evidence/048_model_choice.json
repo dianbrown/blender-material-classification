@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "decided_at_utc": "2026-10-27T09:46:16.301912+00:00",
+  "code_commit": "182961da21045ebe5f25df989edd3178399eab66",
+  "primary_model": "frozen_selected",
+  "primary_recipe": {
+    "name": "dino_multiscale_convnext",
+    "parts": [
+      "dino_224_cls",
+      "dino_224_mean",
+      "dino_224_std",
+      "dino_336_cls",
+      "dino_336_mean",
+      "dino_336_std",
+      "convnext_224_pooled"
+    ]
+  },
+  "selection_rule": "Higher mean development macro-F1 on the same three source-group folds; fresh holdout is not used. ResNet remains a predeclared comparison baseline.",
+  "frozen_development_macro_f1": 0.8035245993060354,
+  "fine_tuned_development_macro_f1": 0.7724822182541141,
+  "frozen_advantage": 0.031042381051921253,
+  "fine_tuning_selection_sha256": "093eee4484ac23a2e871eb63ba892b7228cb0785b9fd6ecfeb74cbe026652a8c",
+  "primary_artifact_path": "artifacts/v3/run_final/model.joblib",
+  "primary_artifact_sha256": "8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e",
+  "primary_metadata_sha256": "064088063f993b46d9652d2cb313d5d9c072824e5862932f5dfaef435b2ff7db",
+  "fresh_holdout_used_for_choice": false,
+  "comparison_models": [
+    "frozen_control",
+    "resnet_fixed",
+    "dinov2_finetuned"
+  ],
+  "comparison_status": "Fine-tuned comparison completes its prescribed five-epoch final fit; full checkpoint lock follows before any fresh predictions.",
+  "interpretation": "Both development means are selection scores, not independent test estimates. The primary choice will not change based on the fresh ranking."
+}

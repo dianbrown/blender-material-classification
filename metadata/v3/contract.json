@@ -1,0 +1,79 @@
+{
+  "api_module": "material_classifier.v3.data",
+  "artifacts": [
+    "metadata/v3/source_maps.csv",
+    "metadata/v3/source_groups.json",
+    "metadata/v3/data_audit.json",
+    "metadata/v3/license_registry.json",
+    "metadata/v3/provenance_candidates.json",
+    "metadata/v3/provenance_review.json",
+    "reports/results/v3/data_audit.json"
+  ],
+  "commands": [
+    "python scripts/v3/audit_data.py --data-root <parent-checkout>",
+    "python scripts/v3/package_dataset.py --data-root <parent-checkout> --output <outside-worktree>/data-audit.zip --audit-only",
+    "python -m pytest tests/test_v3_data.py -q"
+  ],
+  "frozen_family_registry": {
+    "independent_license_updates": "license_registry.json may be updated with verified evidence without altering source families or manifest.",
+    "path": "metadata/v3/source_family_overrides.json",
+    "policy": "Global source families across classes; three leather pairs plus unresolved precautionary wood pair. Do not change after scores. New evidence requires a new protocol version.",
+    "sha256": "04ec64dc5275711d9c94537d988b11eb6014f9d4a9728eb64c03b62229ec496b"
+  },
+  "inputs": {
+    "data_root": "Parent checkout with extracted dataset/ and materials/; never copy source corpus into worktree.",
+    "material_manifest": "metadata/material_manifest_split.csv",
+    "render_manifest": "metadata/render_manifest.csv"
+  },
+  "limitations": [
+    "177 EXR maps hashed but not decoded.",
+    "Archive SHA256 and entry inventory recorded, but ZIP members not compared against extracted content.",
+    "105 local asset license/provenance mappings remain unverified; catalog-name matches alone do not prove byte origin.",
+    "Evidence-file hashes and explicit approvals validate an attestation, not the legal truth of its contents."
+  ],
+  "manifest": {
+    "class_pure": true,
+    "image_path_base": "data_root",
+    "path": "metadata/v3/manifest.csv",
+    "required_columns": [
+      "image_path",
+      "class",
+      "material_id",
+      "source_group",
+      "original_split"
+    ],
+    "row_count": 3150,
+    "row_order": "image_path ascending",
+    "sha256_canonical_lf": "8ffafa1709c36d78fb7215535c33ea04ee42ffc08f71719b5ad941ba58d4501f",
+    "source_group_count": 101
+  },
+  "public_api": {
+    "audit_data": "audit_data(data_root, render_manifest, material_manifest, output_dir, *, expected_images=3150, expected_materials=105, family_overrides=None) -> summary dict",
+    "csv_sha256": "csv_sha256(path, MANIFEST_COLUMNS or MAP_COLUMNS) -> canonical UTF-8/LF CSV hash, portable across Git autocrlf",
+    "family_registry_sha256": "family_registry_sha256(overrides) -> digest of frozen family decisions",
+    "package_dataset": "package_dataset(data_root, audit_dir, output_zip, *, audit_only=False, registry_path=None, kaggle_id=local-audit/material-classification-v3) -> staging status dict",
+    "read_csv": "read_csv(path) -> list[dict[str,str]]",
+    "validate_class_pure_groups": "validate_class_pure_groups(manifest_rows) -> None; raises ValueError on cross-class groups; call before folds"
+  },
+  "schema_version": 1,
+  "stage": {
+    "entry_count": 3158,
+    "image_count": 3150,
+    "path_relative_to_data_root": "artifacts/v3/release-staging/data-audit.zip",
+    "publishable": false,
+    "raw_textures_included": false,
+    "sha256": "56116bcecf11211a3acefa6a3c479df624efaca31c673f5a268085c3ac4d218e",
+    "uploaded": false
+  },
+  "validation": {
+    "full_zip_allowlist_and_private_path_scan": "passed",
+    "full_zip_crc": "passed",
+    "license_gate": "passed: real corpus release rejected on unresolved source licenses",
+    "python_environment": "system Python; parent .venv was installing, untouched",
+    "python_version": "3.13.5",
+    "ruff": "passed",
+    "skip_reason": "Windows account cannot create unprivileged symlinks; traversal, UNC, drives, ADS and Windows aliases tested.",
+    "tests_passed": 32,
+    "tests_skipped": 1
+  }
+}

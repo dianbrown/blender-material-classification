@@ -1,0 +1,1171 @@
+{
+  "code_inspection": [
+    "build_materials.py creates base-color/roughness/normal nodes; optional metallic map or class constant. No displacement or AO node is constructed.",
+    "render_full_dataset.py assigns each manifest material to material_object, checks base_material_id and texture paths, records verified material name and deterministic seed.",
+    "generate_dataset.py supplies deterministic child seeds; configure_rendersynth.py configures camera/light/object randomization. RenderSynth is an external execution dependency and is not included in this image dataset."
+  ],
+  "dataset_license": "",
+  "human_review_claimed": false,
+  "image_checks": {
+    "deterministic_seed_matches": 3150,
+    "historical_render_rows_matched": 3150,
+    "images_per_material": 30,
+    "local_sha256_matches": 3150,
+    "manifest_images": 3150,
+    "material_assignment_matches": 3150,
+    "original_archive_sha256_matches": 3150
+  },
+  "input_files": [
+    {
+      "path": "metadata/material_manifest.csv",
+      "sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+      "size_bytes": 29836
+    },
+    {
+      "path": "metadata/material_manifest_split.csv",
+      "sha256": "a0e5454f3a2750d9021d8a0f0c24bb2a471b09d61997c0c35cb8e12c7dbc4a89",
+      "size_bytes": 30430
+    },
+    {
+      "path": "metadata/render_manifest.csv",
+      "sha256": "7e92b41a2b9168247dda3803112add16e17124da5e2c88c83bad470a5cd3dba9",
+      "size_bytes": 1198920
+    },
+    {
+      "path": "blender/material_dataset_master.blend",
+      "sha256": "cd3d943a09d5d3a983521387eea12b5cad0c6761fdd72f7f788b2b3d1b8acc01",
+      "size_bytes": 521666
+    },
+    {
+      "path": "blender/configs/rendersynth_material_pipeline.json",
+      "sha256": "ea442a828ed807b6b512eba232f11fcbced76433188d7893bc51c5d1382590e3",
+      "size_bytes": 3424
+    },
+    {
+      "path": "blender/scripts/render_full_dataset.py",
+      "sha256": "c44c5df1c6297af7c901a6ecebae30aa5733ec26f9110b6f5a24d34cb638f44c",
+      "size_bytes": 13892
+    },
+    {
+      "path": "blender/scripts/generate_dataset.py",
+      "sha256": "6259481a77d7e0e4f305a7d3bf3ed49e66b5a1940fd3ff96db7582c32e58df3d",
+      "size_bytes": 13949
+    },
+    {
+      "path": "blender/scripts/configure_rendersynth.py",
+      "sha256": "ac0fe4a68ff730f959d3d7200118be61fd15748df4bad7a57728f508e73c4f38",
+      "size_bytes": 7839
+    },
+    {
+      "path": "blender/scripts/build_materials.py",
+      "sha256": "8f6125a36e0a2c566a7622f2ddcddfa3e4f70a761f121ab4e6e10ea9eecb9f61",
+      "size_bytes": 9251
+    },
+    {
+      "path": "blender/scripts/material_scan.py",
+      "sha256": "416fd4505828e18e7fee7eccf931fed90633490d25441c33361c89796e350236",
+      "size_bytes": 7987
+    },
+    {
+      "path": "blender/scripts/make_splits.py",
+      "sha256": "0f305f0aaf197565813d6b3ce3db2fc335d244c4528a7d7ad5045aa3e2e4f26b",
+      "size_bytes": 7537
+    },
+    {
+      "path": "blender/scripts/validate_dataset.py",
+      "sha256": "4bb876407b948be97793345684c2dbb58616f6fd0833c644200fea697f2987ce",
+      "size_bytes": 23949
+    },
+    {
+      "path": "blender/scripts/validate_and_manifest.py",
+      "sha256": "2da949ca06314e4ed988c859fde9b63716de6b38f062eb61f5f33b96cf68ce45",
+      "size_bytes": 10569
+    }
+  ],
+  "limitations": [
+    "Blender reported: File written by newer Blender binary (502.44), expect loss of data! Inspection used Blender 5.1.1; no file was saved.",
+    "The original render manifest has no image hashes. Current render bytes were pinned by the frozen v3 audit and now match every original dataset.zip member.",
+    "Historical scene-at-render execution is supported by manifests, material assignments, seeds and retained scripts/scene, not a newly reproduced render or cryptographic execution attestation."
+  ],
+  "manifest_sha256": "8ffafa1709c36d78fb7215535c33ea04ee42ffc08f71719b5ad941ba58d4501f",
+  "material_bindings": [
+    {
+      "blender_material_name": "MAT_Ceramic_01",
+      "image_count": 30,
+      "material_id": "ceramic_01",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_01/interior_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_01/interior_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_01/interior_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_02",
+      "image_count": 30,
+      "material_id": "ceramic_02",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_02/clay_roof_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_02/clay_roof_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_02/clay_roof_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_03",
+      "image_count": 30,
+      "material_id": "ceramic_03",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_03/marble_mosaic_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_03/marble_mosaic_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_03/marble_mosaic_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_04",
+      "image_count": 30,
+      "material_id": "ceramic_04",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_04/anti_skid_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_04/anti_skid_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_04/anti_skid_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_05",
+      "image_count": 30,
+      "material_id": "ceramic_05",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_05/patterned_terracotta_tiling_diff_2k.jpg",
+        "materials/ceramic/ceramic_05/patterned_terracotta_tiling_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_05/patterned_terracotta_tiling_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_06",
+      "image_count": 30,
+      "material_id": "ceramic_06",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_06/grey_roof_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_06/grey_roof_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_06/grey_roof_tiles_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_07",
+      "image_count": 30,
+      "material_id": "ceramic_07",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_07/roof_07_diff_2k.jpg",
+        "materials/ceramic/ceramic_07/roof_07_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_07/roof_07_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_08",
+      "image_count": 30,
+      "material_id": "ceramic_08",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_08/terrazzo_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_08/terrazzo_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_08/terrazzo_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_09",
+      "image_count": 30,
+      "material_id": "ceramic_09",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_09/clay_roof_tiles_03_diff_2k.jpg",
+        "materials/ceramic/ceramic_09/clay_roof_tiles_03_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_09/clay_roof_tiles_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_10",
+      "image_count": 30,
+      "material_id": "ceramic_10",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_10/roof_09_diff_2k.jpg",
+        "materials/ceramic/ceramic_10/roof_09_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_10/roof_09_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_11",
+      "image_count": 30,
+      "material_id": "ceramic_11",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_11/ceramic_roof_01_diff_2k.jpg",
+        "materials/ceramic/ceramic_11/ceramic_roof_01_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_11/ceramic_roof_01_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_12",
+      "image_count": 30,
+      "material_id": "ceramic_12",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_12/terracotta_floor_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_12/terracotta_floor_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_12/terracotta_floor_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_13",
+      "image_count": 30,
+      "material_id": "ceramic_13",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_13/long_white_tiles_diff_2k.jpg",
+        "materials/ceramic/ceramic_13/long_white_tiles_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_13/long_white_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_14",
+      "image_count": 30,
+      "material_id": "ceramic_14",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_14/tiled_floor_001_diffuse_2k.jpg",
+        "materials/ceramic/ceramic_14/tiled_floor_001_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_14/tiled_floor_001_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Ceramic_15",
+      "image_count": 30,
+      "material_id": "ceramic_15",
+      "source_map_paths": [
+        "materials/ceramic/ceramic_15/clay_roof_tiles_02_diff_2k.jpg",
+        "materials/ceramic/ceramic_15/clay_roof_tiles_02_nor_gl_2k.exr",
+        "materials/ceramic/ceramic_15/clay_roof_tiles_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_01",
+      "image_count": 30,
+      "material_id": "concrete_01",
+      "source_map_paths": [
+        "materials/concrete/concrete_01/white_stucco_diff_2k.jpg",
+        "materials/concrete/concrete_01/white_stucco_nor_gl_2k.exr",
+        "materials/concrete/concrete_01/white_stucco_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_02",
+      "image_count": 30,
+      "material_id": "concrete_02",
+      "source_map_paths": [
+        "materials/concrete/concrete_02/hangar_concrete_floor_diff_2k.jpg",
+        "materials/concrete/concrete_02/hangar_concrete_floor_nor_gl_2k.exr",
+        "materials/concrete/concrete_02/hangar_concrete_floor_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_03",
+      "image_count": 30,
+      "material_id": "concrete_03",
+      "source_map_paths": [
+        "materials/concrete/concrete_03/rough_concrete_diff_2k.jpg",
+        "materials/concrete/concrete_03/rough_concrete_nor_gl_2k.exr",
+        "materials/concrete/concrete_03/rough_concrete_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_04",
+      "image_count": 30,
+      "material_id": "concrete_04",
+      "source_map_paths": [
+        "materials/concrete/concrete_04/grey_plaster_diff_2k.jpg",
+        "materials/concrete/concrete_04/grey_plaster_nor_gl_2k.exr",
+        "materials/concrete/concrete_04/grey_plaster_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_05",
+      "image_count": 30,
+      "material_id": "concrete_05",
+      "source_map_paths": [
+        "materials/concrete/concrete_05/granular_concrete_diff_2k.jpg",
+        "materials/concrete/concrete_05/granular_concrete_nor_gl_2k.exr",
+        "materials/concrete/concrete_05/granular_concrete_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_06",
+      "image_count": 30,
+      "material_id": "concrete_06",
+      "source_map_paths": [
+        "materials/concrete/concrete_06/concrete_wall_008_diff_2k.jpg",
+        "materials/concrete/concrete_06/concrete_wall_008_nor_gl_2k.exr",
+        "materials/concrete/concrete_06/concrete_wall_008_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_07",
+      "image_count": 30,
+      "material_id": "concrete_07",
+      "source_map_paths": [
+        "materials/concrete/concrete_07/blue_plaster_wall_diff_2k.jpg",
+        "materials/concrete/concrete_07/blue_plaster_wall_nor_gl_2k.exr",
+        "materials/concrete/concrete_07/blue_plaster_wall_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_08",
+      "image_count": 30,
+      "material_id": "concrete_08",
+      "source_map_paths": [
+        "materials/concrete/concrete_08/worn_mossy_plasterwall_diff_2k.jpg",
+        "materials/concrete/concrete_08/worn_mossy_plasterwall_nor_gl_2k.exr",
+        "materials/concrete/concrete_08/worn_mossy_plasterwall_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_09",
+      "image_count": 30,
+      "material_id": "concrete_09",
+      "source_map_paths": [
+        "materials/concrete/concrete_09/gravel_embedded_concrete_diff_2k.jpg",
+        "materials/concrete/concrete_09/gravel_embedded_concrete_nor_gl_2k.exr",
+        "materials/concrete/concrete_09/gravel_embedded_concrete_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_10",
+      "image_count": 30,
+      "material_id": "concrete_10",
+      "source_map_paths": [
+        "materials/concrete/concrete_10/gravel_concrete_03_diff_2k.jpg",
+        "materials/concrete/concrete_10/gravel_concrete_03_nor_gl_2k.exr",
+        "materials/concrete/concrete_10/gravel_concrete_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_11",
+      "image_count": 30,
+      "material_id": "concrete_11",
+      "source_map_paths": [
+        "materials/concrete/concrete_11/concrete_wall_009_diff_2k.jpg",
+        "materials/concrete/concrete_11/concrete_wall_009_nor_gl_2k.exr",
+        "materials/concrete/concrete_11/concrete_wall_009_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_12",
+      "image_count": 30,
+      "material_id": "concrete_12",
+      "source_map_paths": [
+        "materials/concrete/concrete_12/plastered_wall_05_diff_2k.jpg",
+        "materials/concrete/concrete_12/plastered_wall_05_nor_gl_2k.exr",
+        "materials/concrete/concrete_12/plastered_wall_05_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_13",
+      "image_count": 30,
+      "material_id": "concrete_13",
+      "source_map_paths": [
+        "materials/concrete/concrete_13/beige_wall_001_diff_2k.jpg",
+        "materials/concrete/concrete_13/beige_wall_001_nor_gl_2k.exr",
+        "materials/concrete/concrete_13/beige_wall_001_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_14",
+      "image_count": 30,
+      "material_id": "concrete_14",
+      "source_map_paths": [
+        "materials/concrete/concrete_14/concrete_floor_worn_001_diff_2k.jpg",
+        "materials/concrete/concrete_14/concrete_floor_worn_001_nor_gl_2k.exr",
+        "materials/concrete/concrete_14/concrete_floor_worn_001_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Concrete_15",
+      "image_count": 30,
+      "material_id": "concrete_15",
+      "source_map_paths": [
+        "materials/concrete/concrete_15/painted_plaster_wall_diff_2k.jpg",
+        "materials/concrete/concrete_15/painted_plaster_wall_nor_gl_2k.exr",
+        "materials/concrete/concrete_15/painted_plaster_wall_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_01",
+      "image_count": 30,
+      "material_id": "fabric_01",
+      "source_map_paths": [
+        "materials/fabric/fabric_01/cotton_jersey_diff_2k.jpg",
+        "materials/fabric/fabric_01/cotton_jersey_nor_gl_2k.exr",
+        "materials/fabric/fabric_01/cotton_jersey_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_02",
+      "image_count": 30,
+      "material_id": "fabric_02",
+      "source_map_paths": [
+        "materials/fabric/fabric_02/curly_teddy_checkered_diff_2k.jpg",
+        "materials/fabric/fabric_02/curly_teddy_checkered_nor_gl_2k.exr",
+        "materials/fabric/fabric_02/curly_teddy_checkered_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_03",
+      "image_count": 30,
+      "material_id": "fabric_03",
+      "source_map_paths": [
+        "materials/fabric/fabric_03/hessian_380_diff_2k.jpg",
+        "materials/fabric/fabric_03/hessian_380_nor_gl_2k.exr",
+        "materials/fabric/fabric_03/hessian_380_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_04",
+      "image_count": 30,
+      "material_id": "fabric_04",
+      "source_map_paths": [
+        "materials/fabric/fabric_04/faux_fur_geometric_diff_2k.jpg",
+        "materials/fabric/fabric_04/faux_fur_geometric_nor_gl_2k.exr",
+        "materials/fabric/fabric_04/faux_fur_geometric_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_05",
+      "image_count": 30,
+      "material_id": "fabric_05",
+      "source_map_paths": [
+        "materials/fabric/fabric_05/hessian_230_diff_2k.jpg",
+        "materials/fabric/fabric_05/hessian_230_nor_gl_2k.exr",
+        "materials/fabric/fabric_05/hessian_230_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_06",
+      "image_count": 30,
+      "material_id": "fabric_06",
+      "source_map_paths": [
+        "materials/fabric/fabric_06/denim_fabric_diff_2k.jpg",
+        "materials/fabric/fabric_06/denim_fabric_nor_gl_2k.exr",
+        "materials/fabric/fabric_06/denim_fabric_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_07",
+      "image_count": 30,
+      "material_id": "fabric_07",
+      "source_map_paths": [
+        "materials/fabric/fabric_07/dirty_carpet_diff_2k.jpg",
+        "materials/fabric/fabric_07/dirty_carpet_nor_gl_2k.exr",
+        "materials/fabric/fabric_07/dirty_carpet_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_08",
+      "image_count": 30,
+      "material_id": "fabric_08",
+      "source_map_paths": [
+        "materials/fabric/fabric_08/caban_diff_2k.jpg",
+        "materials/fabric/fabric_08/caban_nor_gl_2k.exr",
+        "materials/fabric/fabric_08/caban_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_09",
+      "image_count": 30,
+      "material_id": "fabric_09",
+      "source_map_paths": [
+        "materials/fabric/fabric_09/jersey_melange_diff_2k.jpg",
+        "materials/fabric/fabric_09/jersey_melange_nor_gl_2k.exr",
+        "materials/fabric/fabric_09/jersey_melange_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_10",
+      "image_count": 30,
+      "material_id": "fabric_10",
+      "source_map_paths": [
+        "materials/fabric/fabric_10/knitted_fleece_diff_2k.jpg",
+        "materials/fabric/fabric_10/knitted_fleece_nor_gl_2k.exr",
+        "materials/fabric/fabric_10/knitted_fleece_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_11",
+      "image_count": 30,
+      "material_id": "fabric_11",
+      "source_map_paths": [
+        "materials/fabric/fabric_11/wool_boucle_diff_2k.jpg",
+        "materials/fabric/fabric_11/wool_boucle_nor_gl_2k.exr",
+        "materials/fabric/fabric_11/wool_boucle_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_12",
+      "image_count": 30,
+      "material_id": "fabric_12",
+      "source_map_paths": [
+        "materials/fabric/fabric_12/denim_fabric_06_diff_2k.jpg",
+        "materials/fabric/fabric_12/denim_fabric_06_nor_gl_2k.exr",
+        "materials/fabric/fabric_12/denim_fabric_06_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_13",
+      "image_count": 30,
+      "material_id": "fabric_13",
+      "source_map_paths": [
+        "materials/fabric/fabric_13/polar_fleece_diff_2k.jpg",
+        "materials/fabric/fabric_13/polar_fleece_nor_gl_2k.exr",
+        "materials/fabric/fabric_13/polar_fleece_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_14",
+      "image_count": 30,
+      "material_id": "fabric_14",
+      "source_map_paths": [
+        "materials/fabric/fabric_14/denmin_fabric_02_diff_2k.jpg",
+        "materials/fabric/fabric_14/denmin_fabric_02_nor_gl_2k.exr",
+        "materials/fabric/fabric_14/denmin_fabric_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Fabric_15",
+      "image_count": 30,
+      "material_id": "fabric_15",
+      "source_map_paths": [
+        "materials/fabric/fabric_15/jogging_melange_diff_2k.jpg",
+        "materials/fabric/fabric_15/jogging_melange_nor_gl_2k.exr",
+        "materials/fabric/fabric_15/jogging_melange_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_01",
+      "image_count": 30,
+      "material_id": "leather_01",
+      "source_map_paths": [
+        "materials/leather/leather_01/fabric_leather_01_diff_2k.jpg",
+        "materials/leather/leather_01/fabric_leather_01_nor_gl_2k.exr",
+        "materials/leather/leather_01/fabric_leather_01_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_02",
+      "image_count": 30,
+      "material_id": "leather_02",
+      "source_map_paths": [
+        "materials/leather/leather_02/fabric_leather_02_diff_2k.jpg",
+        "materials/leather/leather_02/fabric_leather_02_nor_gl_2k.exr",
+        "materials/leather/leather_02/fabric_leather_02_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_03",
+      "image_count": 30,
+      "material_id": "leather_03",
+      "source_map_paths": [
+        "materials/leather/leather_03/leather_red_03_coll1_2k.png",
+        "materials/leather/leather_03/leather_red_03_nor_gl_2k.exr",
+        "materials/leather/leather_03/leather_red_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_04",
+      "image_count": 30,
+      "material_id": "leather_04",
+      "source_map_paths": [
+        "materials/leather/leather_04/brown_leather_albedo_2k.jpg",
+        "materials/leather/leather_04/brown_leather_nor_gl_2k.exr",
+        "materials/leather/leather_04/brown_leather_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_05",
+      "image_count": 30,
+      "material_id": "leather_05",
+      "source_map_paths": [
+        "materials/leather/leather_05/leather_white_diff_2k.jpg",
+        "materials/leather/leather_05/leather_white_nor_gl_2k.exr",
+        "materials/leather/leather_05/leather_white_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_06",
+      "image_count": 30,
+      "material_id": "leather_06",
+      "source_map_paths": [
+        "materials/leather/leather_06/leather_red_02_coll1_2k.png",
+        "materials/leather/leather_06/leather_red_02_nor_gl_2k.exr",
+        "materials/leather/leather_06/leather_red_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_07",
+      "image_count": 30,
+      "material_id": "leather_07",
+      "source_map_paths": [
+        "materials/leather/leather_07/Leather011_2K-JPG_Color.jpg",
+        "materials/leather/leather_07/Leather011_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_07/Leather011_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_08",
+      "image_count": 30,
+      "material_id": "leather_08",
+      "source_map_paths": [
+        "materials/leather/leather_08/Leather016_2K-JPG_Color.jpg",
+        "materials/leather/leather_08/Leather016_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_08/Leather016_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_09",
+      "image_count": 30,
+      "material_id": "leather_09",
+      "source_map_paths": [
+        "materials/leather/leather_09/Leather034B_2K-JPG_Color.jpg",
+        "materials/leather/leather_09/Leather034B_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_09/Leather034B_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_10",
+      "image_count": 30,
+      "material_id": "leather_10",
+      "source_map_paths": [
+        "materials/leather/leather_10/Leather022_2K-JPG_Color.jpg",
+        "materials/leather/leather_10/Leather022_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_10/Leather022_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_11",
+      "image_count": 30,
+      "material_id": "leather_11",
+      "source_map_paths": [
+        "materials/leather/leather_11/Leather008_2K-JPG_Color.jpg",
+        "materials/leather/leather_11/Leather008_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_11/Leather008_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_12",
+      "image_count": 30,
+      "material_id": "leather_12",
+      "source_map_paths": [
+        "materials/leather/leather_12/Leather036B_2K-JPG_Color.jpg",
+        "materials/leather/leather_12/Leather036B_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_12/Leather036B_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_13",
+      "image_count": 30,
+      "material_id": "leather_13",
+      "source_map_paths": [
+        "materials/leather/leather_13/Leather009_2K-JPG_Color.jpg",
+        "materials/leather/leather_13/Leather009_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_13/Leather009_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_14",
+      "image_count": 30,
+      "material_id": "leather_14",
+      "source_map_paths": [
+        "materials/leather/leather_14/Leather030_2K-JPG_Color.jpg",
+        "materials/leather/leather_14/Leather030_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_14/Leather030_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Leather_15",
+      "image_count": 30,
+      "material_id": "leather_15",
+      "source_map_paths": [
+        "materials/leather/leather_15/Leather032_2K-JPG_Color.jpg",
+        "materials/leather/leather_15/Leather032_2K-JPG_NormalGL.jpg",
+        "materials/leather/leather_15/Leather032_2K-JPG_Roughness.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_01",
+      "image_count": 30,
+      "material_id": "metal_01",
+      "source_map_paths": [
+        "materials/metal/metal_01/metal_plate_02_diff_2k.jpg",
+        "materials/metal/metal_01/metal_plate_02_nor_gl_2k.exr",
+        "materials/metal/metal_01/metal_plate_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_02",
+      "image_count": 30,
+      "material_id": "metal_02",
+      "source_map_paths": [
+        "materials/metal/metal_02/rusty_metal_04_diff_2k.jpg",
+        "materials/metal/metal_02/rusty_metal_04_nor_gl_2k.exr",
+        "materials/metal/metal_02/rusty_metal_04_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_03",
+      "image_count": 30,
+      "material_id": "metal_03",
+      "source_map_paths": [
+        "materials/metal/metal_03/blue_metal_plate_diff_2k.jpg",
+        "materials/metal/metal_03/blue_metal_plate_nor_gl_2k.exr",
+        "materials/metal/metal_03/blue_metal_plate_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_04",
+      "image_count": 30,
+      "material_id": "metal_04",
+      "source_map_paths": [
+        "materials/metal/metal_04/box_profile_metal_sheet_diff_2k.jpg",
+        "materials/metal/metal_04/box_profile_metal_sheet_nor_gl_2k.exr",
+        "materials/metal/metal_04/box_profile_metal_sheet_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_05",
+      "image_count": 30,
+      "material_id": "metal_05",
+      "source_map_paths": [
+        "materials/metal/metal_05/rusted_shutter_diff_2k.jpg",
+        "materials/metal/metal_05/rusted_shutter_nor_gl_2k.exr",
+        "materials/metal/metal_05/rusted_shutter_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_06",
+      "image_count": 30,
+      "material_id": "metal_06",
+      "source_map_paths": [
+        "materials/metal/metal_06/worn_shutter_diff_2k.jpg",
+        "materials/metal/metal_06/worn_shutter_nor_gl_2k.exr",
+        "materials/metal/metal_06/worn_shutter_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_07",
+      "image_count": 30,
+      "material_id": "metal_07",
+      "source_map_paths": [
+        "materials/metal/metal_07/metal_grate_rusty_diff_2k.jpg",
+        "materials/metal/metal_07/metal_grate_rusty_nor_gl_2k.exr",
+        "materials/metal/metal_07/metal_grate_rusty_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_08",
+      "image_count": 30,
+      "material_id": "metal_08",
+      "source_map_paths": [
+        "materials/metal/metal_08/factory_wall_diff_2k.jpg",
+        "materials/metal/metal_08/factory_wall_nor_gl_2k.exr",
+        "materials/metal/metal_08/factory_wall_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_09",
+      "image_count": 30,
+      "material_id": "metal_09",
+      "source_map_paths": [
+        "materials/metal/metal_09/corrugated_iron_diff_2k.jpg",
+        "materials/metal/metal_09/corrugated_iron_nor_gl_2k.exr",
+        "materials/metal/metal_09/corrugated_iron_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_10",
+      "image_count": 30,
+      "material_id": "metal_10",
+      "source_map_paths": [
+        "materials/metal/metal_10/rusty_metal_grid_diff_2k.jpg",
+        "materials/metal/metal_10/rusty_metal_grid_nor_gl_2k.exr",
+        "materials/metal/metal_10/rusty_metal_grid_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_11",
+      "image_count": 30,
+      "material_id": "metal_11",
+      "source_map_paths": [
+        "materials/metal/metal_11/rusty_metal_sheet_diff_2k.jpg",
+        "materials/metal/metal_11/rusty_metal_sheet_nor_gl_2k.exr",
+        "materials/metal/metal_11/rusty_metal_sheet_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_12",
+      "image_count": 30,
+      "material_id": "metal_12",
+      "source_map_paths": [
+        "materials/metal/metal_12/rusty_metal_03_diff_2k.jpg",
+        "materials/metal/metal_12/rusty_metal_03_nor_gl_2k.exr",
+        "materials/metal/metal_12/rusty_metal_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_13",
+      "image_count": 30,
+      "material_id": "metal_13",
+      "source_map_paths": [
+        "materials/metal/metal_13/worn_corrugated_iron_diff_2k.jpg",
+        "materials/metal/metal_13/worn_corrugated_iron_nor_gl_2k.exr",
+        "materials/metal/metal_13/worn_corrugated_iron_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_14",
+      "image_count": 30,
+      "material_id": "metal_14",
+      "source_map_paths": [
+        "materials/metal/metal_14/metal_plate_diff_2k.jpg",
+        "materials/metal/metal_14/metal_plate_nor_gl_2k.exr",
+        "materials/metal/metal_14/metal_plate_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Metal_15",
+      "image_count": 30,
+      "material_id": "metal_15",
+      "source_map_paths": [
+        "materials/metal/metal_15/rust_coarse_01_diff_2k.jpg",
+        "materials/metal/metal_15/rust_coarse_01_nor_gl_2k.exr",
+        "materials/metal/metal_15/rust_coarse_01_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_01",
+      "image_count": 30,
+      "material_id": "stone_01",
+      "source_map_paths": [
+        "materials/stone/stone_01/dark_rock_diff_2k.jpg",
+        "materials/stone/stone_01/dark_rock_nor_gl_2k.exr",
+        "materials/stone/stone_01/dark_rock_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_02",
+      "image_count": 30,
+      "material_id": "stone_02",
+      "source_map_paths": [
+        "materials/stone/stone_02/tiger_rock_diff_2k.jpg",
+        "materials/stone/stone_02/tiger_rock_nor_gl_2k.exr",
+        "materials/stone/stone_02/tiger_rock_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_03",
+      "image_count": 30,
+      "material_id": "stone_03",
+      "source_map_paths": [
+        "materials/stone/stone_03/defense_wall_02_diff_2k.jpg",
+        "materials/stone/stone_03/defense_wall_02_nor_gl_2k.exr",
+        "materials/stone/stone_03/defense_wall_02_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_04",
+      "image_count": 30,
+      "material_id": "stone_04",
+      "source_map_paths": [
+        "materials/stone/stone_04/marble_tiles_diff_2k.jpg",
+        "materials/stone/stone_04/marble_tiles_nor_gl_2k.exr",
+        "materials/stone/stone_04/marble_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_05",
+      "image_count": 30,
+      "material_id": "stone_05",
+      "source_map_paths": [
+        "materials/stone/stone_05/square_tiles_03_diff_2k.jpg",
+        "materials/stone/stone_05/square_tiles_03_nor_gl_2k.exr",
+        "materials/stone/stone_05/square_tiles_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_06",
+      "image_count": 30,
+      "material_id": "stone_06",
+      "source_map_paths": [
+        "materials/stone/stone_06/rock_06_diff_2k.jpg",
+        "materials/stone/stone_06/rock_06_nor_gl_2k.exr",
+        "materials/stone/stone_06/rock_06_rough_2k.jpg"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_07",
+      "image_count": 30,
+      "material_id": "stone_07",
+      "source_map_paths": [
+        "materials/stone/stone_07/stone_embedded_tiles_diff_2k.jpg",
+        "materials/stone/stone_07/stone_embedded_tiles_nor_gl_2k.exr",
+        "materials/stone/stone_07/stone_embedded_tiles_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_08",
+      "image_count": 30,
+      "material_id": "stone_08",
+      "source_map_paths": [
+        "materials/stone/stone_08/lichen_rock_diff_2k.jpg",
+        "materials/stone/stone_08/lichen_rock_nor_gl_2k.exr",
+        "materials/stone/stone_08/lichen_rock_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_09",
+      "image_count": 30,
+      "material_id": "stone_09",
+      "source_map_paths": [
+        "materials/stone/stone_09/rock_boulder_dry_diff_2k.jpg",
+        "materials/stone/stone_09/rock_boulder_dry_nor_gl_2k.exr",
+        "materials/stone/stone_09/rock_boulder_dry_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_10",
+      "image_count": 30,
+      "material_id": "stone_10",
+      "source_map_paths": [
+        "materials/stone/stone_10/rock_wall_17_diff_2k.jpg",
+        "materials/stone/stone_10/rock_wall_17_nor_gl_2k.exr",
+        "materials/stone/stone_10/rock_wall_17_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_11",
+      "image_count": 30,
+      "material_id": "stone_11",
+      "source_map_paths": [
+        "materials/stone/stone_11/cobblestone_pavement_diff_2k.jpg",
+        "materials/stone/stone_11/cobblestone_pavement_nor_gl_2k.exr",
+        "materials/stone/stone_11/cobblestone_pavement_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_12",
+      "image_count": 30,
+      "material_id": "stone_12",
+      "source_map_paths": [
+        "materials/stone/stone_12/stone_tiles_02_diff_2k.jpg",
+        "materials/stone/stone_12/stone_tiles_02_nor_gl_2k.exr",
+        "materials/stone/stone_12/stone_tiles_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_13",
+      "image_count": 30,
+      "material_id": "stone_13",
+      "source_map_paths": [
+        "materials/stone/stone_13/rock_face_03_diff_2k.jpg",
+        "materials/stone/stone_13/rock_face_03_nor_gl_2k.exr",
+        "materials/stone/stone_13/rock_face_03_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_14",
+      "image_count": 30,
+      "material_id": "stone_14",
+      "source_map_paths": [
+        "materials/stone/stone_14/granite_tile_diff_2k.jpg",
+        "materials/stone/stone_14/granite_tile_nor_gl_2k.exr",
+        "materials/stone/stone_14/granite_tile_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Stone_15",
+      "image_count": 30,
+      "material_id": "stone_15",
+      "source_map_paths": [
+        "materials/stone/stone_15/coast_sand_rocks_02_diff_2k.jpg",
+        "materials/stone/stone_15/coast_sand_rocks_02_nor_gl_2k.exr",
+        "materials/stone/stone_15/coast_sand_rocks_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_01",
+      "image_count": 30,
+      "material_id": "wood_01",
+      "source_map_paths": [
+        "materials/wood/wood_01/oak_veneer_01_diff_2k.jpg",
+        "materials/wood/wood_01/oak_veneer_01_nor_gl_2k.exr",
+        "materials/wood/wood_01/oak_veneer_01_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_02",
+      "image_count": 30,
+      "material_id": "wood_02",
+      "source_map_paths": [
+        "materials/wood/wood_02/wood_table_worn_diff_2k.jpg",
+        "materials/wood/wood_02/wood_table_worn_nor_gl_2k.exr",
+        "materials/wood/wood_02/wood_table_worn_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_03",
+      "image_count": 30,
+      "material_id": "wood_03",
+      "source_map_paths": [
+        "materials/wood/wood_03/wood_table_diff_2k.jpg",
+        "materials/wood/wood_03/wood_table_nor_gl_2k.exr",
+        "materials/wood/wood_03/wood_table_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_04",
+      "image_count": 30,
+      "material_id": "wood_04",
+      "source_map_paths": [
+        "materials/wood/wood_04/white_planks_clean_diff_2k.jpg",
+        "materials/wood/wood_04/white_planks_clean_nor_gl_2k.exr",
+        "materials/wood/wood_04/white_planks_clean_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_05",
+      "image_count": 30,
+      "material_id": "wood_05",
+      "source_map_paths": [
+        "materials/wood/wood_05/natural_walnut_veneer_diff_2k.jpg",
+        "materials/wood/wood_05/natural_walnut_veneer_nor_gl_2k.exr",
+        "materials/wood/wood_05/natural_walnut_veneer_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_06",
+      "image_count": 30,
+      "material_id": "wood_06",
+      "source_map_paths": [
+        "materials/wood/wood_06/old_wood_floor_diff_2k.jpg",
+        "materials/wood/wood_06/old_wood_floor_nor_gl_2k.exr",
+        "materials/wood/wood_06/old_wood_floor_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_07",
+      "image_count": 30,
+      "material_id": "wood_07",
+      "source_map_paths": [
+        "materials/wood/wood_07/oriented_strand_board_diff_2k.jpg",
+        "materials/wood/wood_07/oriented_strand_board_nor_gl_2k.exr",
+        "materials/wood/wood_07/oriented_strand_board_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_08",
+      "image_count": 30,
+      "material_id": "wood_08",
+      "source_map_paths": [
+        "materials/wood/wood_08/wooden_planks_diff_2k.jpg",
+        "materials/wood/wood_08/wooden_planks_nor_gl_2k.exr",
+        "materials/wood/wood_08/wooden_planks_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_09",
+      "image_count": 30,
+      "material_id": "wood_09",
+      "source_map_paths": [
+        "materials/wood/wood_09/rosewood_veneer_02_diff_2k.jpg",
+        "materials/wood/wood_09/rosewood_veneer_02_nor_gl_2k.exr",
+        "materials/wood/wood_09/rosewood_veneer_02_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_10",
+      "image_count": 30,
+      "material_id": "wood_10",
+      "source_map_paths": [
+        "materials/wood/wood_10/smoke_speckled_veneer_diff_2k.jpg",
+        "materials/wood/wood_10/smoke_speckled_veneer_nor_gl_2k.exr",
+        "materials/wood/wood_10/smoke_speckled_veneer_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_11",
+      "image_count": 30,
+      "material_id": "wood_11",
+      "source_map_paths": [
+        "materials/wood/wood_11/weathered_planks_diff_2k.jpg",
+        "materials/wood/wood_11/weathered_planks_nor_gl_2k.exr",
+        "materials/wood/wood_11/weathered_planks_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_12",
+      "image_count": 30,
+      "material_id": "wood_12",
+      "source_map_paths": [
+        "materials/wood/wood_12/worn_planks_diff_2k.jpg",
+        "materials/wood/wood_12/worn_planks_nor_gl_2k.exr",
+        "materials/wood/wood_12/worn_planks_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_13",
+      "image_count": 30,
+      "material_id": "wood_13",
+      "source_map_paths": [
+        "materials/wood/wood_13/lacquered_cherry_wood_diff_2k.jpg",
+        "materials/wood/wood_13/lacquered_cherry_wood_nor_gl_2k.exr",
+        "materials/wood/wood_13/lacquered_cherry_wood_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_14",
+      "image_count": 30,
+      "material_id": "wood_14",
+      "source_map_paths": [
+        "materials/wood/wood_14/herringbone_parquet_diff_2k.jpg",
+        "materials/wood/wood_14/herringbone_parquet_nor_gl_2k.exr",
+        "materials/wood/wood_14/herringbone_parquet_rough_2k.exr"
+      ]
+    },
+    {
+      "blender_material_name": "MAT_Wood_15",
+      "image_count": 30,
+      "material_id": "wood_15",
+      "source_map_paths": [
+        "materials/wood/wood_15/plywood_diff_2k.jpg",
+        "materials/wood/wood_15/plywood_nor_gl_2k.exr",
+        "materials/wood/wood_15/plywood_rough_2k.exr"
+      ]
+    }
+  ],
+  "original_archive": {
+    "member_sha256_matches": 3150,
+    "path": "dataset.zip",
+    "sha256": "0adba5f3cb538350a579bb4dc1e0ab49710f91ec5dfd2e9383348a4765fa11a6"
+  },
+  "release_approved": false,
+  "render_owner_statement": "The source author states these are their own rendered images. This statement is not publication approval.",
+  "scene_checks": {
+    "blender_version": "5.1.1",
+    "environment_texture_inputs": [],
+    "external_inputs_outside_verified_maps": [],
+    "extra_displacement_referenced": false,
+    "ground": "Untextured local four-vertex plane with Principled BSDF",
+    "inspection_evidence": "scene_inspection.json",
+    "inspection_script": "inspect_scene.py",
+    "linked_libraries": [],
+    "material_graph_matches": 105,
+    "mode": "Background, factory-startup, disable-autoexec, one CPU thread; no render or save.",
+    "packed_assets": [],
+    "referenced_map_matches": 315,
+    "target": "Local sphere mesh, 4514 vertices and 4608 polygons, no modifiers"
+  },
+  "schema_version": 1,
+  "scope": "Original corpus only; no new holdout data inspected or packaged.",
+  "source_maps_sha256": "33176f631ad6314af03ec9c0d79dce890b97963dc7a9ac0e82d65c5435f6e3e9",
+  "unresolved_external_input_issues": [],
+  "verified_at_utc": "2026-10-27",
+  "verified_by": "agent"
+}

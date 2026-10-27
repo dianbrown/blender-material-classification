@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-27T08:11:41.818952+00:00",
+  "command": "python -m pytest -q",
+  "passed": 344,
+  "skipped": 1,
+  "failed": 0,
+  "warnings": 1,
+  "duration_seconds": 104.47,
+  "skip": "Windows unprivileged symlink permission",
+  "warning": "Existing V1 scheduler-order warning in mocked OOM test",
+  "cpu_image_inference_smoke": "passed on an old training image; functional validation, not an accuracy endpoint"
+}

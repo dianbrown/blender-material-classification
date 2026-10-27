@@ -1,0 +1,66 @@
+{
+  "freeze_policy": "Family IDs are global across classes. Do not change these decisions after scores; later evidence requires a new protocol version, not retroactive regrouping.",
+  "frozen_registry_sha256": "04ec64dc5275711d9c94537d988b11eb6014f9d4a9728eb64c03b62229ec496b",
+  "overrides": [
+    {
+      "evidence_status": "verified_by_parent_auditor_2026-10-27",
+      "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+      "material_ids": [
+        "leather_07",
+        "leather_13"
+      ],
+      "rationale": "Official relationshipData identifies the shared LeatherSubstance002 generator. Old val/train membership is not independent. This is not exact-byte equivalence.",
+      "source_family": "ambientCG:LeatherSubstance002",
+      "source_material_names": [
+        "Leather011",
+        "Leather009"
+      ]
+    },
+    {
+      "evidence_status": "verified_by_parent_auditor_2026-10-27",
+      "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+      "material_ids": [
+        "leather_14",
+        "leather_15"
+      ],
+      "rationale": "Official relationshipData identifies the shared LeatherSubstance005 generator. Conservative dependence, not exact-byte equivalence.",
+      "source_family": "ambientCG:LeatherSubstance005",
+      "source_material_names": [
+        "Leather030",
+        "Leather032"
+      ]
+    },
+    {
+      "evidence_status": "verified_by_parent_auditor_2026-10-27",
+      "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+      "material_ids": [
+        "leather_09",
+        "leather_12"
+      ],
+      "rationale": "Official relationshipData identifies the shared LeatherSubstance006 generator. Conservative dependence, not exact-byte equivalence.",
+      "source_family": "ambientCG:LeatherSubstance006",
+      "source_material_names": [
+        "Leather034B",
+        "Leather036B"
+      ]
+    },
+    {
+      "additional_evidence_url": "https://api.polyhaven.com/info/wood_table",
+      "evidence_status": "unresolved_precaution_not_verified_same_origin",
+      "evidence_url": "https://api.polyhaven.com/info/wood_table_worn",
+      "material_ids": [
+        "wood_02",
+        "wood_03"
+      ],
+      "rationale": "Independent preregistration review requested conservative grouping of plausible derivatives. Distinct bytes, image appearance and catalog entries do not prove independent physical source. This is not a verified same-origin or exact-duplicate claim.",
+      "source_family": "precaution:wood_table_derivatives",
+      "source_material_names": [
+        "wood_table_worn",
+        "wood_table"
+      ]
+    }
+  ],
+  "policy": "Conservative dependence groups, not claims of exact byte identity. Merge before any folds. Licenses remain separately unverified.",
+  "schema_version": 1,
+  "status": "frozen_before_v3_scores"
+}

@@ -1,0 +1,8 @@
+estimate_type,precision,recall,f1,support,predicted_support,recall_defined,precision_defined,class
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.9051918735891648,0.8911111111111111,0.8980963045912653,450,443,True,True,wood
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.9204819277108434,0.8488888888888889,0.8832369942196532,450,415,True,True,metal
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.6417391304347826,0.82,0.72,450,575,True,True,stone
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.7720739219712526,0.8355555555555556,0.8025613660618998,450,487,True,True,concrete
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.7216035634743875,0.72,0.7208008898776419,450,449,True,True,ceramic
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.8157894736842105,0.6888888888888889,0.746987951807229,450,380,True,True,fabric
+Nested/grouped OOF development estimates; not an untouched test evaluation,0.8453865336658354,0.7533333333333333,0.7967097532314924,450,401,True,True,leather

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-27T09:51:05.767319+00:00",
+  "primary_model": "frozen_selected",
+  "class_order": [
+    "wood",
+    "metal",
+    "stone",
+    "concrete",
+    "ceramic",
+    "fabric",
+    "leather"
+  ],
+  "selection_rule": "Higher mean development macro-F1 on the same three source-group folds; fresh holdout is not used. ResNet remains a predeclared comparison baseline.",
+  "choice_record": "model_choice.json",
+  "choice_sha256": "7e302569a1a649d0b94e7bcfb0c3f21f94769f28c9a52a747a4ce581f41b2541",
+  "models": {
+    "frozen_selected": {
+      "family": "frozen",
+      "role": "primary",
+      "artifact_path": "../../../artifacts/v3/run_final/model.joblib",
+      "metadata_path": "../../../artifacts/v3/run_final/model_metadata.json",
+      "artifact_sha256": "8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e",
+      "metadata_sha256": "064088063f993b46d9652d2cb313d5d9c072824e5862932f5dfaef435b2ff7db"
+    },
+    "frozen_control": {
+      "family": "frozen",
+      "role": "predeclared control",
+      "artifact_path": "../../../artifacts/v3/run_final/control_model.joblib",
+      "metadata_path": "../../../artifacts/v3/run_final/control_model_metadata.json",
+      "artifact_sha256": "c7530c0a4d00b8966547561ffb3c976b65fe69cf9888957cc8c3c2041e5dee06",
+      "metadata_sha256": "8024925a56425431f2d805771ad3bf635eb1ae27599daa8ef14725a87f9a53de"
+    },
+    "resnet_fixed": {
+      "family": "resnet",
+      "role": "fixed assessment baseline",
+      "artifact_path": "../../../artifacts/v3/resnet-final/final/model.pt",
+      "metadata_path": "../../../artifacts/v3/resnet-final/final/model.json",
+      "artifact_sha256": "37df70f3d3689bf2686af16ed2b064d28da89a5bbcb8cde35053f88c85292f2d",
+      "metadata_sha256": "7ca4f619e30401306509946d932ec56fbb40be05011cfea42af653a03704bdca"
+    },
+    "dinov2_finetuned": {
+      "family": "dinov2",
+      "role": "exploratory comparison",
+      "artifact_path": "../../../artifacts/v3/finetune/candidates/finetuned/model.pt",
+      "metadata_path": "../../../artifacts/v3/finetune/candidates/finetuned/model.json",
+      "artifact_sha256": "0c9280783e1575f3b1822d5a877e35b36aefbf82ec9115e0840dcad6576a8509",
+      "metadata_sha256": "0a10579f49896f4f514e61114c7f146e2b3870fcc677aa0e419d4af0c0934eee"
+    }
+  },
+  "holdout": {
+    "manifest_sha256": "15edb1e32ceaaf190470a45c923270ba93fa83b4eb1a34c29fa7ed06abdda4f9",
+    "n_images": 630,
+    "source_group_count": 21
+  },
+  "holdout_selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64",
+  "qc_run_sha256": "1957d86b8c4d9358def3d9327250796defb33c8f52db4ce9f76f3dc9a41817df",
+  "code_commit": "6e8b31125f2c2b6a39358a4ccc70270095e5b9d8",
+  "scoring_policy": "One clean evaluation per listed fixed model. Primary stays fixed regardless of fresh ranking. No retraining, calibration fitting, or selection on holdout.",
+  "robustness_policy": "Evaluate the five already-staged predefined corruptions for the primary model; diagnostic results cannot change model choice.",
+  "scope": "Restricted synthetic source holdout; no claim of arbitrary real-world recognition or audited absence from backbone pretraining data."
+}

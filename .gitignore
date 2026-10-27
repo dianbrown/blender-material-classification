@@ -31,6 +31,8 @@ Thumbs.db
 /validation_renders/
 /material_audit/
 /backups/
+/dataset.zip
+/materials.zip
 
 # Training outputs and experiment trackers
 /artifacts/

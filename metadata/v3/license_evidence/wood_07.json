@@ -1,0 +1,121 @@
+{
+  "attribution": "Dimitrios Savva (All). Publisher: Poly Haven.",
+  "author": {
+    "Dimitrios Savva": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "266a8ec86bca143b95c10fe14198b3f5",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/oriented_strand_board_diff_2k.jpg"
+        ],
+        "official_md5": "266a8ec86bca143b95c10fe14198b3f5",
+        "official_size_bytes": 3862292,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/oriented_strand_board/oriented_strand_board_diff_2k.jpg"
+      },
+      "path": "materials/wood/wood_07/oriented_strand_board_diff_2k.jpg",
+      "sha256": "88c17de0b8e445a7ae6eb51b20ef95fc31a4430c6df1fdda9f22cfb6cec228eb",
+      "size_bytes": 3862292,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "9908ea14505885d5677db393e3964831",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/oriented_strand_board_nor_gl_2k.exr"
+        ],
+        "official_md5": "9908ea14505885d5677db393e3964831",
+        "official_size_bytes": 8032445,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/oriented_strand_board/oriented_strand_board_nor_gl_2k.exr"
+      },
+      "path": "materials/wood/wood_07/oriented_strand_board_nor_gl_2k.exr",
+      "sha256": "2856b61891e7957003cc4739efb1f8ee0433c758ed27974f8e09651c7393fd53",
+      "size_bytes": 8032445,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "3fa7435083def411da7f8afc162faedb",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/oriented_strand_board_rough_2k.exr"
+        ],
+        "official_md5": "3fa7435083def411da7f8afc162faedb",
+        "official_size_bytes": 3996525,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/oriented_strand_board/oriented_strand_board_rough_2k.exr"
+      },
+      "path": "materials/wood/wood_07/oriented_strand_board_rough_2k.exr",
+      "sha256": "8e2d500b8d2106a3a1eb5cd52da4744f9f9fe0923c99cd3816d3009443d7dda6",
+      "size_bytes": 3996525,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "wood_07",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"70f0-Hx4EkRfZk9CloDqoiUqeU2C72Fc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/oriented_strand_board",
+    "response_bytes": 28912,
+    "response_sha256": "ceda6fcb3c7ec0fb32408e82eb60adcb16596ddbbfb85143bcec77e4ab4b8ae4",
+    "retrieved_at_utc": "2026-10-27T07:12:58.414254+00:00",
+    "url": "https://api.polyhaven.com/files/oriented_strand_board"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "oriented_strand_board",
+  "schema_version": 1,
+  "source_fingerprint": "447898f24630416298389eeca988d8c279a72e513f6bc6341cfb47937dd021d8",
+  "source_url": "https://polyhaven.com/a/oriented_strand_board",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

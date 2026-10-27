@@ -1,0 +1,11 @@
+{
+  "full_zip_allowlist_and_private_path_scan": "passed",
+  "full_zip_crc": "passed",
+  "license_gate": "passed: real corpus release rejected on unresolved source licenses",
+  "python_environment": "system Python; parent .venv was installing, untouched",
+  "python_version": "3.13.5",
+  "ruff": "passed",
+  "skip_reason": "Windows account cannot create unprivileged symlinks; traversal, UNC, drives, ADS and Windows aliases tested.",
+  "tests_passed": 32,
+  "tests_skipped": 1
+}

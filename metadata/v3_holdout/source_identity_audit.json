@@ -1,0 +1,2111 @@
+{
+  "selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64",
+  "method": "Compare selected official 1K map MD5 against all original Poly Haven same-role 1K JPG/PNG/EXR variants, in addition to source-name family and procedural-parent exclusion. This detects exact content reuse with renamed IDs. Recolor/crop transformations can still defeat hash comparison; descriptive source review remains required.",
+  "original_sources": [
+    {
+      "asset_id": "oak_veneer_01",
+      "api_url": "https://api.polyhaven.com/files/oak_veneer_01",
+      "files_hash": "a443b579da009eae524d5d318fc999faf964671a",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "39a99df4e328d62d74f3122722a64a95",
+          "png": "4d3459d7bc794f29f8cbe984003bd70b",
+          "exr": "2f69aa40d1cb1b82c4354e1de68aecc4"
+        },
+        "roughness": {
+          "jpg": "a19b44176a078b9ae93314133848c9aa",
+          "png": "22378907270b42de54e0f7c5a0415060",
+          "exr": "670b9435fc0b4dae85272eafa429d1b9"
+        },
+        "normal": {
+          "jpg": "d05406f5fdaf51f0d7b115b35d9af1b7",
+          "png": "f46bbdbec255bcb4f053de220e53153f",
+          "exr": "114ba30c941c9167b170668050dff1e1"
+        }
+      }
+    },
+    {
+      "asset_id": "wood_table_worn",
+      "api_url": "https://api.polyhaven.com/files/wood_table_worn",
+      "files_hash": "92fde8d58df92dd57a0a2854a6a6aeb79317b750",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "8c71f701f70fef34b87fb7c8742ad0a5",
+          "png": "46b5d10c73bab050b22c9493d01223b7",
+          "exr": "d90d0b515e3897864d9a8c522291023b"
+        },
+        "roughness": {
+          "jpg": "1e068051a440933d9d054dc6614f950f",
+          "png": "5527734f85d17fda6a433eb046bf88eb",
+          "exr": "5a187f738eddff6c003bfd1e67753e69"
+        },
+        "normal": {
+          "jpg": "d8e76d135e94e32bc81eedb3342c7614",
+          "png": "5bdb80ad7065bf8a956f42c57763b796",
+          "exr": "5727de9a78e9a1c164b50459a0d7c905"
+        }
+      }
+    },
+    {
+      "asset_id": "wood_table",
+      "api_url": "https://api.polyhaven.com/files/wood_table",
+      "files_hash": "d1c2354499482c26b3648cd72d81f51414f11050",
+      "map_md5_1k": {
+        "color": {
+          "exr": "a4f75c7d295bf5072bbad032306e54d1",
+          "jpg": "45af5766b300f7e940ee8984c5fabd4f",
+          "png": "e89e2f5a64ac00f570f898c9b7d50fe0"
+        },
+        "roughness": {
+          "exr": "04e54065a1c1a59278a8f98d0c969e19",
+          "jpg": "1bfcd8d3149397dad1c7a534e0eee765",
+          "png": "93631ff97a4360473b586358d57d2ef3"
+        },
+        "normal": {
+          "exr": "40f8470c7ef046c805d108ba2471331f",
+          "jpg": "c4310c772339e00650ab23c36a2775f6",
+          "png": "1d4d64f9502165e4009a121da67c0073"
+        }
+      }
+    },
+    {
+      "asset_id": "white_planks_clean",
+      "api_url": "https://api.polyhaven.com/files/white_planks_clean",
+      "files_hash": "0deaf60759552def289291b0f87c7f4ec39da900",
+      "map_md5_1k": {
+        "color": {
+          "exr": "b73c1b708044b00d0001a87ee6b7285e",
+          "jpg": "50b7addfff3f66b46c0182d23faf2882",
+          "png": "b8122db2548d2ebf0ed2a28365c5d954"
+        },
+        "roughness": {
+          "exr": "e6ba3d0d7ed5b98a185cbd525682e1e1",
+          "jpg": "ae63701219ba6fa760868c43f18dd1eb",
+          "png": "e805a905780dba31ae3033bcca7c522c"
+        },
+        "normal": {
+          "exr": "f0e96ddfb44a2696bb2d313d287b0893",
+          "jpg": "12225d3539c1404b79eb5d21e7d28a89",
+          "png": "f5d55cec056ec19a7efc48129dffa875"
+        }
+      }
+    },
+    {
+      "asset_id": "natural_walnut_veneer",
+      "api_url": "https://api.polyhaven.com/files/natural_walnut_veneer",
+      "files_hash": "9b528e5f85707c2a16175fd12eb930ee862b2c36",
+      "map_md5_1k": {
+        "color": {
+          "exr": "077dc03d8ca31881cb8987586b8d6cb1",
+          "jpg": "b9dd8a10990c388322b2b2ca15824b8a",
+          "png": "4158ce401776b0a61356476dd65b44b8"
+        },
+        "roughness": {
+          "exr": "a1d30889a746f7168d7259ae94ea690b",
+          "jpg": "d88bc3c533ed61d6737ad75454c9b61f",
+          "png": "51f1c38daff39e8d903dc1c98c8c9b00"
+        },
+        "normal": {
+          "exr": "4c818c8e0baaeb3e9757313579856853",
+          "jpg": "985fe886f38aeb2fa3580a5c0294f81a",
+          "png": "4d85f4460a5080be82a4671c8c7ab40c"
+        }
+      }
+    },
+    {
+      "asset_id": "old_wood_floor",
+      "api_url": "https://api.polyhaven.com/files/old_wood_floor",
+      "files_hash": "fd59ad577af8185aa6702142c57265b3bfff8aa4",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "ffaa68add0544811b30459e58cc9b4fd",
+          "png": "fb591c1218db46cc938ad627b1a14023",
+          "exr": "89c90e77ee326b82a903c39fb700716d"
+        },
+        "roughness": {
+          "jpg": "e52625ea19fa46a31747abbef00d1627",
+          "png": "5092143bd7a0aee55762047d5a0c8e84",
+          "exr": "1eb8dfbb232491ae113c844a8a308a92"
+        },
+        "normal": {
+          "jpg": "2ec0f5e82232d1e9348fc48923f427a4",
+          "png": "caa90c87b709738c929c575a007853f3",
+          "exr": "a1a71c5623d87e25f8bcaf3273adc216"
+        }
+      }
+    },
+    {
+      "asset_id": "oriented_strand_board",
+      "api_url": "https://api.polyhaven.com/files/oriented_strand_board",
+      "files_hash": "f3a785a554208c95d0fb2e4e5ca831aa8cf51422",
+      "map_md5_1k": {
+        "color": {
+          "exr": "c6406c8b52c2c7a8e3ee60f697f4cb7d",
+          "jpg": "86976bb53daadfc21378430951dc573d",
+          "png": "83648dbbc31f2200f87bf0974a2bc024"
+        },
+        "roughness": {
+          "exr": "ba4d126a874d2b66734719022b72eb09",
+          "jpg": "c7b0158ab02d065a0c52a049210221ba",
+          "png": "7da1ae4454e085681c71e368a8a7d2a8"
+        },
+        "normal": {
+          "exr": "78d4ec820439ebcc399f5c0d1bc67beb",
+          "jpg": "a861c7ebce7367125eb1eedfe6d5537b",
+          "png": "258c1d9f6745ba734db4d39f9a6245a4"
+        }
+      }
+    },
+    {
+      "asset_id": "wooden_planks",
+      "api_url": "https://api.polyhaven.com/files/wooden_planks",
+      "files_hash": "3bd84dff0e4cc93dd451fa92de3ddaa553a80e3e",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "045a70f787fcb4b60ee5c9878a9bd674",
+          "png": "34660fe5744c8e901ace51cde9313f56",
+          "exr": "43488209af5be9451e6d5c65e32d5bb8"
+        },
+        "roughness": {
+          "jpg": "006e1ad8b5a59e783c25b3b36c3a9e9b",
+          "png": "82aad64215b5cdc3bebdd2e2732b447c",
+          "exr": "766d008ce6e7119507959bbefb09e99d"
+        },
+        "normal": {
+          "jpg": "03206d820a026239db91a1ff3d8c589d",
+          "png": "c5f9a8dd61453290f15d12b34e2300d3",
+          "exr": "1679310be839f28e74a1d0de3ef0179d"
+        }
+      }
+    },
+    {
+      "asset_id": "rosewood_veneer_02",
+      "api_url": "https://api.polyhaven.com/files/rosewood_veneer_02",
+      "files_hash": "61b3830d369724db1f67caa1862f0a36b23a5168",
+      "map_md5_1k": {
+        "color": {
+          "exr": "90c63b06edd8f1ef80cc76621ee604ef",
+          "jpg": "385b71d03b466f5dfb3a404011a5db31",
+          "png": "83552dc9c564e8c1a1990570a6f900a8"
+        },
+        "roughness": {
+          "exr": "fa4fb5930c0a88e6b2207b79c1201203",
+          "jpg": "ded24149546afa49fc4a2ca005b480e8",
+          "png": "0724acf66406df8ad97586c2c9586419"
+        },
+        "normal": {
+          "exr": "18d62dc832533e2838b5cab256543ec3",
+          "jpg": "2dba4cda26998300a4b602978847f6ff",
+          "png": "2b9fbb70c61d1a1da8cd963dc0a05e1a"
+        }
+      }
+    },
+    {
+      "asset_id": "smoke_speckled_veneer",
+      "api_url": "https://api.polyhaven.com/files/smoke_speckled_veneer",
+      "files_hash": "776504f604d2bc548b3f906942160b245e1bc70b",
+      "map_md5_1k": {
+        "color": {
+          "exr": "135f32539bb59efdf84f9aa1bb7a048d",
+          "jpg": "ac45a32ba10593625d206fdedb738430",
+          "png": "fb78851986eab04dec982e412b9aa722"
+        },
+        "roughness": {
+          "exr": "d770657fffd290594246b9e393e95f50",
+          "jpg": "02fccce43bcf04afbe39142c2cd705b3",
+          "png": "43a09807ffc74c129c4e0f7715bc4738"
+        },
+        "normal": {
+          "exr": "6c9d19c82ca9d8aa239863f2676ec937",
+          "jpg": "9840f27dbcab4fc48cbfbb29841eea22",
+          "png": "61de77fc6b7bcf78ad7dbbac721ac97f"
+        }
+      }
+    },
+    {
+      "asset_id": "weathered_planks",
+      "api_url": "https://api.polyhaven.com/files/weathered_planks",
+      "files_hash": "d1e9bc9a7a2bfc0d2bd642a7bc18519b539e6339",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "5d7c9e7088bfa54490ba03ba15b660d8",
+          "png": "eec7bfcfde937e16eacf49d9a2689c6f",
+          "exr": "5a1ef535fa0c321fa76ee8c24c450f7b"
+        },
+        "roughness": {
+          "jpg": "4ca50b076e1fc58f6862a5b039a7d5c9",
+          "png": "91a6d51f2667ac5becdec7700e91e031",
+          "exr": "64359fdae98455a1befef282589f2b14"
+        },
+        "normal": {
+          "jpg": "119541f6b143f21f0a6e9774e9208905",
+          "png": "60576e594edad5cd2712f9817788d237",
+          "exr": "ca62881dab7ba28f0ced8e664c6f1025"
+        }
+      }
+    },
+    {
+      "asset_id": "worn_planks",
+      "api_url": "https://api.polyhaven.com/files/worn_planks",
+      "files_hash": "c5ee2eb042a95637eeaa001d0ba93e81290ed52a",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "c5f7b2343880a705e9acb471938e07da",
+          "png": "43cd11ceaf2818a397aa0511f651c797",
+          "exr": "d4473ec0d466901da547926b87a466ed"
+        },
+        "roughness": {
+          "jpg": "179523935d95144d36297ff2a4dceb83",
+          "png": "552ba8db06c2fe6c03178a42dff638dc",
+          "exr": "1d3316da58fbf2da603c04d384f33f45"
+        },
+        "normal": {
+          "jpg": "9a31cafe552f7e15228a513cfd25c574",
+          "png": "5295cd1d996881d999eb9bdabd6f2cad",
+          "exr": "09b7711cdeb71cd9788ba0c26eb9f471"
+        }
+      }
+    },
+    {
+      "asset_id": "lacquered_cherry_wood",
+      "api_url": "https://api.polyhaven.com/files/lacquered_cherry_wood",
+      "files_hash": "51529acac26452171bca6186287876dfd926378e",
+      "map_md5_1k": {
+        "color": {
+          "exr": "71dedfe2b09b680fefa168fe91e4a664",
+          "jpg": "4e72bd6e1f2eff09528a50dc297d9a6c",
+          "png": "50ec054847a81adb83e4046d9f75bd5d"
+        },
+        "roughness": {
+          "exr": "57a7e6f79f18a6a9c25ee519ef3f82e0",
+          "jpg": "78948ed2598f9bd6fb733cdcfb576847",
+          "png": "37f18611d17f0f6fa785e470b425ff40"
+        },
+        "normal": {
+          "exr": "940842ea9dc278d8a63151a0995c05a2",
+          "jpg": "3a29aa58639aa9c1ac757334da4ac1c1",
+          "png": "2e14a58a1c427cebdd9c45450790fb7b"
+        }
+      }
+    },
+    {
+      "asset_id": "herringbone_parquet",
+      "api_url": "https://api.polyhaven.com/files/herringbone_parquet",
+      "files_hash": "4bdcf23af4b65d7983d801dc3b2ba4e7c4c387ca",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "dae9d3dd6d8a2c2e387da22fd8228265",
+          "png": "428b0cef1659b7e58e05c94fc0669d0e",
+          "exr": "dfdab55c0095eca7b56b493cfea66c6e"
+        },
+        "roughness": {
+          "jpg": "180a5e058fb9529fdd07245f8a0a7702",
+          "png": "35bedd9092868211ddb070c258934ee4",
+          "exr": "ec043228ead2f247e10ceba676f1953f"
+        },
+        "normal": {
+          "jpg": "c0a64eb61ea44add715c6fe29b958adf",
+          "png": "6a073661f30631d009ca8efcd52dfadd",
+          "exr": "2cf27f930651cd961841bb462d762d61"
+        }
+      }
+    },
+    {
+      "asset_id": "plywood",
+      "api_url": "https://api.polyhaven.com/files/plywood",
+      "files_hash": "71277f7973f476845a1464810f133500691c2e43",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "8032b768029adffbbfb223dd890102de",
+          "png": "5e6b57ebd464aaa17fc3c9d733cc14b5",
+          "exr": "9b384ddcac5c94e831ec50dcbc123acb"
+        },
+        "roughness": {
+          "jpg": "d46c674551da8c15b2a82000e22fc60b",
+          "png": "2795dbfd10ecd2377f8fcc091996ebfd",
+          "exr": "10faf333f03c77c9130038a17de42eee"
+        },
+        "normal": {
+          "jpg": "0203f642273e4a3697daf7a6034a4ae5",
+          "png": "6d3ed6894e61733de595a40f68dd1044",
+          "exr": "040b1dc23dac7af4c47cded18ffc8791"
+        }
+      }
+    },
+    {
+      "asset_id": "metal_plate_02",
+      "api_url": "https://api.polyhaven.com/files/metal_plate_02",
+      "files_hash": "9b37fd795ff54dbd956f155a26e8d675490690ea",
+      "map_md5_1k": {
+        "color": {
+          "exr": "4d15f0a339bdce15c4951e9c0f73f20d",
+          "jpg": "531b7e067dc537e0b3c7962175e04ffd",
+          "png": "5cb02c12674de25264222511214e3c62"
+        },
+        "roughness": {
+          "exr": "d2c2e58a2e5ebb6ca064723baab5e1d7",
+          "jpg": "1fa97d5031aa575656a316bfd404ca4d",
+          "png": "743fdbd128ed05ddb90af1d1c28c20a0"
+        },
+        "normal": {
+          "exr": "2ba25014b34e7dbca830a4062198f4f9",
+          "jpg": "ce8198004fd9409f592a7f024be0c01e",
+          "png": "95504e9795834d3bd9b7818031d19f86"
+        }
+      }
+    },
+    {
+      "asset_id": "rusty_metal_04",
+      "api_url": "https://api.polyhaven.com/files/rusty_metal_04",
+      "files_hash": "1c144f4e2b09d58f75430ae32d992b5d8aae53eb",
+      "map_md5_1k": {
+        "color": {
+          "exr": "f75a9b9d0ee5e80ace37bd265a1d765e",
+          "jpg": "91832efd8e5896387e2af18a5b49b895",
+          "png": "a80c8d7fe648acf01ecb2f73b4a32bf3"
+        },
+        "roughness": {
+          "exr": "1abd345f9a961b7e0353cb0f32b13d27",
+          "jpg": "177da306d0543cc56c2df6b51e3d5a8b",
+          "png": "b1029c3b2bd49d6ad010811fafc8356b"
+        },
+        "normal": {
+          "exr": "07f1dcd3229db5ee3b54456bb26ca171",
+          "jpg": "25f7f28b3546391532a5567b86e65aeb",
+          "png": "f0e4e191d6470caa81834431f6a013dd"
+        }
+      }
+    },
+    {
+      "asset_id": "blue_metal_plate",
+      "api_url": "https://api.polyhaven.com/files/blue_metal_plate",
+      "files_hash": "37d120553f33bcc1db86a58a32f9159f06dfe329",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "a906d0e554596fb76c6969f2f644c5e6",
+          "png": "4a8d23e669c51e6bd11193d8de10072f",
+          "exr": "a3ae4d8b2fef9553597a02f593d3e11d"
+        },
+        "roughness": {
+          "jpg": "76c3911d8ad2416e4db3104a2ef831c7",
+          "png": "4508681759a8f3ef926c86c6ee2b3ce8",
+          "exr": "c5dc64a0b04047ccdd0a5da64de056fd"
+        },
+        "normal": {
+          "jpg": "f14c0f01832f8b18c39f07e4b5d6f749",
+          "png": "6fcde97d9970fbccfa443c3efe9e53ae",
+          "exr": "dfc8e17d885e36552dfefa09904d4e20"
+        }
+      }
+    },
+    {
+      "asset_id": "box_profile_metal_sheet",
+      "api_url": "https://api.polyhaven.com/files/box_profile_metal_sheet",
+      "files_hash": "f57400cd2f30b0b2ed4a54c1fd645fe835eb60f2",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "478efb2f3594434ac12eeaad9096cf67",
+          "png": "89497446af3604e3309a184858302856",
+          "exr": "a33f175d99d41fe8b4eb0c9bb6b9689f"
+        },
+        "roughness": {
+          "jpg": "2d7f6e3c74c72c472915b3b60cc800cd",
+          "png": "a93360e19ecd5d9dd7d68a4e604c0b18",
+          "exr": "bcab9bcd8083f56467afca123b2b0836"
+        },
+        "normal": {
+          "jpg": "ac870b33c1f09ae1b95b550a07a30f10",
+          "png": "a9a5f7f4862bfe61b8103bbf8cebfac4",
+          "exr": "75517def0cadd03dd5480ca050a346a3"
+        }
+      }
+    },
+    {
+      "asset_id": "rusted_shutter",
+      "api_url": "https://api.polyhaven.com/files/rusted_shutter",
+      "files_hash": "83ef1fa524cf8f60d1c79fcb0592c25df5d46622",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "17ff95fc323959984f0f3445bc195bf2",
+          "png": "82b350699de228f10db6b6b658168ac9",
+          "exr": "d84d6f617221c0ce394113295f781da3"
+        },
+        "roughness": {
+          "jpg": "260da4ff67577f1ac50a91503262a714",
+          "png": "e2d0f37a96486b374af8f7934241baf3",
+          "exr": "771bb65a22f3954274bad0e28faeef0d"
+        },
+        "normal": {
+          "jpg": "d4b719b771b0cdb8d9d8e02cf6b2e674",
+          "png": "ac45435022fc3f0ce812b3f7677949df",
+          "exr": "03fd07532a2f1bd47184596c99875cac"
+        }
+      }
+    },
+    {
+      "asset_id": "worn_shutter",
+      "api_url": "https://api.polyhaven.com/files/worn_shutter",
+      "files_hash": "1859d5e1f989291b3b9a37799947f305f78e7066",
+      "map_md5_1k": {
+        "color": {
+          "exr": "2d68773f0c48d874c09b60ef93d3281f",
+          "jpg": "c6acc47a7bf04379cbf779d64aac8c3b",
+          "png": "1e6dc391382cffde9c78e5e627e9d0d6"
+        },
+        "roughness": {
+          "exr": "c2729ef44f4c66ec5663cc564ac0527f",
+          "jpg": "a624859ef9353061a9e408a99df97bdd",
+          "png": "4aa9b0882233c09e66bc5588bf552195"
+        },
+        "normal": {
+          "exr": "7f1c011a0dad2b58be35a2f3cd6a6a1c",
+          "jpg": "77ea82308a69cfefeb9b42ef55d34179",
+          "png": "0c21b07b37ddef8a8717cd878c9c03fe"
+        }
+      }
+    },
+    {
+      "asset_id": "metal_grate_rusty",
+      "api_url": "https://api.polyhaven.com/files/metal_grate_rusty",
+      "files_hash": "a373035c3b7e71b0085cb6823f16f9f05a8c32ad",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "96ca939eb6dd637959ee64d1a03bb2ab",
+          "png": "b98195c3f35959f148b5baf67ae6d875",
+          "exr": "a74e1a84848b096006d26711a775b90e"
+        },
+        "roughness": {
+          "jpg": "5e0e02466a962b25f5b40de7297442d9",
+          "png": "0e963b3c80a7c9a80d3f57421c58a00e",
+          "exr": "b40df493b1e6f4f15344a550ff2d69aa"
+        },
+        "normal": {
+          "jpg": "54183a92d9fa896d15042a7b30ba5e7f",
+          "png": "eb4d16b6b1602c5f560e59b98eb2a610",
+          "exr": "d4aaf4fb731a806b05eae74a49892343"
+        }
+      }
+    },
+    {
+      "asset_id": "factory_wall",
+      "api_url": "https://api.polyhaven.com/files/factory_wall",
+      "files_hash": "14873f590bad05227f15bd2f197fdd730a699b3e",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "d565bb4d4ec2da5791779779573ed452",
+          "png": "4aad5cbe5e83ff58aa98d3a6b365a1c8",
+          "exr": "f03a4ca34cb251355167083329c1354c"
+        },
+        "roughness": {
+          "jpg": "a8aeacb1f76e509dc968c6b4305a5611",
+          "png": "e5ff1a61279ab4d8b0a1b3d6e8a11703",
+          "exr": "cc57fcdbd362cd77a5be60a4c153c990"
+        },
+        "normal": {
+          "jpg": "b4dc2be92339828c5b3fe460b9144a8a",
+          "png": "ffe33bc0dbd7c88b14d6b9093a57d3a7",
+          "exr": "44ca0545117e8853c3104e7e88023ecb"
+        }
+      }
+    },
+    {
+      "asset_id": "corrugated_iron",
+      "api_url": "https://api.polyhaven.com/files/corrugated_iron",
+      "files_hash": "32412884f4522418b4598d9631610b2331e8ca58",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "fabb629c5ad6f427e6862bb4043564bd",
+          "png": "87aae8681098f586dd48156b51656047",
+          "exr": "47ff6f2e1e46ee097eef29c99b7df7e1"
+        },
+        "roughness": {
+          "jpg": "7c14b728587586e74be45a67cfe44160",
+          "png": "7360ddbf6de361819ee262b9b1bef45b",
+          "exr": "a8013f85f90a21cda9668a5f6dfa744c"
+        },
+        "normal": {
+          "jpg": "02249d61a2b1839552938f35a20d075a",
+          "png": "9e8ff71553a9c5a9f2cdff6b96df2814",
+          "exr": "159cc39dd7cda54ae131b1989bd763ea"
+        }
+      }
+    },
+    {
+      "asset_id": "rusty_metal_grid",
+      "api_url": "https://api.polyhaven.com/files/rusty_metal_grid",
+      "files_hash": "d7c289b9061f727eb95f55f8195b671c96e19498",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "81a9a01d878355a81cb27cb0bb60d3cc",
+          "png": "add40e214332d310a95b1b671741819c",
+          "exr": "9d569e0088c8a937fc89a9d058607341"
+        },
+        "roughness": {
+          "jpg": "b3c6a6e11965bccab903b15a4c7d8263",
+          "png": "69f27cc69697a14e008988fdfa8a7546",
+          "exr": "06a5bef63a2f68816064cb9bac91ac7c"
+        },
+        "normal": {
+          "jpg": "ea9554e4450abd57ccd1baec8b535da0",
+          "png": "ae78aaefa9b7cf56a9fc9b6b8694e4df",
+          "exr": "90a73a1c51133bc05251dee29349652a"
+        }
+      }
+    },
+    {
+      "asset_id": "rusty_metal_sheet",
+      "api_url": "https://api.polyhaven.com/files/rusty_metal_sheet",
+      "files_hash": "a0dd37953e936efe4bfe73bd73c4602e596d0be3",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "ccbfebdd62b6d021d1b3f890ab0e5a6d",
+          "png": "635070f22af170e308e225db14c7cd72",
+          "exr": "676dac62fe9396d30d6168e91f96248b"
+        },
+        "roughness": {
+          "jpg": "91bd71b5e125d6a1a0143ed84bb7acb6",
+          "png": "69cf15ca063fd041b7fc33870d2e7e73",
+          "exr": "35b6f9be51583279c9fc565278bfcf30"
+        },
+        "normal": {
+          "jpg": "ace5dbc3f612ed8f46e70a0bef3c162e",
+          "png": "6dda133d0fb9b7801a35c470c8f6191c",
+          "exr": "7c6a23a0f2c187ae18c319b1e0bd3562"
+        }
+      }
+    },
+    {
+      "asset_id": "rusty_metal_03",
+      "api_url": "https://api.polyhaven.com/files/rusty_metal_03",
+      "files_hash": "2ef230b9065b0868c06d7ea7963e58da94f34261",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "32165054d3f6a81d81e3d7aec59181da",
+          "png": "4aa12d7196c66b19f428662e6351db2e",
+          "exr": "a8d5236ec67e07dc59473938bbf58a1d"
+        },
+        "roughness": {
+          "jpg": "d14ac18d2658f5e5cd68f68cbfa183f1",
+          "png": "d39c8f93064516e3796eae1253ac81ec",
+          "exr": "981b966717c2216963f39253b31164f3"
+        },
+        "normal": {
+          "jpg": "a9de126b02dc45d674664cf85764519f",
+          "png": "f5faeeef65ade1470d464fde4fa2cb83",
+          "exr": "55519d40b0dc0ad96da29fefb89b1033"
+        }
+      }
+    },
+    {
+      "asset_id": "worn_corrugated_iron",
+      "api_url": "https://api.polyhaven.com/files/worn_corrugated_iron",
+      "files_hash": "37704a467103c27e83e12d9f5b81bb8e73ad9473",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "dee4306e2c337afcb3a815eb3345c7bd",
+          "png": "23c3f4ebaee498ac69517cba4e1d4e16",
+          "exr": "ae66e430b16c9def219398a985979507"
+        },
+        "roughness": {
+          "jpg": "78ed19c7b13281d6bfcf12fc9ee27dc3",
+          "png": "9f404d688c6896e9b0b67003bcce8e5f",
+          "exr": "0bdacdf6211d8357e0b9ea473b588419"
+        },
+        "normal": {
+          "jpg": "b1fdf9a7fa3ca2764fe1621a6bdea0db",
+          "png": "f571c5ab5bdfbabc94f44f77806ed416",
+          "exr": "4f3321a20c0e90016b75ee1d2bbfc5a0"
+        }
+      }
+    },
+    {
+      "asset_id": "metal_plate",
+      "api_url": "https://api.polyhaven.com/files/metal_plate",
+      "files_hash": "1046b39bf68d65eeb80dab84a99186a453ee94e0",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "bd9daf4c04046ca392a38b8df955ed26",
+          "png": "a507a35fb1b0cfb8fea92682fb36e3a1",
+          "exr": "d9c5a813cd0a47f899e1427dc4cff9c3"
+        },
+        "roughness": {
+          "jpg": "6e1c8672d804b90546a23db621515b16",
+          "png": "cd6e9d5693a7efdac715e15072dde2a9",
+          "exr": "534ddb0428181cfe83d757b9b9693632"
+        },
+        "normal": {
+          "jpg": "d379e66130ad6ccff217ac9b13de935d",
+          "png": "970b1bfeb59ec31a165341e05757dfc3",
+          "exr": "a241b076a7d64c93469934d6526bc94f"
+        }
+      }
+    },
+    {
+      "asset_id": "rust_coarse_01",
+      "api_url": "https://api.polyhaven.com/files/rust_coarse_01",
+      "files_hash": "c20faac0db66a29d5b52f5c45a4ca333e5d6471d",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "c2d2facc7184f216d15a8f9957d3aa4c",
+          "png": "2d69b4b3c99b6b90c7c87b1509eccafd",
+          "exr": "fd0355ade41b911d931052c195746ce4"
+        },
+        "roughness": {
+          "jpg": "5c06aa68ed5f0d597ef92198050c0c6a",
+          "png": "f72bceb585a5fecfa28226a6b573f42c",
+          "exr": "d91ecefb33e23704a3f80e54e6fdae05"
+        },
+        "normal": {
+          "jpg": "77f701cbbf5042f6531e7a5af3a4d171",
+          "png": "a5ac14cf2b30feee70c6371b7ce7d7cd",
+          "exr": "b5628d0f1a8ff21edcc588f77836289a"
+        }
+      }
+    },
+    {
+      "asset_id": "dark_rock",
+      "api_url": "https://api.polyhaven.com/files/dark_rock",
+      "files_hash": "3c4dc6dd0a7867dfbca5064d5d38e006d9be5b8d",
+      "map_md5_1k": {
+        "color": {
+          "exr": "6432f63792e53208213582008e03b323",
+          "jpg": "ee1bf662b14c31830e0683197f6a4c65",
+          "png": "573e92ea906f781d85be5dc797b41206"
+        },
+        "roughness": {
+          "exr": "4c02b7afd085a387f007ea5cb0087dca",
+          "jpg": "f5cbeea4aef60c1bab872c6f02a3c52e",
+          "png": "0ea683c7a145c0ab0eb537bf2ae9ddb1"
+        },
+        "normal": {
+          "exr": "697d8f7c4743c15415666475dd640b1b",
+          "jpg": "ec29e852e783b353c06b630121f5d61c",
+          "png": "57debd754b3ddfb4652a972928241121"
+        }
+      }
+    },
+    {
+      "asset_id": "tiger_rock",
+      "api_url": "https://api.polyhaven.com/files/tiger_rock",
+      "files_hash": "45880782e99fb6bd4d74073a32c168146f43b8e8",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "b44beae4b6ae5ad7f7ded23a7dad25e0",
+          "png": "2ee2a3d3145ca2e76ff777161f0f5c31",
+          "exr": "14f5c7d1d6f869afa1e44ce2c0a4990a"
+        },
+        "roughness": {
+          "jpg": "a54509d25213e37fb8dbb8e9c08a9af6",
+          "png": "3ad6ee6267d571d05420938ab8de0dc2",
+          "exr": "eeb0eddd91ca04801556f2eb6d1b4ea6"
+        },
+        "normal": {
+          "jpg": "6c62f9ebf4a3298d7a7597fef12054d7",
+          "png": "8cc3a39fc5aaf3bef75bf2cdb8f866a2",
+          "exr": "4873143c7b03bda15ab40558718a6db8"
+        }
+      }
+    },
+    {
+      "asset_id": "defense_wall_02",
+      "api_url": "https://api.polyhaven.com/files/defense_wall_02",
+      "files_hash": "1644479946541b2fb2f08d980f80214affffcd17",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "0d6c7e00cb4466e79a1f4648eb02c2f3",
+          "png": "2fbbc11af898c509ed35a4eb234c5d42",
+          "exr": "b2688ebcd5b9be6da629ef7f220bcf45"
+        },
+        "roughness": {
+          "jpg": "519d6cacab738ddb612c1a2c50ae775d",
+          "png": "f81b4801b0fde3e3ed0b6f2a3a456294",
+          "exr": "ab4c8b930a1d64f8535f6a05ee505600"
+        },
+        "normal": {
+          "jpg": "c70eb7e0c517c6f20c20eadb18fdc856",
+          "png": "cd1e1205cc0809fc72641b6a0c023163",
+          "exr": "a47dca35f0e5a503cc849e1983f463e8"
+        }
+      }
+    },
+    {
+      "asset_id": "marble_tiles",
+      "api_url": "https://api.polyhaven.com/files/marble_tiles",
+      "files_hash": "afe8821c16c3590d9767693b9dda47be410849bf",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "8a023d7399c685ab7b539b05a433bc89",
+          "png": "dbd908fa4afa020e1623b1e7ab3f9c7b",
+          "exr": "4146c5849e81b159ffd6bc5eed6502fa"
+        },
+        "roughness": {
+          "jpg": "43b46a37ebac482492e633bf81842af4",
+          "png": "9fa42445cb9e889ca591eb3b636a6793",
+          "exr": "03368a41e937987a2f5540fd6e472647"
+        },
+        "normal": {
+          "jpg": "2514f9c3427e22a702338cdddff62349",
+          "png": "0f41183021e879f105d0970190f77ab9",
+          "exr": "15bcb02680f24109f95d8cbd7f1bde5f"
+        }
+      }
+    },
+    {
+      "asset_id": "square_tiles_03",
+      "api_url": "https://api.polyhaven.com/files/square_tiles_03",
+      "files_hash": "f2cdaf1bb4f9fc3d2057e9b3d4164678a4f16a14",
+      "map_md5_1k": {
+        "color": {
+          "exr": "98acd3f677680fd7aa610e0e10cf20c1",
+          "jpg": "1c978e1a0c84728a36a4cd6801b16cdd",
+          "png": "968b8992925a40bbf0b304ac80f9cdbc"
+        },
+        "roughness": {
+          "exr": "995c35962f6f995eb0f2f5f79803bf4d",
+          "jpg": "04d29e14ead92c9bdcfeec79bd233a09",
+          "png": "2e963cb33c396a0ce0aa06d14d7a9bbf"
+        },
+        "normal": {
+          "exr": "781dc24bc969f7fc3fd8d9723e10d20f",
+          "jpg": "dace1b24544f73ef18a18be5b09e2d1f",
+          "png": "4f792bd7617a814c2219ebb7bb8ce431"
+        }
+      }
+    },
+    {
+      "asset_id": "rock_06",
+      "api_url": "https://api.polyhaven.com/files/rock_06",
+      "files_hash": "6be527d9eaabf2b64d5695a4a4c355c52f595a36",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "72a5bd7c0d441c750bf9b7c97e764e33",
+          "png": "515ae8e322c7e5efb0efcb0344cd392e",
+          "exr": "40d48e76aa80c92e837d425b94e592ca"
+        },
+        "roughness": {
+          "jpg": "e86d5b5d63213ca6099fe91558a053c9",
+          "png": "8d313784a144ec9f64bf458dcf38ee1f",
+          "exr": "89274693011ebc302714c9f24ae79227"
+        },
+        "normal": {
+          "jpg": "ff69cca602dd3a3661e9f17cc085e70f",
+          "png": "258e2900dec09e14d376116a626c6e48",
+          "exr": "b7c1c07ed85064add97a6ac2c6a8b690"
+        }
+      }
+    },
+    {
+      "asset_id": "stone_embedded_tiles",
+      "api_url": "https://api.polyhaven.com/files/stone_embedded_tiles",
+      "files_hash": "b3edbde450690b24fa35bde621a6b42aa9aa66d8",
+      "map_md5_1k": {
+        "color": {
+          "exr": "e96afecbcb540df8e60f9b502d2b6854",
+          "jpg": "dfe0a73b32750556bb14c2c88eb80ff3",
+          "png": "6a25585e95b57927a8344ec1b6c72c20"
+        },
+        "roughness": {
+          "exr": "36f33ac1e11ceb0d7c04347adaed8b28",
+          "jpg": "221440c8961da570834ef6098978db6d",
+          "png": "17e5aeed83f623d361291202a3bfffbd"
+        },
+        "normal": {
+          "exr": "35f792f323ca744f3bf6c3c70a0a252b",
+          "jpg": "921b139e6b85e8454ed6faaca31faeac",
+          "png": "63c6e22af7281edced2b144102997bf3"
+        }
+      }
+    },
+    {
+      "asset_id": "lichen_rock",
+      "api_url": "https://api.polyhaven.com/files/lichen_rock",
+      "files_hash": "3f77b26ff52da2807965072c56cbf18b8fcf3af5",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "453cc496091c1be83d0151249c97cecd",
+          "png": "30d342ae49bfe304357c4c106959c828",
+          "exr": "7288e08f6ef26a523e34912a8009b217"
+        },
+        "roughness": {
+          "jpg": "29bc56b1e789e65d7fa821d31b775f4b",
+          "png": "23390961b0d2d909927b74fd2da1329a",
+          "exr": "60eade7eb7a39f067acc22a173cfad01"
+        },
+        "normal": {
+          "jpg": "93783a7b605a162b4be4600f561ea408",
+          "png": "94894d88e77d88090f617be070ce9ed8",
+          "exr": "823e44284fa8343f9c0fdd77e72cbdcc"
+        }
+      }
+    },
+    {
+      "asset_id": "rock_boulder_dry",
+      "api_url": "https://api.polyhaven.com/files/rock_boulder_dry",
+      "files_hash": "d0ca2468d0a2b2453c93e504016641249b400e4d",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "da794cd9be3db91e3160cf081109f322",
+          "png": "3903508680ae823cd0d3c843fccfdf5a",
+          "exr": "cb986baafd01e9d5ab44b84e7b9d21f9"
+        },
+        "roughness": {
+          "jpg": "0c8b15df3e31c15256da5f8e1b0d0759",
+          "png": "4b293c21fd24f194a7f512b1f05c363c",
+          "exr": "b8d65c4b2ae9c3244eefceb1f73e09c6"
+        },
+        "normal": {
+          "jpg": "6f1c575ceed560ae253f65518cf748e2",
+          "png": "90a2f0d635e2216aa6ce4ac927459c7f",
+          "exr": "6ebc532881dcd7f7dff9cd0ccb003a3a"
+        }
+      }
+    },
+    {
+      "asset_id": "rock_wall_17",
+      "api_url": "https://api.polyhaven.com/files/rock_wall_17",
+      "files_hash": "cff0acad91bd0d3c110cbfe1185198dc32b7cb58",
+      "map_md5_1k": {
+        "color": {
+          "exr": "fea60f752e88e57a3ae3b165d46a49a1",
+          "jpg": "458fc020e14590f20f82e895125da09d",
+          "png": "434e37c40aed2207a6375c983f0c7e35"
+        },
+        "roughness": {
+          "exr": "1000eadca5da70adbac05260fb2df197",
+          "jpg": "5659fe0e665b54bcaed656d418b995fe",
+          "png": "7ed303e3d5b98fe503f82d73b926dc81"
+        },
+        "normal": {
+          "exr": "8c32074f5698466278d77cfe959c8b8a",
+          "jpg": "9421cbb6b48f163d9d79d5312c910315",
+          "png": "075c8d42f386a984d13b7a0594c6339e"
+        }
+      }
+    },
+    {
+      "asset_id": "cobblestone_pavement",
+      "api_url": "https://api.polyhaven.com/files/cobblestone_pavement",
+      "files_hash": "3f11562d404f47762e6681dab9c9743454bce163",
+      "map_md5_1k": {
+        "color": {
+          "exr": "f582bd5f81db19b63964fbd6213ec16b",
+          "jpg": "a1b10c497b682a04084316527efb497d",
+          "png": "2ea3e16d9006113212a164e75c67f59f"
+        },
+        "roughness": {
+          "exr": "d299a756ebcd6a04ad422195e0b47185",
+          "jpg": "af95a84e9c0047fd630bcaf6d5ebd331",
+          "png": "53f7e0247d84a4fdc6347159b3752487"
+        },
+        "normal": {
+          "exr": "c1f7f155b87a592bb798a32594a41684",
+          "jpg": "fdf410896de8bcf6a78cc968fa361a2d",
+          "png": "61fcf95ed890c917877607e7172a13e3"
+        }
+      }
+    },
+    {
+      "asset_id": "stone_tiles_02",
+      "api_url": "https://api.polyhaven.com/files/stone_tiles_02",
+      "files_hash": "746cd3c7d37b94201ed0cb4e9a407e0c7b013caf",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "8d2ebfc3505efbb610aa5010d38d2df8",
+          "png": "88c051da059f8658ff74825c5e80b2ca",
+          "exr": "c44415a8a360430a62f59a2485ad3329"
+        },
+        "roughness": {
+          "jpg": "714fdf8447c0c1745d3c2957bb581af4",
+          "png": "2645ff33230749a464fe67a08e39acd0",
+          "exr": "829a415c78bcee6bab757b566f55dfc8"
+        },
+        "normal": {
+          "jpg": "cca5bd87964b755cc85c01322e8d1a0e",
+          "png": "876bd6329f465bf4d095275ef5fbe1a9",
+          "exr": "61bce16f9ac000d26b14034d1f85c3d1"
+        }
+      }
+    },
+    {
+      "asset_id": "rock_face_03",
+      "api_url": "https://api.polyhaven.com/files/rock_face_03",
+      "files_hash": "d48f9ea2b7ecd038fa76a01c54309b8aa1e80d1e",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "e4c34abb1aad5befe12754fad507147a",
+          "png": "9c0e0f8a40d9bde94b4e92fa5574648a",
+          "exr": "541028c158562c98046ebff0b32a404f"
+        },
+        "roughness": {
+          "jpg": "bbb2c7dafde3f81808fa7404d4527a56",
+          "png": "f0882d41a7a4158c95efb93ce353b0b1",
+          "exr": "7444549806a519df510843c51ccf99fd"
+        },
+        "normal": {
+          "jpg": "cbd30858439ece391480c5e67e09de89",
+          "png": "17a4feb957478ce571e1146c1e278e31",
+          "exr": "d3a8542b6b541274fdf2f6b7d8065c40"
+        }
+      }
+    },
+    {
+      "asset_id": "granite_tile",
+      "api_url": "https://api.polyhaven.com/files/granite_tile",
+      "files_hash": "e9721ed5c35b6d2dc5ad0dc9f8e9fd1b407949ff",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "5dfd6dbdb5c0b22ca04505c6209cea9f",
+          "png": "9fd5757ef0fed00109339a1b327518da",
+          "exr": "7d251c86576778669492a0ca78631a1b"
+        },
+        "roughness": {
+          "jpg": "fd4d40cbc28323260038eedb43bc6ff8",
+          "png": "75a03a0d335b61a0c6c67ce1939feab1",
+          "exr": "4c1b3936b897e4a5731a8263b89391ad"
+        },
+        "normal": {
+          "jpg": "e9053333e3db348d10466a781456ec58",
+          "png": "ae2c56d4217e526e2263c6b09d3bce26",
+          "exr": "4445d765ca1463ca2a5dbdec41c35e82"
+        }
+      }
+    },
+    {
+      "asset_id": "coast_sand_rocks_02",
+      "api_url": "https://api.polyhaven.com/files/coast_sand_rocks_02",
+      "files_hash": "579892253d0d73a45eaee485135c35666bceb237",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "6fa7bee516a8c01a383a782d802b6a3b",
+          "png": "5d3e1637c28540322f60a844a184ddc3",
+          "exr": "09178b018a06ab681efa9061adc3de6c"
+        },
+        "roughness": {
+          "jpg": "fe1a6ef27aba14602724b26e549a2a5c",
+          "png": "cf40aead6335336220c4d34101a64722",
+          "exr": "5f90f33069aa5b581ad12506d5da14d1"
+        },
+        "normal": {
+          "jpg": "38045b4c257fb5a87b373e960e3cbb9c",
+          "png": "e2e26891a633f65ff8323cd8dc29b245",
+          "exr": "64478fabf330ea59015f9e085b37fd55"
+        }
+      }
+    },
+    {
+      "asset_id": "white_stucco",
+      "api_url": "https://api.polyhaven.com/files/white_stucco",
+      "files_hash": "6130f832c1ced67099984a28a99031483624ce44",
+      "map_md5_1k": {
+        "color": {
+          "exr": "75ff29fdcf4e5fb28b001970974568eb",
+          "jpg": "34b66656dbf2a90eec29306deb1a20d0",
+          "png": "3dc354c11aa09d616702c21861a58e1d"
+        },
+        "roughness": {
+          "exr": "ee757ad030f2c67f1794e0af2cea357e",
+          "jpg": "bf6289112520870861b21620fdf9c4d1",
+          "png": "718a88c8e1a29079efd3087e2530e35a"
+        },
+        "normal": {
+          "exr": "125fa98b3785b46b51f33cb427b8c64a",
+          "jpg": "3e70f3be77f582fd41a9a08c8e8a6e66",
+          "png": "0c91c3962f11cf0536857a5e7ffc8a06"
+        }
+      }
+    },
+    {
+      "asset_id": "hangar_concrete_floor",
+      "api_url": "https://api.polyhaven.com/files/hangar_concrete_floor",
+      "files_hash": "feda9a30b18650fdd15ab745a3f0c139e7c05108",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "a073051aeaf7242f5e354ca4c89ac179",
+          "png": "9976638818a6b5ceb4c4825a33176695",
+          "exr": "6b40fea6000bee61cbe4379de3a52cbe"
+        },
+        "roughness": {
+          "jpg": "785ce74ed3a3c00dead34424c5e23749",
+          "png": "5e8b692dbf533b84306e2f694f14fc6c",
+          "exr": "0760be67bd2d66a8dff8c6440fa8cef8"
+        },
+        "normal": {
+          "jpg": "28309c8eaf4dbf8647255d75a5bb8282",
+          "png": "145be3f82872e72a3c53f7b9c3598902",
+          "exr": "24f8bba670f91741ae1c3194939130e2"
+        }
+      }
+    },
+    {
+      "asset_id": "rough_concrete",
+      "api_url": "https://api.polyhaven.com/files/rough_concrete",
+      "files_hash": "38d884db7ce867ff2e6445a31abfe70aa5adc7b5",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "82909f2db1e0453500703ae54e806f5c",
+          "png": "74e2677b4694ed9ac270fb3e6efd21fc",
+          "exr": "3c8d8ef5d5f6228322c866ae511cb15f"
+        },
+        "roughness": {
+          "jpg": "4b530c64e200c3190f527ccc04a4c919",
+          "png": "01948ac6f99840acf5304518b7e99621",
+          "exr": "f74eb07ac23c0a85f8d2fc341c1e1ff9"
+        },
+        "normal": {
+          "jpg": "61f785d44cdbf0b9f3bc68e471177358",
+          "png": "f4cd1b868a1cc1ea89b4174e78e5de11",
+          "exr": "89f8c2084c836a6848f36811aedb3fcc"
+        }
+      }
+    },
+    {
+      "asset_id": "grey_plaster",
+      "api_url": "https://api.polyhaven.com/files/grey_plaster",
+      "files_hash": "a50b917a248abd0044b4c81bd68baa02d6584b66",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "42d2ffe5338fcc0065e28076cbe15eba",
+          "png": "2b0718d2ac9585f33beeb6412ae6f21a",
+          "exr": "f5cccc971d582b3473b1eb4ea2572e07"
+        },
+        "roughness": {
+          "jpg": "b97159bbbb4817965892ec7ab6efe46f",
+          "png": "94ea0cad8dfc3bdb3c9bf3a9a7d2c3c0",
+          "exr": "2c4fdccb7be66dd4596266554df292aa"
+        },
+        "normal": {
+          "jpg": "add2064b193d083c892aead5eaf461d2",
+          "png": "4d5d05acb6bb356d6b07f7ab76f3acdc",
+          "exr": "efbab0f4763a2667aa8a30edb9bf6848"
+        }
+      }
+    },
+    {
+      "asset_id": "granular_concrete",
+      "api_url": "https://api.polyhaven.com/files/granular_concrete",
+      "files_hash": "f732484dd86604392cb3c588724a88b1c7787ec1",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "189811555459ff4d539c862f2b478083",
+          "png": "70bb5528d595351b30ed6d6f1b20e513",
+          "exr": "991889fcd29e007989d47723e3feddd4"
+        },
+        "roughness": {
+          "jpg": "4905547af76bacba1e0163e80a797d3a",
+          "png": "5ddb881926647dc1f13147b7d66e5d3b",
+          "exr": "01704c688509fded3ca9c02c070762c4"
+        },
+        "normal": {
+          "jpg": "f6cbde2f3fd386f76114cf99db46528f",
+          "png": "0d53aaec67ec5baf1449a04cdf258ad6",
+          "exr": "9dc72a0c8421c647e2f5aa9dfbc90cb4"
+        }
+      }
+    },
+    {
+      "asset_id": "concrete_wall_008",
+      "api_url": "https://api.polyhaven.com/files/concrete_wall_008",
+      "files_hash": "d77307121f21d7ce51b194dcc7456117afe03dd4",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "6a0f87fbfea261d797661c47e05b25ad",
+          "png": "28b99bf8056aba1efc21ef09f0477820",
+          "exr": "695d1e5b540f495cdc792c09d41190da"
+        },
+        "roughness": {
+          "jpg": "1f6d5b02c58aff38a69f07a62a4cc231",
+          "png": "f7fdbaef34b034e53e5fd31c64e09b71",
+          "exr": "9d1971482edefada8fbf7d4b0d308da1"
+        },
+        "normal": {
+          "jpg": "ea22029834a78f549981196b3263aa78",
+          "png": "514111a547adc8b3870732f864fc46b4",
+          "exr": "b688d80d264afe941bb9ad985a8bf175"
+        }
+      }
+    },
+    {
+      "asset_id": "blue_plaster_wall",
+      "api_url": "https://api.polyhaven.com/files/blue_plaster_wall",
+      "files_hash": "5755d43ca9f68ae11d8b2865774901c557796020",
+      "map_md5_1k": {
+        "color": {
+          "exr": "44ea2621ac77548af19c7c7bbb127f4a",
+          "jpg": "88f91871d26d251b544530f6f121c39b",
+          "png": "bb9b3e207892bc6d17e2723296c5372e"
+        },
+        "roughness": {
+          "exr": "3b6f17dd300e863795cdf27ae5a2b7cb",
+          "jpg": "1cbba93fc849e201586ba652c42448dd",
+          "png": "86484c81a09bd6545a4df5fa73b4aa16"
+        },
+        "normal": {
+          "exr": "834148372da05368fe808815d4c6e278",
+          "jpg": "bf9f6229257bdbc6be625b652a34f716",
+          "png": "0ef245496d475687affbd970f8344351"
+        }
+      }
+    },
+    {
+      "asset_id": "worn_mossy_plasterwall",
+      "api_url": "https://api.polyhaven.com/files/worn_mossy_plasterwall",
+      "files_hash": "5c1c8f3f56a7a815a748a452761d0fe377faadd6",
+      "map_md5_1k": {
+        "color": {
+          "exr": "9e66debffe966750b3cc4a136c1a3898",
+          "jpg": "f396a70667b8b383a7ebc207a6344481",
+          "png": "adbd56f7ea015689585aad4ac9d39f94"
+        },
+        "roughness": {
+          "exr": "4c7ccd115baa9d45c83e5d0feaf51fc5",
+          "jpg": "e4dc2a169c2cf3b11516623e101a3669",
+          "png": "019443192b61dae8235fa4b98d5e498f"
+        },
+        "normal": {
+          "exr": "fb2bac37ea9be6aa024106f6b8d22a96",
+          "jpg": "d9c20e0db2c6ef279e4afb3010d8d999",
+          "png": "0b53768242bcc591f48457c39446ad2d"
+        }
+      }
+    },
+    {
+      "asset_id": "gravel_embedded_concrete",
+      "api_url": "https://api.polyhaven.com/files/gravel_embedded_concrete",
+      "files_hash": "6d9294be6494fc3fd1f4d685a3c47ac61a888f5b",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "d26c9bb1064422c3d9ab609582183c86",
+          "png": "b3f0fa4b2a74dd245229eb00f14b6edc",
+          "exr": "a222d4c1aa5b67fbf8527724c77389a0"
+        },
+        "roughness": {
+          "jpg": "0d8db4f8f057a05eb7a17f031d4c9d94",
+          "png": "ae638ad50110a6387cef3baa442b53f2",
+          "exr": "db57bc877230c98061de9b86f6082e1c"
+        },
+        "normal": {
+          "jpg": "4014cd99672a5b87a9196c9bbc05cb94",
+          "png": "071fbedc8abcea744f7b459dfbe7fff4",
+          "exr": "ab3522254127bd5e1791dc341bb96b87"
+        }
+      }
+    },
+    {
+      "asset_id": "gravel_concrete_03",
+      "api_url": "https://api.polyhaven.com/files/gravel_concrete_03",
+      "files_hash": "19b25602548875bf68347636407538922bcebef7",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "aa0ac17324785bdd1156badba772d73f",
+          "png": "0ff1bee1f4451c36fd1441dd1265c769",
+          "exr": "0a0a219a67291f648cc267bc1932479e"
+        },
+        "roughness": {
+          "jpg": "274c93878155e63a630212943e2b58e2",
+          "png": "a83906b3d2c1e7ebff29bec83171ed80",
+          "exr": "ab69f91bcc3a958a14725daa46188326"
+        },
+        "normal": {
+          "jpg": "698f7aa24977e2692faf1b06e8b4a4eb",
+          "png": "d2842e38171372256fac3d9598c8b237",
+          "exr": "a158cce3ba978ba7a7fbbc3ab6989fb4"
+        }
+      }
+    },
+    {
+      "asset_id": "concrete_wall_009",
+      "api_url": "https://api.polyhaven.com/files/concrete_wall_009",
+      "files_hash": "aa0ca0dda97572dbc41eac0b2942320a9163d928",
+      "map_md5_1k": {
+        "color": {
+          "exr": "ae353536e232e41f6e3b14c55c70b706",
+          "jpg": "183930f83ca9b70797b1226833d64bf3",
+          "png": "82b75ca05c99208d0daa291cb940f8dc"
+        },
+        "roughness": {
+          "exr": "c8b087bab6e80fbb331a84689bbb007a",
+          "jpg": "4b5da97ce2a223738a67457ff9b75081",
+          "png": "195d23c91215166dd50b0b9892e8b11c"
+        },
+        "normal": {
+          "exr": "ac030f088aff1ab1931a0edcf97fc79c",
+          "jpg": "68c543079c71fd14e9f0b38b126eb116",
+          "png": "f7f7f8dc1c03b2995b667326bd4c7d41"
+        }
+      }
+    },
+    {
+      "asset_id": "plastered_wall_05",
+      "api_url": "https://api.polyhaven.com/files/plastered_wall_05",
+      "files_hash": "54bbeadb70e4f20a54af2f1a6633d195d344308c",
+      "map_md5_1k": {
+        "color": {
+          "exr": "c4143080e3e17e47e2032e896c953d35",
+          "jpg": "b3802ea845531b87adaa61ae23a0ed27",
+          "png": "f16e80b70b0aee19d7571aff326b40fc"
+        },
+        "roughness": {
+          "exr": "b5430ec411f365f0009f315203b0e4ce",
+          "jpg": "af53d26402047d4235ac9adeaed0dc8b",
+          "png": "d3c059aca91b86af0188f880509d380a"
+        },
+        "normal": {
+          "exr": "951e0094e1515fb72e69e4b937dbbfac",
+          "jpg": "0aa2e198b82e3b0d5705f39a510f1041",
+          "png": "7d268dde2974e7bc301ca9b96e187a9e"
+        }
+      }
+    },
+    {
+      "asset_id": "beige_wall_001",
+      "api_url": "https://api.polyhaven.com/files/beige_wall_001",
+      "files_hash": "66328da3fac4865f84ac4bb6f296fe282e734ea5",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "a99610d7d72ec6fb20ae991ad69b3eb7",
+          "png": "d8036233c70af482b05624f5171fd485",
+          "exr": "fc43f426f2bb78aac4a1cdc6303791db"
+        },
+        "roughness": {
+          "jpg": "40d8616d65055c4c984a2807ce933287",
+          "png": "dfd758c497a65d8a9d19743d5d2c5813",
+          "exr": "84287723225275773be46717a012a534"
+        },
+        "normal": {
+          "jpg": "2f5fc5b63c425b359089468f4d719ef5",
+          "png": "2b02d32fd64135893dc0b0b87e05788f",
+          "exr": "8780fd5b59fbc036a5751430f4191654"
+        }
+      }
+    },
+    {
+      "asset_id": "concrete_floor_worn_001",
+      "api_url": "https://api.polyhaven.com/files/concrete_floor_worn_001",
+      "files_hash": "e3d93fd423c3db5bbc000a930cc8b9d770187ce4",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "e35597cca586150b1ab2aa9a331a39c5",
+          "png": "8fb2856c11f46acb31699ad9e10b43f1",
+          "exr": "60d1bf338eff806aa1005ce0c1036a4c"
+        },
+        "roughness": {
+          "jpg": "b158eae73029ac6a849481274a0e1b35",
+          "png": "eb0d189fe1aea3f82edfbb5034a9f3b8",
+          "exr": "55bb3c0b2164f7943ddd1fa7eb50edd4"
+        },
+        "normal": {
+          "jpg": "9de6626758f8793b71182b892c110827",
+          "png": "f51224b2c70a60429eeb2b536fed0151",
+          "exr": "1b4b413c3d8ebf0c4959c9bb9bed8420"
+        }
+      }
+    },
+    {
+      "asset_id": "painted_plaster_wall",
+      "api_url": "https://api.polyhaven.com/files/painted_plaster_wall",
+      "files_hash": "77e9d68a3359a2815a60a62fd3f0eba0f2f41994",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "15ba8c1f63a5ab412b1eabe31728540a",
+          "png": "a579bdf62c32e5d8ada9b167da322416",
+          "exr": "20f314f0fd8f84d4123b351439ed0d13"
+        },
+        "roughness": {
+          "jpg": "e076a6360329a2bc18c7397dc50c074a",
+          "png": "d83a79ebf1c0a51f83c032a9ec87d435",
+          "exr": "96f3110ddf09badeff7c08bb3d328b5b"
+        },
+        "normal": {
+          "jpg": "43fff290583dbdfc9bfa088a2750e840",
+          "png": "a040e68bcbc18ce5f9bb84649c877d01",
+          "exr": "48cd5a012bb80b83a7424b8deb2fcdf9"
+        }
+      }
+    },
+    {
+      "asset_id": "interior_tiles",
+      "api_url": "https://api.polyhaven.com/files/interior_tiles",
+      "files_hash": "2572aac325742047c9cf5ac676685699d94eaf0c",
+      "map_md5_1k": {
+        "color": {
+          "exr": "398c10536061e061cf0ab064cd6652bf",
+          "jpg": "94ba3714450bb6bbe6a57c9a26e8dac5",
+          "png": "96cbb90d815c9baf968a92f7986ab227"
+        },
+        "roughness": {
+          "exr": "9c6e91ae85c57b890eeaa2a75fa74d0b",
+          "jpg": "87e16e8aaeb2f1c1a3d9ed2e6da194ea",
+          "png": "69aa6339f6bcd9022d1cf9e0873bc3d9"
+        },
+        "normal": {
+          "exr": "86c23c2beeb99520c0ebfe3a9095a5d8",
+          "jpg": "5c3a384bef2bbe4222803e7b40641609",
+          "png": "3b5f111a2685f0e4d6ccb15ca32d4648"
+        }
+      }
+    },
+    {
+      "asset_id": "clay_roof_tiles",
+      "api_url": "https://api.polyhaven.com/files/clay_roof_tiles",
+      "files_hash": "045b0a54a86afd93f6571c76296aa2df436a4328",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "d862ac9932b09b0918b5971ddb77099c",
+          "png": "4e78adac16c769fa9df784e2a1ed80f0",
+          "exr": "da1f1afda1dd144381efedcb938a401f"
+        },
+        "roughness": {
+          "jpg": "a5881067d2ba78e439f4782b1f6045bd",
+          "png": "0df576815543c5f633085f4c03e7bcc4",
+          "exr": "a46a9407f8c1caf97e0c12676dd4c0ba"
+        },
+        "normal": {
+          "jpg": "d861a708c94c824befc8aac668052776",
+          "png": "4d77fe7956a96288a31cd357a12b218b",
+          "exr": "e97374f10c80f0c29c741ee265a09598"
+        }
+      }
+    },
+    {
+      "asset_id": "marble_mosaic_tiles",
+      "api_url": "https://api.polyhaven.com/files/marble_mosaic_tiles",
+      "files_hash": "df8e411cab87cacb53cb8deea0a91a2e29a94c4a",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "87d75615bfc7457462370045bfc946a7",
+          "png": "9515e404739ec151e34d89a9aeac1996",
+          "exr": "64fea522cb0c7f379c2f907904741f38"
+        },
+        "roughness": {
+          "jpg": "c79c365d5589c322f805defb8f319a9d",
+          "png": "7fe9e038b8d95f551f6c74f181e3fc24",
+          "exr": "9d718758dda8eadaa5aaad479e308d58"
+        },
+        "normal": {
+          "jpg": "ee181f743b986c438726215c4c1e1bbd",
+          "png": "de3be6de15d98e77852c380fe94ac9ff",
+          "exr": "6731e7bd6e0042fe0fce3891cbf3721e"
+        }
+      }
+    },
+    {
+      "asset_id": "anti_skid_tiles",
+      "api_url": "https://api.polyhaven.com/files/anti_skid_tiles",
+      "files_hash": "c1fab86f1dc643296d1dede562f64393ab996c0d",
+      "map_md5_1k": {
+        "color": {
+          "exr": "8e358453a9cc1e2c52d5d7c9526baa50",
+          "jpg": "03fcfd541a0549a4fd7ad3e0f00151c9",
+          "png": "4d304e772716b5176143a8f489510263"
+        },
+        "roughness": {
+          "exr": "14af45abdcc33c44d76d8112c2e97524",
+          "jpg": "137c078db697bde444b9362c6dab16bf",
+          "png": "d834df9daebccf81755cec117277a3cd"
+        },
+        "normal": {
+          "exr": "6b60b5fbcec0ebab19928b7b27fc033a",
+          "jpg": "ffdd59c0fac1cc5a343a08a456e2ba6b",
+          "png": "566245b8e79f3b4d9af08a8d2d4fd03c"
+        }
+      }
+    },
+    {
+      "asset_id": "patterned_terracotta_tiling",
+      "api_url": "https://api.polyhaven.com/files/patterned_terracotta_tiling",
+      "files_hash": "c689692c267564cb1cc62566ac35f7725f9da654",
+      "map_md5_1k": {
+        "color": {
+          "exr": "bacd355c54571001afe4b29df3355048",
+          "jpg": "e9061d7c3c8046d46cb6f93fdd6bf3a1",
+          "png": "0d6ff549da441743e68584cf93b921fc"
+        },
+        "roughness": {
+          "exr": "4bb023206893e1941130e4f62a08fb87",
+          "jpg": "1762f88f532fbd58f8460f994bb4bbb8",
+          "png": "8469abcf37dcf128d93e1635d2a3074a"
+        },
+        "normal": {
+          "exr": "36a7082ffe4e3de8be8e3e2618cc686d",
+          "jpg": "4430b551134e1661422a73cf055d863a",
+          "png": "99d515dca8283d94d7773a0a232f6a42"
+        }
+      }
+    },
+    {
+      "asset_id": "grey_roof_tiles",
+      "api_url": "https://api.polyhaven.com/files/grey_roof_tiles",
+      "files_hash": "92e23429a38512689bd3b9746f0605897eda345e",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "9a0d2c1ca66e79972c7c35cefa238cf7",
+          "png": "b4da8c2639d6ef6eb90d3b80ec6b087c",
+          "exr": "51735ed82d12f341f370500eb1c3b363"
+        },
+        "roughness": {
+          "jpg": "19961a96ab55dfe97dd76981c59ccb1a",
+          "png": "d7368384653b3a976953a80691d8a0ea",
+          "exr": "024f2bca4dd3db63fe256671ba5c9878"
+        },
+        "normal": {
+          "jpg": "95003919cdb2fcb2f499594bdf0ee827",
+          "png": "928bb588c62f1424462fc37769ec4e6a",
+          "exr": "7249f1d28b14dad5239b3dc55e0ec0cb"
+        }
+      }
+    },
+    {
+      "asset_id": "roof_07",
+      "api_url": "https://api.polyhaven.com/files/roof_07",
+      "files_hash": "82a641040fa1751c01910adf60e6f3cf6728c4db",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "5cca627f07a68f51d66e2d68fa8dea98",
+          "png": "29820e74877961bc88a5c5d33fd92432",
+          "exr": "25d1ccdfb5acc19b7aca216d7230c86a"
+        },
+        "roughness": {
+          "jpg": "2bd7ad21f2ddd70010a317b4c9645787",
+          "png": "f8f3994659a1825d432d694a72219d73",
+          "exr": "14f741c9f6524a96a1348d3c942bbed4"
+        },
+        "normal": {
+          "jpg": "9e300977c51811d98d6c86dda14e8d5a",
+          "png": "b888a775fcbd4d9050fd4e97b0792b06",
+          "exr": "fd40d3f6362ae59ea2127587b7167bb3"
+        }
+      }
+    },
+    {
+      "asset_id": "terrazzo_tiles",
+      "api_url": "https://api.polyhaven.com/files/terrazzo_tiles",
+      "files_hash": "62f6e4d8c61e84c16c55b049f4e0bcf4a8cb45b8",
+      "map_md5_1k": {
+        "color": {
+          "exr": "90ff0ea6706745725034e540220ed137",
+          "jpg": "12c27a579c2ed49de854b8a86e33647b",
+          "png": "3dc90d103a5d528169d703fbb7101847"
+        },
+        "roughness": {
+          "exr": "ddcc3311436d9a2c95a19d726f404394",
+          "jpg": "e34bfd2f4fee1b2b9f310a71588aad17",
+          "png": "f306a279a38425401a733a51b838da0e"
+        },
+        "normal": {
+          "exr": "c626e926a69d4f28f0f708b2c9ba07cc",
+          "jpg": "a5f6d05f27db4151227535bdbc82c048",
+          "png": "6f15863e9728ea32210b114f1e526b6d"
+        }
+      }
+    },
+    {
+      "asset_id": "clay_roof_tiles_03",
+      "api_url": "https://api.polyhaven.com/files/clay_roof_tiles_03",
+      "files_hash": "431e8f1241999dcfb84781c1eea0200c3d113055",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "3600516ecf26b60a8d46dabe2007a7ba",
+          "png": "3b47a26515970f6b6f71319da1494ed7",
+          "exr": "0b4a19598dac01c213e8267f2f09a2bf"
+        },
+        "roughness": {
+          "jpg": "5cdfb71209d75ba0642b9ac03256b335",
+          "png": "0037328211671f3a2bffdb7461c643df",
+          "exr": "755424f48cdfbdf379ce331e4eb771a2"
+        },
+        "normal": {
+          "jpg": "61b471769ef1f72674d1647ff08cc87b",
+          "png": "1d5c7d78f81f59aabaf8cdab53c17b7d",
+          "exr": "2494a203080795ddee6db7d494670956"
+        }
+      }
+    },
+    {
+      "asset_id": "roof_09",
+      "api_url": "https://api.polyhaven.com/files/roof_09",
+      "files_hash": "3266fb10021af18ef9b383b65c707237fda3073a",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "b9ab9e6b8ae7c83e19efaea6442511e7",
+          "png": "163dc5215edfa2bf6cebc8cff41d2bbd",
+          "exr": "06b69851a0bea844405f8e20b6333436"
+        },
+        "roughness": {
+          "jpg": "714cce88275374d9fa3b9823ad486e1d",
+          "png": "2f140086a0084491cf9d14f9920fb2fe",
+          "exr": "7e5bf7c3c61bca58aae0b8fd9057cd80"
+        },
+        "normal": {
+          "jpg": "a97decabde63b9ab0671563231c6850f",
+          "png": "fb23c19bf154abdd7aa1a737eaa6397e",
+          "exr": "c4c813ce5363ab2bdbbfa5f1cc122ae5"
+        }
+      }
+    },
+    {
+      "asset_id": "ceramic_roof_01",
+      "api_url": "https://api.polyhaven.com/files/ceramic_roof_01",
+      "files_hash": "d0a3e35c44e31810eb1b10d4701bc7948f164734",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "5c8b9deb160ae011b496f7d0b8470cbb",
+          "png": "9fd2908d5264880a18ec0962b6244075",
+          "exr": "b05dcd3eac2d4e795950a05613bbcec6"
+        },
+        "roughness": {
+          "jpg": "b113af25b5481ff4cb55e52dce5cac01",
+          "png": "0718d1b51b538d0795a16176460040eb",
+          "exr": "3ce33e88684e1100f290584651e6ea30"
+        },
+        "normal": {
+          "jpg": "c4648f1aedde8db601990f46d8bcde4d",
+          "png": "10bdb07067f0db248b0e69025c1eede4",
+          "exr": "31ed65aa1ae3507ebaf687d859852856"
+        }
+      }
+    },
+    {
+      "asset_id": "terracotta_floor_tiles",
+      "api_url": "https://api.polyhaven.com/files/terracotta_floor_tiles",
+      "files_hash": "269baa11e585f97d7c9f51bc9c6b2fc6abbe3dc0",
+      "map_md5_1k": {
+        "color": {
+          "exr": "795ed3a85e1b509429ef86ee5cc4b658",
+          "jpg": "06cc0f29e2a61115580fe147140c0201",
+          "png": "b024655cb562c6b88efe7869678a189d"
+        },
+        "roughness": {
+          "exr": "c947d26332af62cad501bcefaea37e8f",
+          "jpg": "029c0915fc7cc0e59a426cdbaeac81b3",
+          "png": "e32953f7c13febc115811b87005a2b31"
+        },
+        "normal": {
+          "exr": "8307fccc494bae22788ecf9b488da102",
+          "jpg": "727399912c20adf49b87078c21af8071",
+          "png": "568fe7a7879742c6f627331fa4aa75de"
+        }
+      }
+    },
+    {
+      "asset_id": "long_white_tiles",
+      "api_url": "https://api.polyhaven.com/files/long_white_tiles",
+      "files_hash": "c26e8672a94d97e12b4eb15f3eab2ce954430313",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "49f7e4c3a0afd9a8ca3df5ac75747353",
+          "png": "9295ffb335a31d0b7ef7754899db97dc",
+          "exr": "3e160794060738ca00b816b9c19ae6c4"
+        },
+        "roughness": {
+          "jpg": "d271d3837f7b6e9db9c3a565ff57c290",
+          "png": "31a94677572b3d03f749b7784f3e4097",
+          "exr": "bb9f5e88943966abed9475009174bb01"
+        },
+        "normal": {
+          "jpg": "7837ef3d13258d6ee2bf9ee928d48152",
+          "png": "a7fe27bfba929e636d50f168fc0bf78b",
+          "exr": "a0834467c4490d19e15ca69556ed40e2"
+        }
+      }
+    },
+    {
+      "asset_id": "tiled_floor_001",
+      "api_url": "https://api.polyhaven.com/files/tiled_floor_001",
+      "files_hash": "ca611db7855aa370034f837bfc1a067515534e62",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "9addf9ebd204d63d5ca249bcd215ba43",
+          "png": "54b8cb3b946fd8d296a50feecd236a4d",
+          "exr": "198be33bd372d196bedc63675357ee01"
+        },
+        "roughness": {
+          "jpg": "776af6fd398af0d8e8d62c721b1717c9",
+          "png": "2e027afad17f0b0081cc4e1a4ae565d8",
+          "exr": "def773366d97c22defe04617489b8232"
+        },
+        "normal": {
+          "jpg": "2b66abf674a7641a0392bf2eda1dce2c",
+          "png": "2d117d46b67151a492ee4c2773082a11",
+          "exr": "c34c14af89ac06c283afdec2b797865a"
+        }
+      }
+    },
+    {
+      "asset_id": "clay_roof_tiles_02",
+      "api_url": "https://api.polyhaven.com/files/clay_roof_tiles_02",
+      "files_hash": "a9f30dc8f73f248bfbaeed2325690422c5c8dd1d",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "43c45fa3ac4c68ffb28aa813cec32608",
+          "png": "b18b08433ec87e2b84413ba4ba9c11e0",
+          "exr": "72d8a08c4ebf51c9ccf1f9378dc890d6"
+        },
+        "roughness": {
+          "jpg": "f26a67aa20fbdcb7b70b85ccf4153245",
+          "png": "c305aa97c9dc440e1d1b9400ad92ef1c",
+          "exr": "8d516c9ee21cfc993026c93b5efded58"
+        },
+        "normal": {
+          "jpg": "9e24ddc6fbf048291f8e24bfb1f16e6d",
+          "png": "929933df9ee11da6352d214919f45234",
+          "exr": "c8deda78be90df745a7c5bf9e2fe33b3"
+        }
+      }
+    },
+    {
+      "asset_id": "cotton_jersey",
+      "api_url": "https://api.polyhaven.com/files/cotton_jersey",
+      "files_hash": "de468d9c53b8a1aaa40a37664f778bb44f9effdf",
+      "map_md5_1k": {
+        "color": {
+          "exr": "d8f2329f91a098ecae95b2dc8b9517f5",
+          "jpg": "d2f4493fdd48634b50d40f810ce9deb7",
+          "png": "1ff7e8a7746e02cf9d25a7a64b543876"
+        },
+        "roughness": {
+          "exr": "eb5a7e4f91957e3a10dc205f812f0a3a",
+          "jpg": "ac691d215d3aca34dcd6ea2d03937286",
+          "png": "8f402095349668efe3a79d0352ee3d61"
+        },
+        "normal": {
+          "exr": "80276c95334cb0c92085f07b0fea00d7",
+          "jpg": "2dcc9dda3b726477f607c808e52f1833",
+          "png": "919d63b888f8c495b34e8b261dc23f88"
+        }
+      }
+    },
+    {
+      "asset_id": "curly_teddy_checkered",
+      "api_url": "https://api.polyhaven.com/files/curly_teddy_checkered",
+      "files_hash": "873ed9432a90121b582a7c3d50f2a7432da63d40",
+      "map_md5_1k": {
+        "color": {
+          "exr": "6a5276fd0cf09ce283373d5b1fe2765e",
+          "jpg": "24a64b26d4bf1bd5253386c37df16433",
+          "png": "ad86d8bb1def5025b93c3d8704fa4d35"
+        },
+        "roughness": {
+          "exr": "9e2201e7b8b691fa5dc9828e3ce9e3b9",
+          "jpg": "1f0ec893c2e601fbfe19ee515be6c7a6",
+          "png": "1fa9f7e48068887fa20509ead5f2fbeb"
+        },
+        "normal": {
+          "exr": "df2006dc9fce9dbf03046ba4934f4589",
+          "jpg": "9dc95b98787d7721e939c0366fdf64d0",
+          "png": "88491aa08a82a21e2345a6c0182444ab"
+        }
+      }
+    },
+    {
+      "asset_id": "hessian_380",
+      "api_url": "https://api.polyhaven.com/files/hessian_380",
+      "files_hash": "3965e4ecb1f5357d7678af8153cd4de69e6053fc",
+      "map_md5_1k": {
+        "color": {
+          "exr": "3f7dcb50683bd2d8a9b58d34ac2ce5e3",
+          "jpg": "46f362631d102c66cac0979ecc3bb2a7",
+          "png": "fb68aa5db2a8762e00d6890f79e4e607"
+        },
+        "roughness": {
+          "exr": "a96f43ccd9e78df7ffdf3b187444c56e",
+          "jpg": "463d8d9b48fe04a8004b30451948ecc3",
+          "png": "96f97d2c14ec45d753a0987c491ccd92"
+        },
+        "normal": {
+          "exr": "218372b71582da9e7ee3c64063b290c2",
+          "jpg": "b37d7a02e8c58ee005eb95f5af81d7e7",
+          "png": "f90d04e6c5f54305bd99ed7608104b20"
+        }
+      }
+    },
+    {
+      "asset_id": "faux_fur_geometric",
+      "api_url": "https://api.polyhaven.com/files/faux_fur_geometric",
+      "files_hash": "af81173163b5623e138cfb51cde90a57958ef946",
+      "map_md5_1k": {
+        "color": {
+          "exr": "f1b7ff3097e5a5e0a1f2f5b0e586fd76",
+          "jpg": "533967ecc64c8730bb32fd4abaf0ccc2",
+          "png": "890f4855c126e0fce82e3b7e77a6a582"
+        },
+        "roughness": {
+          "exr": "1ec290da59d832c0cce16bbe64cd7757",
+          "jpg": "320670d6be6df0e98cf2442615ad280b",
+          "png": "a1cad0c5b42e23e84e3df83b4ecfc2ea"
+        },
+        "normal": {
+          "exr": "3eb5a9c4bb9ec447ea84fb8facb17c4b",
+          "jpg": "983904d77bd577392335cafaa5a4da4e",
+          "png": "3bcd3d72a0b2851885c2d71c929516ac"
+        }
+      }
+    },
+    {
+      "asset_id": "hessian_230",
+      "api_url": "https://api.polyhaven.com/files/hessian_230",
+      "files_hash": "d079bb37a6f74d60f94f1d05ddecfe71e1541c4c",
+      "map_md5_1k": {
+        "color": {
+          "exr": "db96428256b7604d6b199f183886eed5",
+          "jpg": "6d2cee5fb9e5584b7a202ab27e1a6dcc",
+          "png": "407ff83c116cda9364d9d6a4bb932499"
+        },
+        "roughness": {
+          "exr": "b669a464d6dd6671786c764e9231c8bc",
+          "jpg": "8d3a20d7cc91d00de7d5980d471b3c59",
+          "png": "e9f01f780259d1ff7d6faab96fe88feb"
+        },
+        "normal": {
+          "exr": "3db9c7abcec906a11ecc50ccfc6dc744",
+          "jpg": "468a884ffa63d912053840b110674c0a",
+          "png": "60c36478c461a1623490763e6520dbd6"
+        }
+      }
+    },
+    {
+      "asset_id": "denim_fabric",
+      "api_url": "https://api.polyhaven.com/files/denim_fabric",
+      "files_hash": "96b7861fe6bf60dcc6cd7f46f471123cb07c1e2a",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "3835b5e277dd99784bfe68d985da14ae",
+          "png": "42f4f6931dc9a0ce887f3306153d010d",
+          "exr": "16c799457bd016f4293fc050583f607e"
+        },
+        "roughness": {
+          "jpg": "7eebb4a6185f2e6805976bc356dd1b41",
+          "png": "ce0622b350795f3611c1cd75648af0e4",
+          "exr": "f232fae58d8aa406fe3049f934986de1"
+        },
+        "normal": {
+          "jpg": "9008fe723671f9cb3e6d0889eab9adb0",
+          "png": "a69dde8ef7f9943fe3a62805b5357eb2",
+          "exr": "03741a1b0b11dafa03e72fd600dd8b8f"
+        }
+      }
+    },
+    {
+      "asset_id": "dirty_carpet",
+      "api_url": "https://api.polyhaven.com/files/dirty_carpet",
+      "files_hash": "5a10cbdb900933c85bebdd7abc6efe94bf5caa36",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "97c0a4b94e5660c117cc511b240aa3b3",
+          "png": "fd0b464505af66421a4617c4f376a52a",
+          "exr": "1342e53fe508def008903a563c9b467e"
+        },
+        "roughness": {
+          "jpg": "c2862c2725bddaa3ad6bbf5eb0ccb9d8",
+          "png": "65cc677afbd757bcff8c6ea235c68259",
+          "exr": "cb77cf3c0c5062524b92a8ab569797e0"
+        },
+        "normal": {
+          "jpg": "f6835454628831b0d8feceba6202e7a1",
+          "png": "637e0c4669fbe2bd223c9f8af364a3a7",
+          "exr": "e2b6930ed97477770e2afd9992682f1c"
+        }
+      }
+    },
+    {
+      "asset_id": "caban",
+      "api_url": "https://api.polyhaven.com/files/caban",
+      "files_hash": "3b99bf29cd53f14eeb68c0065ff23b8e5f83a6d1",
+      "map_md5_1k": {
+        "color": {
+          "exr": "116201388f9077fa352a81ef138288a1",
+          "jpg": "4b9ff6f1c315df49e04b24ea5ad73975",
+          "png": "87ac5287e5422d486e57c85c505226d4"
+        },
+        "roughness": {
+          "exr": "002b530fc951ba08d6e1c63d125b1aef",
+          "jpg": "83ab230ac899f0d7e79a37aea5c86c71",
+          "png": "67873188afef7939f8d70f761d229062"
+        },
+        "normal": {
+          "exr": "b7863a763c384994fbf83cb9a52334ea",
+          "jpg": "d49000ceacc82e0a9626b304924bf482",
+          "png": "63ec3a6d7ab833d6235c48183644d2b3"
+        }
+      }
+    },
+    {
+      "asset_id": "jersey_melange",
+      "api_url": "https://api.polyhaven.com/files/jersey_melange",
+      "files_hash": "4be112100fd14897cc82f3832342db6bd8234d1e",
+      "map_md5_1k": {
+        "color": {
+          "exr": "be2ebbb072b86d59141770632b294798",
+          "jpg": "1deffa51428e4828478075d2a1b34ac9",
+          "png": "9d18c366ce4f019e56a53be6292a452a"
+        },
+        "roughness": {
+          "exr": "4ce7fe2305a70fd2dfa97f8063227f7f",
+          "jpg": "aa0a9ffa26087cd8f439e80034e39caa",
+          "png": "ce5a857563cb3065f0874805b3a06c41"
+        },
+        "normal": {
+          "exr": "3f2b0340b0f119a71d43860f6d3c923f",
+          "jpg": "80ced35905a68e5e92fc1018f1078025",
+          "png": "a3f78d85ca37b23ecff7e57f83b559a5"
+        }
+      }
+    },
+    {
+      "asset_id": "knitted_fleece",
+      "api_url": "https://api.polyhaven.com/files/knitted_fleece",
+      "files_hash": "c316169377ce2f8e7231f440d66ade416974ede2",
+      "map_md5_1k": {
+        "color": {
+          "exr": "c542772b4067ade97b27821276aa9ed8",
+          "jpg": "712475d9e6358c001260f6555a7821be",
+          "png": "2b81b4ba0711a70826a1635fa5e87cee"
+        },
+        "roughness": {
+          "exr": "f70ce822e6d3f5851792c2f4047f4e67",
+          "jpg": "9122b74fc45c09b132bc6bacb95d3d11",
+          "png": "33baf6c388555a73d96ce4eed68e1e0c"
+        },
+        "normal": {
+          "exr": "73965adbfe0b6ba46000995bcac50f8b",
+          "jpg": "c76c323dc9249aaea3150f1770090c05",
+          "png": "c6992a43b921b034b7f4e70efc8a5bf9"
+        }
+      }
+    },
+    {
+      "asset_id": "wool_boucle",
+      "api_url": "https://api.polyhaven.com/files/wool_boucle",
+      "files_hash": "8b639b50e18a7d4c14f2fcf28340d37448bd35b1",
+      "map_md5_1k": {
+        "color": {
+          "exr": "1952d1af338e5b02f52c40f111df4b8f",
+          "jpg": "e3d4b30b5f36d4763f9bd2f2e8d92f8e",
+          "png": "16b36e3ee38bb260ef522da5028df098"
+        },
+        "roughness": {
+          "exr": "b78553b76c99e1dad462cc895db252d6",
+          "jpg": "48bfe3aac53735ada81add2f1054a3f5",
+          "png": "fbd80e3e57036710288ae9a792001c88"
+        },
+        "normal": {
+          "exr": "ff18cb780fba76e37130f7bf337f246c",
+          "jpg": "6a413f9a1aa70ab3bb4fede917cf8a64",
+          "png": "f4d1062f8cc151b43a237212a7e7064c"
+        }
+      }
+    },
+    {
+      "asset_id": "denim_fabric_06",
+      "api_url": "https://api.polyhaven.com/files/denim_fabric_06",
+      "files_hash": "391cf3b8d04fbcd5f2e111885c3c333d03ce982b",
+      "map_md5_1k": {
+        "color": {
+          "exr": "ca1b327f3cbf26272ef120f06898360b",
+          "jpg": "0441b69c4ebb2bcf1c0c1fb179c2c1cc",
+          "png": "614c974ff8fa37ef20c1baa5a9ca3b82"
+        },
+        "roughness": {
+          "exr": "0406f0742abeb6dccea9fc83b505fff9",
+          "jpg": "a7ddd6594207a323b20175f012916f9f",
+          "png": "338a5313677425964b5e391dccc521c2"
+        },
+        "normal": {
+          "exr": "98bea6a7d7c4b2851f164499617f8944",
+          "jpg": "93f7e9233d923c3b021de6367cc9c4f0",
+          "png": "e1fb8f3927433ed5455d4f76424f3472"
+        }
+      }
+    },
+    {
+      "asset_id": "polar_fleece",
+      "api_url": "https://api.polyhaven.com/files/polar_fleece",
+      "files_hash": "de9304ba352bc23a0c3a9635325f4bcb4e2628a5",
+      "map_md5_1k": {
+        "color": {
+          "exr": "b15d2b32f06de86f725eed5d87ecec03",
+          "jpg": "92d8dbc261c2ff09bb028a68bb7ad01b",
+          "png": "e050253550f1cbfa94c3b96afb6c4027"
+        },
+        "roughness": {
+          "exr": "38f1e7773cf1f394558ee8b41c9bad2b",
+          "jpg": "1922fd67082de2f465a4ad8442cc714d",
+          "png": "efc0ed80b42572174c553a4fe98ad534"
+        },
+        "normal": {
+          "exr": "e802dacf40153913175bc42d871fc1b4",
+          "jpg": "f821b0ba283a45258f144182016328dd",
+          "png": "26db35ae01e9e7d5253e5b5cd13e0e1d"
+        }
+      }
+    },
+    {
+      "asset_id": "denmin_fabric_02",
+      "api_url": "https://api.polyhaven.com/files/denmin_fabric_02",
+      "files_hash": "414e6d5d95efbd5f4215418985a6a0c63c1bf3ad",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "4f2d1e96f967a32c93fe1d853c71bfa8",
+          "png": "151b26d0ba14688bd5f6bfbe4c1a7ffe",
+          "exr": "543ec143b0061c7b10863c02fa0dacd9"
+        },
+        "roughness": {
+          "jpg": "cdb64b61e87759a6164c2cf53e8ea1fc",
+          "png": "c7d823b0b6f6236767aadde6473f6106",
+          "exr": "8eb222ff510f30310ae9377ce4927af0"
+        },
+        "normal": {
+          "jpg": "869c1a23fac98be8a0405be51f8c6e5e",
+          "png": "e6e39a5149383b967f75c92f617d3bf2",
+          "exr": "64560513d23768f94006af9b69552550"
+        }
+      }
+    },
+    {
+      "asset_id": "jogging_melange",
+      "api_url": "https://api.polyhaven.com/files/jogging_melange",
+      "files_hash": "79a8208d57e8307e6c3834a35351b788f7bb557a",
+      "map_md5_1k": {
+        "color": {
+          "exr": "e50759125ff628f28d0be1c17aca9333",
+          "jpg": "012f098e40be72711c76a1821c21475a",
+          "png": "cf4f5f17cabdfe75d89d9693bf11f003"
+        },
+        "roughness": {
+          "exr": "d6f1646c6aaf3c230b07ef06dc6f5efd",
+          "jpg": "c8ae9f2f8da8343dbe7802d016f71425",
+          "png": "8ab992684d0d00a8763308169773b414"
+        },
+        "normal": {
+          "exr": "0792634c878602eee5f65823d2874a28",
+          "jpg": "ecf228c9bbb9d56477c419c52e110cff",
+          "png": "e375a9f08f64a70503279fab87abed0b"
+        }
+      }
+    },
+    {
+      "asset_id": "fabric_leather_01",
+      "api_url": "https://api.polyhaven.com/files/fabric_leather_01",
+      "files_hash": "1ffb69f738b865a70bcff2bb110ea9b3814883c5",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "54ef2a19a00d35a9cd374e419fb75912",
+          "png": "82b29a770f0195a7f092361350202698",
+          "exr": "bcaf67b7917f03b2673178eb7bb3427e"
+        },
+        "roughness": {
+          "jpg": "8984afb0139f961a4a05d58f3c9403df",
+          "png": "07b92a577fd5e844f9ab01ee03629366",
+          "exr": "476280e25882bec2e5b311df167db68c"
+        },
+        "normal": {
+          "jpg": "1846424108d23c79a3e46a3e5fd3c6bc",
+          "png": "03d957452528dc9d26894cea054be207",
+          "exr": "65e0ed440aeba7dc997686024659fe10"
+        }
+      }
+    },
+    {
+      "asset_id": "fabric_leather_02",
+      "api_url": "https://api.polyhaven.com/files/fabric_leather_02",
+      "files_hash": "bf7a36ee9fa03ad746b3646b5e6306489a7d11d1",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "35256026fcf2734d558ee2aa8f939c10",
+          "png": "7d590354375582d7cbb183c2acf2c936",
+          "exr": "22fea2d6a640bf9787a8d0588a1bf5d1"
+        },
+        "roughness": {
+          "jpg": "a1582ea1adc9bd4fa1608f8374ab90b8",
+          "png": "5861a475cc0c960b97924a9c9b14d59d",
+          "exr": "665f61232429e2695f415974a63c05b6"
+        },
+        "normal": {
+          "jpg": "1600b3fed674702eaa350cd627278a0f",
+          "png": "620c88cf6ab4c17203c8e2cfc8246c31",
+          "exr": "98b22ddc0aded5f9439e4d013d5aaec8"
+        }
+      }
+    },
+    {
+      "asset_id": "leather_red_03",
+      "api_url": "https://api.polyhaven.com/files/leather_red_03",
+      "files_hash": "a42dfb9773cb49059e95f50a49e383d48a9db5a8",
+      "map_md5_1k": {
+        "color": {},
+        "roughness": {
+          "jpg": "c9cec5f5c5c9977a062c4cab96acbc17",
+          "png": "b32006348bb641c8d81b92a575c7f8e8",
+          "exr": "b266b8439e977955431c3ed3add01f22"
+        },
+        "normal": {
+          "jpg": "1085d6c9685e564fcff810a563df380b",
+          "png": "c6b40eb990e9bdc940d6873179f23f8f",
+          "exr": "ec88a2eae41625ff9d63c4d813aa02e8"
+        }
+      }
+    },
+    {
+      "asset_id": "brown_leather",
+      "api_url": "https://api.polyhaven.com/files/brown_leather",
+      "files_hash": "b9a9a4129b9cec6e01f3ba38eee9bd342e1bac19",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "080b3bf1372766ff2c7ff121ed07b5e8",
+          "png": "5b135b9fb7e8ff79dd9e9887abfe8bc2",
+          "exr": "a0f85fddc556f0e0fecf37a375bb100f"
+        },
+        "roughness": {
+          "jpg": "0f3a0148c8d2d25fbeca67e64e79bca0",
+          "png": "0b8b2c76bbccb6811987f631d3ed4219",
+          "exr": "9d041b8c1f3e286c529a33c8bc78881d"
+        },
+        "normal": {
+          "jpg": "b63ae0121a415c23d74eed0b07fc6065",
+          "png": "dce9f0828b9dd7c3fb560f6c27b7c6d0",
+          "exr": "619691d0ae6c98e0281be2ba6f7a38d1"
+        }
+      }
+    },
+    {
+      "asset_id": "leather_white",
+      "api_url": "https://api.polyhaven.com/files/leather_white",
+      "files_hash": "f772dd6a44080e64a320989faeb12bae236109cf",
+      "map_md5_1k": {
+        "color": {
+          "jpg": "a580e1c45d806a56d89331f9a549ecb2",
+          "png": "1637180bd95d3d8a1c5337e51d4273dd",
+          "exr": "154786abd8712a0072e02abad2f7b051"
+        },
+        "roughness": {
+          "jpg": "db1052bac557bb6b03fdde325a853af4",
+          "png": "e123a506995c95b12dcbb8e3dc56a1c4",
+          "exr": "4e3ade7485590e8459f8de74da85cefa"
+        },
+        "normal": {
+          "jpg": "4226eb91e17693722f3368cd41a3b1c9",
+          "png": "2ad9cc7795a17c95bf7a82070927539f",
+          "exr": "55c33731cf59625f7162410c29941827"
+        }
+      }
+    },
+    {
+      "asset_id": "leather_red_02",
+      "api_url": "https://api.polyhaven.com/files/leather_red_02",
+      "files_hash": "2651d8269cad06cc0407f69d572632d16493aa6e",
+      "map_md5_1k": {
+        "color": {},
+        "roughness": {
+          "jpg": "7c65693a61e330144bd9b5949e64a4a6",
+          "png": "c9106429d1d9a37a60668895d46cdd1b",
+          "exr": "4dfdc3b0a3871db308326cca7e0b9215"
+        },
+        "normal": {
+          "jpg": "6edef21f3d06f4acff1f567d9908f42d",
+          "png": "15f5f55e8f81441bf42ddf535f512bd0",
+          "exr": "ce19d8bd6da82155de295136682171be"
+        }
+      }
+    }
+  ],
+  "collisions": []
+}

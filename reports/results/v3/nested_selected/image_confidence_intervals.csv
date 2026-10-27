@@ -1,0 +1,16 @@
+estimate_type,metric,estimate,lower,upper,n_valid,n_undefined
+Nested/grouped OOF development estimates; not an untouched test evaluation,accuracy,0.793968253968254,0.7265355511136493,0.8556604536850461,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,balanced_accuracy,0.793968253968254,0.725608537713331,0.8549740896358542,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,macro_precision,0.8031809177900682,0.744339396470099,0.8648003667877752,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,macro_recall,0.793968253968254,0.725608537713331,0.8549740896358542,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,macro_f1,0.7954847513984545,0.7266740587627577,0.8558647087611145,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,weighted_precision,0.8031809177900682,0.7447733729575099,0.8647190273371329,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,weighted_recall,0.793968253968254,0.7265355511136493,0.8556604536850461,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,weighted_f1,0.7954847513984545,0.7269340663340864,0.8558563224529933,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,log_loss,0.7855376489678222,0.4599857195818616,1.1866249797749466,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,brier_score,0.3173544426548102,0.22280011712473285,0.42335611596922645,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,ece,0.07252708418157758,0.03574736721047825,0.13224757451273633,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,mcc,0.7607741115371879,0.6840303458876246,0.8326994619594394,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,cohen_kappa,0.7596296296296297,0.6808053209771501,0.831540442152348,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,source_balanced_accuracy,0.7904290429042904,0.7221122112211221,0.8541254125412541,10000,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,class_balanced_source_accuracy,0.7896031746031745,0.7208500566893423,0.8534702380952383,10000,0

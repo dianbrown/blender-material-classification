@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "declared_before_v3_results": true,
+  "seed": 62643,
+  "purpose": "Paired sensitivity evaluation of the locked final classifier, never selection or training augmentation tuning.",
+  "conditions": [
+    {"name": "brightness_low", "operation": "brightness", "factor": 0.6},
+    {"name": "brightness_high", "operation": "brightness", "factor": 1.4},
+    {"name": "gaussian_blur", "operation": "gaussian_blur", "radius": 1.5},
+    {"name": "jpeg_quality30", "operation": "jpeg", "quality": 30},
+    {"name": "resolution128", "operation": "downsample", "size": 128}
+  ],
+  "scope": "All available fresh holdout images, after clean endpoint is frozen; fall back to explicit development-only diagnostic if no fresh holdout is completed.",
+  "metrics": ["accuracy", "macro_f1", "accuracy_drop_from_clean", "per_class_recall"],
+  "limitations": "Finite synthetic corruptions do not demonstrate robustness under all circumstances or real-world deployment. Transform before the frozen model preprocessing. No learned corruption parameters."
+}

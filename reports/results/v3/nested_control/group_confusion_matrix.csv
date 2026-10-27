@@ -1,0 +1,8 @@
+estimate_type,true_class,wood,metal,stone,concrete,ceramic,fabric,leather
+Nested/grouped OOF development estimates; not an untouched test evaluation,wood,11,2,0,1,0,0,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,metal,2,12,0,1,0,0,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,stone,0,0,12,0,2,0,1
+Nested/grouped OOF development estimates; not an untouched test evaluation,concrete,0,0,0,12,0,3,0
+Nested/grouped OOF development estimates; not an untouched test evaluation,ceramic,1,0,2,0,11,0,1
+Nested/grouped OOF development estimates; not an untouched test evaluation,fabric,0,1,2,1,0,10,1
+Nested/grouped OOF development estimates; not an untouched test evaluation,leather,0,0,2,1,1,1,7

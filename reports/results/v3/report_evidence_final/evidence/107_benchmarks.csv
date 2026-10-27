@@ -1,0 +1,5 @@
+Pipeline,Batch 1 median ms,Batch 16 images/s,Deployment bytes
+Primary frozen fusion,42.876,46.361,"203,629,625"
+ConvNeXt control,14.205,174.416,"115,271,775"
+Fixed ResNet-50,9.463,294.688,"95,315,284"
+Fine-tuned DINOv2,13.862,101.438,"88,027,439"

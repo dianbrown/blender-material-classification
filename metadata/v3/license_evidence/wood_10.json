@@ -1,0 +1,121 @@
+{
+  "attribution": "Jenelle van Heerden (All). Publisher: Poly Haven.",
+  "author": {
+    "Jenelle van Heerden": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "4f6a7a1cf293128cb8192ee014e42257",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/smoke_speckled_veneer_diff_2k.jpg"
+        ],
+        "official_md5": "4f6a7a1cf293128cb8192ee014e42257",
+        "official_size_bytes": 2218751,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/smoke_speckled_veneer/smoke_speckled_veneer_diff_2k.jpg"
+      },
+      "path": "materials/wood/wood_10/smoke_speckled_veneer_diff_2k.jpg",
+      "sha256": "2d01f221f202958a3015558d4c408ffba1fb718940238977b3f6cd45fee6116b",
+      "size_bytes": 2218751,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "ce6cd4d2faf5beff6fe6572eb2c3946f",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/smoke_speckled_veneer_nor_gl_2k.exr"
+        ],
+        "official_md5": "ce6cd4d2faf5beff6fe6572eb2c3946f",
+        "official_size_bytes": 4320254,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/smoke_speckled_veneer/smoke_speckled_veneer_nor_gl_2k.exr"
+      },
+      "path": "materials/wood/wood_10/smoke_speckled_veneer_nor_gl_2k.exr",
+      "sha256": "b34d88caafc1fdd4153f087810065f763c85b84fb610e6c96ed07bb256a023ff",
+      "size_bytes": 4320254,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "e5d8ddfc7e1f5c20f1b73a5c24171d78",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/smoke_speckled_veneer_rough_2k.exr"
+        ],
+        "official_md5": "e5d8ddfc7e1f5c20f1b73a5c24171d78",
+        "official_size_bytes": 2914165,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/smoke_speckled_veneer/smoke_speckled_veneer_rough_2k.exr"
+      },
+      "path": "materials/wood/wood_10/smoke_speckled_veneer_rough_2k.exr",
+      "sha256": "ed2f625d36c0a8a3ad482119b38451620e7a9c43edaeaeacba41f443c3ae622e",
+      "size_bytes": 2914165,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "wood_10",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"77a6-MJPIImVl8TxFQwod6N6FRfhW/Jg\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/smoke_speckled_veneer",
+    "response_bytes": 30630,
+    "response_sha256": "1710c4821c19190dbd5b375905ea46d66f9a924d192ec8f512a5a4bed252eb2f",
+    "retrieved_at_utc": "2026-10-27T07:12:59.611807+00:00",
+    "url": "https://api.polyhaven.com/files/smoke_speckled_veneer"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "smoke_speckled_veneer",
+  "schema_version": 1,
+  "source_fingerprint": "1b34a29a885c42cb5986cd8debfa91cac38a7cfceeca5883eb5173e6b438a08a",
+  "source_url": "https://polyhaven.com/a/smoke_speckled_veneer",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

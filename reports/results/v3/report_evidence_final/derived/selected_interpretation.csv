@@ -1,0 +1,2 @@
+label,scope,interpretation
+Frozen selection,nested_oof,Predeclared 5 outer x 3 inner source-family selection; canonical rerun exactly reproduces initial predictions.

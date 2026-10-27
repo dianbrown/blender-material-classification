@@ -1,0 +1,156 @@
+{
+  "method": "class-stratified source-group cluster bootstrap, percentile 95% CI",
+  "stratify_by_class": true,
+  "strata": [
+    {
+      "class": "wood",
+      "n_source_groups": 3
+    },
+    {
+      "class": "metal",
+      "n_source_groups": 3
+    },
+    {
+      "class": "stone",
+      "n_source_groups": 3
+    },
+    {
+      "class": "concrete",
+      "n_source_groups": 3
+    },
+    {
+      "class": "ceramic",
+      "n_source_groups": 3
+    },
+    {
+      "class": "fabric",
+      "n_source_groups": 3
+    },
+    {
+      "class": "leather",
+      "n_source_groups": 3
+    }
+  ],
+  "singleton_strata": [],
+  "weighting": "image_weighted",
+  "estimand": "Pooled image metrics: every image has equal weight; larger sources contribute more images. Secondary source_balanced_accuracy averages within-source image accuracy equally over sources; class_balanced_source_accuracy first averages sources within class, then averages all fixed classes. Neither is multiview voting.",
+  "macro_class_policy": "Fixed classes in every draw; absent-class precision/recall/F1 and class-balanced source accuracy contribute zero. Balanced accuracy uses observed true classes only.",
+  "resampling_unit": "source_group",
+  "n_source_groups": 21,
+  "n_requested": 10000,
+  "n_performed": 10000,
+  "seed": 62642,
+  "confidence_level": 0.95,
+  "status": "ok",
+  "caveat": "Approximate stratified-family bootstrap of fixed predictions when stratification is enabled. Keeps every image with its source draw multiplicity. Does NOT capture refitting, model-selection uncertainty, or dependent CV training sets. For fresh holdout, assumes independent new source groups; 21-35 groups yield limited uncertainty resolution. Singleton strata cannot estimate within-class source variation. Undefined replicates are omitted per metric; inspect n_valid. No fold stratification.",
+  "intervals": {
+    "accuracy": {
+      "estimate": 0.04603174603174609,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412698,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "balanced_accuracy": {
+      "estimate": 0.04603174603174598,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412698,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "macro_precision": {
+      "estimate": 0.01927051071626651,
+      "lower": -0.1221002358183371,
+      "upper": 0.09256038515669363,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "macro_recall": {
+      "estimate": 0.04603174603174598,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412698,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "macro_f1": {
+      "estimate": 0.03863881571468131,
+      "lower": -0.053216606212819456,
+      "upper": 0.12203574203081605,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "weighted_precision": {
+      "estimate": 0.01927051071626651,
+      "lower": -0.1221002358183372,
+      "upper": 0.09256038515669342,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "weighted_recall": {
+      "estimate": 0.04603174603174609,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412698,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "weighted_f1": {
+      "estimate": 0.03863881571468131,
+      "lower": -0.05321660621281945,
+      "upper": 0.12203574203081616,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "log_loss": {
+      "estimate": -0.18658136773266953,
+      "lower": -0.7127597619182853,
+      "upper": 0.3237036118699941,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "brier_score": {
+      "estimate": -0.05252164190308678,
+      "lower": -0.1957590879260729,
+      "upper": 0.09521577268247647,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "ece": {
+      "estimate": 0.010125884234018473,
+      "lower": -0.07543338692651617,
+      "upper": 0.09655585763289863,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "mcc": {
+      "estimate": 0.05146076401287225,
+      "lower": -0.03411757906645565,
+      "upper": 0.14053912471251612,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "cohen_kappa": {
+      "estimate": 0.05370370370370381,
+      "lower": -0.03703703703703698,
+      "upper": 0.14814814814814814,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "source_balanced_accuracy": {
+      "estimate": 0.04603174603174587,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412687,
+      "n_valid": 10000,
+      "n_undefined": 0
+    },
+    "class_balanced_source_accuracy": {
+      "estimate": 0.04603174603174609,
+      "lower": -0.031746031746031744,
+      "upper": 0.12698412698412698,
+      "n_valid": 10000,
+      "n_undefined": 0
+    }
+  },
+  "estimate_type": "Fresh independent holdout estimates; independence requires external provenance",
+  "estimate_kind": "fresh_holdout",
+  "difference": "A minus B"
+}

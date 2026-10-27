@@ -1,0 +1,185 @@
+{
+  "status": "pass",
+  "pdf": "C:\\Users\\dianb\\blender-material-classification\\reports\\v3\\report.pdf",
+  "pdf_sha256": "75b70286081a617fe732b4ab7d55b7ecfd7cd54b136363c5f22428ff1b41e4c5",
+  "markdown_sha256": "167ebcda24dcd590cddd2bbfe880e8b0bab71d4c1f861b5767aa9de236f8f189",
+  "page_count": 21,
+  "body_pages": 17,
+  "references_pages": 1,
+  "appendix_pages": 3,
+  "renderer": "Poppler pdftoppm, 100 dpi, all final pages",
+  "visual_review": "All 21 first-pass pages inspected individually. Final all-page render compared byte-for-byte: 19 unchanged; pages 14 and 21 re-inspected after gallery/label improvements. No clipping, overlap, broken tables or unreadable glyphs.",
+  "text_bounds": "all words within page safety bounds",
+  "evidence_files_validated": 153,
+  "source_inventory_entries": 112,
+  "primary_endpoint": "fresh_holdout",
+  "copy_weights": false,
+  "text_normalization": "UTF-8 without BOM; LF before hashes",
+  "focused_tests": {
+    "passed": 79,
+    "seconds": 18.43,
+    "command": "python -m pytest tests/test_v3_report.py tests/test_v3_report_assembly.py -q"
+  },
+  "ruff": "pass",
+  "pages": [
+    {
+      "page": 1,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-01.png",
+      "sha256": "1a6a7f41a1ea63e77523b51be4232ff079519fa94de56ff97b6401ea6348aacc",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 2,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-02.png",
+      "sha256": "26e614d470548bb23d7e458bd9b713d6f2b9df222abaebbbe193f8084fd535b3",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 3,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-03.png",
+      "sha256": "8e7fc1bbd024641ec33b534d4337a04faad8f21c8f014cc1bbc9f9bd6ab640b7",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 4,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-04.png",
+      "sha256": "bbb2f069bf29e18ee0be2ced619d672f2b1ca4b055d5c6f65b05d8320c17f57a",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 5,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-05.png",
+      "sha256": "5a394b7ce9cdf0112a49bd96abd5f5e966b530599a7a36d155f9d20366d61334",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 6,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-06.png",
+      "sha256": "369bc551b87e6e149c8220c950c2d35df3332d72749db751d9c7ac334f17adef",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 7,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-07.png",
+      "sha256": "1360314dfc77460275af4976057b882ed72abc14892934e82818dbaa06bc2306",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 8,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-08.png",
+      "sha256": "f12820712528e8ab4eaafed0ba1fe0eac8df95fa3d193da59a30f0bd1af41a9e",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 9,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-09.png",
+      "sha256": "0ddfdcad5d8dc4137cc30d903b8a6eebf772e85bf76ce4b7fb10e9c62a5cc52d",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 10,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-10.png",
+      "sha256": "03954e6205185bab0e201a5bd07de07515eb8e890a220bc37e78bd6b2a971140",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 11,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-11.png",
+      "sha256": "6f959cdf6526c07bda93a27daa4f684d85261f9db744cafbb7665c44ec4dd737",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 12,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-12.png",
+      "sha256": "1397451ad81f519258f8a452ddffc294f424cb269fb104ff16ade307a91dd961",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 13,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-13.png",
+      "sha256": "0b01105de13f9ad00f8076823f7e5eb45fdd7ee52a17cd8c518b9ba539f9b89b",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 14,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-14.png",
+      "sha256": "36469c59e7b5eda222c337c3d781e123db3e57509410a7cb54373e81494affc3",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": false
+    },
+    {
+      "page": 15,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-15.png",
+      "sha256": "1bc709145095b314103d7b6da3bb7b7c849c400dc80a9268ebc8f7050036e940",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 16,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-16.png",
+      "sha256": "3d2a862604597299c0e8b986f3803b44149f9f490c30c47ea47c5094edbd29db",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 17,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-17.png",
+      "sha256": "cb10f2d46fb3ffbdef058db47c019ee416357004807996bf4f2d1c20121ebebc",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 18,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-18.png",
+      "sha256": "e872d13f207a0b1dd9823c153f5f3103c2d040c118e2ab33675bdaa45535920c",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 19,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-19.png",
+      "sha256": "c2774e02520e6b2b1123bfce3f11d8186499e6b4411f065c88726b7ff44d21f7",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 20,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-20.png",
+      "sha256": "87351bc66ae32bbf6404d4cbf433567ad5cc0eccf101e20795a3ec67814e4519",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": true
+    },
+    {
+      "page": 21,
+      "png": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\report_final_qa\\final_pages\\page-21.png",
+      "sha256": "660a8cbb755e2ebf7900b5fff7957dae2c886bbaf583f37660e11ba07a8cb6c5",
+      "visual_status": "inspected - pass",
+      "identical_to_inspected_first_pass": false
+    }
+  ],
+  "remaining_gaps": [
+    "Per-class confidence intervals are not present in the supplied evaluator schema/files; report explicitly distinguishes per-class point metrics from pooled metric CIs. No new metrics were generated.",
+    "Rendered-dataset license and publication approval remain pending; no upload.",
+    "Parent independent final claim review remains."
+  ],
+  "locked_artifact_and_sidecar_hashes_verified": 8,
+  "notebook_executed_cells_verified": 16,
+  "report_implementation_commit": "8586f69522fb0e22b8cbdbd17b3ed02014ef1664",
+  "report_scripts_sha256": {
+    "scripts\\v3\\assemble_report.py": "035bc2ceb3a0c925b58ed4c9054b683c047a248e5135dd2625b12fa9619a4728",
+    "scripts\\v3\\build_report.py": "56cf8e284604fd76e6b200ee4e2aaf6602c10f410dc7093eaee686401474436f"
+  }
+}

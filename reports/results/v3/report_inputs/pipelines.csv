@@ -1,0 +1,5 @@
+Pipeline,Representation / input,Adaptation and budget
+Primary frozen fusion,"DINOv2 small with registers, 224 + 336; ConvNeXt-Tiny, 224","3,072 features; scaled balanced logistic head; inner C selection"
+ConvNeXt control,"Pooled ConvNeXt-Tiny, 224",Frozen backbone; independently selected logistic C
+Fixed ResNet-50,"ImageNet-1K V2 weights, 224","Two head-only epochs, then layer4 + head; ten fixed epochs"
+Fine-tuned DINOv2,"Small with registers; CLS + patch mean, 336","Two head-only epochs, then last two blocks; six development fits, five-epoch final fit"

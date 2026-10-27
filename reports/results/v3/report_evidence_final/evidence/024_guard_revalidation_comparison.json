@@ -1,0 +1,109 @@
+{
+  "purpose": "Guard-fix revalidation; no model selection change",
+  "reference": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run",
+  "revalidated": "C:\\Users\\dianb\\blender-material-classification\\artifacts\\v3\\run_final",
+  "float_comparison": {
+    "rtol": 0.0,
+    "atol": 1e-12
+  },
+  "oof": {
+    "selected_oof.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d",
+      "new_sha256": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d"
+    },
+    "control_oof.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+      "new_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51"
+    },
+    "candidate_oof\\convnext_pooled224.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+      "new_sha256": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51"
+    },
+    "candidate_oof\\dino_cls224.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17",
+      "new_sha256": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17"
+    },
+    "candidate_oof\\dino_cls_mean224.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741",
+      "new_sha256": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741"
+    },
+    "candidate_oof\\dino_multiscale.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684",
+      "new_sha256": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684"
+    },
+    "candidate_oof\\dino_multiscale_convnext.csv": {
+      "rows": 3150,
+      "unique_image_identity": true,
+      "metadata_equal": true,
+      "finite": true,
+      "probabilities_exact_equal": true,
+      "probabilities_allclose": true,
+      "max_absolute_difference": 0.0,
+      "reference_sha256": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547",
+      "new_sha256": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547"
+    }
+  },
+  "fold_assignments_exact_equal": true,
+  "fold_choices_exact_equal": true,
+  "final_selection_exact_equal": true,
+  "final_selection": {
+    "candidate": "dino_multiscale_convnext",
+    "candidate_index": 4,
+    "C": 1.0,
+    "inner_mean_macro_f1": 0.8035245993060354
+  },
+  "reference_accuracy": 0.793968253968254,
+  "final_accuracy": 0.793968253968254,
+  "feature_array_hash_equality": {
+    "dino_224_cls": true,
+    "dino_224_mean": true,
+    "dino_224_std": true,
+    "dino_336_cls": true,
+    "dino_336_mean": true,
+    "dino_336_std": true,
+    "convnext_224_pooled": true
+  },
+  "exact_reproduction": true
+}

@@ -1,0 +1,130 @@
+{
+  "run_identity": {
+    "protocol_sha256": "9069a92661a348052dd65da67dadd612d8e0b00e5918fa161bc7ce831985cb41",
+    "feature_cache_identity_sha256": "33a7e56080d09232e36983aee287fbd7f4583e4745d2bf62d92b028e40f94ac4",
+    "feature_arrays": {
+      "dino_224_cls": {
+        "file": "dino_224_cls.npy",
+        "sha256": "41fd13863d70832899fe593cba51069ad28d6c939d059e03f7d1566a499198f7",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "dino_224_mean": {
+        "file": "dino_224_mean.npy",
+        "sha256": "dd5d90f30be271f0fa82ed4356ec5b85a1d1e30c9d0a6655f39dc8e8c5cfae95",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "dino_224_std": {
+        "file": "dino_224_std.npy",
+        "sha256": "844abf578a2a7147f9366fe13e361a4663d101b4e00081adc437a7ff0be12abf",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "dino_336_cls": {
+        "file": "dino_336_cls.npy",
+        "sha256": "b356944023c1fcadc9198f9d163f2dbf5dbe234e4d083d7338e8a904cb4e104e",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "dino_336_mean": {
+        "file": "dino_336_mean.npy",
+        "sha256": "269ab38ee376e0eda4996f1861cd10c376998d6cc7d64be497c5bdd7f616509a",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "dino_336_std": {
+        "file": "dino_336_std.npy",
+        "sha256": "8af51c59fe7aebfda4c36bc3451e7089ae428a80cbfb510ea7778dfe8e6aa1ce",
+        "shape": [
+          3150,
+          384
+        ],
+        "dtype": "float32"
+      },
+      "convnext_224_pooled": {
+        "file": "convnext_224_pooled.npy",
+        "sha256": "20d17e061a8b2468cc634918c46f5a12cda9fdcf04080ea3e89907768549fff3",
+        "shape": [
+          3150,
+          768
+        ],
+        "dtype": "float32"
+      }
+    },
+    "environment": {
+      "python": "3.13.5",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "torch": "2.11.0+cu128",
+        "torchvision": "0.26.0+cu128",
+        "timm": "1.0.30",
+        "numpy": "2.5.2",
+        "pandas": "3.1.0",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "Pillow": "12.3.0",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "2.3.0",
+        "joblib": "1.6.0",
+        "threadpoolctl": "3.7.0"
+      },
+      "cuda_runtime": "12.8"
+    },
+    "learning_implementation_sha256": "33fa1409699f0e862ee851cd1e5f4f3650218a8dabc0a2d508e846068a1de004",
+    "inference_implementation_sha256": "d2996557024a55888588c647408ccc429f0a9286fbe666842b0f171113ab455e",
+    "cpu_threads": 4
+  },
+  "run_identity_sha256": "acb344cba3b684e6796a192c04afdaa219eede6250b4759d1d022be3fc54ff6c",
+  "status": "complete",
+  "interpretation": {
+    "primary": "Nested selection-procedure OOF research estimate on all historical development data, including the old test split.",
+    "candidate_oof": "Descriptive predeclared candidate ablations with C selected in each outer training partition.",
+    "control_oof": "Predeclared ConvNeXt control; C selected independently in each outer training partition.",
+    "final": "Selected by grouped inner CV on all development data, then fitted on all development data. Also export independently C-selected all-development ConvNeXt control. No new test is used.",
+    "fresh_holdout": "Apply final saved recipe, scaler and head without fitting; evaluate only after selection is frozen."
+  },
+  "folds_sha256": "d7dfe10e53f0f4006250642715b68cc0203a049f6b6c248e48196f90b5fba046",
+  "seconds": 28.060412499995437,
+  "final_selection": {
+    "candidate": "dino_multiscale_convnext",
+    "candidate_index": 4,
+    "C": 1.0,
+    "inner_mean_macro_f1": 0.8035245993060354
+  },
+  "outputs": {
+    "candidate_oof/convnext_pooled224.csv": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+    "candidate_oof/dino_cls224.csv": "0dd8851fa669d53ce5fe0b091ef7de4743d1081e8990e239be9488b5c3a62c17",
+    "candidate_oof/dino_cls_mean224.csv": "c683f6974590d17c1bbdab25fee7f5c8fed4e79a8352fb83cdb75b8df5bb9741",
+    "candidate_oof/dino_multiscale.csv": "ffde718ae8d385ff522e813e170e9194a524d53b5ef1bfeaa8274a9a52ea9684",
+    "candidate_oof/dino_multiscale_convnext.csv": "5ce10d26246706b18bc03c36bb1af00dd89b8e015e79392307315c17b7ca2547",
+    "control_model.joblib": "c7530c0a4d00b8966547561ffb3c976b65fe69cf9888957cc8c3c2041e5dee06",
+    "control_model_metadata.json": "8024925a56425431f2d805771ad3bf635eb1ae27599daa8ef14725a87f9a53de",
+    "control_oof.csv": "4098dcb03d5a8756da6d92a88a5c72073ebb0f10d3fd7a69daada87f5fb77b51",
+    "final_folds.json": "b28957dbb352b19c544bb878ef7e76f7c25439977f825ce4e169805a2e17897a",
+    "fold_assignments.csv": "dd7acc49926c93df92147b64710ef864dcb9f4045553cf8e39a763d6127237e0",
+    "fold_choices.json": "369f1e0f2d4370b7751089e8cd3e67777892b0d5cd6169d190cd015afa020d44",
+    "folds.json": "d7dfe10e53f0f4006250642715b68cc0203a049f6b6c248e48196f90b5fba046",
+    "metrics.json": "ec1559759342f831a3b58a107f57f90c7674ee51f637a7da0cc26ab8ccc13399",
+    "model.joblib": "8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e",
+    "model_metadata.json": "064088063f993b46d9652d2cb313d5d9c072824e5862932f5dfaef435b2ff7db",
+    "protocol.json": "210528560f493100ee87d3c169526916d7309084e559016b18b81b4d8262e3ad",
+    "search_history.csv": "91d1999b6abbb241bf2fdcaf6d3a7695440f55dbed05743690bbcd54cd3c30bb",
+    "selected_oof.csv": "76c33887871829ef76c5bcf264fc37dbfa28159601949ed173cb4d9eaacbb00d"
+  }
+}

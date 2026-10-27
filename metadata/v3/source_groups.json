@@ -1,0 +1,1519 @@
+{
+  "edges": [
+    {
+      "evidence": [
+        {
+          "evidence_status": "verified_by_parent_auditor_2026-10-27",
+          "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+          "material_ids": [
+            "leather_07",
+            "leather_13"
+          ],
+          "rationale": "Official relationshipData identifies the shared LeatherSubstance002 generator. Old val/train membership is not independent. This is not exact-byte equivalence.",
+          "source_family": "ambientCG:LeatherSubstance002",
+          "source_material_names": [
+            "Leather011",
+            "Leather009"
+          ]
+        }
+      ],
+      "material_ids": [
+        "leather_07",
+        "leather_13"
+      ],
+      "reason": "source_family_override"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_status": "verified_by_parent_auditor_2026-10-27",
+          "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+          "material_ids": [
+            "leather_14",
+            "leather_15"
+          ],
+          "rationale": "Official relationshipData identifies the shared LeatherSubstance005 generator. Conservative dependence, not exact-byte equivalence.",
+          "source_family": "ambientCG:LeatherSubstance005",
+          "source_material_names": [
+            "Leather030",
+            "Leather032"
+          ]
+        }
+      ],
+      "material_ids": [
+        "leather_14",
+        "leather_15"
+      ],
+      "reason": "source_family_override"
+    },
+    {
+      "evidence": [
+        {
+          "evidence_status": "verified_by_parent_auditor_2026-10-27",
+          "evidence_url": "https://ambientcg.com/api/v2/full_json?q=leather&type=Material&include=relationshipData&limit=100",
+          "material_ids": [
+            "leather_09",
+            "leather_12"
+          ],
+          "rationale": "Official relationshipData identifies the shared LeatherSubstance006 generator. Conservative dependence, not exact-byte equivalence.",
+          "source_family": "ambientCG:LeatherSubstance006",
+          "source_material_names": [
+            "Leather034B",
+            "Leather036B"
+          ]
+        }
+      ],
+      "material_ids": [
+        "leather_09",
+        "leather_12"
+      ],
+      "reason": "source_family_override"
+    },
+    {
+      "evidence": [
+        {
+          "additional_evidence_url": "https://api.polyhaven.com/info/wood_table",
+          "evidence_status": "unresolved_precaution_not_verified_same_origin",
+          "evidence_url": "https://api.polyhaven.com/info/wood_table_worn",
+          "material_ids": [
+            "wood_02",
+            "wood_03"
+          ],
+          "rationale": "Independent preregistration review requested conservative grouping of plausible derivatives. Distinct bytes, image appearance and catalog entries do not prove independent physical source. This is not a verified same-origin or exact-duplicate claim.",
+          "source_family": "precaution:wood_table_derivatives",
+          "source_material_names": [
+            "wood_table_worn",
+            "wood_table"
+          ]
+        }
+      ],
+      "material_ids": [
+        "wood_02",
+        "wood_03"
+      ],
+      "reason": "source_family_override"
+    }
+  ],
+  "groups": [
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_14"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_0709a490fb997290"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_07d9c6c8a46f6826"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_11"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_0c223452cf2145d8"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_01"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_0d9347be465fbe52"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_10"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_0e15351a60c15c34"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_0f02e7d760436d59"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_14"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_0ff46c2453b594ae"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_141bf48bfafccad3"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_14"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_177a39497a38c460"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_04"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_1797d7d3b9955d25"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_11"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_182ef693a04ba593"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": true,
+      "material_ids": [
+        "leather_07",
+        "leather_13"
+      ],
+      "original_splits": [
+        "train",
+        "val"
+      ],
+      "source_group": "sg_1969c699c150bba0"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_04"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_20ea091a0a2fd03c"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_21545ef8048f05ae"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_14"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_26b42e9811877d26"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_10"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_289c4271a777fb37"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_06"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_2a3c74f73bf1dc87"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_14"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_2dce06b7d5b7e8b3"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_05"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_3155f3250de7628f"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_05"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_334942c6096cd48f"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_11"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_37ee4b433d62ee8b"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_08"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_39cc7d6c2bcb9785"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_3a48173aa32ac7a7"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_4212a0f6f43f60f1"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_448f288e2212c921"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_47aba6d7409a815b"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_13"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_4d4056e02a419e69"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_10"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_4efab5cb9bbc8cf6"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_06"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_54501428b9615c29"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_13"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_569d7bd9d7280363"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_56c8527ed06a705c"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_11"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_56e62e17e4bc64d5"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_12"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_5a6bd672ee5fbc05"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_10"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_5f31afc991a442ad"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_15"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_624a604dee54e5e6"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_12"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_63f877d6dfa3c2d1"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_656beeb30092644c"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_13"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_674e40a62a8dadf2"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_12"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_6a9d2802fe872747"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_06"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_6c35d26adef4756d"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_11"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_6cf1a05ceb20f331"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_01"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_6faa01d41ed804d2"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_03"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_711886d552832ea3"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_05"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_723c5c835afeea29"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_02"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_73ea4d3cf761afd4"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_14",
+        "leather_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_7a9787c06a7d672d"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_04"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_7df852268152b6d0"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_01"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_7f93f53aa8e2e6aa"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_06"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_803a64fc07c59087"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_03"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_8041144b7fc1c6cd"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_10"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_81c9800c349b51d3"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_12"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_844898ba2b99c3f7"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_14"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_88c1acb99413aefc"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_06"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_8ba86872d7316b91"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_92ccb89595f950ad"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_05"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_965093efb2881f8d"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_06"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_96880c66de3affd2"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_05"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_a09aa58abbf9d038"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_a3ba114ec0920d5d"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_03"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_a5764ef5e2f04782"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_01"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_a7cd21be26ec0bfc"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_a873fc9e11ce2070"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_a8ee1e6c118d60d8"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_04"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_ad0bcb375bbaf2e8"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_13"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_ad21b9c6a99a4f19"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_11"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_af463c3b55c08b0b"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_04"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_b0406a770d21a825"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_02"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_b2044bd6e2edf82b"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_10"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_b24d73eecc7e8553"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_12"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_b757e2c8bfb563a9"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_05"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_b8d0f19519429cae"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_01"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_b9933acf7c7c277e"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_03"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_bb7f937dc8e8531e"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_02"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_bd00af4be50b7c68"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_01"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_bdd3ba2118101188"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_11"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_c2d89e5803846c9c"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_05"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_c4ea2e2c93bd67e7"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_10"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_cd745d8a20e5fa4e"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_12"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_ce7bdee7f6348b0e"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_01"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_d021f6d97f8cfa32"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_02"
+      ],
+      "original_splits": [
+        "test"
+      ],
+      "source_group": "sg_d1469cdeaae458b5"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_02"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_d1585af92ebe0e5f"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_04"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_d195686d3566405d"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_06"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_d2835231ad52895b"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_d4d6f2f20d65cee9"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_d63c0e381087813f"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_dafa6db818602a7c"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_13"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_ddd9be8562feedd5"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_04"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_de04945d6e3292e2"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_03"
+      ],
+      "original_splits": [
+        "val"
+      ],
+      "source_group": "sg_dec6122e9a0c659b"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_13"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_e21438c3ba831023"
+    },
+    {
+      "classes": [
+        "leather"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "leather_09",
+        "leather_12"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_e2346ab5c1faf101"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_ebbce357eede8ce9"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_ec62ed79643effcd"
+    },
+    {
+      "classes": [
+        "ceramic"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "ceramic_07"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_eea61704c20dc79e"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": true,
+      "material_ids": [
+        "wood_02",
+        "wood_03"
+      ],
+      "original_splits": [
+        "test",
+        "train"
+      ],
+      "source_group": "sg_f161ac45a4639412"
+    },
+    {
+      "classes": [
+        "stone"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "stone_15"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_f272db2801837e13"
+    },
+    {
+      "classes": [
+        "fabric"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "fabric_02"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_f7f201763cf7de56"
+    },
+    {
+      "classes": [
+        "concrete"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "concrete_03"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_fb11e6f38e4ede90"
+    },
+    {
+      "classes": [
+        "wood"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "wood_09"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_fcd3dd4e7459de24"
+    },
+    {
+      "classes": [
+        "metal"
+      ],
+      "cross_class_conflict": false,
+      "crosses_original_splits": false,
+      "material_ids": [
+        "metal_08"
+      ],
+      "original_splits": [
+        "train"
+      ],
+      "source_group": "sg_fed8a2c68ff7ed12"
+    }
+  ]
+}

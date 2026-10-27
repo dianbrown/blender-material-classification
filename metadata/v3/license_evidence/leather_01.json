@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "f9c0c71ebadf92071d5779257c12d73a",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "f9c0c71ebadf92071d5779257c12d73a",
+        "official_size_bytes": 2467670,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/fabric_leather_01/fabric_leather_01_diff_2k.jpg"
+      },
+      "path": "materials/leather/leather_01/fabric_leather_01_diff_2k.jpg",
+      "sha256": "ca8123e6c031365fd782323bee05ce9da8bf05cc2ed57a83a66f0874923648d8",
+      "size_bytes": 2467670,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "599685fea7f94ff004006c1a65eb072f",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "599685fea7f94ff004006c1a65eb072f",
+        "official_size_bytes": 7523650,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/fabric_leather_01/fabric_leather_01_nor_gl_2k.exr"
+      },
+      "path": "materials/leather/leather_01/fabric_leather_01_nor_gl_2k.exr",
+      "sha256": "13c0cda152d6a1de78c9b718eebfaf38686688c9757ac1bc84cb597ddbe76af9",
+      "size_bytes": 7523650,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "6166d7bbd6a96f99a3bc528cfa518506",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/fabric_leather_01_rough_2k.jpg"
+        ],
+        "official_md5": "6166d7bbd6a96f99a3bc528cfa518506",
+        "official_size_bytes": 2621259,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/fabric_leather_01/fabric_leather_01_rough_2k.jpg"
+      },
+      "path": "materials/leather/leather_01/fabric_leather_01_rough_2k.jpg",
+      "sha256": "f3c5d08786ca78b984e4563d92e551b34a1d7f6845b1376da44694039aa62e3b",
+      "size_bytes": 2621259,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "leather_01",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"7442-wtZWZn6ubr1sPf8I6PYjAnlj/PQ\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/fabric_leather_01",
+    "response_bytes": 29762,
+    "response_sha256": "742c8faba2de8d5fc76c9dd1f635862c9a9a4abdfe77c7f1214b7b1afc688bbe",
+    "retrieved_at_utc": "2026-10-27T07:13:31.876065+00:00",
+    "url": "https://api.polyhaven.com/files/fabric_leather_01"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "fabric_leather_01",
+  "schema_version": 1,
+  "source_fingerprint": "70a299f6c7cae68f3fa2a8a2b5dc6f9e747d07e2dea98821cd070c13074ab1b2",
+  "source_url": "https://polyhaven.com/a/fabric_leather_01",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

@@ -1,0 +1,8 @@
+class,n_images,n_sources,n_errors,recall,mean_error_confidence,error_destinations
+wood,450,14,49,0.8911111111111111,0.563252406186431,ceramic: 10; concrete: 1; leather: 2; metal: 8; stone: 28
+metal,450,15,68,0.8488888888888889,0.7092067101852839,ceramic: 4; concrete: 8; leather: 3; stone: 22; wood: 31
+stone,450,15,81,0.82,0.8831047683933995,ceramic: 69; concrete: 12
+concrete,450,15,74,0.8355555555555556,0.6649681968637097,fabric: 68; leather: 1; metal: 5
+ceramic,450,15,126,0.72,0.766379069589949,leather: 33; metal: 3; stone: 79; wood: 11
+fabric,450,15,140,0.6888888888888889,0.7205133985455993,ceramic: 4; concrete: 54; leather: 23; metal: 1; stone: 58
+leather,450,12,111,0.7533333333333333,0.6447637177560995,ceramic: 38; concrete: 36; fabric: 2; metal: 16; stone: 19

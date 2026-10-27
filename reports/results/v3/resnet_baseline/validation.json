@@ -1,0 +1,19 @@
+{
+  "rows": 3150,
+  "expected_rows": 3150,
+  "unique_paths": 3150,
+  "manifest_paths_exact": true,
+  "fold_assignments_exact": true,
+  "prediction_fold_map_exact": true,
+  "finite_probabilities": true,
+  "normalized_probabilities": true,
+  "group_fold_disjoint": true,
+  "fold_counts": {
+    "0": 690,
+    "1": 630,
+    "2": 600,
+    "3": 630,
+    "4": 600
+  },
+  "all_fits_ten_epochs": true
+}

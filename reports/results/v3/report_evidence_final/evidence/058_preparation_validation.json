@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-10-27T07:31:13.610452+00:00",
+  "model_results_accessed": false,
+  "fresh_images_rendered": 0,
+  "gpu_renders_started": 0,
+  "selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64",
+  "config_sha256": "20366148e923611589b9020a5c88115a53e8c3b71c2cb40263de34e2965c289a",
+  "sources_root": "C:/Users/dianb/blender-material-classification/artifacts/v3/holdout_sources",
+  "downloaded_maps": 63,
+  "retained_map_bytes": 123812356,
+  "source_verification": "All 63 files rehashed and decoded successfully using parent environment. 96-original Poly Haven 1K same-role hash audit has zero collisions.",
+  "tests": {
+    "command": "python -m pytest tests/test_v3_holdout.py -q",
+    "passed": 49,
+    "ruff": "passed (explicit isolated E/F/I check includes Blender scripts)"
+  },
+  "blender_smoke": {
+    "version": "5.1.1",
+    "device": "CPU",
+    "engine": "CYCLES",
+    "samples": 1,
+    "size": [
+      64,
+      64
+    ],
+    "source": "old TRAIN wood_03 / wood_table",
+    "images": 1,
+    "resume": "new Blender process resumed=1, no render",
+    "run_sha256": "3ac092af054dd171ccf79d77a14e03964e2cbde137131fa247de15547e5d591a",
+    "artifact_root": "C:\\Users\\dianb\\.t3\\worktrees\\blender-material-classification\\t3-c03fb685\\artifacts\\v3\\holdout_smoke",
+    "note": "Canonicalized polygon/UV storage order after detecting nondeterministic Blender primitive storage order; mapping-changing edits still alter scene fingerprint."
+  },
+  "eevee_precheck": "Constructed frozen EEVEE 256-sample SQUARE-light scene and all seven old TRAIN pilot materials without rendering.",
+  "old_development_pilot": "Pending parent scheduled GPU run and data-only review; CPU smoke does not establish matched EEVEE appearance.",
+  "fresh_endpoint": "restricted_semantic_source_holdout; 21 groups x30 views planned; no assets or score outputs committed"
+}

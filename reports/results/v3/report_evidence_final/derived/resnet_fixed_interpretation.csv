@@ -1,0 +1,2 @@
+label,scope,interpretation
+Fixed ResNet-50,fresh_holdout,Locked clean holdout evaluation; primary role fixed before predictions.

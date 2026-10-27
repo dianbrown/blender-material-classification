@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "images": 630,
+  "source_groups": 21,
+  "manifest_sha256": "15edb1e32ceaaf190470a45c923270ba93fa83b4eb1a34c29fa7ed06abdda4f9",
+  "render_records_sha256": "a24943cd13d85b4287cbca7429098c4bf9eeca4109d0cbe9a21984c15007fbbc",
+  "registry_sha256": "e07041d477b8d40751e777758804c2f081037d85f11ca154b4d002ab9c696133",
+  "qc_sha256": "7f25695fe6f3a144fa79e34037cdbdca89a25d43c1ed22957a5471affbfaf0db",
+  "selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64",
+  "run_sha256": "1957d86b8c4d9358def3d9327250796defb33c8f52db4ce9f76f3dc9a41817df",
+  "source_group_rule": "provider:asset_id; source-family exclusion is established by the frozen source identity audit, not by identifier spelling alone",
+  "authoritative_input_hashes": "Canonical JSON records; invariant to CSV/JSON LF versus CRLF",
+  "model_predictions_used": false
+}

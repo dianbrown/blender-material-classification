@@ -1,0 +1,2 @@
+label,scope,interpretation
+Fine-tuned DINOv2,fresh_holdout,Locked clean holdout evaluation; primary role fixed before predictions.

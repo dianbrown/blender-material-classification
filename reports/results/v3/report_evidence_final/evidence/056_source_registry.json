@@ -1,0 +1,1400 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-27T07:13:23.435882+00:00",
+  "freeze_policy": "Frozen before any v3 model metrics/predictions were opened. No model results inspected. Selection based only on original-source exclusions, official provenance and semantic labels. No appearance tuning against model outcomes.",
+  "split": "holdout",
+  "groups_per_class": 3,
+  "views_per_material": 30,
+  "original_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "excluded_source_ids": [
+    "oak_veneer_01",
+    "wood_table_worn",
+    "wood_table",
+    "white_planks_clean",
+    "natural_walnut_veneer",
+    "old_wood_floor",
+    "oriented_strand_board",
+    "wooden_planks",
+    "rosewood_veneer_02",
+    "smoke_speckled_veneer",
+    "weathered_planks",
+    "worn_planks",
+    "lacquered_cherry_wood",
+    "herringbone_parquet",
+    "plywood",
+    "metal_plate_02",
+    "rusty_metal_04",
+    "blue_metal_plate",
+    "box_profile_metal_sheet",
+    "rusted_shutter",
+    "worn_shutter",
+    "metal_grate_rusty",
+    "factory_wall",
+    "corrugated_iron",
+    "rusty_metal_grid",
+    "rusty_metal_sheet",
+    "rusty_metal_03",
+    "worn_corrugated_iron",
+    "metal_plate",
+    "rust_coarse_01",
+    "dark_rock",
+    "tiger_rock",
+    "defense_wall_02",
+    "marble_tiles",
+    "square_tiles_03",
+    "rock_06",
+    "stone_embedded_tiles",
+    "lichen_rock",
+    "rock_boulder_dry",
+    "rock_wall_17",
+    "cobblestone_pavement",
+    "stone_tiles_02",
+    "rock_face_03",
+    "granite_tile",
+    "coast_sand_rocks_02",
+    "white_stucco",
+    "hangar_concrete_floor",
+    "rough_concrete",
+    "grey_plaster",
+    "granular_concrete",
+    "concrete_wall_008",
+    "blue_plaster_wall",
+    "worn_mossy_plasterwall",
+    "gravel_embedded_concrete",
+    "gravel_concrete_03",
+    "concrete_wall_009",
+    "plastered_wall_05",
+    "beige_wall_001",
+    "concrete_floor_worn_001",
+    "painted_plaster_wall",
+    "interior_tiles",
+    "clay_roof_tiles",
+    "marble_mosaic_tiles",
+    "anti_skid_tiles",
+    "patterned_terracotta_tiling",
+    "grey_roof_tiles",
+    "roof_07",
+    "terrazzo_tiles",
+    "clay_roof_tiles_03",
+    "roof_09",
+    "ceramic_roof_01",
+    "terracotta_floor_tiles",
+    "long_white_tiles",
+    "tiled_floor_001",
+    "clay_roof_tiles_02",
+    "cotton_jersey",
+    "curly_teddy_checkered",
+    "hessian_380",
+    "faux_fur_geometric",
+    "hessian_230",
+    "denim_fabric",
+    "dirty_carpet",
+    "caban",
+    "jersey_melange",
+    "knitted_fleece",
+    "wool_boucle",
+    "denim_fabric_06",
+    "polar_fleece",
+    "denmin_fabric_02",
+    "jogging_melange",
+    "fabric_leather_01",
+    "fabric_leather_02",
+    "leather_red_03",
+    "brown_leather",
+    "leather_white",
+    "leather_red_02",
+    "Leather011",
+    "Leather016",
+    "Leather034B",
+    "Leather022",
+    "Leather008",
+    "Leather036B",
+    "Leather009",
+    "Leather030",
+    "Leather032"
+  ],
+  "excluded_lineage_ids": [
+    "ambientcg:LeatherSubstance001",
+    "ambientcg:LeatherSubstance002",
+    "ambientcg:LeatherSubstance003",
+    "ambientcg:LeatherSubstance004",
+    "ambientcg:LeatherSubstance005",
+    "ambientcg:LeatherSubstance006"
+  ],
+  "assets": [
+    {
+      "provider": "polyhaven",
+      "asset_id": "bamboo_veneer",
+      "material_id": "polyhaven_bamboo_veneer",
+      "class": "wood",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:bamboo_veneer"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bamboo_veneer/bamboo_veneer_diff_1k.jpg",
+          "size": 499386,
+          "provider_md5": "8642edf2af80a6158585a97264d40419",
+          "path": "polyhaven/bamboo_veneer/bamboo_veneer_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bamboo_veneer/bamboo_veneer_rough_1k.jpg",
+          "size": 618975,
+          "provider_md5": "8ad387ac67e82a3fa4201ee3c79c3a1e",
+          "path": "polyhaven/bamboo_veneer/bamboo_veneer_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/bamboo_veneer/bamboo_veneer_nor_gl_1k.png",
+          "size": 4240773,
+          "provider_md5": "2d9bfabc078b66a61556ea18a5cebc55",
+          "path": "polyhaven/bamboo_veneer/bamboo_veneer_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/bamboo_veneer",
+      "api_url": "https://api.polyhaven.com/info/bamboo_veneer",
+      "files_api_url": "https://api.polyhaven.com/files/bamboo_veneer",
+      "authors": [
+        "Jenelle van Heerden"
+      ],
+      "author_roles": {
+        "Jenelle van Heerden": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "46dcc3c1d11485379d50dfd8d52b219cdc7e9e07",
+      "provider_category": "Wood/Veneer/Bamboo Veneer",
+      "provider_description": "Free bamboo veneer texture: smooth blonde wood with subtle natural grain, low roughness and thin veneer detail - versatile for furniture, interiors and props.",
+      "label_rationale": "Wood/Veneer/Bamboo Veneer; Free bamboo veneer texture: smooth blonde wood with subtle natural grain, low roughness and thin veneer detail - versatile for furniture, interiors and props.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "hinoki_planks",
+      "material_id": "polyhaven_hinoki_planks",
+      "class": "wood",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:hinoki_planks"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/hinoki_planks/hinoki_planks_diff_1k.jpg",
+          "size": 527974,
+          "provider_md5": "7d59516b8cc9b8f55cd330099970e665",
+          "path": "polyhaven/hinoki_planks/hinoki_planks_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/hinoki_planks/hinoki_planks_rough_1k.jpg",
+          "size": 155781,
+          "provider_md5": "6e826a839e05fb09d80d22fcb9192b4e",
+          "path": "polyhaven/hinoki_planks/hinoki_planks_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/hinoki_planks/hinoki_planks_nor_gl_1k.png",
+          "size": 5558656,
+          "provider_md5": "565d60796a048e18770aca73999041cb",
+          "path": "polyhaven/hinoki_planks/hinoki_planks_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/hinoki_planks",
+      "api_url": "https://api.polyhaven.com/info/hinoki_planks",
+      "files_api_url": "https://api.polyhaven.com/files/hinoki_planks",
+      "authors": [
+        "Charlotte Baglioni"
+      ],
+      "author_roles": {
+        "Charlotte Baglioni": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "d9ce03e75ea9e1aae0da96b190c3ceed77bfc876",
+      "provider_category": "Wood/Boards & Planks/Finished & Varnished",
+      "provider_description": "Free 16K hinoki wood plank texture with warm honey tone, straight grain, scattered knots and fine seams, smooth satin sheen and subtle surface variation.",
+      "label_rationale": "Wood/Boards & Planks/Finished & Varnished; Free 16K hinoki wood plank texture with warm honey tone, straight grain, scattered knots and fine seams, smooth satin sheen and subtle surface variation.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "rough_pine_door",
+      "material_id": "polyhaven_rough_pine_door",
+      "class": "wood",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:rough_pine_door"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_pine_door/rough_pine_door_diff_1k.jpg",
+          "size": 721865,
+          "provider_md5": "8c1036e566fe8e925e98123458aae385",
+          "path": "polyhaven/rough_pine_door/rough_pine_door_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_pine_door/rough_pine_door_rough_1k.jpg",
+          "size": 217135,
+          "provider_md5": "12e7930c87c2df343b2eb9585e34cee3",
+          "path": "polyhaven/rough_pine_door/rough_pine_door_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rough_pine_door/rough_pine_door_nor_gl_1k.png",
+          "size": 5423493,
+          "provider_md5": "dee01efbf61bbf33d1fee6a918787c52",
+          "path": "polyhaven/rough_pine_door/rough_pine_door_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/rough_pine_door",
+      "api_url": "https://api.polyhaven.com/info/rough_pine_door",
+      "files_api_url": "https://api.polyhaven.com/files/rough_pine_door",
+      "authors": [
+        "Dimitrios Savva"
+      ],
+      "author_roles": {
+        "Dimitrios Savva": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "144b2cd6ad790ffd8d12e00fa1ec5eff826636b1",
+      "provider_category": "Wood/Boards & Planks/Raw Sawn Timber",
+      "provider_description": "Free 8k texture of a weathered rough-hewn pine door: deep reddish-brown planks, pronounced grain, split edges, nail holes and a worn matte finish.",
+      "label_rationale": "Wood/Boards & Planks/Raw Sawn Timber; Free 8k texture of a weathered rough-hewn pine door: deep reddish-brown planks, pronounced grain, split edges, nail holes and a worn matte finish.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "container_side",
+      "material_id": "polyhaven_container_side",
+      "class": "metal",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:container_side"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/container_side/container_side_diff_1k.jpg",
+          "size": 667470,
+          "provider_md5": "af4c3140ca86cfba8bbe4d8bf85c5064",
+          "path": "polyhaven/container_side/container_side_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/container_side/container_side_rough_1k.jpg",
+          "size": 235685,
+          "provider_md5": "356d2b9a3c19c2c8d0124e365acd274c",
+          "path": "polyhaven/container_side/container_side_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/container_side/container_side_nor_gl_1k.png",
+          "size": 5245009,
+          "provider_md5": "a9902b2fe4bbded7926ffca0bc4d191c",
+          "path": "polyhaven/container_side/container_side_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/container_side",
+      "api_url": "https://api.polyhaven.com/info/container_side",
+      "files_api_url": "https://api.polyhaven.com/files/container_side",
+      "authors": [
+        "Dimitrios Savva"
+      ],
+      "author_roles": {
+        "Dimitrios Savva": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "709515aa6952ffabfdf1d2238d89607f72378af7",
+      "provider_category": "Metal/Cladding & Shutters/Container Panels",
+      "provider_description": "Free 8K texture of green corrugated metal container side, worn, chipped paint with subtle dents, scratches and light grime on an industrial, battered surface.",
+      "label_rationale": "Metal/Cladding & Shutters/Container Panels; Free 8K texture of green corrugated metal container side, worn, chipped paint with subtle dents, scratches and light grime on an industrial, battered surface.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Painted shipping-container steel: class is substrate; visible paint approximated as dielectric metallic=0. Chipped bare metal is not separately masked. No displacement or coating layer."
+    },
+    {
+      "provider": "ambientcg",
+      "asset_id": "Metal063",
+      "material_id": "ambientcg_Metal063",
+      "class": "metal",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "ambientcg:Metal063"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 1.0,
+      "maps": {
+        "color": {
+          "url": "https://ambientcg.com/get?file=Metal063_1K-JPG.zip",
+          "archive_size": 5620613,
+          "archive_member": "Metal063_1K-JPG_Color.jpg",
+          "path": "ambientcg/Metal063/Metal063_1K-JPG_Color.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://ambientcg.com/get?file=Metal063_1K-JPG.zip",
+          "archive_size": 5620613,
+          "archive_member": "Metal063_1K-JPG_Roughness.jpg",
+          "path": "ambientcg/Metal063/Metal063_1K-JPG_Roughness.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://ambientcg.com/get?file=Metal063_1K-JPG.zip",
+          "archive_size": 5620613,
+          "archive_member": "Metal063_1K-JPG_NormalGL.jpg",
+          "path": "ambientcg/Metal063/Metal063_1K-JPG_NormalGL.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://ambientcg.com/a/Metal063",
+      "api_url": "https://ambientcg.com/api/v3/assets?id=Metal063&include=technique,relations,title,tags,url,downloads,releaseDate",
+      "authors": [
+        "ambientCG / Lennart Demes (publisher credit)"
+      ],
+      "author_evidence_url": "https://docs.ambientcg.com/legal/",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "technique": "surface-approximated",
+      "provider_relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": null,
+        "previous": "Metal062A"
+      },
+      "provider_tags": [
+        "063",
+        "63",
+        "aged",
+        "black",
+        "brown",
+        "dark",
+        "fine",
+        "glossy",
+        "industrial",
+        "metal",
+        "oxidized",
+        "polished",
+        "rust",
+        "rusty",
+        "smooth",
+        "steel"
+      ],
+      "label_rationale": "metal; official asset tags: 063, 63, aged, black, brown, dark, fine, glossy, industrial, metal, oxidized, polished, rust, rusty, smooth, steel",
+      "independence_evidence": "Official v3 API lists no parents or variations. Technique surface-approximated. Separate canonical source, not an original ID, letter variant or shared procedural family. next/previous are catalog navigation, not ancestry.",
+      "render_assumptions": "Oxidized/polished steel from source photograph with approximated PBR maps. Fixed metallic=1 approximates exposed metal; oxide regions are not separately masked. No metallness map requested."
+    },
+    {
+      "provider": "ambientcg",
+      "asset_id": "MetalWalkway014",
+      "material_id": "ambientcg_MetalWalkway014",
+      "class": "metal",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "ambientcg:MetalWalkway014"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://ambientcg.com/get?file=MetalWalkway014_1K-JPG.zip",
+          "archive_size": 8551448,
+          "archive_member": "MetalWalkway014_1K-JPG_Color.jpg",
+          "path": "ambientcg/MetalWalkway014/MetalWalkway014_1K-JPG_Color.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://ambientcg.com/get?file=MetalWalkway014_1K-JPG.zip",
+          "archive_size": 8551448,
+          "archive_member": "MetalWalkway014_1K-JPG_Roughness.jpg",
+          "path": "ambientcg/MetalWalkway014/MetalWalkway014_1K-JPG_Roughness.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://ambientcg.com/get?file=MetalWalkway014_1K-JPG.zip",
+          "archive_size": 8551448,
+          "archive_member": "MetalWalkway014_1K-JPG_NormalGL.jpg",
+          "path": "ambientcg/MetalWalkway014/MetalWalkway014_1K-JPG_NormalGL.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://ambientcg.com/a/MetalWalkway014",
+      "api_url": "https://ambientcg.com/api/v3/assets?id=MetalWalkway014&include=technique,relations,title,tags,url,downloads,releaseDate",
+      "authors": [
+        "ambientCG / Lennart Demes (publisher credit)"
+      ],
+      "author_evidence_url": "https://docs.ambientcg.com/legal/",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "technique": "surface-photogrammetry",
+      "provider_relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": null,
+        "previous": "MetalWalkway013"
+      },
+      "provider_tags": [
+        "14",
+        "metal",
+        "rust",
+        "rusted",
+        "rusty",
+        "walkway"
+      ],
+      "label_rationale": "metal; official asset tags: 14, metal, rust, rusted, rusty, walkway",
+      "independence_evidence": "Official v3 API lists no parents or variations. Technique surface-photogrammetry. Separate canonical source, not an original ID, letter variant or shared procedural family. next/previous are catalog navigation, not ancestry.",
+      "render_assumptions": "Rusted steel walkway from surface photogrammetry. Visible rust approximated as dielectric metallic=0; class denotes metal substrate. Bare steel patches are not separately masked; tread relief uses normals only."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "cliff_side",
+      "material_id": "polyhaven_cliff_side",
+      "class": "stone",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:cliff_side"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cliff_side/cliff_side_diff_1k.jpg",
+          "size": 859756,
+          "provider_md5": "a64986e5f858e4f8df30f0394ededd78",
+          "path": "polyhaven/cliff_side/cliff_side_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cliff_side/cliff_side_rough_1k.jpg",
+          "size": 422579,
+          "provider_md5": "337e2fa00b23743f6686c7345cc9b227",
+          "path": "polyhaven/cliff_side/cliff_side_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/cliff_side/cliff_side_nor_gl_1k.png",
+          "size": 5658685,
+          "provider_md5": "f25f9ba54ba35d00a83367b79e03b7ca",
+          "path": "polyhaven/cliff_side/cliff_side_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/cliff_side",
+      "api_url": "https://api.polyhaven.com/info/cliff_side",
+      "files_api_url": "https://api.polyhaven.com/files/cliff_side",
+      "authors": [
+        "James Ray Cock",
+        "Jenelle van Heerden",
+        "Dario Barresi"
+      ],
+      "author_roles": {
+        "James Ray Cock": "Photography",
+        "Jenelle van Heerden": "Processing",
+        "Dario Barresi": "Photography"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "bc0f782eb36d2d47515d6b6f321ff7bb9fc13f00",
+      "provider_category": "Stone/Rock & Cliffs/Stratified & Layered Rock",
+      "provider_description": "Free 16K texture of a rugged, eroded orange sedimentary cliff face - layered rock, boulders and weathered surfaces for mountain and canyon terrain.",
+      "label_rationale": "Stone/Rock & Cliffs/Stratified & Layered Rock; Free 16K texture of a rugged, eroded orange sedimentary cliff face - layered rock, boulders and weathered surfaces for mountain and canyon terrain.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "dry_riverbed_rock",
+      "material_id": "polyhaven_dry_riverbed_rock",
+      "class": "stone",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:dry_riverbed_rock"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_riverbed_rock/dry_riverbed_rock_diff_1k.jpg",
+          "size": 1099450,
+          "provider_md5": "7a2c188fc40fee70a7add47af4c8e4ae",
+          "path": "polyhaven/dry_riverbed_rock/dry_riverbed_rock_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_riverbed_rock/dry_riverbed_rock_rough_1k.jpg",
+          "size": 676952,
+          "provider_md5": "195b6506ecd618a7134c7177d445b4f1",
+          "path": "polyhaven/dry_riverbed_rock/dry_riverbed_rock_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/dry_riverbed_rock/dry_riverbed_rock_nor_gl_1k.png",
+          "size": 5681488,
+          "provider_md5": "9b62dc4e33458b7a0a1dd21c5bec9804",
+          "path": "polyhaven/dry_riverbed_rock/dry_riverbed_rock_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/dry_riverbed_rock",
+      "api_url": "https://api.polyhaven.com/info/dry_riverbed_rock",
+      "files_api_url": "https://api.polyhaven.com/files/dry_riverbed_rock",
+      "authors": [
+        "Amal Kumar"
+      ],
+      "author_roles": {
+        "Amal Kumar": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "aa87f826fc4326cd3e4ecd9d73e3644e18e86ed1",
+      "provider_category": "Stone/Rock & Cliffs/Rough Rock Faces",
+      "provider_description": "Free 16K texture of dry riverbed rock: rough, weathered stone with cracked, uneven faces, layered striations and a gritty, low-sheen surface.",
+      "label_rationale": "Stone/Rock & Cliffs/Rough Rock Faces; Free 16K texture of dry riverbed rock: rough, weathered stone with cracked, uneven faces, layered striations and a gritty, low-sheen surface.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "slate_floor",
+      "material_id": "polyhaven_slate_floor",
+      "class": "stone",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:slate_floor"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/slate_floor/slate_floor_diff_1k.jpg",
+          "size": 707276,
+          "provider_md5": "33760bd0e0668f1ff92086a6cd9c38af",
+          "path": "polyhaven/slate_floor/slate_floor_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/slate_floor/slate_floor_rough_1k.jpg",
+          "size": 802557,
+          "provider_md5": "829bae26caaeb4a7a8bee3905cff5270",
+          "path": "polyhaven/slate_floor/slate_floor_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/slate_floor/slate_floor_nor_gl_1k.png",
+          "size": 5495224,
+          "provider_md5": "7c65bd27433aaff9c676ed79b1a9ab8f",
+          "path": "polyhaven/slate_floor/slate_floor_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/slate_floor",
+      "api_url": "https://api.polyhaven.com/info/slate_floor",
+      "files_api_url": "https://api.polyhaven.com/files/slate_floor",
+      "authors": [
+        "Dimitrios Savva"
+      ],
+      "author_roles": {
+        "Dimitrios Savva": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "a32f79680e8da88837ab9b12e1bc76dcc38ceb64",
+      "provider_category": "Stone/Slabs & Tiles/Slate",
+      "provider_description": "Free 8K texture of polished dark slate flooring with a coated, glossy finish, visible grout and subtle scratches, rich stone grain and reflective highlights.",
+      "label_rationale": "Stone/Slabs & Tiles/Slate; Free 8K texture of polished dark slate flooring with a coated, glossy finish, visible grout and subtle scratches, rich stone grain and reflective highlights.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "brushed_concrete",
+      "material_id": "polyhaven_brushed_concrete",
+      "class": "concrete",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:brushed_concrete"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brushed_concrete/brushed_concrete_diff_1k.jpg",
+          "size": 847278,
+          "provider_md5": "731d450cd11906e926adeb2d5caa29f9",
+          "path": "polyhaven/brushed_concrete/brushed_concrete_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brushed_concrete/brushed_concrete_rough_1k.jpg",
+          "size": 701983,
+          "provider_md5": "e72fc05f68ea0a997a215d9701b16b2e",
+          "path": "polyhaven/brushed_concrete/brushed_concrete_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brushed_concrete/brushed_concrete_nor_gl_1k.png",
+          "size": 5486315,
+          "provider_md5": "0987d9e303afda8c7f81d925847e0bd6",
+          "path": "polyhaven/brushed_concrete/brushed_concrete_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/brushed_concrete",
+      "api_url": "https://api.polyhaven.com/info/brushed_concrete",
+      "files_api_url": "https://api.polyhaven.com/files/brushed_concrete",
+      "authors": [
+        "Dario Barresi",
+        "Dimitrios Savva"
+      ],
+      "author_roles": {
+        "Dario Barresi": "Processing",
+        "Dimitrios Savva": "Photography"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "2274ffd02c42d765d335c85e9067398253d6b45e",
+      "provider_category": "Concrete/Cast Walls & Floors/Trowel & Brushed Finish",
+      "provider_description": "Free 8K texture of rough brushed concrete with circular trowel marks, weathered discoloration, stains and subtle surface pitting.",
+      "label_rationale": "Concrete/Cast Walls & Floors/Trowel & Brushed Finish; Free 8K texture of rough brushed concrete with circular trowel marks, weathered discoloration, stains and subtle surface pitting.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "ribbed_concrete_wall",
+      "material_id": "polyhaven_ribbed_concrete_wall",
+      "class": "concrete",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:ribbed_concrete_wall"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/ribbed_concrete_wall/ribbed_concrete_wall_diff_1k.jpg",
+          "size": 783345,
+          "provider_md5": "0d030d5719e0120b11d6914bff09d42d",
+          "path": "polyhaven/ribbed_concrete_wall/ribbed_concrete_wall_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/ribbed_concrete_wall/ribbed_concrete_wall_rough_1k.jpg",
+          "size": 336843,
+          "provider_md5": "987536954db051f1c38e9307db744257",
+          "path": "polyhaven/ribbed_concrete_wall/ribbed_concrete_wall_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/ribbed_concrete_wall/ribbed_concrete_wall_nor_gl_1k.png",
+          "size": 5801529,
+          "provider_md5": "30f3394087e2c5be7e9f10e5325bd8bf",
+          "path": "polyhaven/ribbed_concrete_wall/ribbed_concrete_wall_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/ribbed_concrete_wall",
+      "api_url": "https://api.polyhaven.com/info/ribbed_concrete_wall",
+      "files_api_url": "https://api.polyhaven.com/files/ribbed_concrete_wall",
+      "authors": [
+        "Charlotte Baglioni"
+      ],
+      "author_roles": {
+        "Charlotte Baglioni": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "5a6461da279ddfdece87c0fc5b88a21710b66db8",
+      "provider_category": "Concrete/Cast Walls & Floors/Board-Form & Panels",
+      "provider_description": "Free 8K texture of ribbed concrete: rough, gritty surface with deep vertical grooves, sharp ribs and uneven weathered finish in muted gray-brown tones.",
+      "label_rationale": "Concrete/Cast Walls & Floors/Board-Form & Panels; Free 8K texture of ribbed concrete: rough, gritty surface with deep vertical grooves, sharp ribs and uneven weathered finish in muted gray-brown tones.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "scuffed_cement",
+      "material_id": "polyhaven_scuffed_cement",
+      "class": "concrete",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:scuffed_cement"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/scuffed_cement/scuffed_cement_diff_1k.jpg",
+          "size": 556447,
+          "provider_md5": "ef49e3d3193c2fc515786cac6e0c60a4",
+          "path": "polyhaven/scuffed_cement/scuffed_cement_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/scuffed_cement/scuffed_cement_rough_1k.jpg",
+          "size": 270114,
+          "provider_md5": "ad83fad9ef37258fa7ede8b2df2d72dd",
+          "path": "polyhaven/scuffed_cement/scuffed_cement_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/scuffed_cement/scuffed_cement_nor_gl_1k.png",
+          "size": 5142704,
+          "provider_md5": "cddb53105824dcbb59a8c4bbc3442716",
+          "path": "polyhaven/scuffed_cement/scuffed_cement_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/scuffed_cement",
+      "api_url": "https://api.polyhaven.com/info/scuffed_cement",
+      "files_api_url": "https://api.polyhaven.com/files/scuffed_cement",
+      "authors": [
+        "Dario Barresi",
+        "Dimitrios Savva"
+      ],
+      "author_roles": {
+        "Dario Barresi": "Processing",
+        "Dimitrios Savva": "Photography"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "b4c01780bae3bf70dfe5a622e29e60d1ddc9a663",
+      "provider_category": "Concrete/Cast Walls & Floors/Bare Cast",
+      "provider_description": "Free 8K scuffed cement texture: weathered grey concrete with worn, scratched and chipped surface, subtle cracks and plaster-like roughness.",
+      "label_rationale": "Concrete/Cast Walls & Floors/Bare Cast; Free 8K scuffed cement texture: weathered grey concrete with worn, scratched and chipped surface, subtle cracks and plaster-like roughness.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "brown_floor_tiles",
+      "material_id": "polyhaven_brown_floor_tiles",
+      "class": "ceramic",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:brown_floor_tiles"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_floor_tiles/brown_floor_tiles_diff_1k.jpg",
+          "size": 842317,
+          "provider_md5": "6bff33d5ac96c8ef912210bfdfb8411f",
+          "path": "polyhaven/brown_floor_tiles/brown_floor_tiles_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_floor_tiles/brown_floor_tiles_rough_1k.jpg",
+          "size": 658053,
+          "provider_md5": "24b7da9312c16212b87fcf8340548e2b",
+          "path": "polyhaven/brown_floor_tiles/brown_floor_tiles_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_floor_tiles/brown_floor_tiles_nor_gl_1k.png",
+          "size": 5222658,
+          "provider_md5": "cdcaa4485c0fbcebb1bc24fb733b3f3b",
+          "path": "polyhaven/brown_floor_tiles/brown_floor_tiles_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/brown_floor_tiles",
+      "api_url": "https://api.polyhaven.com/info/brown_floor_tiles",
+      "files_api_url": "https://api.polyhaven.com/files/brown_floor_tiles",
+      "authors": [
+        "Rob Tuytel"
+      ],
+      "author_roles": {
+        "Rob Tuytel": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "62bd8dd15a6650e1472169aa9a83de5c05b4de5b",
+      "provider_category": "Ceramic/Terracotta",
+      "provider_description": "Free 8K texture: brown terracotta ceramic floor tiles with square grid and subtle wear - flat, grout-lined material for outdoor or indoor floors.",
+      "label_rationale": "Ceramic/Terracotta; Free 8K texture: brown terracotta ceramic floor tiles with square grid and subtle wear - flat, grout-lined material for outdoor or indoor floors.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "dirty_tiles",
+      "material_id": "polyhaven_dirty_tiles",
+      "class": "ceramic",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:dirty_tiles"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dirty_tiles/dirty_tiles_diff_1k.jpg",
+          "size": 585084,
+          "provider_md5": "3ba790fecdc93e37e4fe84f2e416b63f",
+          "path": "polyhaven/dirty_tiles/dirty_tiles_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dirty_tiles/dirty_tiles_rough_1k.jpg",
+          "size": 555155,
+          "provider_md5": "5fe5e6d25485830bc2432c6eba9721a7",
+          "path": "polyhaven/dirty_tiles/dirty_tiles_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/dirty_tiles/dirty_tiles_nor_gl_1k.png",
+          "size": 5184536,
+          "provider_md5": "c38fd2cdd00cbc5b3b2eff8cefee7599",
+          "path": "polyhaven/dirty_tiles/dirty_tiles_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/dirty_tiles",
+      "api_url": "https://api.polyhaven.com/info/dirty_tiles",
+      "files_api_url": "https://api.polyhaven.com/files/dirty_tiles",
+      "authors": [
+        "Matterfield",
+        "Jenelle van Heerden"
+      ],
+      "author_roles": {
+        "Matterfield": "Photography",
+        "Jenelle van Heerden": "Processing"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "385002cf82c5f6fd39f376c5015a900f5e6c666d",
+      "provider_category": "Ceramic/Quarry & Unglazed",
+      "provider_description": "scuffed, reddish-brown ceramic square tiles with worn grout lines, subtle stains and a low-sheen indoor flooring surface.",
+      "label_rationale": "Ceramic/Quarry & Unglazed; scuffed, reddish-brown ceramic square tiles with worn grout lines, subtle stains and a low-sheen indoor flooring surface.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "rounded_square_tiled_wall",
+      "material_id": "polyhaven_rounded_square_tiled_wall",
+      "class": "ceramic",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:rounded_square_tiled_wall"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rounded_square_tiled_wall/rounded_square_tiled_wall_diff_1k.jpg",
+          "size": 706150,
+          "provider_md5": "014ffe734d6165fa323c4eac031d9985",
+          "path": "polyhaven/rounded_square_tiled_wall/rounded_square_tiled_wall_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rounded_square_tiled_wall/rounded_square_tiled_wall_rough_1k.jpg",
+          "size": 660439,
+          "provider_md5": "3909fceba48f97b5623ea5a2e35b2621",
+          "path": "polyhaven/rounded_square_tiled_wall/rounded_square_tiled_wall_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rounded_square_tiled_wall/rounded_square_tiled_wall_nor_gl_1k.png",
+          "size": 5381069,
+          "provider_md5": "1c8e7776b076ca203ac631fe35cae9ce",
+          "path": "polyhaven/rounded_square_tiled_wall/rounded_square_tiled_wall_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/rounded_square_tiled_wall",
+      "api_url": "https://api.polyhaven.com/info/rounded_square_tiled_wall",
+      "files_api_url": "https://api.polyhaven.com/files/rounded_square_tiled_wall",
+      "authors": [
+        "Charlotte Baglioni"
+      ],
+      "author_roles": {
+        "Charlotte Baglioni": "All"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "b8d846d8bbe0063867fe12bac45da30ce94aa14e",
+      "provider_category": "Ceramic/Glazed Tiles/Glossy Glazed",
+      "provider_description": "Free, 8K wall texture of small rounded-square ceramic tiles in warm beige tones with soft glaze, pronounced grout lines and subtle edge wear.",
+      "label_rationale": "Ceramic/Glazed Tiles/Glossy Glazed; Free, 8K wall texture of small rounded-square ceramic tiles in warm beige tones with soft glaze, pronounced grout lines and subtle edge wear.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "rough_linen",
+      "material_id": "polyhaven_rough_linen",
+      "class": "fabric",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:rough_linen"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_linen/rough_linen_diff_1k.jpg",
+          "size": 835801,
+          "provider_md5": "663db789fb075462b685c1f740e58930",
+          "path": "polyhaven/rough_linen/rough_linen_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_linen/rough_linen_rough_1k.jpg",
+          "size": 1083725,
+          "provider_md5": "a380b24cc43cff88c39510305ebf0020",
+          "path": "polyhaven/rough_linen/rough_linen_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/rough_linen/rough_linen_nor_gl_1k.png",
+          "size": 5653944,
+          "provider_md5": "46ebc7a3ca1e8650d7de6b5737b63c12",
+          "path": "polyhaven/rough_linen/rough_linen_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/rough_linen",
+      "api_url": "https://api.polyhaven.com/info/rough_linen",
+      "files_api_url": "https://api.polyhaven.com/files/rough_linen",
+      "authors": [
+        "colormass",
+        "Rico Cilliers"
+      ],
+      "author_roles": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "4e637f8a844f5100c96dc1b33d4d63fd7309797a",
+      "provider_category": "Textiles & Leather/Woven/Linen & Hessian-weave",
+      "provider_description": "Free 8K texture: rough blue linen with fine woven crosshatch and natural matte surface - great for upholstery, garments, drapery, and cloth sims.",
+      "label_rationale": "Textiles & Leather/Woven/Linen & Hessian-weave; Free 8K texture: rough blue linen with fine woven crosshatch and natural matte surface - great for upholstery, garments, drapery, and cloth sims.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "ribbed_corduroy",
+      "material_id": "polyhaven_ribbed_corduroy",
+      "class": "fabric",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:ribbed_corduroy"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/ribbed_corduroy/ribbed_corduroy_diff_1k.jpg",
+          "size": 777770,
+          "provider_md5": "24ae6556664651ba5d3390f35967c217",
+          "path": "polyhaven/ribbed_corduroy/ribbed_corduroy_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/ribbed_corduroy/ribbed_corduroy_rough_1k.jpg",
+          "size": 1064469,
+          "provider_md5": "91eeeebb96cd5478a414c77713c2c767",
+          "path": "polyhaven/ribbed_corduroy/ribbed_corduroy_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/ribbed_corduroy/ribbed_corduroy_nor_gl_1k.png",
+          "size": 5701885,
+          "provider_md5": "4daf91c8a64b1704d5b6a563c207941b",
+          "path": "polyhaven/ribbed_corduroy/ribbed_corduroy_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/ribbed_corduroy",
+      "api_url": "https://api.polyhaven.com/info/ribbed_corduroy",
+      "files_api_url": "https://api.polyhaven.com/files/ribbed_corduroy",
+      "authors": [
+        "colormass",
+        "Rico Cilliers"
+      ],
+      "author_roles": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "31ad0d0e5381a04f8297ebb77553fe8f6447de7f",
+      "provider_category": "Textiles & Leather/Pile & Velvet/Corduroy",
+      "provider_description": "Free 8K texture of green ribbed corduroy with fine wales, soft velveteen nap and woven stripe detail, ideal for upholstery, clothing and prop materials.",
+      "label_rationale": "Textiles & Leather/Pile & Velvet/Corduroy; Free 8K texture of green ribbed corduroy with fine wales, soft velveteen nap and woven stripe detail, ideal for upholstery, clothing and prop materials.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "polyhaven",
+      "asset_id": "crepe_satin",
+      "material_id": "polyhaven_crepe_satin",
+      "class": "fabric",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "polyhaven:crepe_satin"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/crepe_satin/crepe_satin_diff_1k.jpg",
+          "size": 604348,
+          "provider_md5": "671816ccd82b5b619cd64bcb77cc9bfd",
+          "path": "polyhaven/crepe_satin/crepe_satin_diff_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/crepe_satin/crepe_satin_rough_1k.jpg",
+          "size": 824959,
+          "provider_md5": "29342a1b8e6c286c10d06aa107e19c33",
+          "path": "polyhaven/crepe_satin/crepe_satin_rough_1k.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/crepe_satin/crepe_satin_nor_gl_1k.png",
+          "size": 5601323,
+          "provider_md5": "0c8a9b9a99288e6e8eb6d4913cbc4283",
+          "path": "polyhaven/crepe_satin/crepe_satin_nor_gl_1k.png",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://polyhaven.com/a/crepe_satin",
+      "api_url": "https://api.polyhaven.com/info/crepe_satin",
+      "files_api_url": "https://api.polyhaven.com/files/crepe_satin",
+      "authors": [
+        "colormass",
+        "Rico Cilliers"
+      ],
+      "author_roles": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license_url": "https://polyhaven.com/license",
+      "provider_files_hash": "ed195e55fe094dcf7d4e58ebafb8f8e57af9ee19",
+      "provider_category": "Textiles & Leather/Woven/Satin & Crepe",
+      "provider_description": "Free gold crepe-satin PBR fabric: soft, silky crepe texture with satin glossy sheen and fine grain - ideal for garments, fashion renders, and luxury interiors.",
+      "label_rationale": "Textiles & Leather/Woven/Satin & Crepe; Free gold crepe-satin PBR fabric: soft, silky crepe texture with satin glossy sheen and fine grain - ideal for garments, fashion renders, and luxury interiors.",
+      "independence_evidence": "Distinct canonical provider asset and descriptive surface; no original or holdout normalized-name family overlap; files_hash differs from all original Poly Haven sources. Provider does not publish a complete physical-capture/ancestry graph, so independence is inferred from these records, not proven by an empty relation list.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "ambientcg",
+      "asset_id": "Leather037",
+      "material_id": "ambientcg_Leather037",
+      "class": "leather",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "ambientcg:Leather037"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://ambientcg.com/get?file=Leather037_1K-JPG.zip",
+          "archive_size": 7323418,
+          "archive_member": "Leather037_1K-JPG_Color.jpg",
+          "path": "ambientcg/Leather037/Leather037_1K-JPG_Color.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://ambientcg.com/get?file=Leather037_1K-JPG.zip",
+          "archive_size": 7323418,
+          "archive_member": "Leather037_1K-JPG_Roughness.jpg",
+          "path": "ambientcg/Leather037/Leather037_1K-JPG_Roughness.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://ambientcg.com/get?file=Leather037_1K-JPG.zip",
+          "archive_size": 7323418,
+          "archive_member": "Leather037_1K-JPG_NormalGL.jpg",
+          "path": "ambientcg/Leather037/Leather037_1K-JPG_NormalGL.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://ambientcg.com/a/Leather037",
+      "api_url": "https://ambientcg.com/api/v3/assets?id=Leather037&include=technique,relations,title,tags,url,downloads,releaseDate",
+      "authors": [
+        "ambientCG / Lennart Demes (publisher credit)"
+      ],
+      "author_evidence_url": "https://docs.ambientcg.com/legal/",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "technique": "surface-photometric-stereo",
+      "provider_relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather038",
+        "previous": "Leather036A"
+      },
+      "provider_tags": [
+        "37",
+        "brown",
+        "clean",
+        "dark",
+        "leather"
+      ],
+      "label_rationale": "leather; official asset tags: 37, brown, clean, dark, leather",
+      "independence_evidence": "Official v3 API lists no parents or variations. Technique surface-photometric-stereo. Separate canonical source, not an original ID, letter variant or shared procedural family. next/previous are catalog navigation, not ancestry.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "ambientcg",
+      "asset_id": "Leather038",
+      "material_id": "ambientcg_Leather038",
+      "class": "leather",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "ambientcg:Leather038"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://ambientcg.com/get?file=Leather038_1K-JPG.zip",
+          "archive_size": 6472440,
+          "archive_member": "Leather038_1K-JPG_Color.jpg",
+          "path": "ambientcg/Leather038/Leather038_1K-JPG_Color.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://ambientcg.com/get?file=Leather038_1K-JPG.zip",
+          "archive_size": 6472440,
+          "archive_member": "Leather038_1K-JPG_Roughness.jpg",
+          "path": "ambientcg/Leather038/Leather038_1K-JPG_Roughness.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://ambientcg.com/get?file=Leather038_1K-JPG.zip",
+          "archive_size": 6472440,
+          "archive_member": "Leather038_1K-JPG_NormalGL.jpg",
+          "path": "ambientcg/Leather038/Leather038_1K-JPG_NormalGL.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://ambientcg.com/a/Leather038",
+      "api_url": "https://ambientcg.com/api/v3/assets?id=Leather038&include=technique,relations,title,tags,url,downloads,releaseDate",
+      "authors": [
+        "ambientCG / Lennart Demes (publisher credit)"
+      ],
+      "author_evidence_url": "https://docs.ambientcg.com/legal/",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "technique": "surface-photometric-stereo",
+      "provider_relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": "Leather039",
+        "previous": "Leather037"
+      },
+      "provider_tags": [
+        "38",
+        "brown",
+        "fine",
+        "leather",
+        "orange",
+        "smooth"
+      ],
+      "label_rationale": "leather; official asset tags: 38, brown, fine, leather, orange, smooth",
+      "independence_evidence": "Official v3 API lists no parents or variations. Technique surface-photometric-stereo. Separate canonical source, not an original ID, letter variant or shared procedural family. next/previous are catalog navigation, not ancestry.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    },
+    {
+      "provider": "ambientcg",
+      "asset_id": "Leather039",
+      "material_id": "ambientcg_Leather039",
+      "class": "leather",
+      "split": "holdout",
+      "aliases": [],
+      "lineage_ids": [
+        "ambientcg:Leather039"
+      ],
+      "license": "CC0-1.0",
+      "license_legal_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "normal_convention": "OpenGL",
+      "metallic_value": 0.0,
+      "maps": {
+        "color": {
+          "url": "https://ambientcg.com/get?file=Leather039_1K-JPG.zip",
+          "archive_size": 7783448,
+          "archive_member": "Leather039_1K-JPG_Color.jpg",
+          "path": "ambientcg/Leather039/Leather039_1K-JPG_Color.jpg",
+          "resolution": 1024,
+          "colorspace": "sRGB"
+        },
+        "roughness": {
+          "url": "https://ambientcg.com/get?file=Leather039_1K-JPG.zip",
+          "archive_size": 7783448,
+          "archive_member": "Leather039_1K-JPG_Roughness.jpg",
+          "path": "ambientcg/Leather039/Leather039_1K-JPG_Roughness.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        },
+        "normal": {
+          "url": "https://ambientcg.com/get?file=Leather039_1K-JPG.zip",
+          "archive_size": 7783448,
+          "archive_member": "Leather039_1K-JPG_NormalGL.jpg",
+          "path": "ambientcg/Leather039/Leather039_1K-JPG_NormalGL.jpg",
+          "resolution": 1024,
+          "colorspace": "Non-Color"
+        }
+      },
+      "canonical_url": "https://ambientcg.com/a/Leather039",
+      "api_url": "https://ambientcg.com/api/v3/assets?id=Leather039&include=technique,relations,title,tags,url,downloads,releaseDate",
+      "authors": [
+        "ambientCG / Lennart Demes (publisher credit)"
+      ],
+      "author_evidence_url": "https://docs.ambientcg.com/legal/",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "technique": "surface-photometric-stereo",
+      "provider_relations": {
+        "parents": [],
+        "children": [],
+        "variations": [],
+        "next": null,
+        "previous": "Leather038"
+      },
+      "provider_tags": [
+        "39",
+        "bright",
+        "fine",
+        "leather",
+        "light",
+        "rough",
+        "suede"
+      ],
+      "label_rationale": "leather; official asset tags: 39, bright, fine, leather, light, rough, suede",
+      "independence_evidence": "Official v3 API lists no parents or variations. Technique surface-photometric-stereo. Separate canonical source, not an original ID, letter variant or shared procedural family. next/previous are catalog navigation, not ancestry.",
+      "render_assumptions": "Dielectric surface, metallic=0; fixed UV scale=1; color in sRGB, roughness and OpenGL normal in Non-Color; normal strength=1; no displacement, AO, sheen or anisotropy maps."
+    }
+  ],
+  "selection_sha256": "3ce03d94da5f58f036bf88214bf79c7a9c5886eadd2cd8c7a23fbd32d2feff64"
+}

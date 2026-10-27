@@ -1,0 +1,4 @@
+Existing-corpus procedure,Accuracy,Macro F1
+Frozen selection,79.40%,0.7955
+ConvNeXt control,68.86%,0.6861
+Fixed ResNet-50,71.56%,0.7135

@@ -1,0 +1,8 @@
+estimate_type,class,support,auroc,average_precision,defined
+Nested/grouped OOF development estimates; not an untouched test evaluation,wood,14,0.9942528735632185,0.9643525242264737,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,metal,15,0.9891472868217055,0.9574561403508772,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,stone,15,0.9441860465116279,0.8593421489111144,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,concrete,15,0.9806201550387598,0.8485024782006206,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,ceramic,15,0.9069767441860465,0.7255474261418444,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,fabric,15,0.9751937984496124,0.8908994708994709,True
+Nested/grouped OOF development estimates; not an untouched test evaluation,leather,12,0.9063670411985019,0.7754801689642116,True

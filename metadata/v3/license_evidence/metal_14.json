@@ -1,0 +1,117 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "91b841e7e619e55588f0183a703fb644",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "91b841e7e619e55588f0183a703fb644",
+        "official_size_bytes": 2670774,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/metal_plate/metal_plate_diff_2k.jpg"
+      },
+      "path": "materials/metal/metal_14/metal_plate_diff_2k.jpg",
+      "sha256": "864c9a653acd1f5034c9bbe7f955b18cc9687a81bbdfa805e7a2319939676910",
+      "size_bytes": 2670774,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "24dc9e15fb1379ffe473ea1826043138",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "24dc9e15fb1379ffe473ea1826043138",
+        "official_size_bytes": 4768374,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/metal_plate/metal_plate_nor_gl_2k.exr"
+      },
+      "path": "materials/metal/metal_14/metal_plate_nor_gl_2k.exr",
+      "sha256": "90090c4cdb51f16f335d4f268422f30a780ce3f93ca9f4be20b0f86ee4bda2c6",
+      "size_bytes": 4768374,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "1c8aedff235003f1a486d05103aa106e",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/metal_plate_rough_2k.exr"
+        ],
+        "official_md5": "1c8aedff235003f1a486d05103aa106e",
+        "official_size_bytes": 4958857,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/metal_plate/metal_plate_rough_2k.exr"
+      },
+      "path": "materials/metal/metal_14/metal_plate_rough_2k.exr",
+      "sha256": "a257931e067da0980bcc5079894d6d701aa09878ff05b0f41fcfb7d84c314ead",
+      "size_bytes": 4958857,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "metal_14",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"818b-FyAXWMskhxp85xXCYpjS0Rdzw6U\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/metal_plate",
+    "response_bytes": 33163,
+    "response_sha256": "6a67dcc408c32005533f935e37a4796d60f46ec4e1e7b6147746c2f280602e13",
+    "retrieved_at_utc": "2026-10-27T07:13:07.217966+00:00",
+    "url": "https://api.polyhaven.com/files/metal_plate"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "metal_plate",
+  "schema_version": 1,
+  "source_fingerprint": "055d37cc2f582f37a3aabb89dced8b14f6e97cf7bbb0a6517c4700dfc21dafbe",
+  "source_url": "https://polyhaven.com/a/metal_plate",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

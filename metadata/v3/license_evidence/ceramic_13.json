@@ -1,0 +1,118 @@
+{
+  "attribution": "Jenelle van Heerden (processing); Sergej Majboroda (photography). Publisher: Poly Haven.",
+  "author": {
+    "Jenelle van Heerden": "processing",
+    "Sergej Majboroda": "photography"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "5bbacf1598466e2e6f56e8a44c5f734b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "5bbacf1598466e2e6f56e8a44c5f734b",
+        "official_size_bytes": 2439827,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/long_white_tiles/long_white_tiles_diff_2k.jpg"
+      },
+      "path": "materials/ceramic/ceramic_13/long_white_tiles_diff_2k.jpg",
+      "sha256": "476ccb9f93aa78dbf3be31a4de66a7b2a180c199c6ee18381498e3159d40655a",
+      "size_bytes": 2439827,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "3df6a1ea1828dafcdf5ab013c6680c5b",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "nor_gl",
+          "2k",
+          "exr"
+        ],
+        "official_md5": "3df6a1ea1828dafcdf5ab013c6680c5b",
+        "official_size_bytes": 5542279,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/long_white_tiles/long_white_tiles_nor_gl_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_13/long_white_tiles_nor_gl_2k.exr",
+      "sha256": "3b3dab873e978722244cc9fae0ea22a7b87ee47a15ca61cff883b24f5f2ea3a2",
+      "size_bytes": 5542279,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "877f0937f36df75490726c91445aaaf6",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/long_white_tiles_rough_2k.exr"
+        ],
+        "official_md5": "877f0937f36df75490726c91445aaaf6",
+        "official_size_bytes": 5078956,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/long_white_tiles/long_white_tiles_rough_2k.exr"
+      },
+      "path": "materials/ceramic/ceramic_13/long_white_tiles_rough_2k.exr",
+      "sha256": "48a6bb289d063ea960c441a7b1fd3d857cd7f18ae8c0203d01ae5c6768ae3da2",
+      "size_bytes": 5078956,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "ceramic_13",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"8d43-gTk+L5ZnZuNE0APQBp8587rxTuw\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/long_white_tiles",
+    "response_bytes": 36163,
+    "response_sha256": "ac4b3ec39145b24c4f1fd55b45540181f8f5fb64e556a738af19ee511a6332ff",
+    "retrieved_at_utc": "2026-10-27T07:13:24.843338+00:00",
+    "url": "https://api.polyhaven.com/files/long_white_tiles"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "long_white_tiles",
+  "schema_version": 1,
+  "source_fingerprint": "7ac271dd9d2b752a1c78b03b2e8ed5b42dba27cd062be445d3287eb277c3167d",
+  "source_url": "https://polyhaven.com/a/long_white_tiles",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

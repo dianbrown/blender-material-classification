@@ -1,0 +1,119 @@
+{
+  "attribution": "Rob Tuytel (All). Publisher: Poly Haven.",
+  "author": {
+    "Rob Tuytel": "All"
+  },
+  "author_status": "official asset catalog",
+  "evidence_storage": "Compact verification record; full provider response bodies omitted.",
+  "human_review_claimed": false,
+  "license_evidence": {
+    "evidence_excerpt": "Our assets are all licensed as CC0",
+    "http_status": 200,
+    "resolved_url": "https://polyhaven.com/license",
+    "response_bytes": 72685,
+    "response_sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+    "retrieved_at_utc": "2026-10-27T07:18:28.788024+00:00",
+    "summary": "Poly Haven states its downloadable assets are original or directly contributed work, dedicates all assets under CC0, and permits redistribution and commercial use.",
+    "url": "https://polyhaven.com/license"
+  },
+  "license_spdx": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "maps": [
+    {
+      "manifest_referenced": true,
+      "md5": "5c6d2fe8e40a733b078212cd6286bcb3",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "Diffuse",
+          "2k",
+          "jpg"
+        ],
+        "official_md5": "5c6d2fe8e40a733b078212cd6286bcb3",
+        "official_size_bytes": 2905160,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/coast_sand_rocks_02/coast_sand_rocks_02_diff_2k.jpg"
+      },
+      "path": "materials/stone/stone_15/coast_sand_rocks_02_diff_2k.jpg",
+      "sha256": "98a8850f24cba18e4c99e46c56f5675f910809ee7f75df3e8587ec9e27088ed6",
+      "size_bytes": 2905160,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "cd6c9ff9f4aeda7a4a425bd9232b2bf2",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/coast_sand_rocks_02_nor_gl_2k.exr"
+        ],
+        "official_md5": "cd6c9ff9f4aeda7a4a425bd9232b2bf2",
+        "official_size_bytes": 9513050,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/coast_sand_rocks_02/coast_sand_rocks_02_nor_gl_2k.exr"
+      },
+      "path": "materials/stone/stone_15/coast_sand_rocks_02_nor_gl_2k.exr",
+      "sha256": "c201e42fc9e035186891b1e021cb6cba926891b4f3316da2bed0ae8d202c9177",
+      "size_bytes": 9513050,
+      "verification_status": "official_md5_match"
+    },
+    {
+      "manifest_referenced": true,
+      "md5": "3a0529871fa6bff3d4d1bb6e49787023",
+      "official_match": {
+        "md5_matches": true,
+        "metadata_key": [
+          "blend",
+          "2k",
+          "blend",
+          "include",
+          "textures/coast_sand_rocks_02_rough_2k.exr"
+        ],
+        "official_md5": "3a0529871fa6bff3d4d1bb6e49787023",
+        "official_size_bytes": 3377517,
+        "size_matches": true,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/exr/2k/coast_sand_rocks_02/coast_sand_rocks_02_rough_2k.exr"
+      },
+      "path": "materials/stone/stone_15/coast_sand_rocks_02_rough_2k.exr",
+      "sha256": "c25d15262c6654e8c649ed2074f53ebb4a3b7ceeb1cc0f899dd19e3c72d168a3",
+      "size_bytes": 3377517,
+      "verification_status": "official_md5_match"
+    }
+  ],
+  "material_id": "stone_15",
+  "metadata_evidence": {
+    "etag": "W/\"d0ccb-VQzTxwKZAj/p1yn/MVKFSNL0FAc\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/assets?t=textures",
+    "response_bytes": 855243,
+    "response_sha256": "6cd36268daec0a99ae168998bd8d26be66e7db174ebe76a0a6d586903b8dcac0",
+    "retrieved_at_utc": "2026-10-27T07:12:54.503569+00:00",
+    "url": "https://api.polyhaven.com/assets?t=textures"
+  },
+  "official_file_metadata_evidence": {
+    "etag": "W/\"6e49-Bl1eflcFWZFFYcKC5exIOSKST1o\"",
+    "http_status": 200,
+    "last_modified": null,
+    "resolved_url": "https://api.polyhaven.com/files/coast_sand_rocks_02",
+    "response_bytes": 28233,
+    "response_sha256": "9fbefa108219deac12a8e6d6b70fce163aa2d75ee97c847b5543b95af6d28f6e",
+    "retrieved_at_utc": "2026-10-27T07:13:13.661147+00:00",
+    "url": "https://api.polyhaven.com/files/coast_sand_rocks_02"
+  },
+  "original_material_manifest_sha256": "ecee6bb357ab348d7d71f07f4073f7059834bf23c77419043c023b74c0ecb654",
+  "provider": "Poly Haven",
+  "provider_asset_id": "coast_sand_rocks_02",
+  "schema_version": 1,
+  "source_fingerprint": "0016ab4391ec280398885ba6d40e28d3bbdb60e8b884ef458953ed1423128034",
+  "source_url": "https://polyhaven.com/a/coast_sand_rocks_02",
+  "verification_report": "reports/results/v3/provenance_verification.json",
+  "verification_report_sha256": "077c30de72a1e5164ffa6f7d4148a874ea282e1033b77af01003aea74e070fd7",
+  "verification_tier": "T2_official_metadata_hash_match",
+  "verification_tier_definition": "Every local source map MD5 and size matches same-filename official /files metadata. SHA-256 also computed locally. No source-file redownload; MD5 is not collision-resistant.",
+  "verified_by": "agent"
+}

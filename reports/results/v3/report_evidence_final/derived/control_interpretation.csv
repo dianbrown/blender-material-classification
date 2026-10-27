@@ -1,0 +1,2 @@
+label,scope,interpretation
+ConvNeXt control,nested_oof,Fixed ConvNeXt descriptor; C selected independently on identical outer folds. No neural adaptation in this frozen control.

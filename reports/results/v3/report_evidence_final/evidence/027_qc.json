@@ -1,0 +1,18 @@
+{
+  "data_only": true,
+  "passed": true,
+  "images": 630,
+  "groups": 21,
+  "class_counts": {
+    "wood": 90,
+    "metal": 90,
+    "stone": 90,
+    "concrete": 90,
+    "ceramic": 90,
+    "fabric": 90,
+    "leather": 90
+  },
+  "run_sha256": "1957d86b8c4d9358def3d9327250796defb33c8f52db4ce9f76f3dc9a41817df",
+  "failures": [],
+  "action": "No replacements or appearance tuning; quarantine failed runs for investigation."
+}

@@ -1,0 +1,87 @@
+{
+  "scores": [
+    {
+      "lr": 3e-06,
+      "mean_best_validation_macro_f1": 0.7624975658365382,
+      "best_epochs": [
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "lr": 1e-05,
+      "mean_best_validation_macro_f1": 0.7724822182541141,
+      "best_epochs": [
+        6,
+        5,
+        3
+      ]
+    }
+  ],
+  "backbone_lr": 1e-05,
+  "final_epochs": 5,
+  "mean_best_validation_macro_f1": 0.7724822182541141,
+  "frozen_selector_mean_macro_f1": 0.8035245993,
+  "difference_from_frozen_selector": -0.03104238104588586,
+  "candidate_choice": "pending explicit parent decision; scores are development only",
+  "fits": [
+    {
+      "lr": 3e-06,
+      "fold": 0,
+      "status": "complete",
+      "best_score": 0.8356045851091051,
+      "best_epoch": 3,
+      "checkpoint_sha256": "8ece48e3d35c7107c3b48de4320313591cd8a36dd0a3ff03ccaffc54e35d6d40"
+    },
+    {
+      "lr": 3e-06,
+      "fold": 1,
+      "status": "complete",
+      "best_score": 0.7857858110715893,
+      "best_epoch": 3,
+      "checkpoint_sha256": "39cb0d64ebcd0815b81d1872d0ee56edfc7e4e5e32ff01798d307086028b5ecd"
+    },
+    {
+      "lr": 3e-06,
+      "fold": 2,
+      "status": "complete",
+      "best_score": 0.6661023013289201,
+      "best_epoch": 4,
+      "checkpoint_sha256": "c7c10c1f27669ae43cecc2091bc77c6c7eb76bca9d17dceaf68f27fd8ac6dc91"
+    },
+    {
+      "lr": 1e-05,
+      "fold": 0,
+      "status": "complete",
+      "best_score": 0.8401072901378714,
+      "best_epoch": 6,
+      "checkpoint_sha256": "288e7c382dff40c113a22e6babc1c160e5ab33df676f6ac0982b5106ed2c4d37"
+    },
+    {
+      "lr": 1e-05,
+      "fold": 1,
+      "status": "complete",
+      "best_score": 0.8029839348091382,
+      "best_epoch": 5,
+      "checkpoint_sha256": "254bda6df93a6811acd0d8b3b4e44810ea5e451b74649ba9f63e50556720c404"
+    },
+    {
+      "lr": 1e-05,
+      "fold": 2,
+      "status": "complete",
+      "best_score": 0.6743554298153329,
+      "best_epoch": 3,
+      "checkpoint_sha256": "717d96e146f70b90db771407faa0eadbc2f259fd9548ada785163c9ba54dd509"
+    }
+  ],
+  "run_identity_sha256": "77f5ca92216595c7eacc95b7ed8b2223f2035ce0a0c5efa5ab76c3a549cbbf19",
+  "interpretation": {
+    "status": "EXPLORATORY development follow-up triggered by the initial frozen result; not preregistered untouched CV.",
+    "validation": "Best-epoch selection and LR selection use the same three all-development frozen-selector folds. These optimistic development scores are not unbiased CV or independent evidence.",
+    "primary": "Preserve frozen primary nested accuracy 0.793968 and macro-F1 0.79548 and ConvNeXt accuracy 0.68857. Fine-tuning does not overwrite or rebrand these results.",
+    "candidate_choice": "Compare selected fine-tune mean best validation macro-F1 with frozen selector 0.8035245993 only to inform final fresh-holdout candidate choice. Parent explicitly freezes the choice; both artifacts are retained.",
+    "fresh_holdout": "No access or scoring during development. Parent applies the frozen candidates to the same fresh holdout once after all configuration and candidate choices are frozen. Only that endpoint provides independent evidence; 80% is a target, not a promised outcome.",
+    "failures": "Six selection fits maximum, ten epochs maximum each; failed/interrupted/nonfinite/OOM attempts retained, no silent batch changes or added configurations. Resume replays only uncommitted epochs."
+  }
+}

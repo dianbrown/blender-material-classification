@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "name": "supplemental-resnet50-v3",
+  "rationale": "Preregistered before reading any v3 scores to meet ITRI626_Project_New.md sections 6 and 7: three distinct model families evaluated on the same split. Historical ResNet results are not split-matched. This supplemental baseline is not eligible for the frozen primary selector; choices are assessment-driven, not based on observed scores.",
+  "class_order": [
+    "wood",
+    "metal",
+    "stone",
+    "concrete",
+    "ceramic",
+    "fabric",
+    "leather"
+  ],
+  "seed": 20261027,
+  "outer_folds": 5,
+  "split": "learning.grouped_folds with protocol seed and identical sorted manifest rows; optional primary fold_assignments.csv must match exactly",
+  "architecture": "torchvision.models.resnet50",
+  "weights": "ResNet50_Weights.IMAGENET1K_V2",
+  "weights_url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+  "weights_sha256_prefix": "11ad3fa6",
+  "weights_integrity": "Verify published filename SHA256 prefix for cached/downloaded weights and record complete downloaded-file SHA256 before training.",
+  "preprocessing": {
+    "input_size": 224,
+    "eval_resize_shorter_edge": 232,
+    "interpolation": "bilinear",
+    "antialias": true,
+    "color": "EXIF transpose then RGB",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "crop_scale": [
+      0.88,
+      1.0
+    ],
+    "crop_ratio": [
+      0.95,
+      1.05
+    ],
+    "horizontal_flip": 0.5,
+    "color_jitter": {
+      "brightness": 0.1,
+      "contrast": 0.1,
+      "saturation": 0.05,
+      "hue": 0.02
+    }
+  },
+  "epochs": 10,
+  "head_only_epochs": 2,
+  "fine_tune": "layer4_and_fc_only",
+  "batch_norm": "all running statistics frozen; layer4 affine parameters trainable after epoch 2",
+  "optimizer": "AdamW",
+  "head_lr": 0.0003,
+  "backbone_lr": 1e-05,
+  "weight_decay": 0.01,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "eps": 1e-08,
+  "label_smoothing": 0.05,
+  "schedule": "single 10-epoch cosine, eta_min=0, step after each epoch; no reset at unfreeze",
+  "physical_batch_size": 16,
+  "accumulation_steps": 2,
+  "effective_batch_size": 32,
+  "permitted_physical_batch_sizes": [
+    16,
+    8
+  ],
+  "batch_override": "Explicit CLI choice only, recorded in effective config and hash before training; batch 8 accumulates 4; no OOM retry or score-based change.",
+  "partial_batch": "Accumulate summed losses; divide gradients by actual images in each update, including the final partial update; drop_last=False",
+  "gradient_clip_norm": 1.0,
+  "amp": "CUDA float16 autocast with GradScaler; CPU float32",
+  "workers": 0,
+  "epoch_seed": "seed + outer_fold*1000 + zero_based_epoch; final uses seed+100000+epoch; initialize model at first epoch seed",
+  "determinism": "Python/NumPy/torch epoch seeds, seeded loader generator, deterministic algorithms, no TF32 or cudnn benchmark",
+  "selection": "none: fixed 10 epochs, no early stopping, no outer validation during training; final epoch outer evaluation exactly once",
+  "final": "Independent 10-epoch fit on all development images; fresh holdout is inference-only with source-group and image-content overlap refusal",
+  "artifacts": "Float32 CPU state_dict .pt plus JSON class/preprocessing/config/input/implementation/weight/checkpoint hashes; no optimizer or resumable checkpoints",
+  "sources": [
+    "ITRI626_Project_New.md",
+    "https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet50.html"
+  ]
+}

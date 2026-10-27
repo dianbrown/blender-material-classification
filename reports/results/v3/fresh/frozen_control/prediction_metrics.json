@@ -1,0 +1,80 @@
+{
+  "accuracy": 0.7555555555555555,
+  "macro_f1": 0.7565640682324669,
+  "log_loss": 0.8610738442873129,
+  "confusion_matrix": [
+    [
+      90,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      80,
+      0,
+      9,
+      0,
+      1,
+      0
+    ],
+    [
+      2,
+      14,
+      66,
+      0,
+      0,
+      0,
+      8
+    ],
+    [
+      32,
+      0,
+      3,
+      55,
+      0,
+      0,
+      0
+    ],
+    [
+      15,
+      7,
+      17,
+      0,
+      51,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      16,
+      0,
+      74,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      27,
+      0,
+      3,
+      60
+    ]
+  ],
+  "class_order": [
+    "wood",
+    "metal",
+    "stone",
+    "concrete",
+    "ceramic",
+    "fabric",
+    "leather"
+  ],
+  "interpretation": "Fresh manifest evaluated with fixed development artifact; no scaler, head, calibration, or model selection fitted on these data."
+}
