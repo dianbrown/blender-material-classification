@@ -244,3 +244,26 @@ captions/appendix references where possible, retaining full hashed inventory.
 Main narrative should interpret measured errors/uncertainty and architecture
 tradeoffs, not read like a tool status log. Include final neural histories,
 three-architecture comparison, fresh endpoint and fixed corruption results.
+
+## Matched ResNet benchmark completed
+
+GPU owner reports all5fixed10-epoch ResNet folds completed in2262.88seconds.
+Accuracy0.7155555555555555; macro-F1 0.7135009154776019. Coverage3150 unique
+images, exact primary fold map, class/group constraints and probabilities all
+verified. Raw snapshots and five histories: reports/results/v3/resnet_baseline.
+Comprehensive evaluation: reports/results/v3/nested_resnet (standard evaluator
+scope includes grouped OOF; label this fixed-policy baseline, not nested model
+selection). Paired primary-minus-ResNet accuracy difference0.0784126984, 95%
+family-bootstrap interval[0.0146397786,0.1414450879]; saved paired JSON.
+ResNet final all-development fit running, latest milestone6/10epochs; DINO
+selection/final follows. Fresh holdout still unscored; no model choice changes.
+
+CPU-only task v3-inference-benchmark-20261027-r1 implements NEW benchmark
+module/CLI/tests for latency, throughput, VRAM and actual weight footprints.
+It must not touch active training code. Actual GPU benchmarking waits for the
+GPU owner to finish and final inference phase. In report, distinguish a frozen
+classifier's ~311KB head artifact from its required ~202MB pretrained backbone
+files; use measured file sizes/counts, not this approximate note. The same DINO
+weight file at two resolutions counts once as stored weights, while runtime
+instances may occupy separate memory. Neural loaders may also require cached
+pretrained files; report measured dependency requirements honestly.

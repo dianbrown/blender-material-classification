@@ -1,0 +1,16 @@
+estimate_type,bin,lower,upper,count,mean_confidence,accuracy
+Nested/grouped OOF development estimates; not an untouched test evaluation,0,0.0,0.06666666666666667,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,1,0.06666666666666667,0.13333333333333333,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,2,0.13333333333333333,0.2,0,,
+Nested/grouped OOF development estimates; not an untouched test evaluation,3,0.2,0.26666666666666666,35,0.24652979284303236,0.2
+Nested/grouped OOF development estimates; not an untouched test evaluation,4,0.26666666666666666,0.3333333333333333,113,0.3030228538466499,0.4247787610619469
+Nested/grouped OOF development estimates; not an untouched test evaluation,5,0.3333333333333333,0.4,212,0.3703389494475799,0.4481132075471698
+Nested/grouped OOF development estimates; not an untouched test evaluation,6,0.4,0.4666666666666667,270,0.43591945261502085,0.4777777777777778
+Nested/grouped OOF development estimates; not an untouched test evaluation,7,0.4666666666666667,0.5333333333333333,260,0.4999109091265231,0.6038461538461538
+Nested/grouped OOF development estimates; not an untouched test evaluation,8,0.5333333333333333,0.6,262,0.565290986245895,0.6106870229007634
+Nested/grouped OOF development estimates; not an untouched test evaluation,9,0.6,0.6666666666666666,281,0.6335606532969451,0.7366548042704626
+Nested/grouped OOF development estimates; not an untouched test evaluation,10,0.6666666666666666,0.7333333333333333,275,0.7000989139332193,0.8036363636363636
+Nested/grouped OOF development estimates; not an untouched test evaluation,11,0.7333333333333333,0.8,236,0.7663047694456607,0.75
+Nested/grouped OOF development estimates; not an untouched test evaluation,12,0.8,0.8666666666666667,264,0.8327200730334464,0.8181818181818182
+Nested/grouped OOF development estimates; not an untouched test evaluation,13,0.8666666666666667,0.9333333333333333,367,0.9026857370066935,0.8719346049046321
+Nested/grouped OOF development estimates; not an untouched test evaluation,14,0.9333333333333333,1.0,575,0.9583736057860213,0.8991304347826087
