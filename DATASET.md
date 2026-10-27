@@ -1,6 +1,15 @@
-# Dataset card: synthetic PBR material renders (V3 draft)
+# Dataset card: synthetic PBR material renders (V3 completed study)
 
-## Composition and scope
+The complete study contains **3,780 images, 126 material IDs and 122 known
+source families**: 3,150 development images / 105 IDs / 101 families plus
+630 fresh test images / 21 IDs / 21 groups. There are 540 images per class
+across the complete study. The holdout has been scored once per locked model;
+it is now an evaluated benchmark, not an untouched future test.
+
+[Final report](reports/v3/report.pdf) ? [Results notebook](notebooks/05_v3_results.ipynb) ?
+[Combined release audit](reports/V3_STUDY_DATASET_RELEASE.md)
+
+## Original development corpus
 
 The existing corpus contains **3,150 RGB PNG images at 512 x 512**, from **105
 local material IDs**, 30 views each. Seven labels have 15 local materials and
@@ -93,10 +102,11 @@ the frozen audit bytes themselves are preserved.
 ## Fresh collection and rendering-domain caveat
 
 The separate `metadata/v3_holdout` registry specifies **21 new CC0 sources,
-three per class, and 630 images**. It is excluded from the original release
-package. All 630 renders passed model-free integrity checks. The classifier
+three per class, and 630 images**. It is excluded from the original-only release package and included in the
+complete study audit ZIP described below. All 630 renders passed model-free integrity checks. The classifier
 view is `metadata/v3_holdout/classification_manifest.csv`; the original renderer
-manifest remains separate. Fresh scoring awaits the pre-prediction model lock.
+manifest remains separate. Fresh evaluation is complete. The primary choice and all model artifacts were
+locked before any fresh prediction. No model changed after the clean results.
 A line-ending-only freeze-hash repair did not change the frozen
 configuration, registry or model-selection policy.
 
@@ -107,22 +117,47 @@ framing and texture placement, with softer ground shadows. Treat this as a
 rendering-domain caveat, not a fresh evaluation result. Source novelty does not
 remove renderer or taxonomy shift, and synthetic renders remain synthetic.
 
-## Release status and permissions
+## Complete study package and release status
 
-**Local release ZIP and source proof are prepared. Nothing is published.**
-The original sources' CC0 permissions have been verified, and image-to-source
-lineage/scene checks are documented. The remaining decisions are the owner's
-**dataset license** for the rendered collection and **later publication**.
-`dataset_license` remains empty and `release_approved` remains false. Do not
-describe the 105 sources as unresolved simply because the owner has not yet
-chosen a dataset license.
+**The complete local audit ZIP is verified. Nothing is uploaded.** Original
+source permissions are resolved; the owner's rendered-dataset license and
+publication decisions remain pending. `dataset_license` is unset and
+`release_approved=false`. Third-party CC0 maps are attributed; project authorship
+concerns rendered images and code, not those maps. Provider terms do not
+license model weights, websites or unrelated project assets.
 
-The prepared package contains original-corpus renders and reproducibility/
-provenance records, not provider texture maps or the external RenderSynth
-add-on. No public download URL exists yet. The release workflow and exact
-archive hashes live in [V3_KAGGLE_RELEASE.md](reports/V3_KAGGLE_RELEASE.md).
-Provider CC0 terms do not automatically license project code, pretrained model
-weights, provider websites, or unrelated future assets.
+- Local archive: `artifacts/v3/release-staging/material-classification-v3-study-audit.zip`
+- Size: **1,005,048,843 bytes**; 3,927 entries.
+- SHA-256: `4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da`
+- Companion: `material-classification-v3-study-audit.validation.json` in the same directory.
+- Split: 3,150 development images and 630 fresh test images, with 30 views per ID.
+
+The validation checks every entry's CRC/hash, the manifest, source/pixel hashes
+and private paths. Archive paths are `images/development/{class}/{filename}` and
+`images/test/{class}/{filename}`. `metadata/manifest.csv` records V3 split,
+historical `original_split`, source group, lineage path, source/package byte
+hashes and decoded-pixel hashes. Old test membership remains lineage only.
+
+All 316 original and **63 fresh source maps** were verified against official
+CC0 provider evidence. The package contains rendered images and compact source,
+rendering and audit records, not raw textures, scene binaries or model weights.
+Known ancestry checks cover aliases, normalized names, procedural families,
+recipe/map identities and raw map reuse; they do not prove every physical source
+unrelated. The original-only audit ZIP remains preserved separately.
+
+Private Windows paths in embedded PNG metadata were stripped from **copies**.
+All packaged images have identical decoded pixels to their canonical sources;
+original files were not modified. `sha256` in the combined manifest hashes the
+packaged PNG; `source_sha256` hashes the original PNG. Do not compare them as
+if metadata sanitization preserved byte identity. Both hashes and pixel identity
+are retained, with published text normalized to UTF-8/LF.
+
+See [V3_STUDY_DATASET_RELEASE.md](reports/V3_STUDY_DATASET_RELEASE.md) for complete
+verification and the original [release audit](reports/V3_KAGGLE_RELEASE.md).
+There is no public download URL. Publishing or choosing CC0/CC-BY-4.0 for the
+rendered dataset remains the owner's decision. Once scored, and especially after
+publication, further tuning on this test set must be disclosed; confirmatory
+claims need a newly frozen independent holdout.
 
 ## Reuse and reproduction
 
@@ -130,7 +165,7 @@ Use the frozen v3 manifests and the reproduction commands in [README.md](README.
 Keep the old split directories for traceability while grouping experiments by
 `source_group`. Audit changed image/map bytes and preserve a separate output
 directory for each extraction, training, evaluation and report assembly run.
-The planned canonical validated cache/run are `artifacts/v3/features_final`
+The canonical validated cache/run are `artifacts/v3/features_final`
 and `artifacts/v3/run_final`; initial outputs remain available for comparison.
 
 Raw Windows-generated training files may use CRLF and their run records hash

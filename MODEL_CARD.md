@@ -1,121 +1,131 @@
-# Model card: V3 material classification (draft)
+# Model card: V3 material classification
 
-## Status and identity
+## Model identity and use
 
-The completed initial model is a **frozen DINOv2/ConvNeXt feature selector with
-a logistic head**. Final deployment choice, exploratory fine-tuning, matched
-ResNet training, independent fresh evaluation and the final report remain in
-progress. This card does not claim a measured final fresh accuracy.
+The completed **primary** is frozen multiscale DINOv2 small with registers plus
+ConvNeXt-Tiny features and a scaled balanced logistic classifier. Use for
+research, teaching and inspection of comparable synthetic renders. It is not
+validated for arbitrary photographs, physical composition or safety-critical
+material decisions.
 
-The initial all-development fit selected `dino_multiscale_convnext` with C=1:
-DINOv2 small register CLS, patch mean and patch population standard deviation at
-224 and 336 pixels, concatenated with ConvNeXt-Tiny pooled features at 224 pixels
-(3,072 input features). Scaling and a class-balanced L2 logistic head use the
-settings in [the frozen protocol](configs/v3/protocol.json). Initial artifacts
-are `artifacts/v3/run/model.joblib` and `model_metadata.json`; the ConvNeXt
-control is retained alongside them. Exact checkpoint revisions, weight hashes,
-preprocessing, class order and implementation/environment hashes are recorded
-in protocol, cache and model metadata. Do not reconstruct them from this prose.
+Input is RGB with recorded model-specific resize, crop and normalization.
+Output is a probability vector over `wood`, `metal`, `stone`, `concrete`,
+`ceramic`, `fabric`, `leather`, in that order. Probabilities are not calibrated
+guarantees. The recipe `dino_multiscale_convnext`, C=1, combines CLS, patch mean
+and population standard deviation at 224/336 pixels with ConvNeXt pooled features
+at 224: 3,072 features. Register tokens are excluded from patch statistics.
+Backbones remain frozen. Scaling and balanced L2 logistic fitting occur within
+each training partition. Exact revisions and preprocessing are in metadata.
 
-The completed input-validation rerun uses canonical `artifacts/v3/features_final`
-and `artifacts/v3/run_final`. It follows fixes for feature provenance and path
-identity (including Windows dot/space aliases and resolved file identities).
-No actual dataset changes were reported. Initial and intermediate runs are
-preserved. All seven feature arrays and seven OOF prediction files reproduced
-exactly (maximum probability difference zero). A report must still bind the
-sidecar to its own feature-cache record and actual weight bytes.
+## Artifacts and selection
 
-## Evaluation evidence
+| Role | Local checkpoint (adjacent metadata required) |
+| --- | --- |
+| Primary | `artifacts/v3/run_final/model.joblib` |
+| ConvNeXt control | `artifacts/v3/run_final/control_model.joblib` |
+| Fixed ResNet-50 | `artifacts/v3/resnet-final/final/model.pt` |
+| Exploratory DINOv2 | `artifacts/v3/finetune/candidates/finetuned/model.pt` |
 
-| Completed initial endpoint | Accuracy | Macro F1 |
+[Model choice](reports/results/v3/model_choice.json) used development Macro F1
+0.8035245993060354 versus 0.7724822182541141 for DINOv2. These are selection
+scores. The [checkpoint lock](reports/results/v3/final_model_lock.json) at
+**09:51:05 UTC** preceded first fresh prediction at **09:54:06 UTC**, 27 October
+2026. Primary choice did not change after the fresh ranking.
+
+Primary checkpoint SHA-256:
+`8722128562fcef9837089b39c97d0f631c8480c71378f05158fe90a30c106b8e`.
+Use the lock for all artifact and sidecar hashes. Weights are local, not in Git.
+Load only trusted serialized files. Canonical `features_final` and `run_final`
+exactly reproduce seven earlier feature arrays and seven OOF prediction files;
+initial/intermediate runs remain preserved.
+
+## Completed evaluation
+
+The same **630 images / 21 groups**, 90 images and three groups per class:
+
+| Pipeline | Fresh accuracy | Macro F1 |
 | --- | ---: | ---: |
-| Five-by-three nested frozen selection procedure | 0.793968253968254 | 0.7954847513984545 |
-| Matched nested ConvNeXt control | 0.6885714285714286 | 0.6861276769966136 |
+| Preselected primary | **80.16%** | **0.7952** |
+| ConvNeXt control | 75.56% | 0.7566 |
+| Fixed ResNet-50 | 77.62% | 0.7665 |
+| Exploratory DINOv2 | **86.83%** | **0.8631** |
 
-Sources: `reports/results/v3/nested_selected/evaluation.json` and
-`reports/results/v3/nested_control/evaluation.json`, with raw predictions in
-`artifacts/v3/run/selected_oof.csv` and `control_oof.csv`. Both endpoints use
-3,150 images and 101 frozen source-family groups with identical outer folds.
-The selector's initial 95% accuracy CI is [0.7265355511, 0.8556604537], based on
-10,000 class-stratified source-group bootstrap resamples, seed 62642. Each
-resampled source retains its views; point metrics are image-weighted. The CI
-is conditional on fixed predictions and does not capture refitting, selection
-uncertainty or correlated outer training sets. The 80% target is not achieved
-by the initial point estimate and is not supported by its lower bound.
+Primary accuracy 95% CI: **66.03-93.65%**; DINOv2: **76.98-95.87%**.
+DINOv2 is the highest observed comparison, not a substituted primary. Its paired
+advantage is **+6.67 percentage points (95% CI -2.06 to 16.19)**. All three
+saved fresh paired accuracy intervals include zero; superiority is not confirmed.
+The **80% point target is met by the primary**, but not by its lower CI bound.
 
-The all-development inner selection mean macro F1 of 0.8035245993060354 is an
-optimization/selection score, not a new test estimate. The nested endpoint
-estimates the complete frozen selection procedure, not necessarily the one
-recipe fitted to all data. Broad historical data reuse also limits any claim
-that the entire research process was untouched by earlier results.
+Intervals use 10,000 class-stratified source-group bootstrap draws, seed 62642,
+retaining all views per sampled group. They condition on fixed predictions,
+excluding refitting/selection uncertainty. Sources:
+[fresh outputs](reports/results/v3/fresh), [report](reports/v3/report.pdf),
+[evidence manifest](reports/results/v3/report_evidence_final/report_manifest.json).
+Primary ceramic recall is 57.78%. Perfect sampled recall for wood, metal and
+fabric does not imply perfect performance on new families.
 
-The pending DINOv2 follow-up unfreezes the final two blocks, searches two learning
-rates over three development folds, and uses development best-epoch selection.
-It was initiated after the initial nested result and is exploratory. Its
-comparison to the frozen all-data selector (0.8035245993 macro F1) cannot be
-relabelled unbiased CV. Planned outputs are under `artifacts/v3/finetune`.
-The fixed ten-epoch ResNet-50 comparison was declared before v3 scores; it
-satisfies the third-architecture assessment only after matched-fold evaluation.
-No unavailable scores or plausible training curves are supplied here.
+The initial five-fold existing-corpus endpoint uses 3,150 images / 101 families.
+Frozen nested selection achieved 79.3968%, Macro F1 0.795485, accuracy CI
+72.65-85.57%; control 68.8571%; fixed ResNet 71.5556%, Macro F1 0.713501.
+The initial target was missed. Paired primary-control difference is +10.54 pp
+(CI 4.83-16.45); primary-ResNet +7.84 pp (CI 1.46-14.14). These initial endpoint
+comparisons do not establish corresponding fresh-population effects.
 
-The independently collected fresh endpoint has 21 registered new CC0 sources,
-three per class, and 630 rendered images that passed model-free QC. It has not
-been scored. Model choice must be explicitly frozen before fresh predictions.
-Its measured result will become the primary endpoint;
-it must not overwrite or retroactively justify the initial nested experiment.
+## Adaptation and robustness
 
-## Inputs, outputs and use
+ResNet was declared before V3 scores and uses ten fixed epochs without
+outer-validation checkpoint selection. DINOv2 adaptation followed the initial
+79.4% outcome: six development fits, two learning rates, selected 1e-5, best
+epochs [6, 5, 3], five final epochs. It remains an exploratory follow-up.
 
-Input is an RGB render with the recorded model-specific resize, center crop and
-normalization. Output is a probability vector and one of the ordered labels:
-`wood`, `metal`, `stone`, `concrete`, `ceramic`, `fabric`, `leather`. Use the exact
-saved scaler, recipe and head; probability values are not calibrated guarantees
-of correctness. Preserve model/metadata checksums and environment records.
+| Corruption | Primary accuracy | DINOv2 accuracy |
+| --- | ---: | ---: |
+| Low brightness | 78.25% | 85.24% |
+| High brightness | 83.02% | 89.05% |
+| Gaussian blur | 77.14% | 80.00% |
+| JPEG quality 30 | **59.05%** | **75.40%** |
+| Resolution 128 | 75.08% | 83.17% |
 
-Use for reproducible synthetic-material research, teaching and inspection of
-renders from a comparable scene. The artifact is not validated for physical
-composition identification, arbitrary photographs, industrial safety or
-high-stakes material decisions. Real-image and out-of-distribution testing
-have not been established. See `scripts/v3/predict.py --help` for explicit
-artifact-based inference; fresh batch inference belongs only to the locked
-endpoint protocol, not routine experimentation.
+Primary tests were predeclared. DINOv2 tests were added **post hoc**, after clean
+and primary-corruption scores, under the
+[amendment](reports/results/v3/exploratory_robustness_amendment.json). No model
+changed. JPEG is a major limitation; the target is not met in all conditions.
+[Outputs](reports/results/v3/robustness) retain all class recall changes.
 
-## Limitations and interpretation
+Primary log loss is 0.6745, Brier score 0.3018, 15-bin ECE 0.0948. DINOv2 has
+better observed log loss/Brier but higher ECE, 0.1411. Calibration and risk/coverage
+curves are descriptive. No calibration fit or abstention threshold was selected
+on the holdout; operating thresholds need separate development validation.
 
-Repeated renders share source texture content, so image count overstates the
-number of independent examples. Known provider/generator links are grouped;
-unknown derivatives and pretrained-data overlap may remain. Labels describe
-appearance-based archive categories. Ceramic includes mosaic/terrazzo-like
-surfaces and concrete includes plaster/painted-wall-like surfaces. Restricted
-fresh definitions alter the evaluated population. The historic metallic shader
-convention and shared geometry/lighting can provide shortcuts.
+## Measured deployment costs
 
-Blender 5.1.1 is a rendering-domain caveat. A seven-image old-TRAIN EEVEE pilot
-before bulk rendering visually matched framing and texture placement but had
-softer ground shadows. This observation is development evidence, not a causal
-explanation of performance or an independent validation. New source variation
-and renderer/taxonomy changes cannot be separated by a single holdout score.
+| Pipeline | Warm batch-1 median ms | Batch-16 images/s | Complete deployment bytes |
+| --- | ---: | ---: | ---: |
+| Primary | 42.876 | 46.361 | 203,629,625 |
+| Control | 14.205 | 174.416 | 115,271,775 |
+| ResNet | 9.463 | 294.688 | 95,315,284 |
+| DINOv2 | 13.862 | 101.438 | 88,027,439 |
 
-Error galleries must state their selection policy; high-confidence errors are
-illustrative rather than prevalence estimates. Inspect per-source concentration,
-class confusions and the actual bootstrap intervals before making general
-claims. Robustness, latency and peak memory are reported only where measured;
-head-fit time is not end-to-end inference latency.
+[Benchmarks](reports/results/v3/benchmarks) use the same inputs, four CPU threads
+and CUDA on an RTX 4070 Laptop GPU. Scope: predecoded RGB through preprocessing,
+model computation and probabilities; disk I/O/decode excluded. Reload is
+process-warm, not OS-cold. Memory is process allocator peak, not total board use.
+The approximately 311 KB primary head is **not** total model size: pretrained
+files and sidecars are required. DINOv2 exports contain standalone weights with
+no pretrained-cache loading dependency. See [README](README.md) for commands.
 
-## Provenance, release and historical model
+## Limitations and release
 
-All 316 original source maps are verified; source-level CC0 proof and local
-release preparation are complete. Dataset-license and publication choices are
-still the owner's decisions. Pretrained model terms, source-map permissions,
-render authorship and the project's dataset license are distinct. See
-[DATASET.md](DATASET.md) and [release proof](reports/V3_KAGGLE_RELEASE.md).
+Three fresh families per class, incomplete physical ancestry, restricted class
+semantics and Blender 5.1.1 softer shadows limit transfer. Public texture overlap
+with backbone pretraining has not been audited. Different pretraining,
+resolution, adaptation and search budgets confound architecture-only comparisons.
+No real-world validation exists. Historical V1 is a previously consulted,
+different endpoint, not direct improvement evidence.
 
-The V1 ResNet-50 recommendation and its approximately 69.76% historical test
-accuracy remain archived in the original reports and result files. Those
-previously consulted test results, different epoch-selection procedure and
-material-ID split are not comparable to v3 nested or fresh endpoints. The V1
-recommendation is not a current final deployment choice.
-
-This is a manually maintained v3 draft. The old `scripts/update_docs.py` emits
-V1 content and must not overwrite it. Final measured updates must cite the new
-assembled manifest and the completed run's exact artifacts.
+All 316 original and 63 fresh maps have official CC0 provenance. The project
+authors renders/code and attributes third-party maps. The complete local audit
+ZIP is verified; dataset license and publication approval remain pending, with
+no upload. Pretrained-weight terms, map permissions and dataset licensing are
+distinct. See [DATASET.md](DATASET.md). Legacy `scripts/update_docs.py` emits V1
+content and must not overwrite this completed card.

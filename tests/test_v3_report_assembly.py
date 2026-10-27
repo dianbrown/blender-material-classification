@@ -535,3 +535,23 @@ def test_missing_history_values_are_not_fabricated(inputs, monkeypatch):
     ]
     with pytest.raises(assembly.ReportError, match="val_loss"):
         run_bundle(inputs, monkeypatch)
+
+
+def test_publication_assets_are_normalized_and_in_complete_inventory(inputs, monkeypatch):
+    root, spec, _ = inputs
+    (root / "publication.csv").write_bytes(b"Label,Accuracy\r\nSYNTHETIC,0.5\r\n")
+    spec["publication_pages"] = [
+        dict(
+            title="Synthetic publication",
+            blocks=[dict(kind="table", path="publication.csv", caption="Synthetic evidence")],
+        )
+    ]
+    out = run_bundle(inputs, monkeypatch)
+    manifest, _, _ = assembly.report.load_report(out, allow_synthetic=True)
+    path = manifest["publication_pages"][0]["blocks"][0]["path"]
+    assert b"\r" not in (out / path).read_bytes()
+    inventory = json.loads((out / "derived/source_inventory.json").read_text())
+    item = next(row for row in inventory if row["path"] == path)
+    assert item["source_sha256"] == assembly.report.sha256(root / "publication.csv")
+    assert item["sha256"] == assembly.report.sha256(out / path)
+    assert item["sha256"] != item["source_sha256"]

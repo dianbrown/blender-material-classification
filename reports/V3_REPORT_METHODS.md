@@ -1,12 +1,12 @@
 # V3 report methods and normalized input contract
 
-This is a reusable narrative outline and generator contract, not a results report.
-The initial frozen nested experiment is now complete (27 October 2026); final
-validation-rerun, matched ResNet, exploratory fine-tuning and fresh evidence are
-still being integrated. This document remains a method/contract reference.
-The generator never searches old result folders or fills missing measurements.
-Final interpretation and visual verification must use the actual experiment
-artifacts in a later round. Do not copy the test fixture into a publication.
+This is the narrative and generator contract for the completed V3 study
+(27 October 2026), not a substitute for its measured results report. Frozen
+selection, matched ResNet, exploratory DINOv2, fresh holdout, robustness and
+benchmark execution are complete. The final publication is `reports/v3/report.pdf`.
+The generator uses explicit sources and never searches for a best/latest run or
+fills missing measurements. Synthetic fixtures remain clearly labelled and must
+not be used as experimental evidence. Final-page visual QA is recorded separately.
 
 ## Evidence established before experiments
 
@@ -296,3 +296,41 @@ the report machinery, not model performance or a completed v3 submission.
 6. Poly Haven. [Asset license](https://polyhaven.com/license). Verify against asset registry at release.
 7. ambientCG. [License](https://docs.ambientcg.com/license/). Verify against asset registry at release.
 8. Meta DINOv2 authors. [Official linear evaluation implementation](https://github.com/facebookresearch/dinov2/blob/main/dinov2/eval/linear.py). Pin the actual used commit in the experiment record.
+
+
+## Completed V3 publication
+
+The final report is `reports/v3/report.pdf` and `report.md`. Its explicit input
+spec is `reports/results/v3/report_inputs/assembly.json`, and the validated
+bundle is `reports/results/v3/report_evidence_final`. The preselected primary
+is frozen fusion; the higher observed DINOv2 score is an exploratory comparison.
+Neither report assembly nor PDF layout runs model inference or changes metrics.
+
+An optional `publication_pages` array provides a curated academic layout. Each
+page has a `title` and nonempty `blocks`; text blocks use `kind: p` or `h` and
+`text`; asset blocks use `kind: table` or `figure`, `path` and `caption`. Table
+and figure paths in an assembly spec are explicit source paths relative to the
+spec (or absolute). Assembly copies and hashes them, rewrites them to bundle
+paths and includes them in the final source inventory. The builder rejects
+unregistered assets, malformed tables and unsupported figure formats before
+publishing. Page boundaries are shared editorial boundaries for PDF, while
+Markdown preserves the same title, paragraphs, tables and figures continuously.
+Synthetic layouts retain the synthetic warning and cannot be passed off as
+measured reports. The normal endpoint validation remains mandatory.
+
+Curated text is editorial, not an automatic fact checker. Review its numeric
+claims against the supplied sources. The final publication tables and charts
+were derived from completed evaluator JSON, prediction CSVs, benchmark records
+and actual neural histories. No logistic epoch curves or per-class confidence
+intervals were fabricated. The saved scalar CIs are pooled metric intervals;
+per-class displays are point metrics. Every copied source is recorded in
+`derived/source_inventory.json`, including original and UTF-8/LF normalized
+SHA-256 values. Weight files are references only (`copy_weights=false`).
+
+The final document has 17 body pages, one reference page and three appendix
+pages. All pages are rendered using Poppler and visually inspected; internal
+PNGs and `verification.json` live under ignored
+`artifacts/v3/report_final_qa/` in the parent checkout. QA is tied to the exact
+PDF SHA-256. The historical root reports remain unchanged. Generated publication
+files are handed to the parent for a separate final claim review and commit;
+the implementation child commits only its owned code, docs and focused tests.

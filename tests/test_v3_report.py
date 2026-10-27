@@ -364,3 +364,36 @@ def test_pdf_status_footer_keeps_synthetic_warning(tmp_path, synthetic):
         else "INTERNAL PRELIMINARY PREVIEW | v3"
     )
     assert expected in text
+
+
+def test_publication_pages_keep_evidence_and_synthetic_identity(synthetic_results, tmp_path):
+    from pypdf import PdfReader
+
+    root, manifest, _ = synthetic_results
+    manifest["publication_pages"] = [
+        dict(title="Synthetic introduction", blocks=[dict(kind="p", text="Literal <text>.")]),
+        dict(
+            title="Synthetic measured table",
+            blocks=[dict(kind="table", path="comparison.csv", caption="SYNTHETIC table")],
+        ),
+    ]
+    save_json(root / "report_manifest.json", manifest)
+    output = report.build_report(root, tmp_path / "publication", allow_synthetic=True)
+    document = PdfReader(output / "report.pdf")
+    assert len(document.pages) == 2
+    assert "SYNTHETIC FIXTURE" in document.pages[0].extract_text()
+    assert "Literal <text>" in document.pages[0].extract_text()
+    assert "Synthetic measured table" in document.pages[1].extract_text()
+    assert "SYNTHETIC baseline" in document.pages[1].extract_text()
+    assert b"\r" not in (output / "report.md").read_bytes()
+
+
+@pytest.mark.parametrize("path", ["unregistered.csv", "../outside.csv"])
+def test_publication_cannot_bypass_hashed_inventory(synthetic_results, path):
+    root, manifest, _ = synthetic_results
+    manifest["publication_pages"] = [
+        dict(title="Publication", blocks=[dict(kind="table", path=path, caption="Table")])
+    ]
+    save_json(root / "report_manifest.json", manifest)
+    with pytest.raises(report.ReportError, match="hashed evidence"):
+        report.load_report(root, True)

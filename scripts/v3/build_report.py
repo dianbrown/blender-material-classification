@@ -416,6 +416,32 @@ def load_report(results_dir, allow_synthetic=False):
                 and all(len(row) == len(rows[0]) for row in rows),
                 "Supplement table needs header, data and 1-7 consistent columns",
             )
+    if "publication_pages" in manifest:
+        pages = manifest["publication_pages"]
+        require(isinstance(pages, list) and pages, "Publication pages must be nonempty")
+        for page in pages:
+            nonempty(page.get("title"), "Publication page title")
+            require(isinstance(page.get("blocks"), list) and page["blocks"], "Empty page")
+            for block in page["blocks"]:
+                kind = block.get("kind")
+                require(kind in ("p", "h", "table", "figure"), "Invalid publication block")
+                if kind in ("p", "h"):
+                    nonempty(block.get("text"), "Publication text")
+                    continue
+                require(block.get("path") in hashes, "Publication asset must be hashed evidence")
+                nonempty(block.get("caption"), "Publication caption")
+                path = asset(root, block["path"])
+                if kind == "figure":
+                    require(path.suffix.lower() in (".png", ".jpg", ".jpeg"), "Invalid figure")
+                else:
+                    with path.open(encoding="utf-8-sig", newline="") as stream:
+                        rows = list(csv.reader(stream))
+                    require(
+                        len(rows) > 1
+                        and 1 <= len(rows[0]) <= 7
+                        and all(len(row) == len(rows[0]) for row in rows),
+                        "Publication table needs header, data and 1-7 consistent columns",
+                    )
     return manifest, loaded, hashes
 
 
@@ -712,7 +738,7 @@ def write_markdown(blocks, path):
         elif kind == "figure":
             filename, caption = value
             lines.append(f"![{caption}](figures/{filename})\n\n{caption}")
-    path.write_text("\n\n".join(lines) + "\n", encoding="utf-8")
+    path.write_bytes(("\n\n".join(lines) + "\n").encode("utf-8"))
 
 
 def write_pdf(blocks, path, figures_dir, synthetic, status_label="Material classification | v3"):
@@ -728,6 +754,7 @@ def write_pdf(blocks, path, figures_dir, synthetic, status_label="Material class
         Image,
         KeepTogether,
         LongTable,
+        PageBreak,
         Paragraph,
         SimpleDocTemplate,
         Spacer,
@@ -782,6 +809,8 @@ def write_pdf(blocks, path, figures_dir, synthetic, status_label="Material class
             story.extend([CondPageBreak(caption_height + 130), caption_block])
         elif kind == "page":
             story.append(CondPageBreak(150))
+        elif kind == "pagebreak":
+            story.append(PageBreak())
         elif kind == "table":
             header, rows = value
             widths = (
@@ -891,6 +920,8 @@ def build_report(results_dir, output_dir, *, allow_synthetic=False):
                     rows = list(csv.reader(stream))
                 entries.extend([("caption", caption), ("table", (rows[0], rows[1:]))])
         blocks = report_blocks(manifest, endpoints, hashes, plots, supplements)
+        if manifest.get("publication_pages"):
+            blocks = publication_blocks(manifest, Path(results_dir).resolve(), figures)
         write_markdown(blocks, staging / "report.md")
         write_pdf(
             blocks,
@@ -917,6 +948,37 @@ def build_report(results_dir, output_dir, *, allow_synthetic=False):
         if staging.exists():
             shutil.rmtree(staging)
     return output
+
+
+def publication_blocks(manifest, root, figures):
+    """Curated pages retain the validated evidence contract and shared format stream."""
+    blocks = [("title", manifest["title"])]
+    if manifest["evidence_kind"] == "synthetic_fixture":
+        blocks.append(("p", "SYNTHETIC FIXTURE - NOT EXPERIMENTAL EVIDENCE"))
+    registered = {item["path"] for item in manifest["evidence_files"]}
+    for index, page in enumerate(manifest["publication_pages"]):
+        if index:
+            blocks.append(("pagebreak", ""))
+        blocks.append(("h", nonempty(page["title"], "Page title")))
+        for item in page["blocks"]:
+            kind = item["kind"]
+            require(kind in ("p", "h", "table", "figure"), "Invalid publication block")
+            if kind in ("p", "h"):
+                blocks.append((kind, nonempty(item["text"], "Publication text")))
+                continue
+            require(item["path"] in registered, "Publication asset missing from inventory")
+            source = asset(root, item["path"])
+            caption = nonempty(item["caption"], "Publication caption")
+            if kind == "table":
+                with source.open(encoding="utf-8-sig", newline="") as stream:
+                    rows = list(csv.reader(stream))
+                require(len(rows) > 1, "Empty publication table")
+                blocks.extend([("caption", caption), ("table", (rows[0], rows[1:]))])
+            else:
+                name = f"publication_{index}_{len(blocks)}{source.suffix.lower()}"
+                shutil.copyfile(source, figures / name)
+                blocks.append(("figure", (name, caption)))
+    return blocks
 
 
 def main(argv=None):

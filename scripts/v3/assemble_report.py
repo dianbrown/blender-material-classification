@@ -811,6 +811,26 @@ def _assemble(spec, base, root, spec_path):
     }
     if "status_label" in spec:
         manifest["status_label"] = spec["status_label"]
+    if "publication_pages" in spec:
+        pages = []
+        for page in spec["publication_pages"]:
+            blocks = []
+            for block in page["blocks"]:
+                require(block["kind"] in ("p", "h", "table", "figure"), "Invalid publication block")
+                item = dict(block)
+                if item["kind"] in ("table", "figure"):
+                    item["path"] = bundle.copy(item["path"], item["caption"])
+                else:
+                    report.nonempty(item["text"], "Publication text")
+                blocks.append(item)
+            pages.append(dict(title=page["title"], blocks=blocks))
+        manifest["publication_pages"] = pages
+        # Publication-only assets are part of the same checked inventory.
+        manifest["evidence_files"] = bundle.evidence
+        write_json(root / "derived" / "source_inventory.json", bundle.sources)
+        for item in bundle.evidence:
+            if item["path"] == "derived/source_inventory.json":
+                item["sha256"] = report.sha256(root / item["path"])
     write_json(root / "report_manifest.json", manifest)
     report.load_report(root, allow_synthetic=kind == "synthetic_fixture")
     # Reject concurrent producer changes instead of combining files from different instants.
