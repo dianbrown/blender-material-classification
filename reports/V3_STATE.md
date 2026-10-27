@@ -303,3 +303,17 @@ Combined local study audit ZIP now verified: artifacts/v3/release-staging/materi
 
 Active final tasks: v3-final-report-20261027-r1 (PDF/Markdown/README/cards with all-page visual QA), v3-results-notebook-20261027-r1 (actually executed saved-results notebook), v3-final-spec-review-20261027-r1 and v3-final-standards-review-20261027-r1 (read-only through 9d606db). Final report/notebook integration, final tests/review, PR body/readiness and tracking closure remain. PR https://github.com/dianbrown/blender-material-classification/pull/1 remains draft and linked. No further model training or endpoint selection is planned.
 
+Both final implementation reviews completed with no actionable findings; record
+reports/V3_FINAL_REVIEW.md. Full local suite completed: 494 passed, two Windows
+symlink-permission skips, one historical mocked-scheduler warning, 149.24 seconds.
+The suite began before the provenance portability patch; its focused rerun passed
+53 tests/one skip including LF and CRLF input plus content-change rejection.
+GitHub CI previously failed two provenance tests on LF checkout against a CRLF
+pin; fixed in e049381 with text-only bidirectional equivalence. No frozen bytes
+or model dependencies changed. Latest pushed commit e049381 has CI pending;
+local fa934d5 records the independent reviews. Report and notebook agents remain
+active; final artifact QA/integration remains. Interactive results summary HTML
+is staged in artifacts/v3/results-summary.html, previewed at widths728 and360;
+publish with html_render only at final delivery. Linear PER-371 is Done,
+PER-373 In Progress, all assigned only to HectoLogic.
+
