@@ -1,9 +1,9 @@
-name: V3 validation
+name: Project validation
 
 on:
   pull_request:
   push:
-    branches: [main, v3/material-classification]
+    branches: [main, feat/material-studio]
 
 permissions:
   contents: read
@@ -33,8 +33,8 @@ jobs:
           python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cpu
           python -c "from pathlib import Path; rows=Path('requirements-v3-lock.txt').read_text(encoding='utf-8-sig').splitlines(); Path('/tmp/v3-ci.txt').write_text('\n'.join(r for r in rows if not r.startswith(('torch==','torchvision=='))) + '\n')"
           python -m pip install -r /tmp/v3-ci.txt
-      - name: Lint V3 code
-        run: python -m ruff check src/material_classifier/v3 scripts/v3 tests/test_v3*.py
+      - name: Lint model and demonstration code
+        run: python -m ruff check src/material_classifier/v3 src/material_classifier/demo scripts/v3 scripts/demo tests/test_v3*.py tests/test_demo*.py
       - name: Test without private images or downloaded weights
         # These two V1 integration checks require the local raw image corpus.
         # They are run in the local full-dataset validation, not silently skipped.

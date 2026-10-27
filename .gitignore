@@ -51,6 +51,8 @@ Thumbs.db
 !blender/material_dataset_master.blend
 
 # Temporary files and logs
+# Local distributions include large runtimes and model weights.
+/dist/
 *.tmp
 *.temp
 *.log

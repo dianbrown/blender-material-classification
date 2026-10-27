@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "scope": "Classroom application integration; not a study evaluation",
+  "python_suite": {
+    "passed": 566,
+    "skipped": 2,
+    "warnings": 1
+  },
+  "focused_suite": {
+    "passed": 67
+  },
+  "rust_regular_tests": {
+    "passed": 19,
+    "opt_in_not_run_in_regular_suite": 1
+  },
+  "portable": {
+    "relative_path": "dist/MaterialStudio-release",
+    "payload_files": 22797,
+    "payload_bytes": 5147260179,
+    "model_and_runtime_integrity": "verified",
+    "runs": [
+      {
+        "device": "cpu",
+        "predict_requests": 8,
+        "seconds": 15.34121949999826,
+        "exit_code": 0,
+        "stderr_empty": true
+      },
+      {
+        "device": "cuda",
+        "predict_requests": 8,
+        "seconds": 14.879438799980562,
+        "exit_code": 0,
+        "stderr_empty": true
+      }
+    ],
+    "ui_refresh_all_previous_entries_verified": 22797
+  },
+  "native_ui": {
+    "monochrome_layout_verified": true,
+    "portable_external_cwd_launch": true,
+    "live_prediction": "wood 95.2 percent",
+    "views": [
+      "Classify",
+      "Study",
+      "Samples",
+      "About"
+    ],
+    "runtime_executable_sha256": "65531935d8c785358f3d85c5382f37b3a970b716e6be5b8a7daf4ee868bacbdb",
+    "subsequent_opacity_only_executable_sha256": "35fac15c99305572a1a33baf55c2acd1ce495ef5fab155b685861019cb4e2cc2",
+    "opacity_change": "main tint alpha232 to176; sidebar184 to56; toolbar237 to200",
+    "opacity_only_build_passed": true,
+    "opacity_only_packaged_bridge_smoke": {
+      "ok": true,
+      "startup_ms": 120.8716,
+      "predicted_class": "wood",
+      "probabilities": [
+        0.9522962113439526,
+        0.011972478947990884,
+        0.0044751947461883265,
+        0.005820785835599088,
+        0.01006124492906582,
+        0.008371882670417467,
+        0.007002201526785848
+      ],
+      "inference_ms": 313.6386999976821,
+      "load_ms": 16254.59540000884,
+      "device": "cuda"
+    }
+  },
+  "limitations": [
+    "One development image used in worker smoke; this is not new accuracy evidence.",
+    "Two upstream native license notice exceptions remain documented.",
+    "No dataset or binary publication."
+  ]
+}
