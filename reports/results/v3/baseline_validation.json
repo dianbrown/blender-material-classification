@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-27T07:11:05.057861+00:00",
+  "command": ".venv/Scripts/python.exe -m pytest -q",
+  "passed": 42,
+  "failed": 0,
+  "warnings": 1,
+  "duration_seconds": 60.05,
+  "warning": "Existing V1 mocked OOM test: scheduler.step before optimizer.step",
+  "cuda_smoke": "passed",
+  "dinov2_tokens": [
+    1,
+    261,
+    384
+  ],
+  "dinov2_prefix_tokens": 5,
+  "convnext_features": [
+    1,
+    768
+  ]
+}
