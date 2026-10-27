@@ -292,3 +292,14 @@ DINO milestone: first of six development fits (LR3e-6, fold0) completed at
 epoch6 under fixed patience3; best epoch3, development macro-F1 0.8356045851.
 No failures/AMP skips. This is one selected development fold, not a complete
 comparison or test result. GPU owner continues remaining five fits unchanged.
+
+
+## Completed locked evaluation and release staging — 2026-10-27
+All GPU work is complete and the GPU is released. Full final_model_lock.json was committed at 909b81e before any fresh predictions (lock SHA256 4a5c02f5d9fc6c38b5de227db5520c89a29c0d75da94b689abc4e9f41f88d0bf). Primary remains frozen_selected. Fresh 630 images / 21 source groups: primary accuracy 80.1587%, macro-F1 .795203; frozen control 75.5556%/.756564; fixed ResNet 77.6190%/.766481; exploratory fine-tuned DINO 86.8254%/.863071. Primary accuracy source-group bootstrap 95% CI 66.03–93.65%; DINO 76.98–95.87%. The point target is achieved; population ≥80% and universal robustness are not established. Paired comparison intervals include zero.
+
+All 14 final commands passed: four clean predictors, four comprehensive saved-prediction evaluations, primary corruption analysis, four development-only benchmarks, and an explicitly post hoc DINO corruption extension (amendment 249f3a7). No scoring reruns or model changes. Primary JPEG30 accuracy 59.05% (21.11pp drop); DINO 75.40%. Full evidence: reports/results/v3/final_execution_summary.json and fresh/, robustness/, benchmarks/. All model/checkpoint/dependency hashes unchanged. Fixed ResNet and DINO selection/final fits completed without OOM/failures/AMP skips; separate neural_execution_summary.json retains timing and launch-only error.
+
+Combined local study audit ZIP now verified: artifacts/v3/release-staging/material-classification-v3-study-audit.zip, 1,005,048,843 bytes, SHA256 4f2bd057d66493ada1cc4b9d69d7932bcdfcb52798cb5aaf6f2887442a58d1da. 3,780 images, 126 material IDs, 122 known groups; 3,150 development / 630 test. Packaged copies remove private PNG metadata with identical decoded pixels and separate source/package hashes. All entries pass CRC/SHA checks. License unset, release_approved=false; no Kaggle upload. Code integrated as 9d606db.
+
+Active final tasks: v3-final-report-20261027-r1 (PDF/Markdown/README/cards with all-page visual QA), v3-results-notebook-20261027-r1 (actually executed saved-results notebook), v3-final-spec-review-20261027-r1 and v3-final-standards-review-20261027-r1 (read-only through 9d606db). Final report/notebook integration, final tests/review, PR body/readiness and tracking closure remain. PR https://github.com/dianbrown/blender-material-classification/pull/1 remains draft and linked. No further model training or endpoint selection is planned.
+
