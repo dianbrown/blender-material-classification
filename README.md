@@ -10,13 +10,21 @@ and compare the models using the project's measured results.
 
 ## Classroom demo
 
-Open `dist/MaterialStudio-release/MaterialStudio.exe` in the locally built
-portable folder (approximately **4.8 GiB**). **Keep the
-entire folder together**: it contains the Python runtime, model weights and
-examples. This is a locally generated package, not a GitHub download. It is
-verified for local inference without a server or internet connection. The
-packaged runtime passed all four models on CPU and CUDA; the native executable
-also completed a live prediction when launched outside the repository.
+[Download the v0.5 Windows installer](https://github.com/dianbrown/blender-material-classification/releases/tag/v0.5).
+It installs Material Studio for your Windows account and creates a Start Menu
+shortcut. All **four trained models**, **21 sample images** and the Python
+runtime are included; no separate Python setup, model download or server is
+needed. Installed files use approximately **4.8 GiB**.
+
+The installer targets **64-bit Windows 10 (1903 or later) and Windows 11**.
+Compatible NVIDIA GPUs use CUDA; otherwise inference uses the CPU. The first
+prediction loads the selected model, then later predictions reuse it.
+See [installation and removal instructions](docs/INSTALLATION.md), including
+release-file checksums and the unsigned-installer notice.
+
+For a locally built portable copy, open `MaterialStudio.exe` inside the complete
+package folder and keep that folder together. Packaged CPU and CUDA inference
+have been verified; the application also runs outside the development checkout.
 
 The neutral Acrylic background is gently translucent, with crisp foreground
 content. The minimal interface has four views: **Classify / Study / Samples /
