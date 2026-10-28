@@ -1,0 +1,139 @@
+file,column,description
+metadata/manifest.csv,image_path,Packaged PNG path relative to the dataset root; use this to load the image.
+metadata/manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+metadata/manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+metadata/manifest.csv,source_group,Frozen known-source-family ID. Keep each group together when splitting data.
+metadata/manifest.csv,split,"Current V3 partition: development (3,150 images) or test (630 evaluated images)."
+metadata/manifest.csv,original_split,"Historical train/val/test membership, or holdout for the separate V3 test."
+metadata/manifest.csv,sha256,SHA-256 of the packaged PNG bytes after ancillary metadata removal.
+metadata/manifest.csv,source_sha256,SHA-256 of the original PNG bytes before ancillary metadata removal.
+metadata/manifest.csv,image_transformation,Byte-level publication transformation; decoded pixels remain unchanged.
+metadata/manifest.csv,source_provider,Texture provider as recorded; capitalization varies between generations.
+metadata/manifest.csv,lineage_image_path,Original image location for lineage; not the packaged image location.
+metadata/manifest.csv,pixel_sha256,SHA-256 of b'RGBA:512:512:' followed by decoded RGBA pixel bytes.
+provenance/metadata/material_manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/material_manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/material_manifest.csv,blender_material_name,Material name recorded in the Blender scene.
+provenance/metadata/material_manifest.csv,source_material_name,Original surface material name recorded during asset import.
+provenance/metadata/material_manifest.csv,source_folder,Historical source texture folder; raw textures are not distributed here.
+provenance/metadata/material_manifest.csv,base_color_file,Referenced base-color texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest.csv,roughness_file,Referenced roughness texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest.csv,normal_file,Referenced normal texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest.csv,metallic_file,"Referenced metallic texture map, when one was available."
+provenance/metadata/material_manifest.csv,metallic_value,Metallic shader scalar used when configured by the original pipeline.
+provenance/metadata/material_manifest.csv,metallic_source,Record of how the metallic shader input was assigned.
+provenance/metadata/material_manifest.csv,normal_variant,Normal-map convention or variant selected during material import.
+provenance/metadata/material_manifest.csv,has_displacement,Whether the source material audit found a displacement map.
+provenance/metadata/material_manifest.csv,has_ao,Whether the source material audit found an ambient-occlusion map.
+provenance/metadata/material_manifest.csv,missing_maps,Texture roles missing during the historical material audit.
+provenance/metadata/material_manifest.csv,used_default_roughness,Whether the material used the pipeline's default roughness value.
+provenance/metadata/material_manifest.csv,needs_review,"Historical material-audit review flag, retained for traceability."
+provenance/metadata/material_manifest.csv,validation_render,Historical validation render reference or status from material import.
+provenance/metadata/material_manifest_split.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/material_manifest_split.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/material_manifest_split.csv,blender_material_name,Material name recorded in the Blender scene.
+provenance/metadata/material_manifest_split.csv,source_material_name,Original surface material name recorded during asset import.
+provenance/metadata/material_manifest_split.csv,source_folder,Historical source texture folder; raw textures are not distributed here.
+provenance/metadata/material_manifest_split.csv,base_color_file,Referenced base-color texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest_split.csv,roughness_file,Referenced roughness texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest_split.csv,normal_file,Referenced normal texture map; raw maps are excluded from this release.
+provenance/metadata/material_manifest_split.csv,metallic_file,"Referenced metallic texture map, when one was available."
+provenance/metadata/material_manifest_split.csv,metallic_value,Metallic shader scalar used when configured by the original pipeline.
+provenance/metadata/material_manifest_split.csv,metallic_source,Record of how the metallic shader input was assigned.
+provenance/metadata/material_manifest_split.csv,normal_variant,Normal-map convention or variant selected during material import.
+provenance/metadata/material_manifest_split.csv,has_displacement,Whether the source material audit found a displacement map.
+provenance/metadata/material_manifest_split.csv,has_ao,Whether the source material audit found an ambient-occlusion map.
+provenance/metadata/material_manifest_split.csv,missing_maps,Texture roles missing during the historical material audit.
+provenance/metadata/material_manifest_split.csv,used_default_roughness,Whether the material used the pipeline's default roughness value.
+provenance/metadata/material_manifest_split.csv,needs_review,"Historical material-audit review flag, retained for traceability."
+provenance/metadata/material_manifest_split.csv,validation_render,Historical validation render reference or status from material import.
+provenance/metadata/material_manifest_split.csv,split,"Historical partition recorded during generation; lineage only, not current V3 splits."
+provenance/metadata/render_manifest.csv,image_path,Image path relative to the dataset root in this manifest's layout.
+provenance/metadata/render_manifest.csv,filename,Rendered image filename without its containing directory.
+provenance/metadata/render_manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/render_manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/render_manifest.csv,blender_material_name,Material name recorded in the Blender scene.
+provenance/metadata/render_manifest.csv,split,"Historical partition recorded during generation; lineage only, not current V3 splits."
+provenance/metadata/render_manifest.csv,render_index,View index within the material's rendered image sequence.
+provenance/metadata/render_manifest.csv,random_seed,Random seed recorded for deterministic rendering variation.
+provenance/metadata/render_manifest.csv,camera_location_x,"Camera position, X component in scene units."
+provenance/metadata/render_manifest.csv,camera_location_y,"Camera position, Y component in scene units."
+provenance/metadata/render_manifest.csv,camera_location_z,"Camera position, Z component in scene units."
+provenance/metadata/render_manifest.csv,camera_target_x,"Camera target position, X component in scene units."
+provenance/metadata/render_manifest.csv,camera_target_y,"Camera target position, Y component in scene units."
+provenance/metadata/render_manifest.csv,camera_target_z,"Camera target position, Z component in scene units."
+provenance/metadata/render_manifest.csv,camera_rotation_x,Camera Euler rotation X component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,camera_rotation_y,Camera Euler rotation Y component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,camera_rotation_z,Camera Euler rotation Z component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,camera_azimuth_deg,"Camera azimuth around the subject, in degrees."
+provenance/metadata/render_manifest.csv,camera_elevation_deg,"Camera elevation relative to the subject, in degrees."
+provenance/metadata/render_manifest.csv,camera_distance,Camera distance from the target in Blender scene units.
+provenance/metadata/render_manifest.csv,area_light_location_x,"Area-light position, X component in scene units."
+provenance/metadata/render_manifest.csv,area_light_location_y,"Area-light position, Y component in scene units."
+provenance/metadata/render_manifest.csv,area_light_location_z,"Area-light position, Z component in scene units."
+provenance/metadata/render_manifest.csv,area_light_power,Area-light energy value recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,object_rotation_x,Object Euler rotation X component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,object_rotation_y,Object Euler rotation Y component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,object_rotation_z,Object Euler rotation Z component as recorded by the historical renderer.
+provenance/metadata/render_manifest.csv,render_engine,Blender render engine used for this image.
+provenance/metadata/render_manifest.csv,resolution_width,Rendered image width in pixels.
+provenance/metadata/render_manifest.csv,resolution_height,Rendered image height in pixels.
+provenance/metadata/render_manifest.csv,source_base_material,Base material reference recorded during scene generation.
+provenance/metadata/render_manifest.csv,material_verified_on_object,Whether the renderer verified the intended material on the object.
+provenance/metadata/v3/manifest.csv,image_path,Image path relative to the dataset root in this manifest's layout.
+provenance/metadata/v3/manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/v3/manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/v3/manifest.csv,source_group,Frozen known-source-family ID. Keep each group together when splitting data.
+provenance/metadata/v3/manifest.csv,original_split,"Historical train/val/test membership, or holdout for the separate V3 test."
+provenance/metadata/v3/manifest.csv,sha256,SHA-256 of the original source file referenced by this historical manifest.
+provenance/metadata/v3/manifest.csv,pixel_sha256,SHA-256 of decoded pixels with a mode/dimension prefix; see the audit code.
+provenance/metadata/v3/manifest.csv,width,Image or texture-map width in pixels.
+provenance/metadata/v3/manifest.csv,height,Image or texture-map height in pixels.
+provenance/metadata/v3/manifest.csv,mode,Pillow image color mode recorded during integrity checks.
+provenance/metadata/v3/manifest.csv,readable,Whether the source image could be decoded during the recorded audit.
+provenance/metadata/v3/manifest.csv,source_material_name,Original surface material name recorded during asset import.
+provenance/metadata/v3/source_maps.csv,path,Relative path to the audited source map; raw texture maps are not included.
+provenance/metadata/v3/source_maps.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/v3/source_maps.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/v3/source_maps.csv,role,"PBR texture role, such as base color, roughness, or normal."
+provenance/metadata/v3/source_maps.csv,sha256,SHA-256 of the original source file referenced by this historical manifest.
+provenance/metadata/v3/source_maps.csv,size_bytes,Audited source file size in bytes.
+provenance/metadata/v3/source_maps.csv,readability,Decode/readability result recorded by the source-map audit.
+provenance/metadata/v3/source_maps.csv,width,Image or texture-map width in pixels.
+provenance/metadata/v3/source_maps.csv,height,Image or texture-map height in pixels.
+provenance/metadata/v3/source_maps.csv,pixel_sha256,SHA-256 of decoded pixels with a mode/dimension prefix; see the audit code.
+provenance/metadata/v3_holdout/classification_manifest.csv,image_path,Image path relative to the dataset root in this manifest's layout.
+provenance/metadata/v3_holdout/classification_manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/v3_holdout/classification_manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/v3_holdout/classification_manifest.csv,source_group,Frozen known-source-family ID. Keep each group together when splitting data.
+provenance/metadata/v3_holdout/classification_manifest.csv,original_split,"Historical train/val/test membership, or holdout for the separate V3 test."
+provenance/metadata/v3_holdout/classification_manifest.csv,sha256,SHA-256 of the original source file referenced by this historical manifest.
+provenance/metadata/v3_holdout/render_manifest.csv,image_path,Image path relative to the dataset root in this manifest's layout.
+provenance/metadata/v3_holdout/render_manifest.csv,filename,Rendered image filename without its containing directory.
+provenance/metadata/v3_holdout/render_manifest.csv,class,"Visual appearance label: ceramic, concrete, fabric, leather, metal, stone, or wood."
+provenance/metadata/v3_holdout/render_manifest.csv,material_id,Material identifier; the 30 views of a material are correlated observations.
+provenance/metadata/v3_holdout/render_manifest.csv,source_asset_id,Provider asset identifier for the test source material.
+provenance/metadata/v3_holdout/render_manifest.csv,provider,Texture provider as recorded in the test source registry.
+provenance/metadata/v3_holdout/render_manifest.csv,split,Renderer's test/holdout partition label; use the primary manifest for current splits.
+provenance/metadata/v3_holdout/render_manifest.csv,original_split,"Historical train/val/test membership, or holdout for the separate V3 test."
+provenance/metadata/v3_holdout/render_manifest.csv,render_index,View index within the material's rendered image sequence.
+provenance/metadata/v3_holdout/render_manifest.csv,random_seed,Random seed recorded for deterministic rendering variation.
+provenance/metadata/v3_holdout/render_manifest.csv,camera_azimuth_deg,"Camera azimuth around the subject, in degrees."
+provenance/metadata/v3_holdout/render_manifest.csv,camera_elevation_deg,"Camera elevation relative to the subject, in degrees."
+provenance/metadata/v3_holdout/render_manifest.csv,camera_distance,Camera distance from the target in Blender scene units.
+provenance/metadata/v3_holdout/render_manifest.csv,camera_location,Serialized camera XYZ position in Blender scene units.
+provenance/metadata/v3_holdout/render_manifest.csv,light_location,Serialized light XYZ position in Blender scene units.
+provenance/metadata/v3_holdout/render_manifest.csv,light_power,Light energy value assigned by the test renderer.
+provenance/metadata/v3_holdout/render_manifest.csv,object_rotation_deg,Serialized object Euler XYZ rotations in degrees.
+provenance/metadata/v3_holdout/render_manifest.csv,render_engine,Blender render engine used for this image.
+provenance/metadata/v3_holdout/render_manifest.csv,blender_version,Blender version used for the test image.
+provenance/metadata/v3_holdout/render_manifest.csv,resolution_width,Rendered image width in pixels.
+provenance/metadata/v3_holdout/render_manifest.csv,resolution_height,Rendered image height in pixels.
+provenance/metadata/v3_holdout/render_manifest.csv,selection_sha256,SHA-256 fingerprint of the frozen test-source selection.
+provenance/metadata/v3_holdout/render_manifest.csv,source_sha256,SHA-256 fingerprint of the source inputs used by the renderer.
+provenance/metadata/v3_holdout/render_manifest.csv,renderer_sha256,SHA-256 fingerprint of the renderer source code.
+provenance/metadata/v3_holdout/render_manifest.csv,config_sha256,SHA-256 fingerprint of the render configuration.
+provenance/metadata/v3_holdout/render_manifest.csv,scene_sha256,SHA-256 fingerprint identifying the retained scene inputs.
+provenance/metadata/v3_holdout/render_manifest.csv,run_sha256,SHA-256 fingerprint of the rendering run.
+provenance/metadata/v3_holdout/render_manifest.csv,parameters_sha256,SHA-256 fingerprint of this image's rendering parameters.
+provenance/metadata/v3_holdout/render_manifest.csv,image_sha256,SHA-256 of the original rendered PNG before publication metadata removal.

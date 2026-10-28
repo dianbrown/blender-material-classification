@@ -139,8 +139,8 @@ No real-world validation exists. Historical V1 is a previously consulted,
 different endpoint, not direct improvement evidence.
 
 All 316 original and 63 fresh maps have official CC0 provenance. The project
-authors renders/code and attributes third-party maps. The full dataset is not
-published; a Kaggle release is planned, and no dataset upload has been made.
-Its rendered-image license remains unassigned.
+authors renders/code and attributes third-party maps. The full dataset is
+[published on Kaggle](https://www.kaggle.com/datasets/dianbrown/synthetic-pbr-materials)
+under CC0 1.0 for rendered images and project-authored dataset metadata.
 Pretrained-weight terms, map permissions and dataset licensing are
 distinct. See [DATASET.md](DATASET.md).

@@ -5,9 +5,12 @@ labels, 126 material IDs, and 122 known source families. Each material ID has
 30 views. The dataset supports evaluation of visual material recognition under
 controlled rendering conditions.
 
-**The full dataset is not published. A Kaggle release is planned; no dataset
-upload has been made.** The Windows installer includes 21 sample images, not the
-full dataset. The rendered dataset's license has not yet been assigned.
+The full dataset is [published on Kaggle](https://www.kaggle.com/datasets/dianbrown/synthetic-pbr-materials)
+under **CC0 1.0**. Version 2 corrects the release documentation and license
+scope while retaining all image bytes and the primary manifest. The public
+[starter notebook](https://www.kaggle.com/code/dianbrown/synthetic-pbr-materials-starter-notebook)
+demonstrates loading images, preserving source groups, and fitting a small CPU
+baseline. The Windows installer includes 21 sample images, not the full dataset.
 
 ## Composition
 
@@ -107,12 +110,14 @@ Known ancestry checks cover aliases, normalized names, procedural families,
 recipe/map identities, and raw map reuse. They do not establish complete physical
 ancestry. Public texture overlap with backbone pretraining has not been audited.
 
-## Release preparation
+## Published release
 
-A local archive has been prepared and verified for the planned Kaggle release.
-It contains all 3,780 renders and compact provenance records, excluding raw
-textures, scene binaries, and model weights. Source-map permissions are distinct
-from the pending license for the rendered dataset and from model-weight terms.
+The published archive contains all 3,780 renders and compact provenance records,
+excluding raw textures, scene binaries, and model weights. Rendered images and
+project-authored dataset metadata are released under CC0 1.0, matching the
+owner's Kaggle license selection. Third-party assets retain their documented
+terms and credits; included provenance code retains its notices. The dataset
+license does not relicense third-party code or model weights.
 
 The archive layout is `images/development/{class}/{filename}` and
 `images/test/{class}/{filename}`. Its `metadata/manifest.csv` records the current
@@ -128,7 +133,7 @@ can change byte hashes without changing pixels.
 The development audit found 3,150 readable renders, rehashed them against the
 frozen manifest, and matched them to the original `dataset.zip` members. Archive
 validation checks entry CRCs/hashes, manifests, source/pixel hashes, and private
-paths. Local preparation does not constitute publication or assign a license.
+paths. Historical audit-only records retain their original scope and date.
 
 ## Reuse and limitations
 
